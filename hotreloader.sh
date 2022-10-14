@@ -10,7 +10,7 @@ if [[ "${1-}" != "" && ${#PIDFILES[@]} > 0 ]]; then
         PIDS+=$(cat $pf)
         PIDS+=" "
     done
-    if [[ "$1" =~ \/vision_detector_views\/ || "$1" =~ \/state\/ || "$1" =~ backend ]]; then
+    if [[ "$1" =~ \/lib\/ || "$1" =~ \/state\/ || "$1" =~ backend ]]; then
         echo "Restarting ${PIDS}"
         kill -USR2 $PIDS
     else
