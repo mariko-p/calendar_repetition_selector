@@ -61,6 +61,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                               fontFamily: 'Poppins',
                               color: Color(0xFF9980DD),
                               fontWeight: FontWeight.normal,
+                              fontSize: 12
                             ),
                       ),
                     ),

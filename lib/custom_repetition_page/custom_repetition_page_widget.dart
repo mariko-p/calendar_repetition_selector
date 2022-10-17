@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -38,7 +41,10 @@ class _CustomRepetitionPageWidgetState
                     padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
                     child: Container(
                       width: double.infinity,
-                      color: Color(0xFFFBFCFF),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFFBFCFF),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                       child: ExpandableNotifier(
                         initialExpanded: false,
                         child: ExpandablePanel(
@@ -103,20 +109,60 @@ class _CustomRepetitionPageWidgetState
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 0, 20, 0),
-                                child: Text(
-                                  'Tu ide cupertino selector.',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0x8A000000),
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20, 0, 20, 0),
+                                  child: Container(
+                                      height: 98,
+                                      child: CupertinoPicker(
+                                          itemExtent: 21,
+                                          children: [
+                                            Text(
+                                              "Every day",
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                            ),
+                                            Text("Every week",
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                        )),
+                                            Text("Every month",
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                        )),
+                                            Text("Every year",
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                        )),
+                                          ],
+                                          onSelectedItemChanged: (index) {
+                                            SystemSound.play(SystemSoundType.click);
+                                            HapticFeedback.lightImpact();
+                                          }))),
                             ],
                           ),
                           theme: ExpandableThemeData(
