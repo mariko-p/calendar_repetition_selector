@@ -38,7 +38,6 @@ class _CustomRepetitionPageWidgetState
                     padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
                     child: Container(
                       width: double.infinity,
-                      height: double.infinity,
                       color: Color(0xFFFBFCFF),
                       child: ExpandableNotifier(
                         initialExpanded: false,
