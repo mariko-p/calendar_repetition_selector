@@ -104,14 +104,18 @@ class _CustomRepetitionPageWidgetState
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
-                                width: double.infinity,
-                                height: 0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 0, 20, 0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: FrequencyCupertinoPickerWidget(),
                                 ),
-                                child: FrequencyCupertinoPickerWidget(),
                               ),
                             ],
                           ),
@@ -195,14 +199,18 @@ class _CustomRepetitionPageWidgetState
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
-                                width: double.infinity,
-                                height: 0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 0, 20, 0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: IntervalCupertinoPickerWidget(),
                                 ),
-                                child: IntervalCupertinoPickerWidget(),
                               ),
                             ],
                           ),
