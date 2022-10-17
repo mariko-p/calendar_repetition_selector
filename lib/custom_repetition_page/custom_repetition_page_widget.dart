@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 import '../components/bottom_sheet_nav_bar_widget.dart';
+import '../components/frequency_cupertino_picker_widget.dart';
+import '../components/interval_cupertino_picker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
@@ -109,60 +111,17 @@ class _CustomRepetitionPageWidgetState
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 0, 20, 0),
-                                  child: Container(
-                                      height: 98,
-                                      child: CupertinoPicker(
-                                          itemExtent: 21,
-                                          children: [
-                                            Text(
-                                              "Every day",
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                      ),
-                                            ),
-                                            Text("Every week",
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                        )),
-                                            Text("Every month",
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                        )),
-                                            Text("Every year",
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                        )),
-                                          ],
-                                          onSelectedItemChanged: (index) {
-                                            SystemSound.play(SystemSoundType.click);
-                                            HapticFeedback.lightImpact();
-                                          }))),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 0, 20, 0),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: FrequencyCupertinoPickerWidget(),
+                                ),
+                              ),
                             ],
                           ),
                           theme: ExpandableThemeData(
@@ -174,6 +133,116 @@ class _CustomRepetitionPageWidgetState
                             hasIcon: false,
                           ),
                         ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                    child: Container(
+                      width: double.infinity,
+                      color: Color(0xFFFBFCFF),
+                      child: ExpandableNotifier(
+                        initialExpanded: false,
+                        child: ExpandablePanel(
+                          header: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 7.5, 0, 7.5),
+                                    child: Text(
+                                      'With the interval',
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Align(
+                                      alignment: AlignmentDirectional(1, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 20, 0),
+                                        child: Text(
+                                          '1 week',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF7E8CA2),
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 0, 20, 0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 0.5,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFE8EBF2),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          collapsed: Container(),
+                          expanded: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 0, 20, 0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: IntervalCupertinoPickerWidget(),
+                                ),
+                              ),
+                            ],
+                          ),
+                          theme: ExpandableThemeData(
+                            tapHeaderToExpand: true,
+                            tapBodyToExpand: false,
+                            tapBodyToCollapse: false,
+                            headerAlignment:
+                                ExpandablePanelHeaderAlignment.center,
+                            hasIcon: false,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(-1, 0),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(35, 5, 0, 0),
+                      child: Text(
+                        'The activity will repeat every day',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Color(0xFF7E8CA2),
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                            ),
                       ),
                     ),
                   ),
