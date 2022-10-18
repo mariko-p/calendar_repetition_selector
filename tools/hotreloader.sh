@@ -3,6 +3,8 @@
 set -euo pipefail
 PIDFILES=($(compgen -G "/tmp/flutter*.pid"))
 
+trap 'pkill -P $$; exit' SIGINT SIGTERM
+
 if [[ "${1-}" != "" && ${#PIDFILES[@]} > 0 ]]; then
     echo $1
     PIDS=""
@@ -10,11 +12,11 @@ if [[ "${1-}" != "" && ${#PIDFILES[@]} > 0 ]]; then
         PIDS+=$(cat $pf)
         PIDS+=" "
     done
-    if [[ "$1" =~ \/lib\/ || "$1" =~ \/state\/ || "$1" =~ backend ]]; then
-        echo "Restarting ${PIDS}"
+    if [[ "$1" =~ \/assets\/ || "$1" =~ \/state\/ || "$1" =~ backend ]]; then
+        echo "Flutter - Restarting ${PIDS}"
         kill -USR2 $PIDS
     else
-        echo "Reloading ${PIDS}"
+        echo "Flutter - Reloading ${PIDS}"
         kill -USR1 $PIDS
     fi
 fi
