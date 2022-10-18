@@ -209,7 +209,6 @@ class _CustomRepetitionPageWidgetState
                                     20, 0, 20, 0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,

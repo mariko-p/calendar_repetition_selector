@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +18,41 @@ class _IntervalCupertinoPickerWidgetState
     extends State<IntervalCupertinoPickerWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+        height: 98,
+        child: CupertinoPicker(
+            itemExtent: 21,
+            children: [
+              Text(
+                "1 week",
+                style: FlutterFlowTheme.of(context).bodyText1.override(
+                      fontFamily: 'Poppins',
+                      color: Colors.black,
+                      fontWeight: FontWeight.w300,
+                    ),
+              ),
+              Text("2 weeks",
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300,
+                      )),
+              Text("3 weeks",
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300,
+                      )),
+              Text("4 weeks",
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300,
+                      )),
+            ],
+            onSelectedItemChanged: (index) {
+              SystemSound.play(SystemSoundType.click);
+              HapticFeedback.lightImpact();
+            }));
   }
 }
