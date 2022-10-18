@@ -60,7 +60,7 @@ class _CustomRepetitionPageWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20, 7.5, 0, 7.5),
                                     child: Text(
-                                      'Frequency',
+                                      'Frequency 2',
                                       style: FlutterFlowTheme.of(context)
                                           .title1
                                           .override(
