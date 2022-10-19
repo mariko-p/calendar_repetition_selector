@@ -23,3 +23,11 @@ List<IntervalStruct> generateDailyInterval() {
 List<IntervalStruct> generateWeeklyInterval() {
   return [];
 }
+
+List<IntervalStruct> generateMonthlyInterval() {
+  return [];
+}
+
+List<IntervalStruct> generateYearlyInterval() {
+  return [];
+}
