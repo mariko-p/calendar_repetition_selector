@@ -1,1 +1,0 @@
-enum Frequency { DAILY, WEEKLY, MONTHLY, YEARLY }

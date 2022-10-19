@@ -14,8 +14,6 @@ class FrequencyCupertinoPickerWidget extends StatefulWidget {
       _FrequencyCupertinoPickerWidgetState();
 }
 
-var items = 
-
 class _FrequencyCupertinoPickerWidgetState
     extends State<FrequencyCupertinoPickerWidget> {
   @override
