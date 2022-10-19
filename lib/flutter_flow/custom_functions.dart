@@ -27,7 +27,3 @@ List<String> generateMonthlyInterval() {
 List<String> generateWeeklyInterval() {
   return [];
 }
-
-String newFunction() {
-  return "";
-}
