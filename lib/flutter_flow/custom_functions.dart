@@ -16,7 +16,7 @@ List<String> generateFrequency() {
   ];
 }
 
-List<String> generateInterval(String? frequency) {
+List<IntervalStruct> generateInterval(String? frequency) {
   if ("DAILY" == frequency) {
     
   } else if ("WEEKLY" == frequency) {
@@ -27,18 +27,13 @@ List<String> generateInterval(String? frequency) {
 
   }
   return [];
-}
-
-List<String> generateDailyInterval() {
-  return List.generate(100, (index) => {
-    index.toString()
-    });
-}
-
-List<String> generateMonthlyInterval() {
   return [];
 }
 
-List<String> generateWeeklyInterval() {
+List<IntervalStruct> generateDailyInterval() {
+  return [];
+}
+
+List<IntervalStruct> generateWeeklyInterval() {
   return [];
 }
