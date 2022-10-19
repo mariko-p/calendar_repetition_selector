@@ -14,6 +14,8 @@ class FrequencyCupertinoPickerWidget extends StatefulWidget {
       _FrequencyCupertinoPickerWidgetState();
 }
 
+var items = 
+
 class _FrequencyCupertinoPickerWidgetState
     extends State<FrequencyCupertinoPickerWidget> {
   @override
@@ -21,31 +23,31 @@ class _FrequencyCupertinoPickerWidgetState
     return Container(
         height: 98,
         child: CupertinoPicker(
-            itemExtent: 21,
+            itemExtent: 40,
             children: [
               Text(
                 "Every day",
                 style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Rubik',
                       color: Colors.black,
                       fontWeight: FontWeight.w300,
                     ),
               ),
               Text("Every week",
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Rubik',
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                       )),
               Text("Every month",
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Rubik',
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                       )),
               Text("Every year",
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Rubik',
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                       )),

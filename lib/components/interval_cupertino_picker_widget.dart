@@ -26,26 +26,26 @@ class _IntervalCupertinoPickerWidgetState
               Text(
                 "1 week",
                 style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Rubik',
                       color: Colors.black,
                       fontWeight: FontWeight.w300,
                     ),
               ),
               Text("2 weeks",
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Rubik',
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                       )),
               Text("3 weeks",
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Rubik',
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                       )),
               Text("4 weeks",
                   style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Rubik',
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                       )),
