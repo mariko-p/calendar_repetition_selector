@@ -58,7 +58,7 @@ class _CustomRepetitionPageWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .title1
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Rubik',
                                             color: Colors.black,
                                             fontSize: 14,
                                             fontWeight: FontWeight.w300,
@@ -76,7 +76,7 @@ class _CustomRepetitionPageWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Rubik',
                                                 color: Color(0xFF7E8CA2),
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -153,7 +153,7 @@ class _CustomRepetitionPageWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .title1
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Rubik',
                                             color: Colors.black,
                                             fontSize: 14,
                                             fontWeight: FontWeight.w300,
@@ -171,7 +171,7 @@ class _CustomRepetitionPageWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Rubik',
                                                 color: Color(0xFF7E8CA2),
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -233,7 +233,7 @@ class _CustomRepetitionPageWidgetState
                       child: Text(
                         'The activity will repeat every day',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Color(0xFF7E8CA2),
                               fontSize: 12,
                               fontWeight: FontWeight.normal,
