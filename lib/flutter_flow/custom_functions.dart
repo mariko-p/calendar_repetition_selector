@@ -8,16 +8,31 @@ import 'lat_lng.dart';
 import 'place.dart';
 
 List<String> generateFrequency() {
-  // Add your function code here!
-  return [];
+  return [
+    "Every day",
+    "Every week",
+    "Every month",
+    "Every yeary"
+  ];
 }
 
 List<String> generateInterval(String? frequency) {
+  if ("DAILY" == frequency) {
+    
+  } else if ("WEEKLY" == frequency) {
+
+  } else if ("MONTHLY" == frequency) {
+    
+  } else if ("YEARLY" == frequency) {
+
+  }
   return [];
 }
 
 List<String> generateDailyInterval() {
-  return [];
+  return List.generate(100, (index) => {
+    index.toString()
+    });
 }
 
 List<String> generateMonthlyInterval() {
