@@ -12,18 +12,14 @@ List<String> generateFrequency() {
   return [];
 }
 
-List<String> generateInterval(String? frequency) {
+List<IntervalStruct> generateInterval(String? frequency) {
   return [];
 }
 
-List<String> generateDailyInterval() {
+List<IntervalStruct> generateDailyInterval() {
   return [];
 }
 
-List<String> generateMonthlyInterval() {
-  return [];
-}
-
-List<String> generateWeeklyInterval() {
+List<IntervalStruct> generateWeeklyInterval() {
   return [];
 }
