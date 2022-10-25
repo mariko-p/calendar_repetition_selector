@@ -7,7 +7,7 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
 import 'place.dart';
 
-List<String> generateFrequency() {
+List<FrequencyStruct> generateFrequency() {
   // Add your function code here!
   return [];
 }
