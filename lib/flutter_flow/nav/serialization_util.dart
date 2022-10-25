@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 
-import '../../backend/backend.dart';
 import '../../flutter_flow/lat_lng.dart';
 import '../../flutter_flow/place.dart';
 
@@ -63,10 +62,6 @@ String? serializeParam(
         return placeToString(param as FFPlace);
       case ParamType.JSON:
         return json.encode(param);
-      case ParamType.DocumentReference:
-        return (param as DocumentReference).id;
-      case ParamType.Document:
-        return (param as dynamic).reference.id;
 
       default:
         return null;
@@ -138,16 +133,13 @@ enum ParamType {
   Color,
   FFPlace,
   JSON,
-  Document,
-  DocumentReference,
 }
 
 dynamic deserializeParam<T>(
   String? param,
   ParamType paramType,
-  bool isList, [
-  String? collectionName,
-]) {
+  bool isList,
+) {
   try {
     if (param == null) {
       return null;
@@ -160,7 +152,7 @@ dynamic deserializeParam<T>(
       return paramValues
           .where((p) => p is String)
           .map((p) => p as String)
-          .map((p) => deserializeParam(p, paramType, false, collectionName))
+          .map((p) => deserializeParam(p, paramType, false))
           .where((p) => p != null)
           .map((p) => p! as T)
           .toList();
@@ -189,8 +181,6 @@ dynamic deserializeParam<T>(
         return placeFromString(param);
       case ParamType.JSON:
         return json.decode(param);
-      case ParamType.DocumentReference:
-        return FirebaseFirestore.instance.doc('$collectionName/$param');
 
       default:
         return null;
@@ -199,37 +189,4 @@ dynamic deserializeParam<T>(
     print('Error deserializing parameter: $e');
     return null;
   }
-}
-
-Future<dynamic> Function(String) getDoc(
-  String collectionName,
-  Serializer serializer,
-) {
-  return (String id) => FirebaseFirestore.instance
-      .doc('$collectionName/$id')
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
-}
-
-Future<List<T>> Function(String) getDocList<T>(
-  String collectionName,
-  Serializer<T> serializer,
-) {
-  return (String idsList) {
-    List<String> docIds = [];
-    try {
-      final ids = json.decode(idsList) as Iterable;
-      docIds = ids.where((d) => d is String).map((d) => d as String).toList();
-    } catch (_) {}
-    return Future.wait(
-      docIds.map(
-        (id) => FirebaseFirestore.instance
-            .doc('$collectionName/$id')
-            .get()
-            .then(
-              (s) => serializers.deserializeWith(serializer, serializedData(s)),
-            ),
-      ),
-    ).then((docs) => docs.where((d) => d != null).map((d) => d!).toList());
-  };
 }
