@@ -8,17 +8,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FrequencyCupertinoPickerWidget extends StatefulWidget {
-  const FrequencyCupertinoPickerWidget({Key? key}) : super(key: key);
+  const FrequencyCupertinoPickerWidget({Key? key, required this.onItemChanged}) : super(key: key);
+
+  final Future<dynamic> Function(int index) onItemChanged;
 
   @override
   _FrequencyCupertinoPickerWidgetState createState() =>
       _FrequencyCupertinoPickerWidgetState();
 }
-
-final items = generateFrequency();
-
 class _FrequencyCupertinoPickerWidgetState
     extends State<FrequencyCupertinoPickerWidget> {
+
+  final items = generateFrequency();
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,6 +42,8 @@ class _FrequencyCupertinoPickerWidgetState
               onSelectedItemChanged: (index) {
                 SystemSound.play(SystemSoundType.click);
                 HapticFeedback.lightImpact();
+                print("INDEX $index");
+                //widget.onItemChanged(index);
               }),
         ));
   }

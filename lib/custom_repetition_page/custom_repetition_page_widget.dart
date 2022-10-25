@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_cupertino_picker_widget.dart';
 import '../components/interval_cupertino_picker_widget.dart';
+import '../flutter_flow/custom_functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
@@ -22,6 +23,10 @@ class _CustomRepetitionPageWidgetState
     extends State<CustomRepetitionPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  var currentFrequency = generateFrequency()[0].toLowerCase();
+  var currentIntervals = generateInterval("DAILY");
+  var currentIntervalIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,32 +35,6 @@ class _CustomRepetitionPageWidgetState
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-<<<<<<< HEAD
-          child: Align(
-            alignment: AlignmentDirectional(0, -1),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  BottomSheetNavBarWidget(),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFFBFCFF),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: ExpandableNotifier(
-                        initialExpanded: false,
-                        child: ExpandablePanel(
-                          header: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-=======
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -72,12 +51,17 @@ class _CustomRepetitionPageWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
                         child: Container(
                           width: double.infinity,
-                          color: Color(0xFFFBFCFF),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(5),
+                              topRight: Radius.circular(5),
+                            ),
+                            color: Color(0xFFFBFCFF),
+                          ),
                           child: ExpandableNotifier(
                             initialExpanded: false,
                             child: ExpandablePanel(
                               header: Column(
->>>>>>> 48926eb8e0703f1cbd7a2667c00575d4256f8bdd
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
@@ -92,7 +76,7 @@ class _CustomRepetitionPageWidgetState
                                               EdgeInsetsDirectional.fromSTEB(
                                                   20, 7.5, 0, 7.5),
                                           child: Text(
-                                            'Frequency 5',
+                                            'Frequency',
                                             style: FlutterFlowTheme.of(context)
                                                 .title1
                                                 .override(
@@ -111,7 +95,7 @@ class _CustomRepetitionPageWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 20, 0),
                                               child: Text(
-                                                'every day',
+                                                currentFrequency,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -142,70 +126,8 @@ class _CustomRepetitionPageWidgetState
                                   ),
                                 ],
                               ),
-<<<<<<< HEAD
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 0, 20, 0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 0.5,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFE8EBF2),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          collapsed: Container(),
-                          expanded: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 0, 20, 0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: FrequencyCupertinoPickerWidget(),
-                                ),
-                              ),
-                            ],
-                          ),
-                          theme: ExpandableThemeData(
-                            tapHeaderToExpand: true,
-                            tapBodyToExpand: false,
-                            tapBodyToCollapse: false,
-                            headerAlignment:
-                                ExpandablePanelHeaderAlignment.center,
-                            hasIcon: false,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFFBFCFF),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: ExpandableNotifier(
-                        initialExpanded: false,
-                        child: ExpandablePanel(
-                          header: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-=======
                               collapsed: Container(),
                               expanded: Column(
->>>>>>> 48926eb8e0703f1cbd7a2667c00575d4256f8bdd
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -214,12 +136,19 @@ class _CustomRepetitionPageWidgetState
                                         20, 0, 20, 0),
                                     child: Container(
                                       width: double.infinity,
-                                      height: 0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      child: FrequencyCupertinoPickerWidget(),
+                                      child: FrequencyCupertinoPickerWidget(
+                                          onItemChanged: (index) async {
+                                        setState(() {
+                                          currentFrequency = generateFrequency()
+                                              .toList()[index]
+                                              .toLowerCase();
+                                          currentIntervals = generateInterval(currentFrequency);
+                                        });
+                                      }),
                                     ),
                                   ),
                                 ],
@@ -232,53 +161,6 @@ class _CustomRepetitionPageWidgetState
                                     ExpandablePanelHeaderAlignment.center,
                                 hasIcon: false,
                               ),
-<<<<<<< HEAD
-                            ],
-                          ),
-                          collapsed: Container(),
-                          expanded: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 0, 20, 0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: IntervalCupertinoPickerWidget(),
-                                ),
-                              ),
-                            ],
-                          ),
-                          theme: ExpandableThemeData(
-                            tapHeaderToExpand: true,
-                            tapBodyToExpand: false,
-                            tapBodyToCollapse: false,
-                            headerAlignment:
-                                ExpandablePanelHeaderAlignment.center,
-                            hasIcon: false,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(35, 5, 0, 0),
-                      child: Text(
-                        'The activity will repeat every day',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Rubik',
-                              color: Color(0xFF7E8CA2),
-                              fontSize: 12,
-                              fontWeight: FontWeight.normal,
-=======
->>>>>>> 48926eb8e0703f1cbd7a2667c00575d4256f8bdd
                             ),
                           ),
                         ),
@@ -298,8 +180,11 @@ class _CustomRepetitionPageWidgetState
                                     width: double.infinity,
                                     height: 36,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(5),
+                                        bottomRight: Radius.circular(5),
+                                      ),
+                                      color: Color(0xFFFBFCFF),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -328,7 +213,7 @@ class _CustomRepetitionPageWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 20, 0),
                                               child: Text(
-                                                '1 week',
+                                                currentIntervals[currentIntervalIndex].text ?? "",
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -369,12 +254,11 @@ class _CustomRepetitionPageWidgetState
                                         20, 0, 20, 0),
                                     child: Container(
                                       width: double.infinity,
-                                      height: 0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      child: IntervalCupertinoPickerWidget(),
+                                      child: IntervalCupertinoPickerWidget(items: currentIntervals),
                                     ),
                                   ),
                                 ],
