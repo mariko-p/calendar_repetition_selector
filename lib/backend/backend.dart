@@ -3,12 +3,57 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../flutter_flow/flutter_flow_util.dart';
 
+import 'schema/intervals_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
 export 'schema/index.dart';
 export 'schema/serializers.dart';
+
+export 'schema/intervals_record.dart';
+
+/// Functions to query IntervalsRecords (as a Stream and as a Future).
+Stream<List<IntervalsRecord>> queryIntervalsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      IntervalsRecord.collection,
+      IntervalsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<IntervalsRecord>> queryIntervalsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      IntervalsRecord.collection,
+      IntervalsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<IntervalsRecord>> queryIntervalsRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      IntervalsRecord.collection,
+      IntervalsRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
 
 Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
     {Query Function(Query)? queryBuilder,

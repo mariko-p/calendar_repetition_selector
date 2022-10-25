@@ -6,6 +6,8 @@ import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
 import 'place.dart';
+import '../backend/backend.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 List<String> generateFrequency() {
   // Add your function code here!
