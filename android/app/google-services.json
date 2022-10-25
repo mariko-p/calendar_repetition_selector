@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "298441438239",
+    "project_id": "testproject-32c8e",
+    "storage_bucket": "testproject-32c8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298441438239:android:809afb8aa86623fc6b512a",
+        "android_client_info": {
+          "package_name": "hr.italk.customrecurringselectors.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298441438239-i5pcl3fu8634k2oeqjatvt5vsul5ale0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hr.italk.customrecurringselectors.dev",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "298441438239-3nfug1e7rnu3ephdvpnb4brvoadr5p01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQVV7Uo6UvQ7oxlDD1_M6z0IzCMTRCKjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298441438239-3nfug1e7rnu3ephdvpnb4brvoadr5p01.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "298441438239-fka535vd0b371c4bkk36n6p35b5pa3ul.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "hr.italk.customrecurringselectors.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

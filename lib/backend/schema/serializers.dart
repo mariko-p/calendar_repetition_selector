@@ -1,6 +1,8 @@
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:from_css_color/from_css_color.dart';
 
+import 'intervals_record.dart';
+
 import 'index.dart';
 
 export 'index.dart';
@@ -10,6 +12,7 @@ part 'serializers.g.dart';
 const kDocumentReferenceField = 'Document__Reference__Field';
 
 @SerializersFor(const [
+  IntervalsRecord,
   IntervalStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
