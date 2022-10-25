@@ -23,14 +23,15 @@ class _IntervalCupertinoPickerWidgetState
         child: CupertinoPicker(
             itemExtent: 21,
             children: [
-              Text(
+              Center(
+                  child: Text(
                 "1 week",
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Rubik',
                       color: Colors.black,
                       fontWeight: FontWeight.w300,
                     ),
-              ),
+              )),
               Text("2 weeks",
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Rubik',
