@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -8,12 +9,12 @@ import '../backend/schema/structs/interval_struct.dart';
 import 'lat_lng.dart';
 import 'place.dart';
 
-List<String> generateFrequency() {
+List<FrequencyStruct> generateFrequency() {
   return [
-    "Every day",
-    "Every week",
-    "Every month",
-    "Every yeary"
+    createFrequencyStruct(value: "DAILY", text: "Every day"),
+    createFrequencyStruct(value: "WEEKLY", text: "Every week"),
+    createFrequencyStruct(value: "MONTHLY", text: "Every month"),
+    createFrequencyStruct(value: "YEARLY", text: "Every year")
   ];
 }
 
@@ -51,12 +52,17 @@ List<IntervalStruct> generateWeeklyInterval() {
 List<IntervalStruct> generateMonthlyInterval() {
   return List.generate(100, (index) {
     var value = index + 1;
-    var textValue = (index == 0) ? "$value year" : "$value years";
+    var textValue = (index == 0) ? "$value month" : "$value months";
     var interval = createIntervalStruct(text: textValue, value: value);
     return interval;
   });
 }
 
 List<IntervalStruct> generateYearlyInterval() {
-  return [];
+  return List.generate(100, (index) {
+    var value = index + 1;
+    var textValue = (index == 0) ? "$value year" : "$value yearly";
+    var interval = createIntervalStruct(text: textValue, value: value);
+    return interval;
+  });
 }

@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FrequencyCupertinoPickerWidget extends StatefulWidget {
   const FrequencyCupertinoPickerWidget({Key? key, required this.onItemChanged}) : super(key: key);
@@ -24,14 +23,14 @@ class _FrequencyCupertinoPickerWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 98,
+        height: 140,
         child: Center(
           child: CupertinoPicker(
               itemExtent: 40,
               children: items
                   .map((item) => Center(
                           child: Text(
-                            item,
+                            item.text ?? "",
                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                   fontFamily: 'Rubik',
                                   color: Colors.black,
@@ -42,7 +41,6 @@ class _FrequencyCupertinoPickerWidgetState
               onSelectedItemChanged: (index) {
                 SystemSound.play(SystemSoundType.click);
                 HapticFeedback.lightImpact();
-                print("INDEX $index");
                 //widget.onItemChanged(index);
               }),
         ));

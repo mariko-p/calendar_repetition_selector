@@ -23,7 +23,7 @@ class _CustomRepetitionPageWidgetState
     extends State<CustomRepetitionPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  var currentFrequency = generateFrequency()[0].toLowerCase();
+  var currentFrequency = generateFrequency()[0];
   var currentIntervals = generateInterval("DAILY");
   var currentIntervalIndex = 0;
 
@@ -61,6 +61,7 @@ class _CustomRepetitionPageWidgetState
                           child: ExpandableNotifier(
                             initialExpanded: false,
                             child: ExpandablePanel(
+                       
                               header: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -95,7 +96,7 @@ class _CustomRepetitionPageWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 20, 0),
                                               child: Text(
-                                                currentFrequency,
+                                                currentFrequency.text?.toLowerCase() ?? "",
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -144,9 +145,9 @@ class _CustomRepetitionPageWidgetState
                                           onItemChanged: (index) async {
                                         setState(() {
                                           currentFrequency = generateFrequency()
-                                              .toList()[index]
-                                              .toLowerCase();
-                                          currentIntervals = generateInterval(currentFrequency);
+                                              .toList()[index];
+                                              print(currentFrequency.text);
+                                          currentIntervals = generateInterval(currentFrequency.value);
                                         });
                                       }),
                                     ),
