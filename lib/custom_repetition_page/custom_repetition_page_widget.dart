@@ -208,7 +208,6 @@ class _CustomRepetitionPageWidgetState
                                               .toList()[index];
                                           currentIntervals = generateInterval(
                                               currentFrequency.value);
-                                          
                                           //updateRRule();
                                           //updateRRuleUI();
                                         });
@@ -342,7 +341,12 @@ class _CustomRepetitionPageWidgetState
                                         ),
                                       ),
                                       child: IntervalCupertinoPickerWidget(
-                                          items: currentIntervals),
+                                          items: currentIntervals, onItemChanged: (index) async {
+                                              setState(() {
+                                                currentIntervalIndex = index;
+                                                updateRRule();
+                                              });
+                                          }),
                                     ),
                                   ),
                                 ],

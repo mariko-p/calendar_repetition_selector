@@ -9,19 +9,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IntervalCupertinoPickerWidget extends StatefulWidget {
-  const IntervalCupertinoPickerWidget({Key? key, required this.items}) : super(key: key);
+  const IntervalCupertinoPickerWidget(
+      {Key? key, required this.items, required this.onItemChanged})
+      : super(key: key);
 
   final List<IntervalStruct> items;
+  final Future<dynamic> Function(int index) onItemChanged;
 
   @override
   _IntervalCupertinoPickerWidgetState createState() =>
       _IntervalCupertinoPickerWidgetState();
-  
 }
 
 class _IntervalCupertinoPickerWidgetState
     extends State<IntervalCupertinoPickerWidget> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,6 +43,7 @@ class _IntervalCupertinoPickerWidgetState
             onSelectedItemChanged: (index) {
               SystemSound.play(SystemSoundType.click);
               HapticFeedback.lightImpact();
+              widget.onItemChanged(index);
             }));
   }
 }
