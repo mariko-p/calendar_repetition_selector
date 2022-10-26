@@ -31,3 +31,8 @@ List<IntervalStruct> generateMonthlyInterval() {
 List<IntervalStruct> generateYearlyInterval() {
   return [];
 }
+
+String mapFrequencyToRRuleFrequency() {
+  // Code is written in flutter.
+  return "";
+}
