@@ -61,7 +61,7 @@ List<IntervalStruct> generateMonthlyInterval() {
 List<IntervalStruct> generateYearlyInterval() {
   return List.generate(100, (index) {
     var value = index + 1;
-    var textValue = (index == 0) ? "$value year" : "$value yearly";
+    var textValue = (index == 0) ? "$value year" : "$value years";
     var interval = createIntervalStruct(text: textValue, value: value);
     return interval;
   });

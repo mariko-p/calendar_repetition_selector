@@ -25,7 +25,7 @@ class _IntervalCupertinoPickerWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 98,
+        height: 130,
         child: CupertinoPicker(
             itemExtent: 40,
             children: widget.items

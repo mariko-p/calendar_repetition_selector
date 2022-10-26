@@ -26,6 +26,39 @@ class _CustomRepetitionPageWidgetState
   var currentFrequency = generateFrequency()[0];
   var currentIntervals = generateInterval("DAILY");
   var currentIntervalIndex = 0;
+  var freqController  = ExpandableController();
+  var intController  = ExpandableController();
+
+  void onFreqExpandedChanged() {
+    if (freqController.expanded) {
+      if (intController.expanded) {
+        // Collapse interval cupertino picker.
+        intController.expanded = false;
+      }
+    }
+  }
+  void onIntExpandedChanged() {
+    if (intController.expanded) {
+      if (freqController.expanded) {
+        // Collapse frequency cupertino picker.
+        freqController.expanded = false;
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    freqController.addListener(onFreqExpandedChanged);
+    intController.addListener(onIntExpandedChanged);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    freqController.removeListener(onFreqExpandedChanged);
+    intController.removeListener(onIntExpandedChanged);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +92,7 @@ class _CustomRepetitionPageWidgetState
                             color: FlutterFlowTheme.of(context).itemBackground,
                           ),
                           child: ExpandableNotifier(
-                            initialExpanded: false,
+                            controller: freqController,
                             child: ExpandablePanel(
                               header: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -100,7 +133,7 @@ class _CustomRepetitionPageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20, 7.5, 0, 7.5),
                                             child: Text(
-                                              'Frequency 5',
+                                              'Frequency',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .title1
@@ -122,8 +155,8 @@ class _CustomRepetitionPageWidgetState
                                                     .fromSTEB(0, 0, 20, 0),
                                                 child: Text(
                                                   currentFrequency.text
-                                                        ?.toLowerCase() ??
-                                                    "",
+                                                          ?.toLowerCase() ??
+                                                      "",
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
@@ -173,9 +206,11 @@ class _CustomRepetitionPageWidgetState
                                         setState(() {
                                           currentFrequency = generateFrequency()
                                               .toList()[index];
-                                          print(currentFrequency.text);
                                           currentIntervals = generateInterval(
                                               currentFrequency.value);
+                                          
+                                          updateRRule();
+                                          updateRRuleUI();
                                         });
                                       }),
                                     ),
@@ -198,9 +233,17 @@ class _CustomRepetitionPageWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
                         child: Container(
                           width: double.infinity,
-                          color: Color(0xFFFBFCFF),
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).itemBackground,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(5),
+                              bottomRight: Radius.circular(5),
+                              topLeft: Radius.circular(0),
+                              topRight: Radius.circular(0),
+                            ),
+                          ),
                           child: ExpandableNotifier(
-                            initialExpanded: false,
+                            controller: intController,
                             child: ExpandablePanel(
                               header: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -211,7 +254,7 @@ class _CustomRepetitionPageWidgetState
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .itemBackground,
-                                        borderRadius: BorderRadius.only(
+                                      borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(5),
                                         bottomRight: Radius.circular(5),
                                         topLeft: Radius.circular(0),
@@ -245,8 +288,7 @@ class _CustomRepetitionPageWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 20, 0),
                                               child: Text(
-                                                currentIntervals[
-                                                            currentIntervalIndex]
+                                                currentIntervals[currentIntervalIndex]
                                                         .text ??
                                                     "",
                                                 style:
@@ -292,7 +334,7 @@ class _CustomRepetitionPageWidgetState
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .itemBackground,
-                                          borderRadius: BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(5),
                                           bottomRight: Radius.circular(5),
                                           topLeft: Radius.circular(0),
