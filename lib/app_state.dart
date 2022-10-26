@@ -23,6 +23,8 @@ class FFAppState {
   String cInitialCustomRRule = 'RRULE:FREQ=DAILY;INTERVAL=1;';
 
   String cInitialCustomRRuleText = 'The activity will repeat every day';
+
+  bool vTmp = false;
 }
 
 LatLng? _latLngFromString(String? val) {

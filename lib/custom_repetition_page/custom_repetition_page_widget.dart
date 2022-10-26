@@ -6,6 +6,7 @@ import '../components/frequency_cupertino_picker_widget.dart';
 import '../components/interval_cupertino_picker_widget.dart';
 import '../custom_code/actions/update_r_rule.dart';
 import '../flutter_flow/custom_functions.dart';
+import '../components/week_day_checker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
@@ -429,6 +430,10 @@ class _CustomRepetitionPageWidgetState
                                     ),
                           ),
                         ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0),
+                        child: WeekDayCheckerWidget(),
                       ),
                     ],
                   ),
