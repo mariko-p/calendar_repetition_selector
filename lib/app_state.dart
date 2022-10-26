@@ -20,7 +20,7 @@ class FFAppState {
 
   String vCurrentRRule = '';
 
-  String cDefaultCustomRRule = 'RRULE:FREQ=WEEKLY;INTERVAL=1;';
+  String cInitialCustomRRule = 'RRULE:FREQ=WEEKLY;INTERVAL=1;';
 }
 
 LatLng? _latLngFromString(String? val) {
