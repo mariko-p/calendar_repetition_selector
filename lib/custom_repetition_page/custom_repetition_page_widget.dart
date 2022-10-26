@@ -86,7 +86,7 @@ class _CustomRepetitionPageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20, 7.5, 0, 7.5),
                                             child: Text(
-                                              'Frequency 5',
+                                              'Frequency',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .title1
