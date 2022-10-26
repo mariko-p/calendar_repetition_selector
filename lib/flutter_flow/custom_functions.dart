@@ -41,3 +41,8 @@ String getRRuleAsText() {
   // Code is written in flutter.
   return "";
 }
+
+String getActivityRepetitionAsText() {
+  // Code is written in flutter.
+  return "";
+}
