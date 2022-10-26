@@ -216,7 +216,6 @@ class _CustomRepetitionPageWidgetState
                                           var interval = currentIntervals[
                                                   currentIntervalIndex]
                                               .value;
-
                                           updateRRule(freq, interval);
                                         });
 
@@ -368,6 +367,7 @@ class _CustomRepetitionPageWidgetState
                                             });
                                             var translation =
                                                 await getRRuleAsText();
+
                                             setState(() {
                                               humanReadableText = translation;
                                             });
@@ -393,7 +393,7 @@ class _CustomRepetitionPageWidgetState
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(35, 5, 0, 0),
                           child: Text(
-                            FFAppState().vCurrentRRule,
+                            humanReadableText,
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(

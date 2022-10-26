@@ -14,7 +14,7 @@ Future updateRRule(
 ) async {
   final rrule = RecurrenceRule(
     frequency: mapFrequencyToRRuleFrequency(frequency),
-    interval: 2,
+    interval: interval,
   );
   FFAppState().vCurrentRRule = rrule.toString();
 }
