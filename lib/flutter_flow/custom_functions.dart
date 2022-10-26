@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:rrule/rrule.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import '../app_state.dart';
 import '../backend/schema/structs/interval_struct.dart';
 import 'lat_lng.dart';
 import 'place.dart';
@@ -81,4 +82,19 @@ Frequency mapFrequencyToRRuleFrequency(String? frequency) {
   }
   // Default is daily.
   return Frequency.daily;
+}
+
+Future<String> getRRuleAsText() async {
+
+  // Code is written in flutter.
+  // First, load the localizations (currently, only English is supported):
+  // Rrule10nEn package take care of initializing only once.
+  final l10n = await RruleL10nEn.create();
+  
+  // Get rrule from local state.
+  var rrule =  FFAppState().vCurrentRRule;
+
+  // Return translation in human readable text.
+  var translation = RecurrenceRule.fromString(rrule).toText(l10n: l10n);
+  return translation;
 }

@@ -29,7 +29,7 @@ class _CustomRepetitionPageWidgetState
   var currentIntervalIndex = 0;
   var freqController = ExpandableController();
   var intController = ExpandableController();
-
+  var humanReadableText = FFAppState().c;
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
       if (intController.expanded) {
@@ -355,6 +355,10 @@ class _CustomRepetitionPageWidgetState
                                               var freq = currentFrequency.value;
                                               var interval = currentIntervals[currentIntervalIndex].value;
                                               updateRRule(freq, interval);
+                                            });
+                                            var translation = await getRRuleAsText();
+                                            setState(() {
+                                              humanReadableText = translation;
                                             });
                                           }),
                                     ),
