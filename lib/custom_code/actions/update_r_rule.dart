@@ -10,5 +10,6 @@ Future updateRRule(
   String? frequency,
   String? interval,
 ) async {
-  FFAppState().vCurrentRRule = "RRULE:FREQ=$frequency;INTERVAL=$interval;";
+  // Code written in flutter.
+  //FFAppState().vCurrentRRule = "RRULE:FREQ=$frequency;INTERVAL=$interval;";
 }

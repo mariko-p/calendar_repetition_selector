@@ -36,3 +36,8 @@ String mapFrequencyToRRuleFrequency(String? frequency) {
   // Code is written in flutter.
   return "";
 }
+
+String getRRuleAsText() {
+  // Code is written in flutter.
+  return "";
+}
