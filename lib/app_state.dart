@@ -20,7 +20,9 @@ class FFAppState {
 
   String vCurrentRRule = '';
 
-  String cInitialCustomRRule = 'RRULE:FREQ=WEEKLY;INTERVAL=1;';
+  String cInitialCustomRRule = 'RRULE:FREQ=DAILY;INTERVAL=1;';
+
+  String cInitialCustomRRuleText = 'The activity will repeat every day';
 }
 
 LatLng? _latLngFromString(String? val) {

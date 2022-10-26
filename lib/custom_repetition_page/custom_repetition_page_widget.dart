@@ -29,7 +29,7 @@ class _CustomRepetitionPageWidgetState
   var currentIntervalIndex = 0;
   var freqController = ExpandableController();
   var intController = ExpandableController();
-  var humanReadableText = FFAppState().c;
+  var humanReadableText = FFAppState().cInitialCustomRRuleText;
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
       if (intController.expanded) {
@@ -213,9 +213,17 @@ class _CustomRepetitionPageWidgetState
                                           currentIntervals = generateInterval(
                                               currentFrequency.value);
                                           var freq = currentFrequency.value;
-                                          var interval = currentIntervals[currentIntervalIndex].value;
+                                          var interval = currentIntervals[
+                                                  currentIntervalIndex]
+                                              .value;
 
                                           updateRRule(freq, interval);
+                                        });
+
+                                        var translation =
+                                            await getRRuleAsText();
+                                        setState(() {
+                                          humanReadableText = translation;
                                         });
                                       }),
                                     ),
@@ -353,10 +361,13 @@ class _CustomRepetitionPageWidgetState
                                             setState(() {
                                               currentIntervalIndex = index;
                                               var freq = currentFrequency.value;
-                                              var interval = currentIntervals[currentIntervalIndex].value;
+                                              var interval = currentIntervals[
+                                                      currentIntervalIndex]
+                                                  .value;
                                               updateRRule(freq, interval);
                                             });
-                                            var translation = await getRRuleAsText();
+                                            var translation =
+                                                await getRRuleAsText();
                                             setState(() {
                                               humanReadableText = translation;
                                             });
