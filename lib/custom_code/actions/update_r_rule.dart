@@ -13,15 +13,9 @@ Future updateRRule(
   int? interval,
 ) async {
   final rrule = RecurrenceRule(
-  frequency: Frequency.weekly,
-  interval: 2,
-  byWeekDays: {
-    ByWeekDayEntry(DateTime.tuesday),
-    ByWeekDayEntry(DateTime.thursday),
-  },
-  byMonths: {12},
-);
-  FFAppState().vCurrentRRule = "RRULE:FREQ=$frequency;INTERVAL=$interval;";
+    frequency: mapFrequencyToRRuleFrequency(frequency),
+    interval: 2,
+  );
+  FFAppState().vCurrentRRule = rrule.toString();
 }
-
 

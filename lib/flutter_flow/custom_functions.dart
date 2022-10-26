@@ -4,6 +4,7 @@ import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:rrule/rrule.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import '../backend/schema/structs/interval_struct.dart';
 import 'lat_lng.dart';
@@ -67,7 +68,17 @@ List<IntervalStruct> generateYearlyInterval() {
   });
 }
 
-String mapFrequencyToRRuleFrequency(String? frequency) {
+Frequency mapFrequencyToRRuleFrequency(String? frequency) {
   // Code is written in flutter.
-  return "";
+  if (frequency == "DAILY") {
+    return Frequency.daily;
+  } else if (frequency == "WEEKLY") {
+    return Frequency.weekly;
+  } else if (frequency == "MONTHLY") {
+    return Frequency.monthly;
+  } else if (frequency == "YEARLY") {
+    return Frequency.yearly;
+  }
+  // Default is daily.
+  return Frequency.daily;
 }
