@@ -66,3 +66,8 @@ List<IntervalStruct> generateYearlyInterval() {
     return interval;
   });
 }
+
+String mapFrequencyToRRuleFrequency() {
+  // Code is written in flutter.
+  return "";
+}
