@@ -220,7 +220,7 @@ class _CustomRepetitionPageWidgetState
                                         });
 
                                         var translation =
-                                            await getRRuleAsText();
+                                            await getActivityRepetitionAsText();
                                         setState(() {
                                           humanReadableText = translation;
                                         });
@@ -366,7 +366,7 @@ class _CustomRepetitionPageWidgetState
                                               updateRRule(freq, interval);
                                             });
                                             var translation =
-                                                await getRRuleAsText();
+                                                await getActivityRepetitionAsText();
 
                                             setState(() {
                                               humanReadableText = translation;

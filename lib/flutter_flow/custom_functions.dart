@@ -99,4 +99,8 @@ Future<String> getRRuleAsText() async {
   return translation;
 }
 
-
+Future<String> getActivityRepetitionAsText() async {
+  // Code is written in flutter.
+  var rruleTranslation = await getRRuleAsText();
+  return "The activity will repeat " + rruleTranslation.toLowerCase();
+}
