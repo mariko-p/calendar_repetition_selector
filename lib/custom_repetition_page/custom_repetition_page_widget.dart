@@ -50,6 +50,8 @@ class _CustomRepetitionPageWidgetState
 
   @override
   void initState() {
+    FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
+
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
     super.initState();
@@ -377,7 +379,7 @@ class _CustomRepetitionPageWidgetState
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(35, 5, 0, 0),
                           child: Text(
-                            FFAppState().vCurrentRRule ?? "",
+                            FFAppState().vCurrentRRule,
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
