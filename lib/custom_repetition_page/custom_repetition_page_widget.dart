@@ -209,8 +209,8 @@ class _CustomRepetitionPageWidgetState
                                           currentIntervals = generateInterval(
                                               currentFrequency.value);
                                           
-                                          updateRRule();
-                                          updateRRuleUI();
+                                          //updateRRule();
+                                          //updateRRuleUI();
                                         });
                                       }),
                                     ),
