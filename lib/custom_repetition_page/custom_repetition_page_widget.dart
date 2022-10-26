@@ -61,7 +61,6 @@ class _CustomRepetitionPageWidgetState
                           child: ExpandableNotifier(
                             initialExpanded: false,
                             child: ExpandablePanel(
-                       
                               header: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -96,7 +95,9 @@ class _CustomRepetitionPageWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 20, 0),
                                               child: Text(
-                                                currentFrequency.text?.toLowerCase() ?? "",
+                                                currentFrequency.text
+                                                        ?.toLowerCase() ??
+                                                    "",
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -138,16 +139,16 @@ class _CustomRepetitionPageWidgetState
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: Color(0xFFFBFCFF),
                                       ),
                                       child: FrequencyCupertinoPickerWidget(
                                           onItemChanged: (index) async {
                                         setState(() {
                                           currentFrequency = generateFrequency()
                                               .toList()[index];
-                                              print(currentFrequency.text);
-                                          currentIntervals = generateInterval(currentFrequency.value);
+                                          print(currentFrequency.text);
+                                          currentIntervals = generateInterval(
+                                              currentFrequency.value);
                                         });
                                       }),
                                     ),
@@ -214,7 +215,10 @@ class _CustomRepetitionPageWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 20, 0),
                                               child: Text(
-                                                currentIntervals[currentIntervalIndex].text ?? "",
+                                                currentIntervals[
+                                                            currentIntervalIndex]
+                                                        .text ??
+                                                    "",
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
@@ -256,10 +260,11 @@ class _CustomRepetitionPageWidgetState
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: Color(0xFFFBFCFF),
+                                            
                                       ),
-                                      child: IntervalCupertinoPickerWidget(items: currentIntervals),
+                                      child: IntervalCupertinoPickerWidget(
+                                          items: currentIntervals),
                                     ),
                                   ),
                                 ],
