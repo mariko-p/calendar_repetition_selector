@@ -212,8 +212,10 @@ class _CustomRepetitionPageWidgetState
                                               .toList()[index];
                                           currentIntervals = generateInterval(
                                               currentFrequency.value);
-                                          //updateRRule();
-                                          //updateRRuleUI();
+                                          var freq = currentFrequency.value;
+                                          var interval = currentIntervals[currentIntervalIndex].value;
+
+                                          updateRRule(freq, interval);
                                         });
                                       }),
                                     ),
@@ -350,12 +352,9 @@ class _CustomRepetitionPageWidgetState
                                           onItemChanged: (index) async {
                                             setState(() {
                                               currentIntervalIndex = index;
-                                              updateRRule(
-                                                  currentFrequency.value,
-                                                  currentIntervals[
-                                                          currentIntervalIndex]
-                                                      .value);
-                                              
+                                              var freq = currentFrequency.value;
+                                              var interval = currentIntervals[currentIntervalIndex].value;
+                                              updateRRule(freq, interval);
                                             });
                                           }),
                                     ),

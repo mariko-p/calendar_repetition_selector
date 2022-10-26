@@ -1,4 +1,6 @@
 // Automatic FlutterFlow imports
+import 'package:rrule/rrule.dart';
+
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -10,5 +12,16 @@ Future updateRRule(
   String? frequency,
   int? interval,
 ) async {
+  final rrule = RecurrenceRule(
+  frequency: Frequency.weekly,
+  interval: 2,
+  byWeekDays: {
+    ByWeekDayEntry(DateTime.tuesday),
+    ByWeekDayEntry(DateTime.thursday),
+  },
+  byMonths: {12},
+);
   FFAppState().vCurrentRRule = "RRULE:FREQ=$frequency;INTERVAL=$interval;";
 }
+
+
