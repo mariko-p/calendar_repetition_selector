@@ -27,8 +27,8 @@ class _CustomRepetitionPageWidgetState
   var currentFrequency = generateFrequency()[0];
   var currentIntervals = generateInterval("DAILY");
   var currentIntervalIndex = 0;
-  var freqController  = ExpandableController();
-  var intController  = ExpandableController();
+  var freqController = ExpandableController();
+  var intController = ExpandableController();
 
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
@@ -38,6 +38,7 @@ class _CustomRepetitionPageWidgetState
       }
     }
   }
+
   void onIntExpandedChanged() {
     if (intController.expanded) {
       if (freqController.expanded) {
@@ -288,7 +289,8 @@ class _CustomRepetitionPageWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 20, 0),
                                               child: Text(
-                                                currentIntervals[currentIntervalIndex]
+                                                currentIntervals[
+                                                            currentIntervalIndex]
                                                         .text ??
                                                     "",
                                                 style:
@@ -342,11 +344,17 @@ class _CustomRepetitionPageWidgetState
                                         ),
                                       ),
                                       child: IntervalCupertinoPickerWidget(
-                                          items: currentIntervals, onItemChanged: (index) async {
-                                              setState(() {
-                                                currentIntervalIndex = index;
-                                                updateRRule(currentFrequency.value, currentIntervals[currentIntervalIndex].value);
-                                              });
+                                          items: currentIntervals,
+                                          onItemChanged: (index) async {
+                                            setState(() {
+                                              currentIntervalIndex = index;
+                                              updateRRule(
+                                                  currentFrequency.value,
+                                                  currentIntervals[
+                                                          currentIntervalIndex]
+                                                      .value);
+                                              
+                                            });
                                           }),
                                     ),
                                   ),
@@ -369,7 +377,7 @@ class _CustomRepetitionPageWidgetState
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(35, 5, 0, 0),
                           child: Text(
-                            'The activity will repeat every day',
+                            FFAppState().vCurrentRRule ?? "",
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
