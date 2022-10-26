@@ -101,45 +101,53 @@ class _CustomRepetitionPageWidgetState
                               header: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Material(
-                                    color: Colors.transparent,
-                                    elevation: 0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0),
-                                        bottomRight: Radius.circular(0),
-                                        topLeft: Radius.circular(5),
-                                        topRight: Radius.circular(5),
-                                      ),
-                                    ),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 36,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .itemBackground,
+                                  Container(
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 0,
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0),
                                           bottomRight: Radius.circular(0),
                                           topLeft: Radius.circular(5),
                                           topRight: Radius.circular(5),
                                         ),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .itemBackground,
-                                        ),
                                       ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    20, 7.5, 0, 7.5),
-                                            child: Text(
-                                              'Frequency',
-                                              style:
+                                      child: InkWell(
+                                        onTap: () => {freqController.toggle()},
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(0),
+                                            bottomRight: Radius.circular(0),
+                                            topLeft: Radius.circular(5),
+                                            topRight: Radius.circular(5)),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 36,
+                                          decoration: BoxDecoration(
+                                            //color: FlutterFlowTheme.of(context)
+                                              //.itemBackground,
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0),
+                                              bottomRight: Radius.circular(0),
+                                              topLeft: Radius.circular(5),
+                                              topRight: Radius.circular(5),
+                                            ),
+                                            border: Border.all(
+                                              color:
                                                   FlutterFlowTheme.of(context)
+                                                      .itemBackground,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(20, 7.5, 0, 7.5),
+                                                child: Text(
+                                                  'Frequency',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .title1
                                                       .override(
                                                         fontFamily: 'Rubik',
@@ -148,34 +156,40 @@ class _CustomRepetitionPageWidgetState
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Align(
-                                              alignment:
-                                                  AlignmentDirectional(1, 0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 20, 0),
-                                                child: Text(
-                                                  currentFrequency.text
-                                                          ?.toLowerCase() ??
-                                                      "",
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        color:
-                                                            Color(0xFF7E8CA2),
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
                                                 ),
                                               ),
-                                            ),
+                                              Expanded(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1, 0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 20, 0),
+                                                    child: Text(
+                                                      currentFrequency.text
+                                                              ?.toLowerCase() ??
+                                                          "",
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily: 'Rubik',
+                                                            color: Color(
+                                                                0xFF7E8CA2),
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -273,39 +287,48 @@ class _CustomRepetitionPageWidgetState
                                         topRight: Radius.circular(0),
                                       ),
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20, 7.5, 0, 7.5),
-                                          child: Text(
-                                            'With the interval',
-                                            style: FlutterFlowTheme.of(context)
-                                                .title1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.black,
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(1, 0),
-                                            child: Padding(
+                                    child: Material(
+                                      child: InkWell(
+                                        onTap: () => {intController.toggle()},
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                            topLeft: Radius.circular(0),
+                                            topRight: Radius.circular(0)),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 20, 0),
+                                                  .fromSTEB(20, 7.5, 0, 7.5),
                                               child: Text(
-                                                currentIntervals[
-                                                            currentIntervalIndex]
-                                                        .text ??
-                                                    "",
+                                                'With the interval',
                                                 style:
                                                     FlutterFlowTheme.of(context)
+                                                        .title1
+                                                        .override(
+                                                          fontFamily: 'Rubik',
+                                                          color: Colors.black,
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                        ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Align(
+                                                alignment:
+                                                    AlignmentDirectional(1, 0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 0, 20, 0),
+                                                  child: Text(
+                                                    currentIntervals[
+                                                                currentIntervalIndex]
+                                                            .text ??
+                                                        "",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Rubik',
@@ -314,11 +337,13 @@ class _CustomRepetitionPageWidgetState
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                   Padding(
