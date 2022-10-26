@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 Future updateRRule(
   String? frequency,
-  String? interval,
+  int? interval,
 ) async {
   FFAppState().vCurrentRRule = "RRULE:FREQ=$frequency;INTERVAL=$interval;";
 }

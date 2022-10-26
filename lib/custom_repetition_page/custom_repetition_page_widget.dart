@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_cupertino_picker_widget.dart';
 import '../components/interval_cupertino_picker_widget.dart';
+import '../custom_code/actions/update_r_rule.dart';
 import '../flutter_flow/custom_functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -344,7 +345,7 @@ class _CustomRepetitionPageWidgetState
                                           items: currentIntervals, onItemChanged: (index) async {
                                               setState(() {
                                                 currentIntervalIndex = index;
-                                                updateRRule();
+                                                updateRRule(currentFrequency.value, currentIntervals[currentIntervalIndex].value);
                                               });
                                           }),
                                     ),
