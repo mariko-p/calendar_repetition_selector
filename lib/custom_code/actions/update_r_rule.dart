@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 Future updateRRule(
   String? frequency,
   int? interval,
-  List<int>? byDay,
+  List<String>? byDay,
   List<int>? byMonthDay,
   List<int>? byMonth,
 ) async {
