@@ -419,7 +419,7 @@ class _CustomRepetitionPageWidgetState
                       Align(
                         alignment: AlignmentDirectional(-1, 0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(35, 5, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(35, 5, 15, 0),
                           child: Text(
                             humanReadableText,
                             textAlign: TextAlign.center,
