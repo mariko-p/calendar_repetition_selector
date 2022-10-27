@@ -46,3 +46,13 @@ String getActivityRepetitionAsText() {
   // Code is written in flutter.
   return "";
 }
+
+List<WeekDayStruct> getWeekDayList() {
+  // Code written in flutter.
+  return [];
+}
+
+List<MonthDayStruct> getMonthDayList() {
+  // Code written in flutter.
+  return [];
+}

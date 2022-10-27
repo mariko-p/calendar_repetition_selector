@@ -6,3 +6,5 @@ export '../../flutter_flow/lat_lng.dart';
 
 export 'structs/frequency_struct.dart';
 export 'structs/interval_struct.dart';
+export 'structs/month_day_struct.dart';
+export 'structs/week_day_struct.dart';
