@@ -104,7 +104,7 @@ class _CustomRepetitionPageWidgetState
                                 children: [
                                   Container(
                                     child: Material(
-                                      color: Colors.transparent,
+                                      color: FlutterFlowTheme.of(context).itemBackground,
                                       elevation: 0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
@@ -201,7 +201,7 @@ class _CustomRepetitionPageWidgetState
                                       width: double.infinity,
                                       height: 0.5,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFFE8EBF2),
+                                        color: FlutterFlowTheme.of(context).lineColor,
                                       ),
                                     ),
                                   ),
@@ -289,6 +289,15 @@ class _CustomRepetitionPageWidgetState
                                       ),
                                     ),
                                     child: Material(
+                                      color: FlutterFlowTheme.of(context).itemBackground,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(5),
+                                          bottomRight: Radius.circular(5),
+                                          topLeft: Radius.circular(0),
+                                          topRight: Radius.circular(0),
+                                        ),
+                                      ),
                                       child: InkWell(
                                         onTap: () => {intController.toggle()},
                                         borderRadius: BorderRadius.only(
@@ -344,17 +353,6 @@ class _CustomRepetitionPageWidgetState
                                             ),
                                           ],
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 0.5,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFE8EBF2),
                                       ),
                                     ),
                                   ),
