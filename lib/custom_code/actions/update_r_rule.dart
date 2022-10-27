@@ -21,5 +21,5 @@ Future updateRRule(String? frequency, int? interval,
 
   final rrule = RecurrenceRule.fromJson(json);
   FFAppState().vCurrentRRule = rrule.toString();
-  
+
 }
