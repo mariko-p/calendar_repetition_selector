@@ -434,6 +434,12 @@ class _CustomRepetitionPageWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                         child: WeekDayCheckerWidget(
                           weekDays: functions.getWeekDayList().toList(),
+                          selectionChanged: ((items) async {
+                            var freq = currentFrequency.value;
+                            var interval = currentIntervals[currentIntervalIndex].value;
+                          
+                            updateRRule(freq, interval);
+                          }),
                         ),
                       ),
                     ],

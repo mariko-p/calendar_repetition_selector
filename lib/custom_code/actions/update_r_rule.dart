@@ -11,11 +11,24 @@ import 'package:flutter/material.dart';
 Future updateRRule(
   String? frequency,
   int? interval,
+  List<int>? byMonth,
+  List<int>? byMonthDay,
+  List<String>? byDay,
 ) async {
   final rrule = RecurrenceRule(
     frequency: mapFrequencyToRRuleFrequency(frequency),
     interval: interval,
   );
+
+
+  final json = <String, dynamic>{
+    'freq': frequency,
+    'interval': interval,
+    'bymonth': byMonth,
+    'byday': byDay,
+    'bymonthday': byMonthDay
+  };
+
   FFAppState().vCurrentRRule = rrule.toString();
 }
 

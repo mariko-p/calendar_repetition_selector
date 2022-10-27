@@ -8,9 +8,11 @@ class WeekDayCheckerWidget extends StatefulWidget {
   const WeekDayCheckerWidget({
     Key? key,
     this.weekDays,
+    required this.selectionChanged,
   }) : super(key: key);
 
   final List<WeekDayStruct>? weekDays;
+  final Future<dynamic> Function(List<WeekDayStruct>? updatedList) selectionChanged;
 
   @override
   _WeekDayCheckerWidgetState createState() => _WeekDayCheckerWidgetState();
@@ -52,6 +54,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                               var newWeekDayItem = createWeekDayStruct(text: text, isChecked: !isChecked);
                               widget.weekDays?[weekDaysIndex] = newWeekDayItem;
                             });
+                            widget.selectionChanged(widget.weekDays);
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -68,7 +71,6 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Rubik',
-                                        fontSize: 14,
                                         fontWeight: FontWeight.w300,
                                         lineHeight: 1.5,
                                       ),
