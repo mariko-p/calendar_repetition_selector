@@ -299,7 +299,7 @@ class _CustomRepetitionPageWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(35, 5, 15, 0),
                           child: Text(
                             'The activity will repeat every day',
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.start,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Rubik',
