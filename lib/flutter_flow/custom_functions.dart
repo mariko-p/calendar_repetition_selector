@@ -104,3 +104,13 @@ Future<String> getActivityRepetitionAsText() async {
   var rruleTranslation = await getRRuleAsText();
   return "The activity will repeat " + rruleTranslation.toLowerCase();
 }
+
+List<WeekDayStruct> getWeekDayList() {
+  // Code written in flutter.
+  return [];
+}
+
+List<MonthDayStruct> getMonthDayList() {
+  // Code written in flutter.
+  return [];
+}

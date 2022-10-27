@@ -9,6 +9,7 @@ import '../flutter_flow/custom_functions.dart';
 import '../components/week_day_checker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -431,7 +432,9 @@ class _CustomRepetitionPageWidgetState
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                        child: WeekDayCheckerWidget(),
+                        child: WeekDayCheckerWidget(
+                          weekDays: functions.getWeekDayList().toList(),
+                        ),
                       ),
                     ],
                   ),
