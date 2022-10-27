@@ -15,12 +15,7 @@ Future updateRRule(
   List<int>? byMonthDay,
   List<String>? byDay,
 ) async {
-  final rrule = RecurrenceRule(
-    frequency: mapFrequencyToRRuleFrequency(frequency),
-    interval: interval,
-  );
-
-
+  // Code written in flutter.
   final json = <String, dynamic>{
     'freq': frequency,
     'interval': interval,
@@ -28,7 +23,8 @@ Future updateRRule(
     'byday': byDay,
     'bymonthday': byMonthDay
   };
-
+  
+  final rrule = RecurrenceRule.fromJson(json);
   FFAppState().vCurrentRRule = rrule.toString();
-}
 
+}
