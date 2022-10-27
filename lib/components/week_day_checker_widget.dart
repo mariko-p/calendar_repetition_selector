@@ -64,6 +64,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                                       .override(
                                         fontFamily: 'Rubik',
                                         fontWeight: FontWeight.w300,
+                                        lineHeight: 1.5,
                                       ),
                                 ),
                               ),
