@@ -123,7 +123,8 @@ List<MonthDayStruct> getMonthDayList() {
   return [];
 }
 
-List<String> mapWeekDaysToByDay(List<WeekDayStruct>? weekDays) {
+List<String> mapWeekDaysToByDay(List<String>? we) {
   // Code written in flutter.
+  weekDays?.where((element) => element.isChecked == true).toList()
   return [];
 }
