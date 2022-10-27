@@ -310,7 +310,7 @@ class _CustomRepetitionPageWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                         child: WeekDayCheckerWidget(),
                       ),
                     ],
