@@ -107,7 +107,15 @@ Future<String> getActivityRepetitionAsText() async {
 
 List<WeekDayStruct> getWeekDayList() {
   // Code written in flutter.
-  return [];
+  return [
+    createWeekDayStruct(text: "Monday", isChecked: false),
+    createWeekDayStruct(text: "Tuesday", isChecked: false),
+    createWeekDayStruct(text: "Wednesday", isChecked: false),
+    createWeekDayStruct(text: "Thursday", isChecked: false),
+    createWeekDayStruct(text: "Friday", isChecked: false),
+    createWeekDayStruct(text: "Saturday", isChecked: false),
+    createWeekDayStruct(text: "Sunday", isChecked: false),
+  ];
 }
 
 List<MonthDayStruct> getMonthDayList() {
