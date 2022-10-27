@@ -28,6 +28,8 @@ class _CustomRepetitionPageWidgetState
 
   var currentFrequency = generateFrequency()[0];
   var currentIntervals = generateInterval("DAILY");
+  var weekDays = getWeekDayList();
+
   var currentIntervalIndex = 0;
   var freqController = ExpandableController();
   var intController = ExpandableController();
@@ -64,6 +66,14 @@ class _CustomRepetitionPageWidgetState
     freqController.removeListener(onFreqExpandedChanged);
     intController.removeListener(onIntExpandedChanged);
     super.dispose();
+  }
+
+  Future updateRepetitionLabel() async {
+    //var translation = await getActivityRepetitionAsText();
+    var translation = FFAppState().vCurrentRRule;
+    setState(() {
+      humanReadableText = translation;
+    });
   }
 
   @override
@@ -105,7 +115,8 @@ class _CustomRepetitionPageWidgetState
                                 children: [
                                   Container(
                                     child: Material(
-                                      color: FlutterFlowTheme.of(context).itemBackground,
+                                      color: FlutterFlowTheme.of(context)
+                                          .itemBackground,
                                       elevation: 0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
@@ -127,7 +138,7 @@ class _CustomRepetitionPageWidgetState
                                           height: 36,
                                           decoration: BoxDecoration(
                                             //color: FlutterFlowTheme.of(context)
-                                              //.itemBackground,
+                                            //.itemBackground,
                                             borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0),
                                               bottomRight: Radius.circular(0),
@@ -202,7 +213,8 @@ class _CustomRepetitionPageWidgetState
                                       width: double.infinity,
                                       height: 0.5,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context).lineColor,
+                                        color: FlutterFlowTheme.of(context)
+                                            .lineColor,
                                       ),
                                     ),
                                   ),
@@ -234,12 +246,7 @@ class _CustomRepetitionPageWidgetState
                                               .value;
                                           updateRRule(freq, interval);
                                         });
-
-                                        var translation =
-                                            await getActivityRepetitionAsText();
-                                        setState(() {
-                                          humanReadableText = translation;
-                                        });
+                                        await updateRepetitionLabel();
                                       }),
                                     ),
                                   ),
@@ -290,7 +297,8 @@ class _CustomRepetitionPageWidgetState
                                       ),
                                     ),
                                     child: Material(
-                                      color: FlutterFlowTheme.of(context).itemBackground,
+                                      color: FlutterFlowTheme.of(context)
+                                          .itemBackground,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(5),
@@ -390,12 +398,7 @@ class _CustomRepetitionPageWidgetState
                                                   .value;
                                               updateRRule(freq, interval);
                                             });
-                                            var translation =
-                                                await getActivityRepetitionAsText();
-
-                                            setState(() {
-                                              humanReadableText = translation;
-                                            });
+                                            await updateRepetitionLabel();
                                           }),
                                     ),
                                   ),
@@ -433,12 +436,22 @@ class _CustomRepetitionPageWidgetState
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                         child: WeekDayCheckerWidget(
-                          weekDays: functions.getWeekDayList().toList(),
+                          weekDays: weekDays,
                           selectionChanged: ((items) async {
+                            this.weekDays = items ?? this.weekDays;
+
                             var freq = currentFrequency.value;
-                            var interval = currentIntervals[currentIntervalIndex].value;
-                          
-                            updateRRule(freq, interval);
+                            var interval =
+                                currentIntervals[currentIntervalIndex].value;
+                            var selectedWeekDays = items
+                                ?.where(((e) => e.isChecked == true))
+                                .toList();
+                            List<String> byDays = List.empty(growable: true);
+                            selectedWeekDays?.forEach((element) =>
+                                byDays.add(mapWeekDayToByDay(element.text)));
+
+                            updateRRule(freq, interval, byDay: byDays);
+                            await updateRepetitionLabel();
                           }),
                         ),
                       ),

@@ -36,6 +36,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
               builder: (context) {
                 final weekDays =
                     (widget.weekDays?.toList() ?? []).take(7).toList();
+                    print(weekDays);
                 return ListView.builder(
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,
@@ -53,8 +54,9 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                               bool isChecked = weekDaysItem.isChecked ?? true;
                               var newWeekDayItem = createWeekDayStruct(text: text, isChecked: !isChecked);
                               widget.weekDays?[weekDaysIndex] = newWeekDayItem;
+
+                              widget.selectionChanged(widget.weekDays);
                             });
-                            widget.selectionChanged(widget.weekDays);
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,

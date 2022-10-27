@@ -123,8 +123,22 @@ List<MonthDayStruct> getMonthDayList() {
   return [];
 }
 
-List<String> mapWeekDaysToByDay(List<String>? we) {
+String mapWeekDayToByDay(String? weekDay) {
   // Code written in flutter.
-  weekDays?.where((element) => element.isChecked == true).toList()
-  return [];
+  if (weekDay == "Monday") {
+    return "MO";
+  } else if (weekDay == "Tuesday") {
+    return "TU";
+  } else if (weekDay == "Wednesday") {
+    return "WE";
+  } else if (weekDay == "Thursday") {
+    return "TH";
+  } else if (weekDay == "Friday") {
+    return "FR";
+  } else if (weekDay == "Saturday") {
+    return "SA";
+  } else if (weekDay == "Sunday") {
+    return "SU";
+  }
+  return "";
 }
