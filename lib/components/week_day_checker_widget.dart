@@ -44,41 +44,46 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                     return Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0, 7.5, 0, 7.5),
-                              child: Text(
-                                valueOrDefault<String>(
-                                  weekDaysItem.text,
-                                  'Monday',
+                        InkWell(
+                          onTap: () async {
+                            setState(() => FFAppState().vTmp = false);
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 7.5, 0, 7.5),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    weekDaysItem.text,
+                                    'Monday',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Rubik',
+                                        fontWeight: FontWeight.w300,
+                                      ),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Rubik',
-                                      fontWeight: FontWeight.w300,
-                                    ),
                               ),
-                            ),
-                            if (weekDaysItem.isChecked ?? true)
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(1, 0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 10.5, 12, 10.5),
-                                    child: Icon(
-                                      Icons.check,
-                                      color: Color(0xFF9980DD),
-                                      size: 15,
+                              if (weekDaysItem.isChecked ?? true)
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(1, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10.5, 12, 10.5),
+                                      child: Icon(
+                                        Icons.check,
+                                        color: Color(0xFF9980DD),
+                                        size: 15,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                          ],
+                            ],
+                          ),
                         ),
                         Container(
                           width: double.infinity,
