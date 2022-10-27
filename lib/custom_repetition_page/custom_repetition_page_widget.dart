@@ -34,6 +34,7 @@ class _CustomRepetitionPageWidgetState
   var freqController = ExpandableController();
   var intController = ExpandableController();
   var humanReadableText = FFAppState().cInitialCustomRRuleText;
+
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
       if (intController.expanded) {
@@ -69,8 +70,8 @@ class _CustomRepetitionPageWidgetState
   }
 
   Future updateRepetitionLabel() async {
-    //var translation = await getActivityRepetitionAsText();
-    var translation = FFAppState().vCurrentRRule;
+    var translation = await getActivityRepetitionAsText();
+    //var translation = FFAppState().vCurrentRRule;
     setState(() {
       humanReadableText = translation;
     });
