@@ -46,7 +46,12 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                       children: [
                         InkWell(
                           onTap: () async {
-                            setState(() => FFAppState().vTmp = false);
+                            setState(() {
+                              var text = weekDaysItem.text;
+                              bool isChecked = weekDaysItem.isChecked ?? true;
+                              var newWeekDayItem = createWeekDayStruct(text: text, isChecked: !isChecked);
+                              widget.weekDays?[weekDaysIndex] = newWeekDayItem;
+                            });
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -64,9 +69,11 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                                       .override(
                                         fontFamily: 'Rubik',
                                         fontWeight: FontWeight.w300,
+                                        lineHeight: 1.5
                                       ),
                                 ),
                               ),
+                              // Text(weekDaysItem.isChecked.toString()),
                               if (weekDaysItem.isChecked ?? true)
                                 Expanded(
                                   child: Align(
