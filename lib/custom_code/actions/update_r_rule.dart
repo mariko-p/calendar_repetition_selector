@@ -8,13 +8,8 @@ import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 
 // Begin custom action code
-Future updateRRule(
-  String? frequency,
-  int? interval,
-  List<String>? byDay,
-  List<int>? byMonthDay,
-  List<int>? byMonth
-) async {
+Future updateRRule(String? frequency, int? interval,
+    {List<String>? byDay, List<int>? byMonthDay, List<int>? byMonth}) async {
   // Code written in flutter.
   final json = <String, dynamic>{
     'freq': frequency,
@@ -26,5 +21,5 @@ Future updateRRule(
 
   final rrule = RecurrenceRule.fromJson(json);
   FFAppState().vCurrentRRule = rrule.toString();
-
+  
 }
