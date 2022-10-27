@@ -57,7 +57,7 @@ List<MonthDayStruct> getMonthDayList() {
   return [];
 }
 
-List<String> mapWeekDaysToByDay(List<WeekDayStruct>? weekDays) {
+String mapWeekDaysToByDay(String? weekDay) {
   // Code written in flutter.
-  return [];
+  return "";
 }
