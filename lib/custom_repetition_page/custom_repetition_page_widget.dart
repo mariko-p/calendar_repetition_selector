@@ -152,42 +152,52 @@ class _CustomRepetitionPageWidgetState
                                         ),
                                       ),
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 7.5, 0, 7.5),
-                                          child: Text(
-                                            'of the month...',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  fontWeight: FontWeight.w300,
-                                                  lineHeight: 1.5,
-                                                ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 36,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .itemBackground,
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 7.5, 0, 7.5),
+                                            child: Text(
+                                              'of the month...',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                            ),
                                           ),
-                                        ),
-                                        if (FFAppState().vTmp)
-                                          Expanded(
-                                            child: Align(
-                                              alignment:
-                                                  AlignmentDirectional(1, 0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0, 10.5, 12, 10.5),
-                                                child: Icon(
-                                                  Icons.check,
-                                                  color: Color(0xFF9980DD),
-                                                  size: 15,
+                                          if (FFAppState().vTmp)
+                                            Expanded(
+                                              child: Align(
+                                                alignment:
+                                                    AlignmentDirectional(1, 0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0, 10.5, 12, 10.5),
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    color: Color(0xFF9980DD),
+                                                    size: 15,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
