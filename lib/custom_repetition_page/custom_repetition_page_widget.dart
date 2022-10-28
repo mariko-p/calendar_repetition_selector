@@ -34,6 +34,9 @@ class _CustomRepetitionPageWidgetState
   var freqController = ExpandableController();
   var intController = ExpandableController();
   var humanReadableText = FFAppState().cInitialCustomRRuleText;
+  var isCustomWeeklyVisible = false;
+  var isCustomMonthlyVisible = false;
+  var isCustomYearylVisible = false;
 
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
@@ -75,6 +78,25 @@ class _CustomRepetitionPageWidgetState
     setState(() {
       humanReadableText = translation;
     });
+  }
+
+  updateCustomViewVisibility(String freq) {
+    unsetCustomViewVisbilities();
+    if (freq == "DAILY") {
+      // No action.
+    } else if (freq == "WEEKLY") {
+      isCustomWeeklyVisible = true;
+    } else if (freq == "MONTHLY") {
+      isCustomMonthlyVisible = true;
+    } else if (freq == "YEARLY") {
+      isCustomYearylVisible = true;
+    }
+  }
+
+  unsetCustomViewVisbilities() {
+    isCustomWeeklyVisible = false;
+    isCustomMonthlyVisible = false;
+    isCustomYearylVisible = false;
   }
 
   @override
@@ -246,6 +268,7 @@ class _CustomRepetitionPageWidgetState
                                                   currentIntervalIndex]
                                               .value;
                                           updateRRule(freq, interval);
+                                          updateCustomViewVisibility(currentFrequency.text ?? "");
                                         });
                                         await updateRepetitionLabel();
                                       }),
@@ -423,7 +446,7 @@ class _CustomRepetitionPageWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(35, 5, 15, 0),
                           child: Text(
                             humanReadableText,
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.start,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Rubik',
@@ -434,28 +457,30 @@ class _CustomRepetitionPageWidgetState
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                        child: WeekDayCheckerWidget(
-                          weekDays: weekDays,
-                          selectionChanged: ((items) async {
-                            this.weekDays = items ?? this.weekDays;
+                      if (isCustomWeeklyVisible)
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                          child: WeekDayCheckerWidget(
+                            weekDays: weekDays,
+                            selectionChanged: ((items) async {
+                              this.weekDays = items ?? this.weekDays;
 
-                            var freq = currentFrequency.value;
-                            var interval =
-                                currentIntervals[currentIntervalIndex].value;
-                            var selectedWeekDays = items
-                                ?.where(((e) => e.isChecked == true))
-                                .toList();
-                            List<String> byDays = List.empty(growable: true);
-                            selectedWeekDays?.forEach((element) =>
-                                byDays.add(mapWeekDayToByDay(element.text)));
+                              var freq = currentFrequency.value;
+                              var interval =
+                                  currentIntervals[currentIntervalIndex].value;
+                              var selectedWeekDays = items
+                                  ?.where(((e) => e.isChecked == true))
+                                  .toList();
+                              List<String> byDays = List.empty(growable: true);
+                              selectedWeekDays?.forEach((element) =>
+                                  byDays.add(mapWeekDayToByDay(element.text)));
 
-                            updateRRule(freq, interval, byDay: byDays);
-                            await updateRepetitionLabel();
-                          }),
+                              updateRRule(freq, interval, byDay: byDays);
+                              await updateRepetitionLabel();
+                            }),
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 ),
