@@ -99,7 +99,7 @@ class _CustomRepetitionPageWidgetState
 
   Future intervalItemChanged(int index) async {
     setState(() {
-      // inteval index must be saved.
+      // current interval index must be saved!
       currentIntervalIndex = index;
       currentInterval = currentIntervals[index];
 
