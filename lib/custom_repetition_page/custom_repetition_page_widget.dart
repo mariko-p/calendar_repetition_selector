@@ -158,6 +158,10 @@ class _CustomRepetitionPageWidgetState
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .itemBackground,
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .itemBackground,
+                                        ),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
