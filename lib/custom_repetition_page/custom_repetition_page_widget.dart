@@ -234,68 +234,72 @@ class _CustomRepetitionPageWidgetState
                                 header: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Material(
-                                      color: FlutterFlowTheme.of(context)
-                                          .itemBackground,
-                                      elevation: 0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0),
-                                          bottomRight: Radius.circular(0),
-                                          topLeft: Radius.circular(5),
-                                          topRight: Radius.circular(5),
-                                        ),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () {
-                                          isEveryViewVisible = true;
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          isEveryViewVisible =
+                                              !isEveryViewVisible;
                                           isOfTheMonthViewVisible = false;
-                                          monthController.toggle();
-                                        },
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 36,
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 7.5, 0, 7.5),
-                                                child: Text(
-                                                  'Every',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        lineHeight: 1.5,
-                                                      ),
-                                                ),
+                                        });
+                                        if (isEveryViewVisible ||
+                                            isOfTheMonthViewVisible) {
+                                          monthController.expanded = true;
+                                        } else {
+                                          monthController.expanded = false;
+                                        }
+                                      },
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 36,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .itemBackground,
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(0),
+                                            bottomRight: Radius.circular(0),
+                                            topLeft: Radius.circular(5),
+                                            topRight: Radius.circular(5),
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 7.5, 0, 7.5),
+                                              child: Text(
+                                                'Every',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Rubik',
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          lineHeight: 1.5,
+                                                        ),
                                               ),
-                                              if (FFAppState().vTmp)
-                                                Expanded(
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            1, 0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(0, 10.5,
-                                                                  12, 10.5),
-                                                      child: Icon(
-                                                        Icons.check,
-                                                        color:
-                                                            Color(0xFF9980DD),
-                                                        size: 15,
-                                                      ),
+                                            ),
+                                            if (isEveryViewVisible)
+                                              Expanded(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1, 0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0, 10.5,
+                                                                12, 10.5),
+                                                    child: Icon(
+                                                      Icons.check,
+                                                      color: Color(0xFF9980DD),
+                                                      size: 15,
                                                     ),
                                                   ),
                                                 ),
-                                            ],
-                                          ),
+                                              ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -311,60 +315,74 @@ class _CustomRepetitionPageWidgetState
                                         ),
                                       ),
                                     ),
-                                    Material(
-                                      color: FlutterFlowTheme.of(context)
-                                          .itemBackground,
-                                      elevation: 0,
-                                      child: InkWell(
-                                        onTap: () {
-                                          isEveryViewVisible = true;
-                                          isOfTheMonthViewVisible = false;
-                                          monthController.toggle();
-                                        },
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 36,
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 7.5, 0, 7.5),
-                                                child: Text(
-                                                  'of the month...',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        lineHeight: 1.5,
-                                                      ),
-                                                ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () {
+                                        setState(() {
+                                          isEveryViewVisible = false;
+                                          isOfTheMonthViewVisible =
+                                              !isOfTheMonthViewVisible;
+                                        });
+                                        if (isEveryViewVisible ||
+                                            isOfTheMonthViewVisible) {
+                                          monthController.expanded = true;
+                                        } else {
+                                          monthController.expanded = false;
+                                        }
+                                      },
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 36,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .itemBackground,
+                                          borderRadius: !monthController.expanded ? BorderRadius.only(
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                            topLeft: Radius.circular(0),
+                                            topRight: Radius.circular(0),
+                                          ) : BorderRadius.all(Radius.zero),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 7.5, 0, 7.5),
+                                              child: Text(
+                                                'of the month...',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Rubik',
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          lineHeight: 1.5,
+                                                        ),
                                               ),
-                                              if (FFAppState().vTmp)
-                                                Expanded(
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            1, 0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(0, 10.5,
-                                                                  12, 10.5),
-                                                      child: Icon(
-                                                        Icons.check,
-                                                        color:
-                                                            Color(0xFF9980DD),
-                                                        size: 15,
-                                                      ),
+                                            ),
+                                            if (isOfTheMonthViewVisible)
+                                              Expanded(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1, 0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0, 10.5,
+                                                                12, 10.5),
+                                                    child: Icon(
+                                                      Icons.check,
+                                                      color: Color(0xFF9980DD),
+                                                      size: 15,
                                                     ),
                                                   ),
                                                 ),
-                                            ],
-                                          ),
+                                              ),
+                                          ],
                                         ),
                                       ),
                                     ),
