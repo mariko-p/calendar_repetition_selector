@@ -8,6 +8,8 @@ import '../components/interval_expander_widget.dart';
 import '../components/week_day_checker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
 class CustomRepetitionPageWidget extends StatefulWidget {
@@ -31,27 +33,37 @@ class _CustomRepetitionPageWidgetState
 
   var freqController = ExpandableController();
   var intController = ExpandableController();
+  var monthController = ExpandableController();
+
   var humanReadableText = FFAppState().cInitialCustomRRuleText;
   var isCustomWeeklyVisible = false;
   var isCustomMonthlyVisible = false;
   var isCustomYearylVisible = false;
 
+  var isEveryViewVisible = false;
+  var isOfTheMonthViewVisible = false;
 
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
-      if (intController.expanded) {
-        // Collapse interval cupertino picker.
-        intController.expanded = false;
-      }
+      // Collapse other expanders.
+      intController.expanded = false;
+      monthController.expanded = false;
     }
   }
 
   void onIntExpandedChanged() {
     if (intController.expanded) {
-      if (freqController.expanded) {
-        // Collapse frequency cupertino picker.
-        freqController.expanded = false;
-      }
+      // Collapse other expanders.
+      freqController.expanded = false;
+      monthController.expanded = false;
+    }
+  }
+
+  void onMonthExpandedChanged() {
+    if (monthController.expanded) {
+      // Collapse other expanders.
+      freqController.expanded = false;
+      intController.expanded = false;
     }
   }
 
@@ -64,6 +76,8 @@ class _CustomRepetitionPageWidgetState
 
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
+    monthController.addListener(onMonthExpandedChanged);
+
     super.initState();
   }
 
@@ -71,6 +85,8 @@ class _CustomRepetitionPageWidgetState
   void dispose() {
     freqController.removeListener(onFreqExpandedChanged);
     intController.removeListener(onIntExpandedChanged);
+    monthController.removeListener(onMonthExpandedChanged);
+
     super.dispose();
   }
 
@@ -112,7 +128,7 @@ class _CustomRepetitionPageWidgetState
 
   updateCustomViewVisibility(String freq) {
     unsetCustomViewVisbilities();
-    print("SHOW $freq");
+
     if (freq == "DAILY") {
       // No action.
     } else if (freq == "WEEKLY") {
@@ -195,16 +211,236 @@ class _CustomRepetitionPageWidgetState
                               var selectedWeekDays = items
                                   ?.where(((e) => e.isChecked == true))
                                   .toList();
+
                               List<String> byDays = List.empty(growable: true);
                               selectedWeekDays?.forEach((element) =>
                                   byDays.add(mapWeekDayToByDay(element.text)));
 
                               updateRRule(freq, interval, byDay: byDays);
-                              
                               await updateRepetitionLabel();
                             }),
                           ),
                         ),
+                      //if (isCustomMonthlyVisible)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                        child: Container(
+                          width: double.infinity,
+                          child: Container(
+                            width: double.infinity,
+                            child: ExpandableNotifier(
+                              controller: monthController,
+                              child: ExpandablePanel(
+                                header: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Material(
+                                      color: FlutterFlowTheme.of(context)
+                                          .itemBackground,
+                                      elevation: 0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0),
+                                          bottomRight: Radius.circular(0),
+                                          topLeft: Radius.circular(5),
+                                          topRight: Radius.circular(5),
+                                        ),
+                                      ),
+                                      child: InkWell(
+                                        onTap: () {
+                                          isEveryViewVisible = true;
+                                          isOfTheMonthViewVisible = false;
+                                          monthController.toggle();
+                                        },
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 36,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(10, 7.5, 0, 7.5),
+                                                child: Text(
+                                                  'Every',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                                ),
+                                              ),
+                                              if (FFAppState().vTmp)
+                                                Expanded(
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1, 0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(0, 10.5,
+                                                                  12, 10.5),
+                                                      child: Icon(
+                                                        Icons.check,
+                                                        color:
+                                                            Color(0xFF9980DD),
+                                                        size: 15,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10, 0, 0, 0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 0.5,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .lineColor,
+                                        ),
+                                      ),
+                                    ),
+                                    Material(
+                                      color: FlutterFlowTheme.of(context)
+                                          .itemBackground,
+                                      elevation: 0,
+                                      child: InkWell(
+                                        onTap: () {
+                                          isEveryViewVisible = true;
+                                          isOfTheMonthViewVisible = false;
+                                          monthController.toggle();
+                                        },
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 36,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(10, 7.5, 0, 7.5),
+                                                child: Text(
+                                                  'of the month...',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                                ),
+                                              ),
+                                              if (FFAppState().vTmp)
+                                                Expanded(
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1, 0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(0, 10.5,
+                                                                  12, 10.5),
+                                                      child: Icon(
+                                                        Icons.check,
+                                                        color:
+                                                            Color(0xFF9980DD),
+                                                        size: 15,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10, 0, 0, 0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 0.5,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .lineColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                collapsed: Container(),
+                                expanded: Container(
+                                  width: double.infinity,
+                                  height: 150,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .itemBackground,
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(5),
+                                      bottomRight: Radius.circular(5),
+                                      topLeft: Radius.circular(0),
+                                      topRight: Radius.circular(0),
+                                    ),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .itemBackground,
+                                    ),
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: Text(
+                                              'Ovdje ide expander body.',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                theme: ExpandableThemeData(
+                                  tapHeaderToExpand: true,
+                                  tapBodyToExpand: false,
+                                  tapBodyToCollapse: false,
+                                  headerAlignment:
+                                      ExpandablePanelHeaderAlignment.center,
+                                  hasIcon: false,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
