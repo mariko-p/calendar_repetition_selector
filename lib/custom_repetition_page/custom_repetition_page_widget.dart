@@ -1,18 +1,14 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
+import 'package:expandable/expandable.dart';
 
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_expander_widget.dart';
-import '../components/interval_cupertino_picker_widget.dart';
 import '../custom_code/actions/update_r_rule.dart';
 import '../flutter_flow/custom_functions.dart';
+import '../components/interval_expander_widget.dart';
 import '../components/week_day_checker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomRepetitionPageWidget extends StatefulWidget {
   const CustomRepetitionPageWidget({Key? key}) : super(key: key);
@@ -26,17 +22,20 @@ class _CustomRepetitionPageWidgetState
     extends State<CustomRepetitionPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  var currentFrequency = generateFrequency()[0];
-  var currentIntervals = generateInterval("DAILY");
-  var weekDays = getWeekDayList();
+  var currentFrequency;
+  var currentInterval;
+  var currentIntervals;
 
   var currentIntervalIndex = 0;
+  var weekDays = getWeekDayList();
+
   var freqController = ExpandableController();
   var intController = ExpandableController();
   var humanReadableText = FFAppState().cInitialCustomRRuleText;
   var isCustomWeeklyVisible = false;
   var isCustomMonthlyVisible = false;
   var isCustomYearylVisible = false;
+
 
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
@@ -59,6 +58,9 @@ class _CustomRepetitionPageWidgetState
   @override
   void initState() {
     FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
+    currentIntervals = generateInterval("DAILY");
+    currentInterval = currentIntervals[0];
+    currentFrequency = generateFrequency()[0];
 
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
@@ -84,17 +86,33 @@ class _CustomRepetitionPageWidgetState
     setState(() {
       currentFrequency = generateFrequency().toList()[index];
       currentIntervals = generateInterval(currentFrequency.value);
+      currentInterval = currentIntervals[currentIntervalIndex];
+
       var freq = currentFrequency.value;
-      var interval = currentIntervals[currentIntervalIndex].value;
+      var interval = currentInterval.value;
 
       updateRRule(freq, interval);
-      updateCustomViewVisibility(currentFrequency.text ?? "");
+      updateCustomViewVisibility(currentFrequency.value ?? "");
+    });
+    await updateRepetitionLabel();
+  }
+
+  Future intervalItemChanged(int index) async {
+    setState(() {
+      // inteval index must be saved.
+      currentIntervalIndex = index;
+      currentInterval = currentIntervals[index];
+
+      var freq = currentFrequency.value;
+      var interval = currentInterval[currentIntervalIndex].value;
+      updateRRule(freq, interval);
     });
     await updateRepetitionLabel();
   }
 
   updateCustomViewVisibility(String freq) {
     unsetCustomViewVisbilities();
+    print("SHOW $freq");
     if (freq == "DAILY") {
       // No action.
     } else if (freq == "WEEKLY") {
@@ -133,164 +151,18 @@ class _CustomRepetitionPageWidgetState
                     children: [
                       BottomSheetNavBarWidget(),
                       FrequencyExpanderWidget(
-                        freqController: freqController,
-                        currentFrequency: currentFrequency,
-                        onItemChanged: (index) async {
-                          await frequencyItemChanged(index);
-                        }
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).itemBackground,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(5),
-                              bottomRight: Radius.circular(5),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0),
-                            ),
-                          ),
-                          child: ExpandableNotifier(
-                            controller: intController,
-                            child: ExpandablePanel(
-                              header: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Container(
-                                    width: double.infinity,
-                                    height: 36,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .itemBackground,
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(5),
-                                        bottomRight: Radius.circular(5),
-                                        topLeft: Radius.circular(0),
-                                        topRight: Radius.circular(0),
-                                      ),
-                                    ),
-                                    child: Material(
-                                      color: FlutterFlowTheme.of(context)
-                                          .itemBackground,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                          topLeft: Radius.circular(0),
-                                          topRight: Radius.circular(0),
-                                        ),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () => {intController.toggle()},
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(5),
-                                            bottomRight: Radius.circular(5),
-                                            topLeft: Radius.circular(0),
-                                            topRight: Radius.circular(0)),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(20, 7.5, 0, 7.5),
-                                              child: Text(
-                                                'With the interval',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .title1
-                                                        .override(
-                                                          fontFamily: 'Rubik',
-                                                          color: Colors.black,
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                        ),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Align(
-                                                alignment:
-                                                    AlignmentDirectional(1, 0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 20, 0),
-                                                  child: Text(
-                                                    currentIntervals[
-                                                                currentIntervalIndex]
-                                                            .text ??
-                                                        "",
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Rubik',
-                                                          color:
-                                                              Color(0xFF7E8CA2),
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              collapsed: Container(),
-                              expanded: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .itemBackground,
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                          topLeft: Radius.circular(0),
-                                          topRight: Radius.circular(0),
-                                        ),
-                                      ),
-                                      child: IntervalCupertinoPickerWidget(
-                                          items: currentIntervals,
-                                          onItemChanged: (index) async {
-                                            setState(() {
-                                              currentIntervalIndex = index;
-                                              var freq = currentFrequency.value;
-                                              var interval = currentIntervals[
-                                                      currentIntervalIndex]
-                                                  .value;
-                                              updateRRule(freq, interval);
-                                            });
-                                            await updateRepetitionLabel();
-                                          }),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              theme: ExpandableThemeData(
-                                tapHeaderToExpand: true,
-                                tapBodyToExpand: false,
-                                tapBodyToCollapse: false,
-                                headerAlignment:
-                                    ExpandablePanelHeaderAlignment.center,
-                                hasIcon: false,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                          freqController: freqController,
+                          currentFrequency: currentFrequency,
+                          onItemChanged: (index) async {
+                            await frequencyItemChanged(index);
+                          }),
+                      IntervalExpanderWidget(
+                          intController: intController,
+                          currentIntervals: currentIntervals,
+                          currentIntervalIndex: currentIntervalIndex,
+                          onItemChanged: (index) async {
+                            await intervalItemChanged(index);
+                          }),
                       Align(
                         alignment: AlignmentDirectional(-1, 0),
                         child: Padding(
@@ -328,6 +200,7 @@ class _CustomRepetitionPageWidgetState
                                   byDays.add(mapWeekDayToByDay(element.text)));
 
                               updateRRule(freq, interval, byDay: byDays);
+                              
                               await updateRepetitionLabel();
                             }),
                           ),
