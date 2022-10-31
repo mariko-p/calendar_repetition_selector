@@ -897,7 +897,7 @@ class _CustomRepetitionPageWidgetState
                                                               monthDaysIndex];
                                                       return Stack(
                                                         children: [
-                                                          if (weekItemItem
+                                                          if (monthDaysItem
                                                                   .isChecked ==
                                                               true)
                                                             Padding(
@@ -928,7 +928,7 @@ class _CustomRepetitionPageWidgetState
                                                                               Text(
                                                                     valueOrDefault<
                                                                         String>(
-                                                                      weekItemItem
+                                                                      monthDaysItem
                                                                           .text,
                                                                       '1',
                                                                     ),
@@ -949,7 +949,7 @@ class _CustomRepetitionPageWidgetState
                                                                 ),
                                                               ),
                                                             ),
-                                                          if (weekItemItem
+                                                          if (monthDaysItem
                                                                   .isChecked ==
                                                               false)
                                                             Padding(
@@ -978,7 +978,7 @@ class _CustomRepetitionPageWidgetState
                                                                               Text(
                                                                     valueOrDefault<
                                                                         String>(
-                                                                      weekItemItem
+                                                                      monthDaysItem
                                                                           .text,
                                                                       '1',
                                                                     ),
