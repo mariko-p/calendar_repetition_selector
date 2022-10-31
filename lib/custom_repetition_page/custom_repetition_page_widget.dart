@@ -433,579 +433,114 @@ class _CustomRepetitionPageWidgetState
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 8, 0, 8),
-                                            child: Container(
-                                              width: double.infinity,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .itemBackground,
-                                              ),
-                                              child: Builder(
-                                                builder: (context) {
-                                                  final weekItem = functions
-                                                      .getMonthDayList()
-                                                      .where(
-                                                          (e) => e.index! >= 0 && e.index! < 7)
-                                                      .toList();
-                                                  return ListView.builder(
-                                                    padding: EdgeInsets.zero,
-                                                    shrinkWrap: true,
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    itemCount: weekItem.length,
-                                                    itemBuilder: (context,
-                                                        weekItemIndex) {
-                                                      final weekItemItem =
-                                                          weekItem[
-                                                              weekItemIndex];
-                                                      return Stack(
-                                                        children: [
-                                                          if (weekItemItem
-                                                                  .isChecked ==
-                                                              true)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Color(
-                                                                      0xFF9980DD),
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      weekItemItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              Colors.white,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
+                                          Builder(
+                                            builder: (context) {
+                                              final weekItem = functions
+                                                  .getMonthDayList()
+                                                  .where((e) => e.index! >= 0 && e.index! < 7)
+                                                  .toList();
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: List.generate(
+                                                    weekItem.length,
+                                                    (weekItemIndex) {
+                                                  final dayItem =
+                                                      weekItem[weekItemIndex];
+                                                  return Stack(
+                                                    children: [
+                                                      if (dayItem
+                                                              .isChecked ==
+                                                          true)
+                                                        Container(
+                                                          width: 32,
+                                                          height: 32,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFF9980DD),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0, 0),
+                                                            child:
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                dayItem
+                                                                    .text,
+                                                                '1',
                                                               ),
-                                                            ),
-                                                          if (weekItemItem
-                                                                  .isChecked ==
-                                                              false)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      weekItemItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Rubik',
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize:
+                                                                        12,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            )),
+                                                          ),
+                                                        ),
+                                                      if (dayItem
+                                                              .isChecked ==
+                                                          false)
+                                                        Container(
+                                                          width: 32,
+                                                          height: 32,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0, 0),
+                                                            child:
+                                                                SelectionArea(
+                                                                    child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                dayItem
+                                                                    .text,
+                                                                '1',
                                                               ),
-                                                            ),
-                                                        ],
-                                                      );
-                                                    },
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Rubik',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontSize:
+                                                                        12,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            )),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   );
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 8),
-                                            child: Container(
-                                              width: double.infinity,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .itemBackground,
-                                              ),
-                                              child: Builder(
-                                                builder: (context) {
-                                                  final weekItem = functions
-                                                      .getMonthDayList()
-                                                      .where(
-                                                          (e) => e.index! >= 7 && e.index! < 15)
-                                                      .toList();
-                                                  return ListView.builder(
-                                                    padding: EdgeInsets.zero,
-                                                    shrinkWrap: true,
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    itemCount: weekItem.length,
-                                                    itemBuilder: (context,
-                                                        weekItemIndex) {
-                                                      final weekItemItem =
-                                                          weekItem[
-                                                              weekItemIndex];
-                                                      return Stack(
-                                                        children: [
-                                                          if (weekItemItem
-                                                                  .isChecked ==
-                                                              true)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Color(
-                                                                      0xFF9980DD),
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      weekItemItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              Colors.white,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          if (weekItemItem
-                                                                  .isChecked ==
-                                                              false)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      weekItemItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 8),
-                                            child: Container(
-                                              width: double.infinity,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .itemBackground,
-                                              ),
-                                              child: Builder(
-                                                builder: (context) {
-                                                  final weekItem = functions
-                                                      .getMonthDayList()
-                                                      .where(
-                                                          (e) => e.index! >= 15 && e.index! < 22)
-                                                      .toList();
-                                                  return ListView.builder(
-                                                    padding: EdgeInsets.zero,
-                                                    shrinkWrap: true,
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    itemCount: weekItem.length,
-                                                    itemBuilder: (context,
-                                                        weekItemIndex) {
-                                                      final weekItemItem =
-                                                          weekItem[
-                                                              weekItemIndex];
-                                                      return Stack(
-                                                        children: [
-                                                          if (weekItemItem
-                                                                  .isChecked ==
-                                                              true)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Color(
-                                                                      0xFF9980DD),
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      weekItemItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              Colors.white,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          if (weekItemItem
-                                                                  .isChecked ==
-                                                              false)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      weekItemItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 20, 0, 0),
-                                            child: Container(
-                                              width: double.infinity,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
-                                              child: Builder(
-                                                builder: (context) {
-                                                  final monthDays = functions
-                                                      .getMonthDayList()
-                                                      .toList();
-                                                  return Wrap(
-                                                    spacing: 0,
-                                                    runSpacing: 0,
-                                                    alignment:
-                                                        WrapAlignment.start,
-                                                    crossAxisAlignment:
-                                                        WrapCrossAlignment
-                                                            .start,
-                                                    direction: Axis.horizontal,
-                                                    runAlignment:
-                                                        WrapAlignment.start,
-                                                    verticalDirection:
-                                                        VerticalDirection.down,
-                                                    clipBehavior: Clip.none,
-                                                    children: List.generate(
-                                                        monthDays.length,
-                                                        (monthDaysIndex) {
-                                                      final monthDaysItem =
-                                                          monthDays[
-                                                              monthDaysIndex];
-                                                      return Stack(
-                                                        children: [
-                                                          if (monthDaysItem
-                                                                  .isChecked ==
-                                                              true)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Color(
-                                                                      0xFF9980DD),
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      monthDaysItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              Colors.white,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          if (monthDaysItem
-                                                                  .isChecked ==
-                                                              false)
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          17,
-                                                                          0),
-                                                              child: Container(
-                                                                width: 32,
-                                                                height: 32,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0, 0),
-                                                                  child:
-                                                                      SelectionArea(
-                                                                          child:
-                                                                              Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      monthDaysItem
-                                                                          .text,
-                                                                      '1',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Rubik',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          fontSize:
-                                                                              12,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  )),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                        ],
-                                                      );
-                                                    }),
-                                                  );
-                                                },
-                                              ),
-                                            ),
+                                                }),
+                                              );
+                                            },
                                           ),
                                         ],
                                       ),
