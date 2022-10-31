@@ -1,4 +1,3 @@
-
 import 'package:expandable/expandable.dart';
 
 import '../components/bottom_sheet_nav_bar_widget.dart';
@@ -437,8 +436,7 @@ class _CustomRepetitionPageWidgetState
                                             builder: (context) {
                                               final weekItem = functions
                                                   .getMonthDayList()
-                                                  .where((e) => e.index! >= 0 && e.index! < 7)
-                                                  .toList();
+                                                  .sublist(0, 7);
                                               return Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -451,8 +449,7 @@ class _CustomRepetitionPageWidgetState
                                                       weekItem[weekItemIndex];
                                                   return Stack(
                                                     children: [
-                                                      if (dayItem
-                                                              .isChecked ==
+                                                      if (dayItem.isChecked ==
                                                           true)
                                                         Container(
                                                           width: 32,
@@ -473,8 +470,7 @@ class _CustomRepetitionPageWidgetState
                                                                     child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                dayItem
-                                                                    .text,
+                                                                dayItem.text,
                                                                 '1',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -494,8 +490,7 @@ class _CustomRepetitionPageWidgetState
                                                             )),
                                                           ),
                                                         ),
-                                                      if (dayItem
-                                                              .isChecked ==
+                                                      if (dayItem.isChecked ==
                                                           false)
                                                         Container(
                                                           width: 32,
@@ -514,8 +509,7 @@ class _CustomRepetitionPageWidgetState
                                                                     child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                dayItem
-                                                                    .text,
+                                                                dayItem.text,
                                                                 '1',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -546,8 +540,7 @@ class _CustomRepetitionPageWidgetState
                                             builder: (context) {
                                               final weekItem = functions
                                                   .getMonthDayList()
-                                                  .where((e) => e.index! >= 0)
-                                                  .toList();
+                                                  .sublist(7, 14);
                                               return Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -655,8 +648,7 @@ class _CustomRepetitionPageWidgetState
                                             builder: (context) {
                                               final weekItem = functions
                                                   .getMonthDayList()
-                                                  .where((e) => e.index! >= 0)
-                                                  .toList();
+                                                  .sublist(14, 21);
                                               return Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -764,8 +756,7 @@ class _CustomRepetitionPageWidgetState
                                             builder: (context) {
                                               final weekItem = functions
                                                   .getMonthDayList()
-                                                  .where((e) => e.index! >= 0)
-                                                  .toList();
+                                                  .sublist(21, 28);
                                               return Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -873,8 +864,7 @@ class _CustomRepetitionPageWidgetState
                                             builder: (context) {
                                               final weekItem = functions
                                                   .getMonthDayList()
-                                                  .where((e) => e.index! >= 0)
-                                                  .toList();
+                                                  .sublist(28, 35);
                                               return Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -911,7 +901,7 @@ class _CustomRepetitionPageWidgetState
                                                                   String>(
                                                                 weekItemItem
                                                                     .text,
-                                                                '1',
+                                                                '',
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -952,7 +942,7 @@ class _CustomRepetitionPageWidgetState
                                                                   String>(
                                                                 weekItemItem
                                                                     .text,
-                                                                '1',
+                                                                '',
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)

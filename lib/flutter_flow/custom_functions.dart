@@ -120,9 +120,15 @@ List<WeekDayStruct> getWeekDayList() {
 
 List<MonthDayStruct> getMonthDayList() {
   // Code written in flutter.
-  return List.generate(31, (index) {
+  // Build dummy elements on the end to handle easier UI adjustments.
+  return List.generate(35, (index) {
     var value = index + 1;
-    var interval = createMonthDayStruct(text: value.toString(), isChecked: false, index: index);
+    var interval;
+    if (value <= 31) {
+      interval = createMonthDayStruct(text: value.toString(), isChecked: false, index: index);
+    } else {
+      interval = createMonthDayStruct(text: "", isChecked: false, index: index);
+    }
     return interval;
   });
 }
