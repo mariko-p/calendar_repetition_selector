@@ -235,10 +235,7 @@ class _CustomRepetitionPageWidgetState
                                           .itemBackground,
                                     ),
                                   ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: MonthDayCheckerWidget(),
-                                  ),
+                                  child: MonthDayCheckerWidget(),
                                 ),
                                 theme: ExpandableThemeData(
                                   tapHeaderToExpand: true,
