@@ -1,3 +1,4 @@
+
 import 'package:expandable/expandable.dart';
 
 import '../components/bottom_sheet_nav_bar_widget.dart';
@@ -337,12 +338,17 @@ class _CustomRepetitionPageWidgetState
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .itemBackground,
-                                          borderRadius: !monthController.expanded ? BorderRadius.only(
-                                            bottomLeft: Radius.circular(5),
-                                            bottomRight: Radius.circular(5),
-                                            topLeft: Radius.circular(0),
-                                            topRight: Radius.circular(0),
-                                          ) : BorderRadius.all(Radius.zero),
+                                          borderRadius: !monthController
+                                                  .expanded
+                                              ? BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(5),
+                                                  bottomRight:
+                                                      Radius.circular(5),
+                                                  topLeft: Radius.circular(0),
+                                                  topRight: Radius.circular(0),
+                                                )
+                                              : BorderRadius.all(Radius.zero),
                                         ),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -403,7 +409,6 @@ class _CustomRepetitionPageWidgetState
                                 collapsed: Container(),
                                 expanded: Container(
                                   width: double.infinity,
-                                  height: 250,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .itemBackground,
@@ -420,29 +425,370 @@ class _CustomRepetitionPageWidgetState
                                   ),
                                   child: Align(
                                     alignment: AlignmentDirectional(0, 0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Expanded(
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0, 0),
-                                            child: Text(
-                                              'Ovdje ide expander body.',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                      ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10, 0, 10, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 8, 0, 8),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 32,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .itemBackground,
+                                              ),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final weekItem = functions
+                                                      .getMonthDayList()
+                                                      .sublist(0, 7)
+                                                      .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemCount: weekItem.length,
+                                                    itemBuilder: (context,
+                                                        firstWeekIndex) {
+                                                      final monthDay =
+                                                          weekItem[
+                                                              firstWeekIndex];
+                                                      return Container(
+                                                        width: 32,
+                                                        height: 32,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF9980DD),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0, 0),
+                                                          child: SelectionArea(
+                                                              child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              monthDay.text,
+                                                              '1',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                          )),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 8),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 32,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .itemBackground,
+                                              ),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final firstWeek = functions
+                                                      .getMonthDayList()
+                                                      .sublist(8, 14)
+                                                      .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemCount: firstWeek.length,
+                                                    itemBuilder: (context,
+                                                        firstWeekIndex) {
+                                                      final weekItem =
+                                                          firstWeek[
+                                                              firstWeekIndex];
+                                                      return Container(
+                                                        width: 32,
+                                                        height: 32,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0, 0),
+                                                          child: SelectionArea(
+                                                              child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              weekItem.text
+                                                                  .toString(),
+                                                              '1',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                          )),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 8),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 32,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .itemBackground,
+                                              ),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final weekItem = functions
+                                                      .getMonthDayList()
+                                                      .sublist(15, 21)
+                                                      .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemCount: weekItem.length,
+                                                    itemBuilder: (context,
+                                                        firstWeekIndex) {
+                                                      final monthDay =
+                                                          weekItem[
+                                                              firstWeekIndex];
+                                                      return Container(
+                                                        width: 32,
+                                                        height: 32,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0, 0),
+                                                          child: SelectionArea(
+                                                              child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              monthDay.text
+                                                                  .toString(),
+                                                              '1',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                          )),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 8),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 32,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .itemBackground,
+                                              ),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final firstWeek = functions
+                                                      .getMonthDayList()
+                                                      .sublist(15, 21)
+                                                      .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemCount: firstWeek.length,
+                                                    itemBuilder: (context,
+                                                        firstWeekIndex) {
+                                                      final firstWeekItem =
+                                                          firstWeek[
+                                                              firstWeekIndex];
+                                                      return Container(
+                                                        width: 32,
+                                                        height: 32,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0, 0),
+                                                          child: SelectionArea(
+                                                              child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              firstWeekItem
+                                                                  .text,
+                                                              '1',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                          )),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 8),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 32,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .itemBackground,
+                                              ),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final monthDays = functions
+                                                      .getMonthDayList()
+                                                      .sublist(22, 28)
+                                                      .toList();
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemCount: monthDays.length,
+                                                    itemBuilder: (context,
+                                                        firstWeekIndex) {
+                                                      final weekItem =
+                                                          monthDays[
+                                                              firstWeekIndex];
+                                                      return Container(
+                                                        width: 32,
+                                                        height: 32,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0, 0),
+                                                          child: SelectionArea(
+                                                              child: Text(
+                                                            weekItem.text
+                                                                .toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                          )),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
