@@ -61,3 +61,10 @@ String mapWeekDayToByDay(String? weekDay) {
   // Code written in flutter.
   return "";
 }
+
+List<int> generateNumberList(
+  int from,
+  int to,
+) {
+  return List.generate(to - from + 1, (index) => index + 1);
+}
