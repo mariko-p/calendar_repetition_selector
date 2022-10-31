@@ -39,6 +39,12 @@ class _$MonthDayStructSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.index;
+    if (value != null) {
+      result
+        ..add('index')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -62,6 +68,10 @@ class _$MonthDayStructSerializer
           result.isChecked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'index':
+          result.index = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -80,13 +90,15 @@ class _$MonthDayStruct extends MonthDayStruct {
   @override
   final bool? isChecked;
   @override
+  final int? index;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$MonthDayStruct([void Function(MonthDayStructBuilder)? updates]) =>
       (new MonthDayStructBuilder()..update(updates))._build();
 
   _$MonthDayStruct._(
-      {this.text, this.isChecked, required this.firestoreUtilData})
+      {this.text, this.isChecked, this.index, required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         firestoreUtilData, r'MonthDayStruct', 'firestoreUtilData');
@@ -106,12 +118,14 @@ class _$MonthDayStruct extends MonthDayStruct {
     return other is MonthDayStruct &&
         text == other.text &&
         isChecked == other.isChecked &&
+        index == other.index &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, text.hashCode), isChecked.hashCode),
+    return $jf($jc(
+        $jc($jc($jc(0, text.hashCode), isChecked.hashCode), index.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -120,6 +134,7 @@ class _$MonthDayStruct extends MonthDayStruct {
     return (newBuiltValueToStringHelper(r'MonthDayStruct')
           ..add('text', text)
           ..add('isChecked', isChecked)
+          ..add('index', index)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -137,6 +152,10 @@ class MonthDayStructBuilder
   bool? get isChecked => _$this._isChecked;
   set isChecked(bool? isChecked) => _$this._isChecked = isChecked;
 
+  int? _index;
+  int? get index => _$this._index;
+  set index(int? index) => _$this._index = index;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -151,6 +170,7 @@ class MonthDayStructBuilder
     if ($v != null) {
       _text = $v.text;
       _isChecked = $v.isChecked;
+      _index = $v.index;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -176,6 +196,7 @@ class MonthDayStructBuilder
         new _$MonthDayStruct._(
             text: text,
             isChecked: isChecked,
+            index: index,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'MonthDayStruct', 'firestoreUtilData'));
     replace(_$result);

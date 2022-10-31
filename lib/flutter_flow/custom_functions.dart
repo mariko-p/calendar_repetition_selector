@@ -122,7 +122,7 @@ List<MonthDayStruct> getMonthDayList() {
   // Code written in flutter.
   return List.generate(31, (index) {
     var value = index + 1;
-    var interval = createMonthDayStruct(text: value.toString(), isChecked: false);
+    var interval = createMonthDayStruct(text: value.toString(), isChecked: false, index: index);
     return interval;
   });
 }
