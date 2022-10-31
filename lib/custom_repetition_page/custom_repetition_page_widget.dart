@@ -403,7 +403,7 @@ class _CustomRepetitionPageWidgetState
                                 collapsed: Container(),
                                 expanded: Container(
                                   width: double.infinity,
-                                  height: 150,
+                                  height: 250,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .itemBackground,
