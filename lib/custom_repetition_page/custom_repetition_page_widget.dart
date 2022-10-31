@@ -859,6 +859,154 @@ class _CustomRepetitionPageWidgetState
                                               ),
                                             ),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 20, 0, 0),
+                                            child: Container(
+                                              width: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final monthDays = functions
+                                                      .getMonthDayList()
+                                                      .toList();
+                                                  return Wrap(
+                                                    spacing: 0,
+                                                    runSpacing: 0,
+                                                    alignment:
+                                                        WrapAlignment.start,
+                                                    crossAxisAlignment:
+                                                        WrapCrossAlignment
+                                                            .start,
+                                                    direction: Axis.horizontal,
+                                                    runAlignment:
+                                                        WrapAlignment.start,
+                                                    verticalDirection:
+                                                        VerticalDirection.down,
+                                                    clipBehavior: Clip.none,
+                                                    children: List.generate(
+                                                        monthDays.length,
+                                                        (monthDaysIndex) {
+                                                      final monthDaysItem =
+                                                          monthDays[
+                                                              monthDaysIndex];
+                                                      return Stack(
+                                                        children: [
+                                                          if (weekItemItem
+                                                                  .isChecked ==
+                                                              true)
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          17,
+                                                                          0),
+                                                              child: Container(
+                                                                width: 32,
+                                                                height: 32,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Color(
+                                                                      0xFF9980DD),
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0, 0),
+                                                                  child:
+                                                                      SelectionArea(
+                                                                          child:
+                                                                              Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      weekItemItem
+                                                                          .text,
+                                                                      '1',
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Rubik',
+                                                                          color:
+                                                                              Colors.white,
+                                                                          fontSize:
+                                                                              12,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
+                                                                  )),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          if (weekItemItem
+                                                                  .isChecked ==
+                                                              false)
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          17,
+                                                                          0),
+                                                              child: Container(
+                                                                width: 32,
+                                                                height: 32,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0, 0),
+                                                                  child:
+                                                                      SelectionArea(
+                                                                          child:
+                                                                              Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      weekItemItem
+                                                                          .text,
+                                                                      '1',
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Rubik',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          fontSize:
+                                                                              12,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
+                                                                  )),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                        ],
+                                                      );
+                                                    }),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
