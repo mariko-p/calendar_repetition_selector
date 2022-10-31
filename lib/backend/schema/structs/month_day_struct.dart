@@ -15,12 +15,15 @@ abstract class MonthDayStruct
 
   bool? get isChecked;
 
+  int? get index;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
   static void _initializeBuilder(MonthDayStructBuilder builder) => builder
     ..text = ''
     ..isChecked = false
+    ..index = 0
     ..firestoreUtilData = FirestoreUtilData();
 
   MonthDayStruct._();
@@ -31,6 +34,7 @@ abstract class MonthDayStruct
 MonthDayStruct createMonthDayStruct({
   String? text,
   bool? isChecked,
+  int? index,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -40,6 +44,7 @@ MonthDayStruct createMonthDayStruct({
       (m) => m
         ..text = text
         ..isChecked = isChecked
+        ..index = index
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,
