@@ -221,7 +221,7 @@ class _CustomRepetitionPageWidgetState
                             }),
                           ),
                         ),
-                      //if (isCustomMonthlyVisible)
+                      if (isCustomMonthlyVisible)
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                         child: MonthDayCheckerCombinedWidget(monthController: monthController),
