@@ -1,3 +1,4 @@
+import '../components/month_day_by_set_checker_widget.dart';
 import '../components/month_day_checker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -172,37 +173,7 @@ class _MonthDayCheckerCombinedWidgetState
                     decoration: BoxDecoration(),
                     child: MonthDayCheckerWidget(),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  MonthDayBySetCheckerWidget(),
                 ],
               ),
             ),
