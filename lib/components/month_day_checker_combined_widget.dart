@@ -1,4 +1,8 @@
+import 'package:custom_recurring_selectors/backend/backend.dart';
+import 'package:flutter/cupertino.dart';
+
 import '../components/month_day_checker_widget.dart';
+import '../flutter_flow/custom_functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
@@ -18,8 +22,9 @@ class MonthDayCheckerCombinedWidget extends StatefulWidget {
 
 class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
-  var isEveryViewVisible = false;
-  var isOfTheMonthViewVisible = false;
+  var isMonthDayCheckerViewVisible = false;
+  var isEveryOfTheMonthViewVisible = false;
+  var items = generateFrequency();
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +41,12 @@ class _MonthDayCheckerCombinedWidgetState
                 InkWell(
                   onTap: () {
                     setState(() {
-                      isEveryViewVisible = !isEveryViewVisible;
-                      isOfTheMonthViewVisible = false;
+                      isMonthDayCheckerViewVisible =
+                          !isMonthDayCheckerViewVisible;
+                      isEveryOfTheMonthViewVisible = false;
                     });
-                    if (isEveryViewVisible || isOfTheMonthViewVisible) {
+                    if (isMonthDayCheckerViewVisible ||
+                        isEveryOfTheMonthViewVisible) {
                       widget.monthController?.expanded = true;
                     } else {
                       widget.monthController?.expanded = false;
@@ -73,7 +80,7 @@ class _MonthDayCheckerCombinedWidgetState
                                     ),
                           ),
                         ),
-                        if (isEveryViewVisible)
+                        if (isMonthDayCheckerViewVisible)
                           Expanded(
                             child: Align(
                               alignment: AlignmentDirectional(1, 0),
@@ -107,10 +114,12 @@ class _MonthDayCheckerCombinedWidgetState
                   highlightColor: Colors.transparent,
                   onTap: () {
                     setState(() {
-                      isEveryViewVisible = false;
-                      isOfTheMonthViewVisible = !isOfTheMonthViewVisible;
+                      isMonthDayCheckerViewVisible = false;
+                      isEveryOfTheMonthViewVisible =
+                          !isEveryOfTheMonthViewVisible;
                     });
-                    if (isEveryViewVisible || isOfTheMonthViewVisible) {
+                    if (isMonthDayCheckerViewVisible ||
+                        isEveryOfTheMonthViewVisible) {
                       widget.monthController?.expanded = true;
                     } else {
                       widget.monthController?.expanded = false;
@@ -146,7 +155,7 @@ class _MonthDayCheckerCombinedWidgetState
                                     ),
                           ),
                         ),
-                        if (isOfTheMonthViewVisible)
+                        if (isEveryOfTheMonthViewVisible)
                           Expanded(
                             child: Align(
                               alignment: AlignmentDirectional(1, 0),
@@ -195,14 +204,29 @@ class _MonthDayCheckerCombinedWidgetState
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  MonthDayCheckerWidget(),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                  if (isMonthDayCheckerViewVisible) MonthDayCheckerWidget(),
+                  if (isEveryOfTheMonthViewVisible)
+                    Container(
+                      height: 130,
+                      child: Center(
+                        child: CupertinoPicker(
+                            itemExtent: 40,
+                            children: items
+                                .map((item) => Center(
+                                        child: Text(
+                                      item.text ?? "",
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Rubik',
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                    )))
+                                .toList(),
+                            onSelectedItemChanged: (index) {}),
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
