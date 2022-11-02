@@ -24,7 +24,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 8),
               child: Builder(
                 builder: (context) {
                   final weekItem = functions
@@ -130,21 +130,18 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                 },
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      height: 32,
-                      decoration: BoxDecoration(),
-                    ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    height: 32,
+                    decoration: BoxDecoration(),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
