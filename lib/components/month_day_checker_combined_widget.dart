@@ -159,10 +159,12 @@ class _MonthDayCheckerCombinedWidgetState
                   color: FlutterFlowTheme.of(context).itemBackground,
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
+              child: Stack(
                 children: [
-                  MonthDayCheckerWidget(),
+                  Container(
+                    height: 200,
+                    child: MonthDayCheckerWidget(),
+                  ),
                   Container(
                     width: 100,
                     height: 100,
