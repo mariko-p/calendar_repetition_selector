@@ -23,7 +23,7 @@ class MonthDayCheckerCombinedWidget extends StatefulWidget {
 class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
   var isMonthDayCheckerViewVisible = false;
-  var isEveryOfTheMonthViewVisible = false;
+  var isOnTheMonthViewVisible = false;
   var items = generateFrequency();
 
   @override
@@ -43,10 +43,10 @@ class _MonthDayCheckerCombinedWidgetState
                     setState(() {
                       isMonthDayCheckerViewVisible =
                           !isMonthDayCheckerViewVisible;
-                      isEveryOfTheMonthViewVisible = false;
+                      isOnTheMonthViewVisible = false;
                     });
                     if (isMonthDayCheckerViewVisible ||
-                        isEveryOfTheMonthViewVisible) {
+                        isOnTheMonthViewVisible) {
                       widget.monthController?.expanded = true;
                     } else {
                       widget.monthController?.expanded = false;
@@ -115,11 +115,11 @@ class _MonthDayCheckerCombinedWidgetState
                   onTap: () {
                     setState(() {
                       isMonthDayCheckerViewVisible = false;
-                      isEveryOfTheMonthViewVisible =
-                          !isEveryOfTheMonthViewVisible;
+                      isOnTheMonthViewVisible =
+                          !isOnTheMonthViewVisible;
                     });
                     if (isMonthDayCheckerViewVisible ||
-                        isEveryOfTheMonthViewVisible) {
+                        isOnTheMonthViewVisible) {
                       widget.monthController?.expanded = true;
                     } else {
                       widget.monthController?.expanded = false;
@@ -155,7 +155,7 @@ class _MonthDayCheckerCombinedWidgetState
                                     ),
                           ),
                         ),
-                        if (isEveryOfTheMonthViewVisible)
+                        if (isOnTheMonthViewVisible)
                           Expanded(
                             child: Align(
                               alignment: AlignmentDirectional(1, 0),
@@ -205,49 +205,53 @@ class _MonthDayCheckerCombinedWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   if (isMonthDayCheckerViewVisible) MonthDayCheckerWidget(),
-                  if (isEveryOfTheMonthViewVisible)
+                  if (isOnTheMonthViewVisible)
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        child: Row(mainAxisSize: MainAxisSize.max, children: [
-                          Container(
-                              height: 130,
-                              child: Center(
-                                child: CupertinoPicker(
-                                    itemExtent: 40,
-                                    children: items
-                                        .map((item) => Center(
-                                                child: Text(
-                                              item.text ?? "",
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                      ),
-                                            )))
-                                        .toList(),
-                                    onSelectedItemChanged: (index) {}),
-                              )),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                          ),
-                        ]),
-                      ),
+                      child: Row(mainAxisSize: MainAxisSize.max, children: [
+                        Container(
+                            height: 130,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Center(
+                              child: CupertinoPicker(
+                                  itemExtent: 40,
+                                  children: items
+                                      .map((item) => Center(
+                                              child: Text(
+                                            item.text ?? "",
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Rubik',
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                          )))
+                                      .toList(),
+                                  onSelectedItemChanged: (index) {}),
+                            )),
+                        Container(
+                            height: 130,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: Center(
+                              child: CupertinoPicker(
+                                  itemExtent: 40,
+                                  children: items
+                                      .map((item) => Center(
+                                              child: Text(
+                                            item.text ?? "",
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Rubik',
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                          )))
+                                      .toList(),
+                                  onSelectedItemChanged: (index) {}),
+                            )),
+                      ]),
                     ),
                 ],
               ),
