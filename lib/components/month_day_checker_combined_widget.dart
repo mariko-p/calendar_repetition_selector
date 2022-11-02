@@ -1,5 +1,6 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 import '../components/month_day_checker_widget.dart';
 import '../flutter_flow/custom_functions.dart';
@@ -24,7 +25,16 @@ class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
   var isMonthDayCheckerViewVisible = false;
   var isOnTheMonthViewVisible = false;
-  var items = generateFrequency();
+  var bySetPositionItems = getBySetPositionList();
+  var byDayItems = getByDayList();
+
+  @override
+  void initState() {
+
+    print("LIST: ${getByDayList()[0].value}");
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +225,7 @@ class _MonthDayCheckerCombinedWidgetState
                             child: Center(
                               child: CupertinoPicker(
                                   itemExtent: 40,
-                                  children: items
+                                  children: bySetPositionItems
                                       .map((item) => Center(
                                               child: Text(
                                             item.text ?? "",
@@ -228,7 +238,10 @@ class _MonthDayCheckerCombinedWidgetState
                                                 ),
                                           )))
                                       .toList(),
-                                  onSelectedItemChanged: (index) {}),
+                                  onSelectedItemChanged: (index) {
+                                    SystemSound.play(SystemSoundType.click);
+                                    HapticFeedback.lightImpact();
+                                  }),
                             )),
                         Container(
                             height: 130,
@@ -236,7 +249,7 @@ class _MonthDayCheckerCombinedWidgetState
                             child: Center(
                               child: CupertinoPicker(
                                   itemExtent: 40,
-                                  children: items
+                                  children: byDayItems
                                       .map((item) => Center(
                                               child: Text(
                                             item.text ?? "",
@@ -249,7 +262,10 @@ class _MonthDayCheckerCombinedWidgetState
                                                 ),
                                           )))
                                       .toList(),
-                                  onSelectedItemChanged: (index) {}),
+                                  onSelectedItemChanged: (index) {
+                                    SystemSound.play(SystemSoundType.click);
+                                    HapticFeedback.lightImpact();
+                                  }),
                             )),
                       ]),
                     ),

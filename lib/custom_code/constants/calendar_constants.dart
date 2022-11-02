@@ -1,0 +1,41 @@
+class Constants {
+
+  static const String DAILY = "DAILY";
+  static const String WEEKLY = "WEEKLY";
+  static const String MONTHLY = "MONTHLY";
+  static const String YEARLY = "YEARLY";
+
+  static const String EVERY_DAY = "Every day";
+  static const String EVERY_WEEK = "Every week";
+  static const String EVERY_MONTH = "Every month";
+  static const String EVERY_YEAR = "Every year";
+
+  static const String MONDAY = "Monday";
+  static const String TUESDAY = "Tuesday";
+  static const String WEDNESDAY = "Wednesday";
+  static const String THURSDAY = "Thursday";
+  static const String FRIDAY = "Friday";
+  static const String SATURDAY = "Saturday";
+  static const String SUNDAY = "Sunday";
+
+  static const String MO = "MO";
+  static const String TU = "TU";
+  static const String WE = "WE";
+  static const String TH = "TH";
+  static const String FR = "FR";
+  static const String SA = "SA";
+  static const String SU = "SU";
+
+  static const String First = "First";
+  static const String Second = "Second";
+  static const String Third = "Third";
+  static const String Fourth = "Fourth";
+  static const String Fifth = "Fifth";
+  static const String Last = "Last";
+
+  static const String WeekendDay = "Weekend day";
+  static const String WeekDay = "WeekDay";
+  static const String Day = "Day";
+
+  
+}

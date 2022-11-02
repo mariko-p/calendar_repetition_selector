@@ -8,26 +8,27 @@ import 'package:rrule/rrule.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import '../app_state.dart';
 import '../backend/schema/structs/interval_struct.dart';
+import '../custom_code/constants/calendar_constants.dart';
 import 'lat_lng.dart';
 import 'place.dart';
 
 List<FrequencyStruct> generateFrequency() {
   return [
-    createFrequencyStruct(value: "DAILY", text: "Every day"),
-    createFrequencyStruct(value: "WEEKLY", text: "Every week"),
-    createFrequencyStruct(value: "MONTHLY", text: "Every month"),
-    createFrequencyStruct(value: "YEARLY", text: "Every year")
+    createFrequencyStruct(value: Constants.DAILY, text: Constants.EVERY_DAY),
+    createFrequencyStruct(value: Constants.WEEKLY, text: Constants.EVERY_WEEK),
+    createFrequencyStruct(value: Constants.MONTHLY, text: Constants.EVERY_MONTH),
+    createFrequencyStruct(value: Constants.YEARLY, text: Constants.EVERY_YEAR)
   ];
 }
 
 List<IntervalStruct> generateInterval(String? frequency) {
-  if ("DAILY" == frequency) {
+  if (Constants.DAILY == frequency) {
     return generateDailyInterval();
-  } else if ("WEEKLY" == frequency) {
+  } else if (Constants.WEEKLY == frequency) {
     return generateWeeklyInterval();
-  } else if ("MONTHLY" == frequency) {
+  } else if (Constants.MONTHLY == frequency) {
     return generateMonthlyInterval();
-  } else if ("YEARLY" == frequency) {
+  } else if (Constants.YEARLY == frequency) {
     return generateYearlyInterval();
   }
   return [];
@@ -71,13 +72,13 @@ List<IntervalStruct> generateYearlyInterval() {
 
 Frequency mapFrequencyToRRuleFrequency(String? frequency) {
   // Code is written in flutter.
-  if (frequency == "DAILY") {
+  if (frequency == Constants.DAILY) {
     return Frequency.daily;
-  } else if (frequency == "WEEKLY") {
+  } else if (frequency == Constants.WEEKLY) {
     return Frequency.weekly;
-  } else if (frequency == "MONTHLY") {
+  } else if (frequency == Constants.MONTHLY) {
     return Frequency.monthly;
-  } else if (frequency == "YEARLY") {
+  } else if (frequency == Constants.YEARLY) {
     return Frequency.yearly;
   }
   // Default is daily.
@@ -108,13 +109,13 @@ Future<String> getActivityRepetitionAsText() async {
 List<WeekDayStruct> getWeekDayList() {
   // Code written in flutter.
   return [
-    createWeekDayStruct(text: "Monday", isChecked: false),
-    createWeekDayStruct(text: "Tuesday", isChecked: false),
-    createWeekDayStruct(text: "Wednesday", isChecked: false),
-    createWeekDayStruct(text: "Thursday", isChecked: false),
-    createWeekDayStruct(text: "Friday", isChecked: false),
-    createWeekDayStruct(text: "Saturday", isChecked: false),
-    createWeekDayStruct(text: "Sunday", isChecked: false),
+    createWeekDayStruct(text: Constants.MONDAY, isChecked: false),
+    createWeekDayStruct(text: Constants.TUESDAY, isChecked: false),
+    createWeekDayStruct(text: Constants.WEDNESDAY, isChecked: false),
+    createWeekDayStruct(text: Constants.THURSDAY, isChecked: false),
+    createWeekDayStruct(text: Constants.FRIDAY, isChecked: false),
+    createWeekDayStruct(text: Constants.SATURDAY, isChecked: false),
+    createWeekDayStruct(text: Constants.SUNDAY, isChecked: false),
   ];
 }
 
@@ -135,30 +136,60 @@ List<MonthDayStruct> getMonthDayList() {
 
 String mapWeekDayToByDay(String? weekDay) {
   // Code written in flutter.
-  if (weekDay == "Monday") {
-    return "MO";
-  } else if (weekDay == "Tuesday") {
-    return "TU";
-  } else if (weekDay == "Wednesday") {
-    return "WE";
-  } else if (weekDay == "Thursday") {
-    return "TH";
-  } else if (weekDay == "Friday") {
-    return "FR";
-  } else if (weekDay == "Saturday") {
-    return "SA";
-  } else if (weekDay == "Sunday") {
-    return "SU";
+  if (weekDay == Constants.MONDAY) {
+    return Constants.MO;
+  } else if (weekDay == Constants.TUESDAY) {
+    return Constants.TU;
+  } else if (weekDay == Constants.WEDNESDAY) {
+    return Constants.WE;
+  } else if (weekDay == Constants.THURSDAY) {
+    return Constants.TH;
+  } else if (weekDay == Constants.FRIDAY) {
+    return Constants.FR;
+  } else if (weekDay == Constants.SATURDAY) {
+    return Constants.SA;
+  } else if (weekDay == Constants.SUNDAY) {
+    return Constants.SU;
   }
   return "";
 }
 
 List<BySetPositionStruct> getBySetPositionList() {
   // Code written in flutter.
-  return [];
+  return [
+    createBySetPositionStruct(text: Constants.First, value: 1),
+    createBySetPositionStruct(text: Constants.Second, value: 2),
+    createBySetPositionStruct(text: Constants.Third, value: 3),
+    createBySetPositionStruct(text: Constants.Fourth, value: 4),
+    createBySetPositionStruct(text: Constants.Fifth, value: 5),
+    createBySetPositionStruct(text: Constants.Last, value: -1),
+  ];
 }
 
 List<ByDayStruct> getByDayList() {
   // Code written in flutter.
-  return [];
+  ByDayStruct? sunday = createByDayStruct(text: Constants.SUNDAY).rebuild((p0) => p0.value = ListBuilder([Constants.SU]));
+  ByDayStruct? monday = createByDayStruct(text: Constants.MONDAY).rebuild((p0) => p0.value = ListBuilder([Constants.MO]));
+  ByDayStruct? tuesday = createByDayStruct(text: Constants.TUESDAY).rebuild((p0) => p0.value = ListBuilder([Constants.TU]));
+  ByDayStruct? wednesday = createByDayStruct(text: Constants.WEDNESDAY).rebuild((p0) => p0.value = ListBuilder([Constants.WE]));
+  ByDayStruct? thursday = createByDayStruct(text: Constants.THURSDAY).rebuild((p0) => p0.value = ListBuilder([Constants.TH]));
+  ByDayStruct? friday = createByDayStruct(text: Constants.FRIDAY).rebuild((p0) => p0.value = ListBuilder([Constants.FR]));
+  ByDayStruct? saturday = createByDayStruct(text: Constants.SATURDAY).rebuild((p0) => p0.value = ListBuilder([Constants.SA]));
+  ByDayStruct? weekendDay = createByDayStruct(text: Constants.WeekendDay).rebuild((p0) => p0.value = ListBuilder([Constants.SA, Constants.SU]));
+  ByDayStruct? weekDay = createByDayStruct(text: Constants.WeekDay).rebuild((p0) => p0.value = ListBuilder([Constants.MO, Constants.TU, Constants.WE, Constants.TH, Constants.FR, Constants.SA, Constants.SU]));
+  ByDayStruct? day = createByDayStruct(text: Constants.Day).rebuild((p0) => p0.value = ListBuilder([Constants.MO, Constants.TU, Constants.WE, Constants.TH, Constants.FR]));
+
+
+  return [
+    sunday,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+    weekendDay,
+    weekDay,
+    day
+  ];
 }
