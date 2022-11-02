@@ -206,25 +206,47 @@ class _MonthDayCheckerCombinedWidgetState
                 children: [
                   if (isMonthDayCheckerViewVisible) MonthDayCheckerWidget(),
                   if (isEveryOfTheMonthViewVisible)
-                    Container(
-                      height: 130,
-                      child: Center(
-                        child: CupertinoPicker(
-                            itemExtent: 40,
-                            children: items
-                                .map((item) => Center(
-                                        child: Text(
-                                      item.text ?? "",
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Rubik',
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                    )))
-                                .toList(),
-                            onSelectedItemChanged: (index) {}),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                        child: Row(mainAxisSize: MainAxisSize.max, children: [
+                          Container(
+                              height: 130,
+                              child: Center(
+                                child: CupertinoPicker(
+                                    itemExtent: 40,
+                                    children: items
+                                        .map((item) => Center(
+                                                child: Text(
+                                              item.text ?? "",
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                            )))
+                                        .toList(),
+                                    onSelectedItemChanged: (index) {}),
+                              )),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                        ]),
                       ),
                     ),
                 ],
