@@ -68,3 +68,13 @@ List<int> generateNumberList(
 ) {
   return List.generate(to - from + 1, (index) => index + 1);
 }
+
+List<BySetPositionStruct> getBySetPositionList() {
+  // Code written in flutter.
+  return [];
+}
+
+List<ByDayStruct> getByDayList() {
+  // Code written in flutter.
+  return [];
+}
