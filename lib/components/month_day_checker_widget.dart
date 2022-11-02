@@ -23,88 +23,118 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Builder(
-              builder: (context) {
-                final weekItem = functions
-                    .getMonthDayList()
-                    .sublist(0, 7);
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions.getMonthDayList().sublist(0, 7);
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
             ),
-            Builder(
-              builder: (context) {
-                final weekItem = functions.getMonthDayList().sublist(7, 14);
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions.getMonthDayList().sublist(7, 14);
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
             ),
-            Builder(
-              builder: (context) {
-                final weekItem = functions.getMonthDayList().sublist(14, 21);
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions.getMonthDayList().sublist(14, 21);
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
             ),
-            Builder(
-              builder: (context) {
-                final weekItem = functions.getMonthDayList().sublist(21, 28);
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions.getMonthDayList().sublist(21, 28);
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
             ),
-            Builder(
-              builder: (context) {
-                final weekItem = functions.getMonthDayList().sublist(28, 35);
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
-            ),],
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions.getMonthDayList().sublist(28, 35);
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Container(
+                      width: double.infinity,
+                      height: 32,
+                      decoration: BoxDecoration(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
