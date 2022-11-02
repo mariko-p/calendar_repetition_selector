@@ -27,122 +27,127 @@ class _MonthDayCheckerCombinedWidgetState
         child: ExpandableNotifier(
           initialExpanded: false,
           child: ExpandablePanel(
-            header: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 36,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).itemBackground,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(5),
-                      topRight: Radius.circular(5),
-                    ),
-                    border: Border.all(
+            header: Container(
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).itemBackground,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 36,
+                    decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).itemBackground,
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
-                        child: Text(
-                          'Every',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Rubik',
-                                    fontWeight: FontWeight.w300,
-                                    lineHeight: 1.5,
-                                  ),
-                        ),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0),
+                        bottomRight: Radius.circular(0),
+                        topLeft: Radius.circular(5),
+                        topRight: Radius.circular(5),
                       ),
-                      if (FFAppState().vTmp)
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(1, 0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0, 10.5, 12, 10.5),
-                              child: Icon(
-                                Icons.check,
-                                color: Color(0xFF9980DD),
-                                size: 15,
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).itemBackground,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                          child: Text(
+                            'Every',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Rubik',
+                                      fontWeight: FontWeight.w300,
+                                      lineHeight: 1.5,
+                                    ),
+                          ),
+                        ),
+                        if (FFAppState().vTmp)
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(1, 0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 10.5, 12, 10.5),
+                                child: Icon(
+                                  Icons.check,
+                                  color: Color(0xFF9980DD),
+                                  size: 15,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 0.5,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).lineColor,
+                      ],
                     ),
                   ),
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 36,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).itemBackground,
-                    border: Border.all(
-                      color: FlutterFlowTheme.of(context).itemBackground,
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
-                        child: Text(
-                          'of the month...',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Rubik',
-                                    fontWeight: FontWeight.w300,
-                                    lineHeight: 1.5,
-                                  ),
-                        ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 0.5,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).lineColor,
                       ),
-                      if (FFAppState().vTmp)
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(1, 0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0, 10.5, 12, 10.5),
-                              child: Icon(
-                                Icons.check,
-                                color: Color(0xFF9980DD),
-                                size: 15,
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).itemBackground,
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).itemBackground,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                          child: Text(
+                            'of the month...',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Rubik',
+                                      fontWeight: FontWeight.w300,
+                                      lineHeight: 1.5,
+                                    ),
+                          ),
+                        ),
+                        if (FFAppState().vTmp)
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(1, 0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 10.5, 12, 10.5),
+                                child: Icon(
+                                  Icons.check,
+                                  color: Color(0xFF9980DD),
+                                  size: 15,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 0.5,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).lineColor,
+                      ],
                     ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 0.5,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).lineColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             collapsed: Container(),
             expanded: Container(
