@@ -22,28 +22,31 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
     return Stack(
       children: [
         if (weekItemItem.isChecked == true)
-          Container(
-            width: 32,
-            height: 32,
-            decoration: BoxDecoration(
-              color: Color(0xFF9980DD),
-              shape: BoxShape.circle,
-            ),
-            child: Align(
-              alignment: AlignmentDirectional(0, 0),
-              child: SelectionArea(
-                  child: Text(
-                valueOrDefault<String>(
-                  weekItemItem.text,
-                  '1',
-                ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Rubik',
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
-                    ),
-              )),
+          InkWell(
+            onTap: () async {},
+            child: Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                color: Color(0xFF9980DD),
+                shape: BoxShape.circle,
+              ),
+              child: Align(
+                alignment: AlignmentDirectional(0, 0),
+                child: SelectionArea(
+                    child: Text(
+                  valueOrDefault<String>(
+                    weekItemItem.text,
+                    '1',
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                      ),
+                )),
+              ),
             ),
           ),
         if (weekItemItem.isChecked == false)

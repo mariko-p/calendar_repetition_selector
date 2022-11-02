@@ -23,24 +23,71 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Builder(
-              builder: (context) {
-                final weekItem = functions
-                    .getMonthDayList()
-                    .where((e) => e.index! >= 0)
-                    .toList();
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions
+                      .getMonthDayList()
+                      .where((e) => e.index! >= 0)
+                      .toList();
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions
+                      .getMonthDayList()
+                      .where((e) => e.index! >= 0)
+                      .toList();
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions
+                      .getMonthDayList()
+                      .where((e) => e.index! >= 0)
+                      .toList();
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
             ),
             Builder(
               builder: (context) {
@@ -61,62 +108,43 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                 );
               },
             ),
-            Builder(
-              builder: (context) {
-                final weekItem = functions
-                    .getMonthDayList()
-                    .where((e) => e.index! >= 0)
-                    .toList();
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Builder(
+                builder: (context) {
+                  final weekItem = functions
+                      .getMonthDayList()
+                      .where((e) => e.index! >= 0)
+                      .toList();
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(weekItem.length, (weekItemIndex) {
+                      final weekItemItem = weekItem[weekItemIndex];
+                      return MonthDayItemWidget(
+                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        monthDay: weekItemItem,
+                      );
+                    }),
+                  );
+                },
+              ),
             ),
-            Builder(
-              builder: (context) {
-                final weekItem = functions
-                    .getMonthDayList()
-                    .where((e) => e.index! >= 0)
-                    .toList();
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
-            ),
-            Builder(
-              builder: (context) {
-                final weekItem = functions
-                    .getMonthDayList()
-                    .where((e) => e.index! >= 0)
-                    .toList();
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(weekItem.length, (weekItemIndex) {
-                    final weekItemItem = weekItem[weekItemIndex];
-                    return MonthDayItemWidget(
-                      key: Key('MonthDayItem_${weekItemIndex}'),
-                      monthDay: weekItemItem,
-                    );
-                  }),
-                );
-              },
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Container(
+                      width: double.infinity,
+                      height: 32,
+                      decoration: BoxDecoration(),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
