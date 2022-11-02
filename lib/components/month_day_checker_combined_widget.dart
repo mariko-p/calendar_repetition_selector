@@ -2,6 +2,7 @@ import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
+import '../components/month_day_by_set_checker_widget.dart';
 import '../components/month_day_checker_widget.dart';
 import '../flutter_flow/custom_functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -25,15 +26,6 @@ class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
   var isMonthDayCheckerViewVisible = false;
   var isOnTheMonthViewVisible = false;
-  var bySetPositionItems = getBySetPositionList();
-  var byDayItems = getByDayList();
-
-  @override
-  void initState() {
-    print("LIST: ${getByDayList()[0].value}");
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -219,60 +211,7 @@ class _MonthDayCheckerCombinedWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   if (isMonthDayCheckerViewVisible) MonthDayCheckerWidget(),
-                  if (isOnTheMonthViewVisible)
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                      child: Row(mainAxisSize: MainAxisSize.max, children: [
-                        Container(
-                            height: 130,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Center(
-                              child: CupertinoPicker(
-                                  itemExtent: 40,
-                                  children: bySetPositionItems
-                                      .map((item) => Center(
-                                              child: Text(
-                                            item.text ?? "",
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
-                                          )))
-                                      .toList(),
-                                  onSelectedItemChanged: (index) {
-                                    SystemSound.play(SystemSoundType.click);
-                                    HapticFeedback.lightImpact();
-                                  }),
-                            )),
-                        Container(
-                            height: 130,
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Center(
-                              child: CupertinoPicker(
-                                  itemExtent: 40,
-                                  children: byDayItems
-                                      .map((item) => Center(
-                                              child: Text(
-                                            item.text ?? "",
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
-                                          )))
-                                      .toList(),
-                                  onSelectedItemChanged: (index) {
-                                    SystemSound.play(SystemSoundType.click);
-                                    HapticFeedback.lightImpact();
-                                  }),
-                            )),
-                      ]),
-                    ),
+                  if (isOnTheMonthViewVisible) MonthDayBySetCheckerWidget(),
                 ],
               ),
             ),
