@@ -201,7 +201,8 @@ class _MonthDayCheckerCombinedWidgetState
                   color: FlutterFlowTheme.of(context).itemBackground,
                 ),
               ),
-              child: Stack(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   if (isMonthDayCheckerViewVisible) MonthDayCheckerWidget(),
                   if (isEveryOfTheMonthViewVisible)
