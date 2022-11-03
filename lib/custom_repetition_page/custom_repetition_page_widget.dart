@@ -180,10 +180,7 @@ class _CustomRepetitionPageWidgetState
                           onItemChanged: (index) async {
                             await intervalItemChanged(index);
                           }),
-                      Align(
-                        alignment: AlignmentDirectional(-1, 0),
-                        child: RepetitionLabelWidget(),
-                      ),
+                      RepetitionLabelWidget(),
                       if (isCustomWeeklyVisible)
                         Padding(
                           padding:
@@ -218,11 +215,14 @@ class _CustomRepetitionPageWidgetState
                             monthDaySelectionChanged: (checkedItems) async {
                               var freq = currentFrequency.value;
                               var interval = currentInterval.value;
-                              var byMonthDays = checkedItems?.map((e) => e.index! + 1).toList();
+                              var byMonthDays = checkedItems
+                                  ?.map((e) => e.index! + 1)
+                                  .toList();
 
-                              updateRRule(freq, interval, byMonthDay: byMonthDays);
+                              updateRRule(freq, interval,
+                                  byMonthDay: byMonthDays);
                               setState(() {
-                                // updateRepetitionLabel();
+                                updateRepetitionLabel();
                               });
                             },
                           ),
