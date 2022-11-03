@@ -6,6 +6,7 @@ import '../custom_code/actions/update_r_rule.dart';
 import '../flutter_flow/custom_functions.dart';
 import '../components/interval_expander_widget.dart';
 import '../components/month_day_checker_combined_widget.dart';
+import '../components/repetition_label_widget.dart';
 import '../components/week_day_checker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -181,20 +182,7 @@ class _CustomRepetitionPageWidgetState
                           }),
                       Align(
                         alignment: AlignmentDirectional(-1, 0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(35, 5, 15, 0),
-                          child: Text(
-                            humanReadableText,
-                            textAlign: TextAlign.start,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Rubik',
-                                      color: Color(0xFF7E8CA2),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                          ),
-                        ),
+                        child: RepetitionLabelWidget(),
                       ),
                       if (isCustomWeeklyVisible)
                         Padding(
