@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RepetitionLabelWidget extends StatefulWidget {
-  const RepetitionLabelWidget({Key? key}) : super(key: key);
+  const RepetitionLabelWidget({
+    Key? key,
+    this.humanReadableText,
+  }) : super(key: key);
+
+  final String? humanReadableText;
 
   @override
   _RepetitionLabelWidgetState createState() => _RepetitionLabelWidgetState();
