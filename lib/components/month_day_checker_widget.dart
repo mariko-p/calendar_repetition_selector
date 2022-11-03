@@ -1,3 +1,5 @@
+import 'package:custom_recurring_selectors/backend/backend.dart';
+
 import '../components/month_day_item_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -6,13 +8,33 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MonthDayCheckerWidget extends StatefulWidget {
-  const MonthDayCheckerWidget({Key? key}) : super(key: key);
+  MonthDayCheckerWidget({Key? key, required this.selectionChanged}) : super(key: key);
+  final Future<dynamic> Function(List<MonthDayStruct>? checkedItems) selectionChanged;
+
+  
 
   @override
   _MonthDayCheckerWidgetState createState() => _MonthDayCheckerWidgetState();
 }
 
 class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
+  final List<MonthDayStruct> checkedItems = List.empty(growable: true);
+  void updateCheckedItems(MonthDayStruct updatedItem) {
+    var foundIndex = checkedItems.indexWhere((element) => element.index == updatedItem.index);
+    if (updatedItem.isChecked == true) {
+      if (foundIndex == -1) {
+        // Add item to list.
+        checkedItems.add(updatedItem);
+      }
+    } else {
+      // Remove item from list.
+      if (foundIndex != -1) {
+        checkedItems.removeAt(foundIndex);
+      }
+    }
+    widget.selectionChanged(checkedItems);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -36,6 +58,9 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       return MonthDayItemWidget(
                         key: Key('MonthDayItem_${weekItemIndex}'),
                         monthDay: weekItemItem,
+                        selectionChanged: (monthDay) async {
+                          updateCheckedItems(monthDay!);
+                        },
                       );
                     }),
                   );
@@ -55,6 +80,9 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       return MonthDayItemWidget(
                         key: Key('MonthDayItem_${weekItemIndex}'),
                         monthDay: weekItemItem,
+                        selectionChanged: (monthDay) async {
+                          updateCheckedItems(monthDay!);
+                        },
                       );
                     }),
                   );
@@ -74,6 +102,9 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       return MonthDayItemWidget(
                         key: Key('MonthDayItem_${weekItemIndex}'),
                         monthDay: weekItemItem,
+                        selectionChanged: (monthDay) async {
+                          updateCheckedItems(monthDay!);
+                        },
                       );
                     }),
                   );
@@ -93,6 +124,9 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       return MonthDayItemWidget(
                         key: Key('MonthDayItem_${weekItemIndex}'),
                         monthDay: weekItemItem,
+                        selectionChanged: (monthDay) async {
+                          updateCheckedItems(monthDay!);
+                        },
                       );
                     }),
                   );
@@ -112,6 +146,9 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       return MonthDayItemWidget(
                         key: Key('MonthDayItem_${weekItemIndex}'),
                         monthDay: weekItemItem,
+                        selectionChanged: (monthDay) async {
+                          updateCheckedItems(monthDay!);
+                        },
                       );
                     }),
                   );

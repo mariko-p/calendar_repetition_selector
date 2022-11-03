@@ -8,9 +8,11 @@ class MonthDayItemWidget extends StatefulWidget {
   MonthDayItemWidget({
     Key? key,
     this.monthDay,
+    required this.selectionChanged,
   }) : super(key: key);
 
   MonthDayStruct? monthDay;
+  final Future<dynamic> Function(MonthDayStruct? monthDay) selectionChanged;
 
   @override
   _MonthDayItemWidgetState createState() => _MonthDayItemWidgetState();
@@ -27,6 +29,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
 
       widget.monthDay = updatedMonthDay;
     });
+    widget.selectionChanged(widget.monthDay);
   }
 
   checkItem(int? index) {
@@ -39,6 +42,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
 
       widget.monthDay = updatedMonthDay;
     });
+    widget.selectionChanged(widget.monthDay);
   }
 
   bool skipItem(int? index) {

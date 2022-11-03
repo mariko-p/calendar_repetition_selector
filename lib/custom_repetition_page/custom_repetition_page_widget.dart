@@ -222,10 +222,23 @@ class _CustomRepetitionPageWidgetState
                           ),
                         ),
                       if (isCustomMonthlyVisible)
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                        child: MonthDayCheckerCombinedWidget(monthController: monthController),
-                      ),
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                          child: MonthDayCheckerCombinedWidget(
+                            monthController: monthController,
+                            monthDaySelectionChanged: (checkedItems) async {
+                              var freq = currentFrequency.value;
+                              var interval = currentInterval.value;
+                              var byMonthDays = checkedItems?.map((e) => e.index! + 1).toList();
+
+                              updateRRule(freq, interval, byMonthDay: byMonthDays);
+                              setState(() {
+                                // updateRepetitionLabel();
+                              });
+                            },
+                          ),
+                        ),
                     ],
                   ),
                 ),

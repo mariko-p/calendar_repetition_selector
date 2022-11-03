@@ -1,4 +1,5 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
+import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
@@ -12,10 +13,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
-  const MonthDayCheckerCombinedWidget({Key? key, this.monthController})
+  const MonthDayCheckerCombinedWidget({Key? key, this.monthController, required this.monthDaySelectionChanged})
       : super(key: key);
 
   final ExpandableController? monthController;
+  final Future<dynamic> Function(List<MonthDayStruct>? checkedItems) monthDaySelectionChanged;
+  //final Future<dynamic> Function(List<MonthDayStruct>? checkedItems) monthDaySelectionChanged;
 
   @override
   _MonthDayCheckerCombinedWidgetState createState() =>
@@ -210,7 +213,10 @@ class _MonthDayCheckerCombinedWidgetState
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (isMonthDayCheckerViewVisible) MonthDayCheckerWidget(),
+                  if (isMonthDayCheckerViewVisible) 
+                  MonthDayCheckerWidget(selectionChanged: (checkedItems) async {
+                    widget.monthDaySelectionChanged(checkedItems);
+                  },),
                   if (isOnTheMonthViewVisible) MonthDayBySetCheckerWidget(),
                 ],
               ),
