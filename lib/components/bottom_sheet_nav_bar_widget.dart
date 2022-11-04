@@ -48,29 +48,47 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                           ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(31, 0, 0, 0),
-                      child: Text(
-                        'Repetition',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Rubik',
-                              color: Color(0xFF9980DD),
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12
+                  Container(
+                    padding: EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
+                    child: InkWell(
+                      onTap: () async {
+                        // BottomSheetDissmis
+                        Navigator.pop(context);
+                      },
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      child: Container(
+                        padding: EdgeInsetsDirectional.fromSTEB(3, 0, 0, 0),
+                        decoration: BoxDecoration(),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-1, 0),
+                              child: Icon(
+                                FFIcons.kangleFullLeft,
+                                color: Colors.black,
+                                size: 12,
+                              ),
                             ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                    child: Align(
-                      alignment: AlignmentDirectional(-1, 0),
-                      child: Icon(
-                        FFIcons.kangleFullLeft,
-                        color: Colors.black,
-                        size: 12,
+                            Align(
+                              alignment: AlignmentDirectional(-1, 0),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
+                                child: Text(
+                                  'Repetition',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Rubik',
+                                        color: Color(0xFF9980DD),
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
