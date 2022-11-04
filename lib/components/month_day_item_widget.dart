@@ -21,35 +21,29 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        if (weekItemItem.isChecked == true)
-          InkWell(
-            onTap: () async {},
-            child: Container(
-              width: 32,
-              height: 32,
-              decoration: BoxDecoration(
-                color: Color(0xFF9980DD),
-                shape: BoxShape.circle,
-              ),
-              child: Align(
-                alignment: AlignmentDirectional(0, 0),
-                child: SelectionArea(
-                    child: Text(
-                  valueOrDefault<String>(
-                    weekItemItem.text,
-                    '1',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Rubik',
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.normal,
-                      ),
-                )),
-              ),
+        if (widget.monthDay?.isChecked == true)
+          Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: Color(0xFF9980DD),
+              shape: BoxShape.circle,
+            ),
+            child: Align(
+              alignment: AlignmentDirectional(0, 0),
+              child: SelectionArea(
+                  child: Text(
+                widget.monthDay!.text!,
+                style: FlutterFlowTheme.of(context).bodyText1.override(
+                      fontFamily: 'Rubik',
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal,
+                    ),
+              )),
             ),
           ),
-        if (weekItemItem.isChecked == false)
+        if (widget.monthDay?.isChecked == false)
           Container(
             width: 32,
             height: 32,
@@ -60,10 +54,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               alignment: AlignmentDirectional(0, 0),
               child: SelectionArea(
                   child: Text(
-                valueOrDefault<String>(
-                  weekItemItem.text,
-                  '1',
-                ),
+                widget.monthDay!.text!,
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Rubik',
                       color: FlutterFlowTheme.of(context).primaryText,

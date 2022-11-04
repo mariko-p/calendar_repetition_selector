@@ -46,7 +46,10 @@ class _CustomRepetitionPageWidgetState
                       IntervalExpanderWidget(),
                       Align(
                         alignment: AlignmentDirectional(-1, 0),
-                        child: RepetitionLabelWidget(),
+                        child: RepetitionLabelWidget(
+                          humanReadableText:
+                              'The activity will repeat every year',
+                        ),
                       ),
                       if (FFAppState().vTmp)
                         Padding(

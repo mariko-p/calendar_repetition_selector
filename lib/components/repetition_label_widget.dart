@@ -26,7 +26,7 @@ class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
         child: Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Text(
-            'The activity will repeat every day',
+            widget.humanReadableText!,
             textAlign: TextAlign.start,
             style: FlutterFlowTheme.of(context).bodyText1.override(
                   fontFamily: 'Rubik',
