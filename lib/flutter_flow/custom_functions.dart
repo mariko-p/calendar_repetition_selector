@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'package:rrule/rrule.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import '../app_state.dart';
-import '../backend/schema/structs/interval_struct.dart';
 import '../custom_code/constants/calendar_constants.dart';
 import 'lat_lng.dart';
 import 'place.dart';
@@ -196,12 +195,12 @@ List<ByDayStruct> getByDayList() {
 List<RepetitionStruct> getPredefinedRepetitionList() {
   // Code written in flutter.
   return [
-    createRepetitionStruct(text: Constants.NEVER, isSelected: true, rrule: ""),
-    createRepetitionStruct(text: Constants.EVERY_DAY, isSelected: false, rrule: "RRULE:FREQ=DAILY"),
-    createRepetitionStruct(text: Constants.EVERY_WEEK, isSelected: false, rrule: "RRULE:FREQ=WEEKLY"),
-    createRepetitionStruct(text: Constants.EVERY_SECOND_WEEK, isSelected: false, rrule: "RRULE:FREQ=WEEKLY;INTERVAL=2"),
-    createRepetitionStruct(text: Constants.EVERY_MONTH, isSelected: false, rrule: "RRULE:FREQ=MONTHLY"),
-    createRepetitionStruct(text: Constants.EVERY_YEAR, isSelected: false, rrule: "RRULE:FREQ=YEARLY"),
+    createRepetitionStruct(text: Constants.NEVER, isSelected: false, rrule: ""),
+    createRepetitionStruct(text: Constants.EVERY_DAY, isSelected: false, rrule: repetitionEveryDay()),
+    createRepetitionStruct(text: Constants.EVERY_WEEK, isSelected: false, rrule: repetitionEveryWeek()),
+    createRepetitionStruct(text: Constants.EVERY_SECOND_WEEK, isSelected: false, rrule: repetitionEverySecondWeek()),
+    createRepetitionStruct(text: Constants.EVERY_MONTH, isSelected: false, rrule: repetitionEveryMonth()),
+    createRepetitionStruct(text: Constants.EVERY_YEAR, isSelected: false, rrule: repetitionEveryYear()),
   ];
 }
 

@@ -1,21 +1,20 @@
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
 import '../custom_code/constants/calendar_constants.dart';
+import '../flutter_flow/custom_functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:collection/collection.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
   const AddRepetitionComponentWidget({
     Key? key,
-    this.rrule,
-    this.isCustomRepetitionSelected,
+    this.rrule
   }) : super(key: key);
 
   final String? rrule;
-  final bool? isCustomRepetitionSelected;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -25,12 +24,42 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
   
-  var selectedIndex = 0;
+  late int selectedIndex;
 
   @override
   void initState() {
-
+    initSelectedItem();
     super.initState();
+  }
+
+  void initSelectedItem() {
+    selectedIndex = -1;
+    if (widget.rrule?.isEmpty == true) {
+      selectedIndex = 0;
+    } else {
+      if (widget.rrule == repetitionEveryDay()) {
+        selectedIndex = 1;
+      }
+      if (widget.rrule == repetitionEveryWeek()) {
+        selectedIndex = 2;
+      }
+      if (widget.rrule == repetitionEverySecondWeek()) {
+        selectedIndex = 3;
+      }
+      if (widget.rrule == repetitionEveryMonth()) {
+        selectedIndex = 4;
+      }
+      if (widget.rrule == repetitionEveryYear()) {
+        selectedIndex = 5;
+      }
+      
+      if (selectedIndex == -1) {
+        // Custom selection.
+        if (widget.rrule?.startsWith("RRULE:") == true) {
+          selectedIndex = 6;
+        }
+      }
+    }
   }
 
   @override
@@ -51,9 +80,12 @@ class _AddRepetitionComponentWidgetState
             builder: (context) {
               final weekDays = functions
                   .getPredefinedRepetitionList()
-                  .toList()
-                  .take(7)
                   .toList();
+              weekDays.forEachIndexed((index, element) {
+                if (index == selectedIndex) {
+                  element.rebuild((p0) => p0.isSelected = true);
+                }
+              });    
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
@@ -90,7 +122,7 @@ class _AddRepetitionComponentWidgetState
                                       ),
                                 ),
                               ),
-                              if (weekDaysItem.isSelected ?? true)
+                              if (weekDaysItem.isSelected == true)
                                 Expanded(
                                   child: Align(
                                     alignment: AlignmentDirectional(1, 0),
@@ -195,7 +227,7 @@ class _AddRepetitionComponentWidgetState
                                       ),
                                     ),
                                   ),
-                                if (widget.isCustomRepetitionSelected == true)
+                                if (selectedIndex == 6)
                                   Align(
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Icon(
