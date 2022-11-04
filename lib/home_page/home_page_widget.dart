@@ -51,41 +51,48 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             children: [
               Align(
                 alignment: AlignmentDirectional(0, 0),
-                child: Container(
-                  width: 150,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      await showModalBottomSheet(
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        context: context,
-                        builder: (context) {
-                          return Padding(
-                            padding: MediaQuery.of(context).viewInsets,
-                            child: CustomRepetitionComponentWidget(),
-                          );
-                        },
-                      ).then((value) => setState(() {}));
-                    },
-                    text: 'Open',
-                    options: FFButtonOptions(
-                      width: 40,
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                      textStyle:
-                          FlutterFlowTheme.of(context).subtitle2.override(
-                                fontFamily: 'Rubik',
-                                color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 40),
+                  child: Container(
+                    width: 150,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        await showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Colors.white,
+                          context: context,
+                          builder: (context) {
+                            return Padding(
+                              padding: MediaQuery.of(context).viewInsets,
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.95,
+                                child: CustomRepetitionComponentWidget(),
                               ),
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
+                            );
+                          },
+                        ).then((value) => setState(() {}));
+                      },
+                      text: 'Open',
+                      options: FFButtonOptions(
+                        width: 40,
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                        textStyle:
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                                  fontFamily: 'Rubik',
+                                  color: Colors.white,
+                                ),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                 ),
