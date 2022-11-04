@@ -96,6 +96,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                             ],
                           ),
                         ),
+                        if (weekDaysIndex < 6)
                         Container(
                           width: double.infinity,
                           height: 0.5,

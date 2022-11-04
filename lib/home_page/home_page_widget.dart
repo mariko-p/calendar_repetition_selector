@@ -64,6 +64,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          )),
                           context: context,
                           builder: (context) {
                             return Padding(
