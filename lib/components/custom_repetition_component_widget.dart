@@ -39,7 +39,7 @@ class _CustomRepetitionComponentWidgetState
                 Align(
                   alignment: AlignmentDirectional(-1, 0),
                   child: RepetitionLabelWidget(
-                    humanReadableText: 'The activity will repeat every year',
+                    humanReadableText: 'The activity will repeat daily',
                   ),
                 ),
                 if (FFAppState().vTmp)
