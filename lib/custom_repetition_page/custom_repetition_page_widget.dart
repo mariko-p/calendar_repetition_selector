@@ -93,6 +93,7 @@ class _CustomRepetitionPageWidgetState
 
   Future updateRepetitionLabel() async {
     var translation = await getActivityRepetitionAsText();
+
     //var translation = FFAppState().vCurrentRRule;
     setState(() {
       humanReadableText = translation;
@@ -121,7 +122,7 @@ class _CustomRepetitionPageWidgetState
       currentInterval = currentIntervals[index];
 
       var freq = currentFrequency.value;
-      var interval = currentInterval[currentIntervalIndex].value;
+      var interval = currentIntervals[currentIntervalIndex].value;
       updateRRule(freq, interval);
     });
     await updateRepetitionLabel();
@@ -180,7 +181,7 @@ class _CustomRepetitionPageWidgetState
                           onItemChanged: (index) async {
                             await intervalItemChanged(index);
                           }),
-                      RepetitionLabelWidget(),
+                      RepetitionLabelWidget(humanReadableText: humanReadableText),
                       if (isCustomWeeklyVisible)
                         Padding(
                           padding:
@@ -213,6 +214,7 @@ class _CustomRepetitionPageWidgetState
                           child: MonthDayCheckerCombinedWidget(
                             monthController: monthController,
                             monthDaySelectionChanged: (checkedItems) async {
+
                               var freq = currentFrequency.value;
                               var interval = currentInterval.value;
                               var byMonthDays = checkedItems
@@ -221,9 +223,8 @@ class _CustomRepetitionPageWidgetState
 
                               updateRRule(freq, interval,
                                   byMonthDay: byMonthDays);
-                              setState(() {
-                                updateRepetitionLabel();
-                              });
+                              updateRepetitionLabel();
+                              
                             },
                           ),
                         ),

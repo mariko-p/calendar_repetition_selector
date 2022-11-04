@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RepetitionLabelWidget extends StatefulWidget {
-  const RepetitionLabelWidget({
+  RepetitionLabelWidget({
     Key? key,
     this.humanReadableText,
   }) : super(key: key);
 
-  final String? humanReadableText;
+  String? humanReadableText;
 
   @override
   _RepetitionLabelWidgetState createState() => _RepetitionLabelWidgetState();
 }
 
-class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
+  class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,7 +26,7 @@ class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
         child: Align(
           alignment: AlignmentDirectional(-1, 0),
           child: Text(
-            "humanReadableText",
+            widget.humanReadableText!,
             textAlign: TextAlign.start,
             style: FlutterFlowTheme.of(context).bodyText1.override(
                   fontFamily: 'Rubik',

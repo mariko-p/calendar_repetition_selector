@@ -27,6 +27,7 @@ class MonthDayCheckerCombinedWidget extends StatefulWidget {
 
 class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
+      
   var isMonthDayCheckerViewVisible = false;
   var isOnTheMonthViewVisible = false;
 
