@@ -204,3 +204,23 @@ List<RepetitionStruct> getPredefinedRepetitionList() {
     createRepetitionStruct(text: Constants.EVERY_YEAR, isSelected: false, rrule: "RRULE:FREQ=YEARLY"),
   ];
 }
+
+String repetitionEveryDay() {
+  return 'RRULE:FREQ=DAILY';
+}
+
+String repetitionEveryWeek() {
+  return 'RRULE:FREQ=WEEKLY';
+}
+
+String repetitionEverySecondWeek() {
+  return 'RRULE:FREQ=WEEKLY;INTERVAL=2';
+}
+
+String repetitionEveryMonth() {
+  return 'RRULE:FREQ=MONTHLY';
+}
+
+String repetitionEveryYear() {
+  return 'RRULE:FREQ=YEARLY';
+}
