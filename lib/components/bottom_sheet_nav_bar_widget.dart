@@ -48,26 +48,43 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                           ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                      child: Text(
-                        'Repetition',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Rubik',
-                              color: Color(0xFF9980DD),
-                              fontWeight: FontWeight.normal,
+                  InkWell(
+                    onTap: () async {
+                      // BottomSheetDissmis
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-1, 0),
+                            child: Icon(
+                              FFIcons.kangleSpacedLeft,
+                              color: Colors.black,
+                              size: 24,
                             ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1, 0),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
+                              child: Text(
+                                'Repetition',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Rubik',
+                                      color: Color(0xFF9980DD),
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Icon(
-                      FFIcons.kangleSpacedLeft,
-                      color: Colors.black,
-                      size: 24,
                     ),
                   ),
                 ],
