@@ -51,7 +51,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(31, 0, 0, 0),
                       child: Text(
                         'Repetition',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -63,12 +63,15 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Icon(
-                      FFIcons.kangleSpacedLeft,
-                      color: Colors.black,
-                      size: 24,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                    child: Align(
+                      alignment: AlignmentDirectional(-1, 0),
+                      child: Icon(
+                        FFIcons.kangleFullLeft,
+                        color: Colors.black,
+                        size: 12,
+                      ),
                     ),
                   ),
                 ],
