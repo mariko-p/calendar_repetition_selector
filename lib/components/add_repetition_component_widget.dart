@@ -1,3 +1,6 @@
+import 'package:custom_recurring_selectors/backend/backend.dart';
+import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
+
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
 import '../custom_code/constants/calendar_constants.dart';
@@ -9,10 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
-  const AddRepetitionComponentWidget({
-    Key? key,
-    this.rrule
-  }) : super(key: key);
+  const AddRepetitionComponentWidget({Key? key, this.rrule}) : super(key: key);
 
   final String? rrule;
 
@@ -23,11 +23,12 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 
 class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
-  
   late int selectedIndex;
+  late List<RepetitionStruct> repetitions;
 
   @override
   void initState() {
+    repetitions = functions.getPredefinedRepetitionList().toList();
     initSelectedItem();
     super.initState();
   }
@@ -52,13 +53,21 @@ class _AddRepetitionComponentWidgetState
       if (widget.rrule == repetitionEveryYear()) {
         selectedIndex = 5;
       }
-      
+
       if (selectedIndex == -1) {
         // Custom selection.
         if (widget.rrule?.startsWith("RRULE:") == true) {
           selectedIndex = 6;
         }
       }
+    }
+  }
+
+  void applyRRule(index) {
+    if (index == 6) {
+      FFAppState().vCurrentRRule = "RRULE:";
+    } else if (index >= 0 && index <= 5) {
+      FFAppState().vCurrentRRule = repetitions[index].rrule!;
     }
   }
 
@@ -78,27 +87,31 @@ class _AddRepetitionComponentWidgetState
           padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 15),
           child: Builder(
             builder: (context) {
-              final weekDays = functions
-                  .getPredefinedRepetitionList()
-                  .toList();
-              weekDays.forEachIndexed((index, element) {
+              repetitions.forEachIndexed((index, element) {
                 if (index == selectedIndex) {
-                  element.rebuild((p0) => p0.isSelected = true);
+                  repetitions[index] =
+                    element.rebuild((p0) => p0.isSelected = true);
+                } else {
+                  repetitions[index] = 
+                    element.rebuild((p0) => p0.isSelected = false);
                 }
-              });    
+              });
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                itemCount: weekDays.length,
+                itemCount: repetitions.length,
                 itemBuilder: (context, weekDaysIndex) {
-                  final weekDaysItem = weekDays[weekDaysIndex];
+                  final weekDaysItem = repetitions[weekDaysIndex];
                   return Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       InkWell(
                         onTap: () async {
-                          setState(() => FFAppState().vTmp = false);
+                          setState(() {
+                            selectedIndex = weekDaysIndex;
+                            applyRRule(selectedIndex);
+                          });
                         },
                         child: Container(
                           color: FlutterFlowTheme.of(context).itemBackground,
@@ -163,6 +176,7 @@ class _AddRepetitionComponentWidgetState
           padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
           child: InkWell(
             onTap: () async {
+              selectedIndex = 6;
               //Navigator.pop(context);
               await showModalBottomSheet(
                 isScrollControlled: true,
@@ -214,16 +228,16 @@ class _AddRepetitionComponentWidgetState
                             height: 30,
                             child: Stack(
                               children: [
-                                if (widget.isCustomRepetitionSelected == false)
+                                if (selectedIndex != 6)
                                   Align(
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 1.5, 0),
+                                          0, 0, 5, 0),
                                       child: Icon(
                                         FFIcons.kangleFullRight,
                                         color: Color(0xFF7E8CA2),
-                                        size: 12,
+                                        size: 8,
                                       ),
                                     ),
                                   ),

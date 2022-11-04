@@ -11,11 +11,9 @@ import '../components/week_day_checker_widget.dart';
 import '../custom_code/actions/update_r_rule.dart';
 import '../custom_code/constants/calendar_constants.dart';
 import '../flutter_flow/custom_functions.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
   const CustomRepetitionComponentWidget({Key? key}) : super(key: key);
@@ -68,13 +66,14 @@ class _CustomRepetitionComponentWidgetState
     }
   }
 
-  void onMonthExpandedChanged() {
-    if (monthController.expanded) {
-      // Collapse other expanders.
-      freqController.expanded = false;
-      intController.expanded = false;
-    }
-  }
+  // This is bad UX, automatically closes on monthly selection.
+  // void onMonthExpandedChanged() {
+  //   if (monthController.expanded) {
+  //     // Collapse other expanders.
+  //     freqController.expanded = false;
+  //     intController.expanded = false;
+  //   }
+  // }
 
   @override
   void initState() {
@@ -94,7 +93,6 @@ class _CustomRepetitionComponentWidgetState
 
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
-    monthController.addListener(onMonthExpandedChanged);
 
     super.initState();
   }
@@ -103,7 +101,6 @@ class _CustomRepetitionComponentWidgetState
   void dispose() {
     freqController.removeListener(onFreqExpandedChanged);
     intController.removeListener(onIntExpandedChanged);
-    monthController.removeListener(onMonthExpandedChanged);
 
     super.dispose();
   }
@@ -153,6 +150,7 @@ class _CustomRepetitionComponentWidgetState
     } else if (freq == Constants.MONTHLY) {
       updateMonthlyRRule();
     } else if (freq == Constants.YEARLY) {
+      //TODO:
       isCustomYearylVisible = true;
     }
   }
