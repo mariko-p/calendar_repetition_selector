@@ -96,7 +96,7 @@ class _AddRepetitionComponentWidgetState
                       ),
                       if (weekDaysIndex != 5)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(21, 0, 0, 0),
                           child: Container(
                             width: double.infinity,
                             height: 0.5,

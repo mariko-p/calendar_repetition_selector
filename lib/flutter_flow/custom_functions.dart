@@ -76,3 +76,23 @@ List<RepetitionStruct> getPredefinedRepetitionList() {
   // Code written in flutter.
   return [];
 }
+
+String repetitionEveryDay() {
+  return 'RRULE:FREQ=DAILY';
+}
+
+String repetitionEveryWeek() {
+  return 'RRULE:FREQ=WEEKLY';
+}
+
+String repetitionEverySecondWeek() {
+  return 'RRULE:FREQ=WEEKLY;INTERVAL=2';
+}
+
+String repetitionEveryMonth() {
+  return 'RRULE:FREQ=MONTHLY';
+}
+
+String repetitionEveryYear() {
+  return 'RRULE:FREQ=YEARLY';
+}
