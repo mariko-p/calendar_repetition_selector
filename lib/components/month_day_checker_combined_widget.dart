@@ -13,12 +13,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
-  const MonthDayCheckerCombinedWidget({Key? key, this.monthController, required this.monthDaySelectionChanged})
+  const MonthDayCheckerCombinedWidget(
+      {Key? key,
+      this.monthController,
+      required this.monthDaySelectionChanged,
+      required this.bySetPosChanged,
+      required this.byDayChanged})
       : super(key: key);
 
   final ExpandableController? monthController;
-  final Future<dynamic> Function(List<MonthDayStruct>? checkedItems) monthDaySelectionChanged;
-  //final Future<dynamic> Function(List<MonthDayStruct>? checkedItems) monthDaySelectionChanged;
+  final Future<dynamic> Function(List<MonthDayStruct>? checkedItems)
+      monthDaySelectionChanged;
+  final Future<dynamic> Function(BySetPositionStruct? bySetPos) bySetPosChanged;
+  final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
 
   @override
   _MonthDayCheckerCombinedWidgetState createState() =>
@@ -27,7 +34,6 @@ class MonthDayCheckerCombinedWidget extends StatefulWidget {
 
 class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
-      
   var isMonthDayCheckerViewVisible = false;
   var isOnTheMonthViewVisible = false;
 
@@ -42,9 +48,9 @@ class _MonthDayCheckerCombinedWidgetState
           child: ExpandablePanel(
             header: Container(
               decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                      ),
+                color: FlutterFlowTheme.of(context).itemBackground,
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -82,12 +88,13 @@ class _MonthDayCheckerCombinedWidgetState
                                 EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
                             child: Text(
                               'Every',
-                              style:
-                                  FlutterFlowTheme.of(context).bodyText1.override(
-                                        fontFamily: 'Rubik',
-                                        fontWeight: FontWeight.w300,
-                                        lineHeight: 1.5,
-                                      ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Rubik',
+                                    fontWeight: FontWeight.w300,
+                                    lineHeight: 1.5,
+                                  ),
                             ),
                           ),
                           if (isMonthDayCheckerViewVisible)
@@ -156,12 +163,13 @@ class _MonthDayCheckerCombinedWidgetState
                                 EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
                             child: Text(
                               'of the month...',
-                              style:
-                                  FlutterFlowTheme.of(context).bodyText1.override(
-                                        fontFamily: 'Rubik',
-                                        fontWeight: FontWeight.w300,
-                                        lineHeight: 1.5,
-                                      ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Rubik',
+                                    fontWeight: FontWeight.w300,
+                                    lineHeight: 1.5,
+                                  ),
                             ),
                           ),
                           if (isOnTheMonthViewVisible)
@@ -184,15 +192,15 @@ class _MonthDayCheckerCombinedWidgetState
                     ),
                   ),
                   if (widget.monthController!.expanded)
-                  Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 0.5,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).lineColor,
-                        ),
-                      ))
+                    Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 0.5,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).lineColor,
+                          ),
+                        ))
                 ],
               ),
             ),
@@ -214,11 +222,18 @@ class _MonthDayCheckerCombinedWidgetState
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (isMonthDayCheckerViewVisible) 
-                  MonthDayCheckerWidget(selectionChanged: (checkedItems) async {
-                    widget.monthDaySelectionChanged(checkedItems);
-                  },),
-                  if (isOnTheMonthViewVisible) MonthDayBySetCheckerWidget(),
+                  if (isMonthDayCheckerViewVisible)
+                    MonthDayCheckerWidget(
+                      selectionChanged: (checkedItems) =>
+                          widget.monthDaySelectionChanged(checkedItems),
+                    ),
+                  if (isOnTheMonthViewVisible)
+                    MonthDayBySetCheckerWidget(
+                      bySetPosChanged: (bySetPos) =>
+                          widget.bySetPosChanged(bySetPos),
+                      byDayChanged: (byDay) => 
+                          widget.byDayChanged(byDay),
+                    )
                 ],
               ),
             ),

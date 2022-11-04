@@ -1,5 +1,7 @@
+import 'package:custom_recurring_selectors/backend/schema/index.dart';
 import 'package:expandable/expandable.dart';
 
+import '../backend/schema/structs/month_day_struct.dart';
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_expander_widget.dart';
 import '../custom_code/actions/update_r_rule.dart';
@@ -31,6 +33,9 @@ class _CustomRepetitionPageWidgetState
 
   var currentIntervalIndex = 0;
   var weekDays = getWeekDayList();
+
+  var bySetPos = getBySetPositionList()[0];
+  var byDay = getByDayList()[0];
 
   var freqController = ExpandableController();
   var intController = ExpandableController();
@@ -148,6 +153,38 @@ class _CustomRepetitionPageWidgetState
     isCustomYearylVisible = false;
   }
 
+  Future monthDaySelectionChanged(List<MonthDayStruct>? checkedItems) async {
+    var freq = currentFrequency.value;
+    var interval = currentInterval.value;
+    var byMonthDays = checkedItems?.map((e) => e.index! + 1).toList();
+
+    updateRRule(freq, interval, byMonthDay: byMonthDays);
+    await updateRepetitionLabel();
+  }
+
+  Future monthDayBySetPosChanged(BySetPositionStruct? bySetPos) async {
+    var freq = currentFrequency.value;
+    var interval = currentInterval.value;
+    this.bySetPos = bySetPos!;
+    int position = bySetPos.value!;
+    List<String>? byDays = this.byDay.value?.toList();
+
+    updateRRule(freq, interval, bySetPos: [position], byDay: byDays);
+    await updateRepetitionLabel();
+  }
+
+  Future monthDayByDayChanged(ByDayStruct? byDay) async {
+    var freq = currentFrequency.value;
+    var interval = currentInterval.value;
+    this.byDay = byDay!;
+    int position = this.bySetPos.value!;
+    List<String>? byDays = this.byDay.value?.toList();
+
+    updateRRule(freq, interval, bySetPos: [position], byDay: byDays);
+    await updateRepetitionLabel();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -181,7 +218,8 @@ class _CustomRepetitionPageWidgetState
                           onItemChanged: (index) async {
                             await intervalItemChanged(index);
                           }),
-                      RepetitionLabelWidget(humanReadableText: humanReadableText),
+                      RepetitionLabelWidget(
+                          humanReadableText: humanReadableText),
                       if (isCustomWeeklyVisible)
                         Padding(
                           padding:
@@ -213,19 +251,12 @@ class _CustomRepetitionPageWidgetState
                               EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                           child: MonthDayCheckerCombinedWidget(
                             monthController: monthController,
-                            monthDaySelectionChanged: (checkedItems) async {
-
-                              var freq = currentFrequency.value;
-                              var interval = currentInterval.value;
-                              var byMonthDays = checkedItems
-                                  ?.map((e) => e.index! + 1)
-                                  .toList();
-
-                              updateRRule(freq, interval,
-                                  byMonthDay: byMonthDays);
-                              updateRepetitionLabel();
-                              
-                            },
+                            monthDaySelectionChanged: (checkedItems) =>
+                              monthDaySelectionChanged(checkedItems),
+                            bySetPosChanged: (bySetPos) => 
+                              monthDayBySetPosChanged(bySetPos),
+                            byDayChanged: (byDay) => 
+                              monthDayByDayChanged(byDay),
                           ),
                         ),
                     ],

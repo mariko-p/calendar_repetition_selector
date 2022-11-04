@@ -176,9 +176,8 @@ List<ByDayStruct> getByDayList() {
   ByDayStruct? friday = createByDayStruct(text: Constants.FRIDAY).rebuild((p0) => p0.value = ListBuilder([Constants.FR]));
   ByDayStruct? saturday = createByDayStruct(text: Constants.SATURDAY).rebuild((p0) => p0.value = ListBuilder([Constants.SA]));
   ByDayStruct? weekendDay = createByDayStruct(text: Constants.WeekendDay).rebuild((p0) => p0.value = ListBuilder([Constants.SA, Constants.SU]));
-  ByDayStruct? weekDay = createByDayStruct(text: Constants.WeekDay).rebuild((p0) => p0.value = ListBuilder([Constants.MO, Constants.TU, Constants.WE, Constants.TH, Constants.FR, Constants.SA, Constants.SU]));
-  ByDayStruct? day = createByDayStruct(text: Constants.Day).rebuild((p0) => p0.value = ListBuilder([Constants.MO, Constants.TU, Constants.WE, Constants.TH, Constants.FR]));
-
+  ByDayStruct? weekDay = createByDayStruct(text: Constants.WeekDay).rebuild((p0) => p0.value = ListBuilder([Constants.MO, Constants.TU, Constants.WE, Constants.TH, Constants.FR]));
+  ByDayStruct? day = createByDayStruct(text: Constants.Day).rebuild((p0) => p0.value = ListBuilder([Constants.MO, Constants.TU, Constants.WE, Constants.TH, Constants.FR, Constants.SA, Constants.SU]));
 
   return [
     sunday,

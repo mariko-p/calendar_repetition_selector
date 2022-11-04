@@ -1,3 +1,4 @@
+import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
@@ -8,7 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MonthDayBySetCheckerWidget extends StatefulWidget {
-  const MonthDayBySetCheckerWidget({Key? key}) : super(key: key);
+  const MonthDayBySetCheckerWidget(
+      {Key? key, required this.bySetPosChanged, required this.byDayChanged})
+      : super(key: key);
+
+  final Future<dynamic> Function(BySetPositionStruct? bySetPos) bySetPosChanged;
+  final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
 
   @override
   _MonthDayBySetCheckerWidgetState createState() =>
@@ -17,10 +23,17 @@ class MonthDayBySetCheckerWidget extends StatefulWidget {
 
 class _MonthDayBySetCheckerWidgetState
     extends State<MonthDayBySetCheckerWidget> {
-    
-  var bySetPositionItems = getBySetPositionList();  
-  var byDayItems = getByDayList();
-  
+  late List<BySetPositionStruct> bySetPositionItems;
+  late List<ByDayStruct> byDayItems;
+
+  @override
+  void initState() {
+    bySetPositionItems = getBySetPositionList();
+    byDayItems = getByDayList();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,6 +60,8 @@ class _MonthDayBySetCheckerWidgetState
                   onSelectedItemChanged: (index) {
                     SystemSound.play(SystemSoundType.click);
                     HapticFeedback.lightImpact();
+
+                    widget.bySetPosChanged(bySetPositionItems[index]);
                   }),
             )),
         Container(
@@ -70,6 +85,8 @@ class _MonthDayBySetCheckerWidgetState
                   onSelectedItemChanged: (index) {
                     SystemSound.play(SystemSoundType.click);
                     HapticFeedback.lightImpact();
+
+                    widget.byDayChanged(byDayItems[index]);
                   }),
             )),
       ]),
