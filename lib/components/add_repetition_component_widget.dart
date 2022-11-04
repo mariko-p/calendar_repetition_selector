@@ -1,4 +1,5 @@
 import '../components/bottom_sheet_nav_bar_widget.dart';
+import '../components/custom_repetition_component_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
@@ -137,26 +138,55 @@ class _AddRepetitionComponentWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
-                      child: Stack(
-                        children: [
-                          if (!widget.isCustomRepetitionSelected!)
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 1.5, 0),
-                              child: Icon(
-                                FFIcons.kangleFullRight,
-                                color: Color(0xFF7E8CA2),
-                                size: 12,
-                              ),
-                            ),
-                          if (widget.isCustomRepetitionSelected ?? true)
-                            Icon(
-                              FFIcons.kcheckbox,
-                              color: Color(0xFF9980DD),
-                              size: 15,
-                            ),
-                        ],
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                      child: InkWell(
+                        onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.of(context).viewInsets,
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.09,
+                                  child: CustomRepetitionComponentWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+                        },
+                        child: Container(
+                          width: 30,
+                          height: 30,
+                          child: Stack(
+                            children: [
+                              if (!widget.isCustomRepetitionSelected!)
+                                Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 1.5, 0),
+                                    child: Icon(
+                                      FFIcons.kangleFullRight,
+                                      color: Color(0xFF7E8CA2),
+                                      size: 12,
+                                    ),
+                                  ),
+                                ),
+                              if (widget.isCustomRepetitionSelected ?? true)
+                                Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Icon(
+                                    FFIcons.kcheckbox,
+                                    color: Color(0xFF9980DD),
+                                    size: 15,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],

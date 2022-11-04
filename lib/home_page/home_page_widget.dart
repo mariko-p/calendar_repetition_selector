@@ -1,3 +1,4 @@
+import '../components/add_repetition_component_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -76,7 +77,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               child: Container(
                                 height:
                                     MediaQuery.of(context).size.height * 0.95,
-                                child: CustomRepetitionComponentWidget(),
+                                child: AddRepetitionComponentWidget(),
                               ),
                             );
                           },
