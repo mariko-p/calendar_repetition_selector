@@ -248,7 +248,7 @@ class _CustomRepetitionComponentWidgetState
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomSheetNavBarWidget(),
+                BottomSheetNavBarWidget(backText: "Repetition", title: "Custom repetition"),
                 FrequencyExpanderWidget(
                     freqController: freqController,
                     currentFrequency: currentFrequency,

@@ -192,3 +192,8 @@ List<ByDayStruct> getByDayList() {
     day
   ];
 }
+
+List<RepetitionStruct> getPredefinedRepetitionList() {
+  // Code written in flutter.
+  return [];
+}

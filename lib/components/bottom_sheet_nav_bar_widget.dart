@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BottomSheetNavBarWidget extends StatefulWidget {
-  const BottomSheetNavBarWidget({Key? key}) : super(key: key);
+  const BottomSheetNavBarWidget({
+    Key? key,
+    this.backText,
+    this.title,
+  }) : super(key: key);
+
+  final String? backText;
+  final String? title;
 
   @override
   _BottomSheetNavBarWidgetState createState() =>
@@ -39,7 +46,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                   Align(
                     alignment: AlignmentDirectional(0, 0),
                     child: Text(
-                      'Custom repetition',
+                      valueOrDefault(widget.title, ""),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Rubik',
@@ -49,7 +56,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(6, 0, 12, 0),
                     child: InkWell(
                       onTap: () async {
                         // BottomSheetDissmis
@@ -76,7 +83,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
                                 child: Text(
-                                  'Repetition',
+                                  valueOrDefault(widget.backText, ""),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
