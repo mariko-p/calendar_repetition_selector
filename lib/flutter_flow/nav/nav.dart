@@ -29,12 +29,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => CustomRepetitionPageWidget(),
+      errorBuilder: (context, _) => HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => CustomRepetitionPageWidget(),
+          builder: (context, _) => HomePageWidget(),
           routes: [
             FFRoute(
               name: 'HomePage',
