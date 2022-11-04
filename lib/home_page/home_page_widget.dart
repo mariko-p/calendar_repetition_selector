@@ -66,7 +66,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           isScrollControlled: true,
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
                             topRight: Radius.circular(10),
                           )),
@@ -77,7 +77,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               child: Container(
                                 height:
                                     MediaQuery.of(context).size.height * 0.95,
-                                child: AddRepetitionComponentWidget(),
+                                child: AddRepetitionComponentWidget(
+                                    isCustomRepetitionSelected: false),
                               ),
                             );
                           },

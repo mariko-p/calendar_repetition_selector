@@ -37,5 +37,9 @@ class Constants {
   static const String WeekDay = "WeekDay";
   static const String Day = "Day";
 
+  static const String NEVER = "Never";
+  static const String EVERY_SECOND_WEEK = "Every second week";
+  static const String CUSTOM = "Custom";
+
   
 }

@@ -53,7 +53,6 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                               bool isChecked = weekDaysItem.isChecked ?? true;
                               var newWeekDayItem = createWeekDayStruct(text: text, isChecked: !isChecked);
                               widget.weekDays?[weekDaysIndex] = newWeekDayItem;
-
                               widget.selectionChanged(widget.weekDays);
                             });
                           },

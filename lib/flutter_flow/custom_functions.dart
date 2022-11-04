@@ -195,5 +195,12 @@ List<ByDayStruct> getByDayList() {
 
 List<RepetitionStruct> getPredefinedRepetitionList() {
   // Code written in flutter.
-  return [];
+  return [
+    createRepetitionStruct(text: Constants.NEVER, isSelected: true, rrule: ""),
+    createRepetitionStruct(text: Constants.EVERY_DAY, isSelected: false, rrule: "RRULE:FREQ=DAILY"),
+    createRepetitionStruct(text: Constants.EVERY_WEEK, isSelected: false, rrule: "RRULE:FREQ=WEEKLY"),
+    createRepetitionStruct(text: Constants.EVERY_SECOND_WEEK, isSelected: false, rrule: "RRULE:FREQ=WEEKLY;INTERVAL=2"),
+    createRepetitionStruct(text: Constants.EVERY_MONTH, isSelected: false, rrule: "RRULE:FREQ=MONTHLY"),
+    createRepetitionStruct(text: Constants.EVERY_YEAR, isSelected: false, rrule: "RRULE:FREQ=YEARLY"),
+  ];
 }
