@@ -66,7 +66,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                   Align(
                     alignment: AlignmentDirectional(-1, 0),
                     child: Icon(
-                      Icons.keyboard_arrow_left,
+                      FFIcons.kangleSpacedLeft,
                       color: Colors.black,
                       size: 24,
                     ),

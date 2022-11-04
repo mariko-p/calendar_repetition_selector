@@ -86,7 +86,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 10.5, 12, 10.5),
                                       child: Icon(
-                                        Icons.check,
+                                        FFIcons.kcheckbox,
                                         color: Color(0xFF9980DD),
                                         size: 15,
                                       ),
