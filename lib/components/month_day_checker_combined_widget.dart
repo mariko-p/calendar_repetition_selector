@@ -86,6 +86,9 @@ class _MonthDayCheckerCombinedWidgetState
                         if (MonthlyViewType.MONTH_DAY_CHECKER != monthlyType) {
                           setMonthlyViewType(MonthlyViewType.MONTH_DAY_CHECKER);
                         }
+                        if (widget.monthController?.expanded == false) {
+                          widget.monthController?.expanded = true;
+                        }
                       });
                     },
                     child: Container(
@@ -155,6 +158,9 @@ class _MonthDayCheckerCombinedWidgetState
                             monthlyType) {
                           setMonthlyViewType(
                               MonthlyViewType.OF_THE_MONTH_CHECKER);
+                        }
+                        if (widget.monthController?.expanded == false) {
+                          widget.monthController?.expanded = true;
                         }
                       });
                     },
