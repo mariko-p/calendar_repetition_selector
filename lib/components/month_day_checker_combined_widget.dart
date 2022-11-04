@@ -15,27 +15,53 @@ import 'package:google_fonts/google_fonts.dart';
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
   const MonthDayCheckerCombinedWidget(
       {Key? key,
+      required this.monthlyType,
+      required this.monthDays,
+      required this.bySetPos,
+      required this.byDay,
       this.monthController,
       required this.monthDaySelectionChanged,
       required this.bySetPosChanged,
-      required this.byDayChanged})
+      required this.byDayChanged,
+      required this.monthlyTypeChanged})
       : super(key: key);
 
+  final MonthlyViewType monthlyType;
+  final List<MonthDayStruct> monthDays;
   final ExpandableController? monthController;
+  final BySetPositionStruct bySetPos;
+  final ByDayStruct byDay;
+
   final Future<dynamic> Function(List<MonthDayStruct>? checkedItems)
       monthDaySelectionChanged;
   final Future<dynamic> Function(BySetPositionStruct? bySetPos) bySetPosChanged;
   final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
+  final Future<dynamic> Function(MonthlyViewType type) monthlyTypeChanged;
 
   @override
   _MonthDayCheckerCombinedWidgetState createState() =>
       _MonthDayCheckerCombinedWidgetState();
 }
 
+enum MonthlyViewType { MONTH_DAY_CHECKER, OF_THE_MONTH_CHECKER }
+
 class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
-  var isMonthDayCheckerViewVisible = false;
-  var isOnTheMonthViewVisible = false;
+  late MonthlyViewType monthlyType;
+
+  @override
+  void initState() {
+    monthlyType = widget.monthlyType;
+
+    // By design expander is always expanded.
+    widget.monthController?.expanded = true;
+    super.initState();
+  }
+
+  setMonthlyViewType(MonthlyViewType type) {
+    monthlyType = type;
+    widget.monthlyTypeChanged(type);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,16 +83,10 @@ class _MonthDayCheckerCombinedWidgetState
                   InkWell(
                     onTap: () {
                       setState(() {
-                        isMonthDayCheckerViewVisible =
-                            !isMonthDayCheckerViewVisible;
-                        isOnTheMonthViewVisible = false;
+                        if (MonthlyViewType.MONTH_DAY_CHECKER != monthlyType) {
+                          setMonthlyViewType(MonthlyViewType.MONTH_DAY_CHECKER);
+                        }
                       });
-                      if (isMonthDayCheckerViewVisible ||
-                          isOnTheMonthViewVisible) {
-                        widget.monthController?.expanded = true;
-                      } else {
-                        widget.monthController?.expanded = false;
-                      }
                     },
                     child: Container(
                       width: double.infinity,
@@ -97,7 +117,7 @@ class _MonthDayCheckerCombinedWidgetState
                                   ),
                             ),
                           ),
-                          if (isMonthDayCheckerViewVisible)
+                          if (MonthlyViewType.MONTH_DAY_CHECKER == monthlyType)
                             Expanded(
                               child: Align(
                                 alignment: AlignmentDirectional(1, 0),
@@ -131,15 +151,12 @@ class _MonthDayCheckerCombinedWidgetState
                     highlightColor: Colors.transparent,
                     onTap: () {
                       setState(() {
-                        isMonthDayCheckerViewVisible = false;
-                        isOnTheMonthViewVisible = !isOnTheMonthViewVisible;
+                        if (MonthlyViewType.OF_THE_MONTH_CHECKER !=
+                            monthlyType) {
+                          setMonthlyViewType(
+                              MonthlyViewType.OF_THE_MONTH_CHECKER);
+                        }
                       });
-                      if (isMonthDayCheckerViewVisible ||
-                          isOnTheMonthViewVisible) {
-                        widget.monthController?.expanded = true;
-                      } else {
-                        widget.monthController?.expanded = false;
-                      }
                     },
                     child: Container(
                       width: double.infinity,
@@ -172,7 +189,8 @@ class _MonthDayCheckerCombinedWidgetState
                                   ),
                             ),
                           ),
-                          if (isOnTheMonthViewVisible)
+                          if (MonthlyViewType.OF_THE_MONTH_CHECKER ==
+                              monthlyType)
                             Expanded(
                               child: Align(
                                 alignment: AlignmentDirectional(1, 0),
@@ -222,17 +240,19 @@ class _MonthDayCheckerCombinedWidgetState
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (isMonthDayCheckerViewVisible)
+                  if (MonthlyViewType.MONTH_DAY_CHECKER == monthlyType)
                     MonthDayCheckerWidget(
+                      days: widget.monthDays,
                       selectionChanged: (checkedItems) =>
                           widget.monthDaySelectionChanged(checkedItems),
                     ),
-                  if (isOnTheMonthViewVisible)
+                  if (MonthlyViewType.OF_THE_MONTH_CHECKER == monthlyType)
                     MonthDayBySetCheckerWidget(
+                      bySetPos: widget.bySetPos,
+                      byDay: widget.byDay,
                       bySetPosChanged: (bySetPos) =>
                           widget.bySetPosChanged(bySetPos),
-                      byDayChanged: (byDay) => 
-                          widget.byDayChanged(byDay),
+                      byDayChanged: (byDay) => widget.byDayChanged(byDay),
                     )
                 ],
               ),

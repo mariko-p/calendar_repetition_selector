@@ -1,4 +1,5 @@
 import 'package:custom_recurring_selectors/backend/schema/index.dart';
+import 'package:custom_recurring_selectors/custom_code/constants/calendar_constants.dart';
 import 'package:expandable/expandable.dart';
 
 import '../backend/schema/structs/month_day_struct.dart';
@@ -31,11 +32,13 @@ class _CustomRepetitionPageWidgetState
   var currentInterval;
   var currentIntervals;
 
-  var currentIntervalIndex = 0;
-  var weekDays = getWeekDayList();
+  var currentIntervalIndex;
+  late List<WeekDayStruct> weekDays;
 
-  var bySetPos = getBySetPositionList()[0];
-  var byDay = getByDayList()[0];
+  late List<MonthDayStruct> monthDays;
+  var bySetPos;
+  var byDay;
+  var monthlyType;
 
   var freqController = ExpandableController();
   var intController = ExpandableController();
@@ -75,10 +78,19 @@ class _CustomRepetitionPageWidgetState
 
   @override
   void initState() {
+    // ignore: todo
+    // TODO: For edit mode update initial values from RRULE string, stored in db.
     FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
+    currentIntervalIndex = 0;
     currentIntervals = generateInterval("DAILY");
     currentInterval = currentIntervals[0];
     currentFrequency = generateFrequency()[0];
+    weekDays = getWeekDayList();
+
+    monthDays = getMonthDayList();
+    bySetPos = getBySetPositionList()[0];
+    byDay = getByDayList()[0];
+    monthlyType = MonthlyViewType.MONTH_DAY_CHECKER;
 
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
@@ -110,12 +122,11 @@ class _CustomRepetitionPageWidgetState
       currentFrequency = generateFrequency().toList()[index];
       currentIntervals = generateInterval(currentFrequency.value);
       currentInterval = currentIntervals[currentIntervalIndex];
-
       var freq = currentFrequency.value;
-      var interval = currentInterval.value;
 
-      updateRRule(freq, interval);
-      updateCustomViewVisibility(currentFrequency.value ?? "");
+      print("TIP: ${this.monthlyType.toString()}");
+      updateOpenedViewRRule();
+      updateOpenViewVisibility(freq);
     });
     await updateRepetitionLabel();
   }
@@ -126,46 +137,88 @@ class _CustomRepetitionPageWidgetState
       currentIntervalIndex = index;
       currentInterval = currentIntervals[index];
 
-      var freq = currentFrequency.value;
-      var interval = currentIntervals[currentIntervalIndex].value;
-      updateRRule(freq, interval);
+      updateOpenedViewRRule();
     });
     await updateRepetitionLabel();
   }
 
-  updateCustomViewVisibility(String freq) {
-    unsetCustomViewVisbilities();
-
-    if (freq == "DAILY") {
-      // No action.
-    } else if (freq == "WEEKLY") {
-      isCustomWeeklyVisible = true;
-    } else if (freq == "MONTHLY") {
-      isCustomMonthlyVisible = true;
-    } else if (freq == "YEARLY") {
+  updateOpenedViewRRule() {
+    var freq = currentFrequency.value;
+    var interval = currentInterval.value;
+    
+    if (freq == Constants.DAILY) {
+      updateRRule(freq, interval);
+    } else if (freq == Constants.WEEKLY) {
+      updateWeeklyRRule();
+    } else if (freq == Constants.MONTHLY) {
+      updateMonthlyRRule();
+    } else if (freq == Constants.YEARLY) {
       isCustomYearylVisible = true;
     }
   }
 
-  unsetCustomViewVisbilities() {
+  updateOpenViewVisibility(String freq) {
+    unsetOpenViewVisibilities();
+
+    if (freq == Constants.DAILY) {
+    } else if (freq == Constants.WEEKLY) {
+      isCustomWeeklyVisible = true;
+    } else if (freq == Constants.MONTHLY) {
+      isCustomMonthlyVisible = true;
+    } else if (freq == Constants.YEARLY) {
+      isCustomYearylVisible = true;
+    }
+  }
+
+  unsetOpenViewVisibilities() {
     isCustomWeeklyVisible = false;
     isCustomMonthlyVisible = false;
     isCustomYearylVisible = false;
   }
 
-  Future monthDaySelectionChanged(List<MonthDayStruct>? checkedItems) async {
+  Future updateDailyRRule() async {
     var freq = currentFrequency.value;
     var interval = currentInterval.value;
-    var byMonthDays = checkedItems?.map((e) => e.index! + 1).toList();
+    updateRRule(freq, interval);
+  }
+
+  Future updateWeeklyRRule() async {
+    var freq = currentFrequency.value;
+    var interval = currentInterval.value;
+    var selectedWeekDays = this
+        .weekDays
+        .where(((e) => e.isChecked == true))
+        .map((e) => mapWeekDayToByDay(e.text))
+        .toList();
+
+    updateRRule(freq, interval, byDay: selectedWeekDays);
+    await updateRepetitionLabel();
+  }
+
+  Future updateMonthlyRRule() async {
+    if (monthlyType == MonthlyViewType.MONTH_DAY_CHECKER) {
+      updateMonthlyMonthDayCheckerRRule();
+    } else if (monthlyType == MonthlyViewType.OF_THE_MONTH_CHECKER) {
+      updateMonthlyMonthDayByDayPosRRule();
+    }
+  }
+
+  Future updateMonthlyMonthDayCheckerRRule() async {
+    var freq = currentFrequency.value;
+    var interval = currentInterval.value;
+    var byMonthDays = this
+        .monthDays
+        .where((e) => e.isChecked == true)
+        .map((e) => e.index! + 1)
+        .toList();
 
     updateRRule(freq, interval, byMonthDay: byMonthDays);
     await updateRepetitionLabel();
   }
 
-  Future monthDayBySetPosChanged(BySetPositionStruct? bySetPos) async {
+  Future updateMonthlyMonthDayByDayPosRRule() async {
     var freq = currentFrequency.value;
     var interval = currentInterval.value;
-    this.bySetPos = bySetPos!;
     int position = bySetPos.value!;
     List<String>? byDays = this.byDay.value?.toList();
 
@@ -173,17 +226,14 @@ class _CustomRepetitionPageWidgetState
     await updateRepetitionLabel();
   }
 
-  Future monthDayByDayChanged(ByDayStruct? byDay) async {
-    var freq = currentFrequency.value;
-    var interval = currentInterval.value;
-    this.byDay = byDay!;
-    int position = this.bySetPos.value!;
-    List<String>? byDays = this.byDay.value?.toList();
-
-    updateRRule(freq, interval, bySetPos: [position], byDay: byDays);
-    await updateRepetitionLabel();
+  Future monthlyTypeChanged(MonthlyViewType type) async {
+    monthlyType = type;
+    if (monthlyType == MonthlyViewType.MONTH_DAY_CHECKER) {
+      updateMonthlyMonthDayCheckerRRule();
+    } else {
+      updateMonthlyMonthDayByDayPosRRule();
+    }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -225,38 +275,32 @@ class _CustomRepetitionPageWidgetState
                           padding:
                               EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                           child: WeekDayCheckerWidget(
-                            weekDays: weekDays,
-                            selectionChanged: ((items) async {
-                              this.weekDays = items ?? this.weekDays;
-
-                              var freq = currentFrequency.value;
-                              var interval =
-                                  currentIntervals[currentIntervalIndex].value;
-                              var selectedWeekDays = items
-                                  ?.where(((e) => e.isChecked == true))
-                                  .toList();
-
-                              List<String> byDays = List.empty(growable: true);
-                              selectedWeekDays?.forEach((element) =>
-                                  byDays.add(mapWeekDayToByDay(element.text)));
-
-                              updateRRule(freq, interval, byDay: byDays);
-                              await updateRepetitionLabel();
-                            }),
-                          ),
+                              weekDays: weekDays,
+                              selectionChanged: ((items) =>
+                                  updateWeeklyRRule())),
                         ),
                       if (isCustomMonthlyVisible)
                         Padding(
                           padding:
                               EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                           child: MonthDayCheckerCombinedWidget(
+                            monthlyType: monthlyType,
+                            monthDays: monthDays,
+                            bySetPos: bySetPos,
+                            byDay: byDay,
                             monthController: monthController,
                             monthDaySelectionChanged: (checkedItems) =>
-                              monthDaySelectionChanged(checkedItems),
-                            bySetPosChanged: (bySetPos) => 
-                              monthDayBySetPosChanged(bySetPos),
-                            byDayChanged: (byDay) => 
-                              monthDayByDayChanged(byDay),
+                                updateMonthlyMonthDayCheckerRRule(),
+                            bySetPosChanged: (bySetPos) async {
+                                this.bySetPos = bySetPos!;
+                                updateMonthlyMonthDayByDayPosRRule();
+                            },
+                            byDayChanged: (byDay) async {
+                                this.byDay = byDay!;
+                                updateMonthlyMonthDayByDayPosRRule();
+                            },
+                            monthlyTypeChanged: (type) =>
+                                monthlyTypeChanged(type),
                           ),
                         ),
                     ],

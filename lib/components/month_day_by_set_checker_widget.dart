@@ -10,9 +10,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MonthDayBySetCheckerWidget extends StatefulWidget {
   const MonthDayBySetCheckerWidget(
-      {Key? key, required this.bySetPosChanged, required this.byDayChanged})
+      {Key? key,
+      required this.bySetPos,
+      required this.byDay,
+      required this.bySetPosChanged,
+      required this.byDayChanged})
       : super(key: key);
 
+  final BySetPositionStruct bySetPos;
+  final ByDayStruct byDay;
   final Future<dynamic> Function(BySetPositionStruct? bySetPos) bySetPosChanged;
   final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
 
@@ -25,11 +31,27 @@ class _MonthDayBySetCheckerWidgetState
     extends State<MonthDayBySetCheckerWidget> {
   late List<BySetPositionStruct> bySetPositionItems;
   late List<ByDayStruct> byDayItems;
+  var positionIndex;
+  var dayIndex;
 
   @override
   void initState() {
     bySetPositionItems = getBySetPositionList();
     byDayItems = getByDayList();
+
+    // Initialize initial positionIndex.
+    positionIndex =
+        bySetPositionItems.indexWhere((e) => e.value == widget.bySetPos.value);
+    if (positionIndex == -1) {
+      positionIndex = 0;
+    }
+
+    // Initialize initial dayIndex.
+    dayIndex =
+        byDayItems.indexWhere((e) => e.value == widget.byDay.value);
+    if (dayIndex == -1) {
+      dayIndex = 0;
+    }
 
     super.initState();
   }
@@ -44,6 +66,8 @@ class _MonthDayBySetCheckerWidgetState
             width: MediaQuery.of(context).size.width * 0.4,
             child: Center(
               child: CupertinoPicker(
+                  scrollController: FixedExtentScrollController(
+                      initialItem: positionIndex),
                   itemExtent: 40,
                   children: bySetPositionItems
                       .map((item) => Center(
@@ -60,6 +84,7 @@ class _MonthDayBySetCheckerWidgetState
                   onSelectedItemChanged: (index) {
                     SystemSound.play(SystemSoundType.click);
                     HapticFeedback.lightImpact();
+                    positionIndex = index;
 
                     widget.bySetPosChanged(bySetPositionItems[index]);
                   }),
@@ -69,6 +94,8 @@ class _MonthDayBySetCheckerWidgetState
             width: MediaQuery.of(context).size.width * 0.4,
             child: Center(
               child: CupertinoPicker(
+                  scrollController:
+                      FixedExtentScrollController(initialItem: dayIndex),
                   itemExtent: 40,
                   children: byDayItems
                       .map((item) => Center(
@@ -85,7 +112,8 @@ class _MonthDayBySetCheckerWidgetState
                   onSelectedItemChanged: (index) {
                     SystemSound.play(SystemSoundType.click);
                     HapticFeedback.lightImpact();
-
+                    dayIndex = index;
+                    
                     widget.byDayChanged(byDayItems[index]);
                   }),
             )),

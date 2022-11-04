@@ -8,8 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MonthDayCheckerWidget extends StatefulWidget {
-  MonthDayCheckerWidget({Key? key, required this.selectionChanged})
+  MonthDayCheckerWidget({Key? key, required this.days, required this.selectionChanged})
       : super(key: key);
+
+  final List<MonthDayStruct> days;
   final Future<dynamic> Function(List<MonthDayStruct>? checkedItems)
       selectionChanged;
 
@@ -19,8 +21,6 @@ class MonthDayCheckerWidget extends StatefulWidget {
 
 class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
   final List<MonthDayStruct> checkedItems = List.empty(growable: true);
-
-  late List<MonthDayStruct> days;
 
   void updateCheckedItems(MonthDayStruct updatedItem) {
     var foundIndex = checkedItems
@@ -37,21 +37,19 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
         checkedItems.removeAt(foundIndex);
       }
     }
-    days[updatedItem.index!] = updatedItem;
+    widget.days[updatedItem.index!] = updatedItem;
     widget.selectionChanged(checkedItems);
   }
 
   @override
   void initState() {
-    days = functions.getMonthDayList();
-
     super.initState();
   }
 
   rowBuilder(int startIndex, int endIndex) {
     return Builder(
       builder: (context) {
-        var weekDays = days.sublist(startIndex, endIndex);
+        var weekDays = widget.days.sublist(startIndex, endIndex);
         return Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
