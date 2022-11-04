@@ -33,7 +33,10 @@ class _CustomRepetitionComponentWidgetState
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomSheetNavBarWidget(),
+                BottomSheetNavBarWidget(
+                  backText: 'Repetition',
+                  title: 'Custom Repetition',
+                ),
                 FrequencyExpanderWidget(),
                 IntervalExpanderWidget(),
                 Align(

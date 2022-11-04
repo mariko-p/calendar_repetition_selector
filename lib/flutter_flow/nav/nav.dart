@@ -45,6 +45,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'CustomRepetitionPage',
               path: 'customRepetitionPage',
               builder: (context, params) => CustomRepetitionPageWidget(),
+            ),
+            FFRoute(
+              name: 'AddRepetitionPage',
+              path: 'addRepetitionPage',
+              builder: (context, params) => AddRepetitionPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

@@ -16,6 +16,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   MonthDayStruct,
   BySetPositionStruct,
   ByDayStruct,
+  RepetitionStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
