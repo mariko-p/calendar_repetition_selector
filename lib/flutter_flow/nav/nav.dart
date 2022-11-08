@@ -42,14 +42,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
-              name: 'CustomRepetitionPage',
-              path: 'customRepetitionPage',
-              builder: (context, params) => CustomRepetitionPageWidget(),
-            ),
-            FFRoute(
               name: 'AddRepetitionPage',
               path: 'addRepetitionPage',
               builder: (context, params) => AddRepetitionPageWidget(),
+            ),
+            FFRoute(
+              name: 'CustomRepetitionPage',
+              path: 'customRepetitionPage',
+              builder: (context, params) => CustomRepetitionPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

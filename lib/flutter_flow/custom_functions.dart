@@ -223,3 +223,21 @@ String repetitionEveryMonth() {
 String repetitionEveryYear() {
   return 'RRULE:FREQ=YEARLY';
 }
+
+List<MonthStruct> getMonthsList() {
+  // Code written in flutter.
+  return [
+    createMonthStruct(text: Constants.JANUARY, isChecked: false),
+    createMonthStruct(text: Constants.FEBRUARY, isChecked: false),
+    createMonthStruct(text: Constants.MARCH, isChecked: false),
+    createMonthStruct(text: Constants.APRIL, isChecked: false),
+    createMonthStruct(text: Constants.MAY, isChecked: false),
+    createMonthStruct(text: Constants.JUNE, isChecked: false),
+    createMonthStruct(text: Constants.JULY, isChecked: false),
+    createMonthStruct(text: Constants.AUGUST, isChecked: false),
+    createMonthStruct(text: Constants.SEPTEMBER, isChecked: false),
+    createMonthStruct(text: Constants.OCTOBER, isChecked: false),
+    createMonthStruct(text: Constants.NOVEMBER, isChecked: false),
+    createMonthStruct(text: Constants.DECEMBER, isChecked: false),
+  ];
+}

@@ -12,6 +12,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(FrequencyStruct.serializer)
       ..add(IntervalStruct.serializer)
       ..add(MonthDayStruct.serializer)
+      ..add(MonthStruct.serializer)
       ..add(RepetitionStruct.serializer)
       ..add(WeekDayStruct.serializer)
       ..addBuilderFactory(

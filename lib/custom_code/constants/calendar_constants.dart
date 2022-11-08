@@ -41,5 +41,17 @@ class Constants {
   static const String EVERY_SECOND_WEEK = "Every second week";
   static const String CUSTOM = "Custom";
 
+  static const String JANUARY = "January";
+  static const String FEBRUARY = "February";
+  static const String MARCH = "March";
+  static const String APRIL = "April";
+  static const String MAY = "May";
+  static const String JUNE = "June";
+  static const String JULY = "July";
+  static const String AUGUST = "August";
+  static const String SEPTEMBER = "September";
+  static const String OCTOBER = "October";
+  static const String NOVEMBER = "November";
+  static const String DECEMBER = "December";
   
 }
