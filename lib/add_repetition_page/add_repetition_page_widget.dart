@@ -23,9 +23,7 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: AddRepetitionComponentWidget(
-            isCustomRepetitionSelected: FFAppState().vTmp,
-          ),
+          child: AddRepetitionComponentWidget(),
         ),
       ),
     );

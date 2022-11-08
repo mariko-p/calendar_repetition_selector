@@ -96,3 +96,8 @@ String repetitionEveryMonth() {
 String repetitionEveryYear() {
   return 'RRULE:FREQ=YEARLY';
 }
+
+List<MonthStruct> getMonthsList() {
+  // Code written in flutter.
+  return [];
+}

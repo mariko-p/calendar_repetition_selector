@@ -7,12 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
-  const AddRepetitionComponentWidget({
-    Key? key,
-    this.isCustomRepetitionSelected,
-  }) : super(key: key);
-
-  final bool? isCustomRepetitionSelected;
+  const AddRepetitionComponentWidget({Key? key}) : super(key: key);
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -162,7 +157,7 @@ class _AddRepetitionComponentWidgetState
                           height: 30,
                           child: Stack(
                             children: [
-                              if (!widget.isCustomRepetitionSelected!)
+                              if (FFAppState().vTmp)
                                 Align(
                                   alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
@@ -175,7 +170,7 @@ class _AddRepetitionComponentWidgetState
                                     ),
                                   ),
                                 ),
-                              if (widget.isCustomRepetitionSelected ?? true)
+                              if (FFAppState().vTmp)
                                 Align(
                                   alignment: AlignmentDirectional(0, 0),
                                   child: Icon(

@@ -52,9 +52,150 @@ class _CustomRepetitionComponentWidgetState
                       weekDays: functions.getWeekDayList().toList(),
                     ),
                   ),
+                if (FFAppState().vTmp)
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                    child: MonthDayCheckerCombinedWidget(),
+                  ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                  child: MonthDayCheckerCombinedWidget(),
+                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Builder(
+                        builder: (context) {
+                          final firstRowMonth =
+                              functions.getMonthsList().toList();
+                          return Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: List.generate(firstRowMonth.length,
+                                (firstRowMonthIndex) {
+                              final firstRowMonthItem =
+                                  firstRowMonth[firstRowMonthIndex];
+                              return Visibility(
+                                visible: firstRowMonthItem.isChecked == true,
+                                child: Expanded(
+                                  child: Container(
+                                    height: 36,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF9980DD),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: SelectionArea(
+                                          child: Text(
+                                        valueOrDefault<String>(
+                                          firstRowMonthItem.text,
+                                          'jan.',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Rubik',
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.normal,
+                                              lineHeight: 1.5,
+                                            ),
+                                      )),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                          );
+                        },
+                      ),
+                      Builder(
+                        builder: (context) {
+                          final firstRowMonth =
+                              functions.getMonthsList().toList();
+                          return Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: List.generate(firstRowMonth.length,
+                                (firstRowMonthIndex) {
+                              final firstRowMonthItem =
+                                  firstRowMonth[firstRowMonthIndex];
+                              return Visibility(
+                                visible: firstRowMonthItem.isChecked == true,
+                                child: Expanded(
+                                  child: Container(
+                                    height: 36,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF9980DD),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: SelectionArea(
+                                          child: Text(
+                                        valueOrDefault<String>(
+                                          firstRowMonthItem.text,
+                                          'jan.',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Rubik',
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.normal,
+                                              lineHeight: 1.5,
+                                            ),
+                                      )),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                          );
+                        },
+                      ),
+                      Builder(
+                        builder: (context) {
+                          final firstRowMonth =
+                              functions.getMonthsList().toList();
+                          return Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: List.generate(firstRowMonth.length,
+                                (firstRowMonthIndex) {
+                              final firstRowMonthItem =
+                                  firstRowMonth[firstRowMonthIndex];
+                              return Visibility(
+                                visible: firstRowMonthItem.isChecked == true,
+                                child: Expanded(
+                                  child: Container(
+                                    height: 36,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF9980DD),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: SelectionArea(
+                                          child: Text(
+                                        valueOrDefault<String>(
+                                          firstRowMonthItem.text,
+                                          'jan.',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Rubik',
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.normal,
+                                              lineHeight: 1.5,
+                                            ),
+                                      )),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

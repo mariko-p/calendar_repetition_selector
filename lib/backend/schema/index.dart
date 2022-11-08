@@ -8,6 +8,7 @@ export 'structs/by_day_struct.dart';
 export 'structs/by_set_position_struct.dart';
 export 'structs/frequency_struct.dart';
 export 'structs/interval_struct.dart';
+export 'structs/month_struct.dart';
 export 'structs/month_day_struct.dart';
 export 'structs/repetition_struct.dart';
 export 'structs/week_day_struct.dart';
