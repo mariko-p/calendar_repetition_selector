@@ -238,7 +238,7 @@ class _CustomRepetitionComponentWidgetState
       builder: (context) {
         final firstRowMonth = functions.getMonthsList().toList().sublist(startIndex, endIndex);
         return Row(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: List.generate(firstRowMonth.length, (firstRowMonthIndex) {
             final firstRowMonthItem = firstRowMonth[firstRowMonthIndex];
@@ -362,7 +362,7 @@ class _CustomRepetitionComponentWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       rowBuilder(0, 4),
                       rowBuilder(4, 8),
