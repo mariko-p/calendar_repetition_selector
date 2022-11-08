@@ -77,66 +77,74 @@ class _CustomRepetitionComponentWidgetState
                                   (firstRowMonthIndex) {
                                 final firstRowMonthItem =
                                     firstRowMonth[firstRowMonthIndex];
-                                return Stack(
-                                  children: [
-                                    if (firstRowMonthItem.isChecked == true)
-                                      Container(
-                                        height: 36,
-                                        constraints: BoxConstraints(
-                                          maxWidth: 100,
+                                return Expanded(
+                                  child: Stack(
+                                    children: [
+                                      if (firstRowMonthItem.isChecked == true)
+                                        Container(
+                                          height: 36,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF9980DD),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              valueOrDefault<String>(
+                                                firstRowMonthItem.text,
+                                                'jan.',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                            )),
+                                          ),
                                         ),
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF9980DD),
+                                      if (firstRowMonthItem.isChecked == false)
+                                        Container(
+                                          height: 36,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .itemBackground,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              valueOrDefault<String>(
+                                                firstRowMonthItem.text,
+                                                'jan.',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                            )),
+                                          ),
                                         ),
-                                        child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            valueOrDefault<String>(
-                                              firstRowMonthItem.text,
-                                              'jan.',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.normal,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          )),
-                                        ),
-                                      ),
-                                    if (firstRowMonthItem.isChecked == false)
-                                      Container(
-                                        height: 36,
-                                        constraints: BoxConstraints(
-                                          maxWidth: 100,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .itemBackground,
-                                        ),
-                                        child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            valueOrDefault<String>(
-                                              firstRowMonthItem.text,
-                                              'jan.',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.normal,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          )),
-                                        ),
-                                      ),
-                                  ],
+                                    ],
+                                  ),
                                 );
                               }),
                             );
@@ -153,66 +161,74 @@ class _CustomRepetitionComponentWidgetState
                                   (secondRowMonthIndex) {
                                 final secondRowMonthItem =
                                     secondRowMonth[secondRowMonthIndex];
-                                return Stack(
-                                  children: [
-                                    if (secondRowMonthItem.isChecked == true)
-                                      Container(
-                                        height: 36,
-                                        constraints: BoxConstraints(
-                                          maxWidth: 100,
+                                return Expanded(
+                                  child: Stack(
+                                    children: [
+                                      if (secondRowMonthItem.isChecked == true)
+                                        Container(
+                                          height: 36,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF9980DD),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              valueOrDefault<String>(
+                                                secondRowMonthItem.text,
+                                                'jan.',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                            )),
+                                          ),
                                         ),
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF9980DD),
+                                      if (secondRowMonthItem.isChecked == false)
+                                        Container(
+                                          height: 36,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .itemBackground,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              valueOrDefault<String>(
+                                                secondRowMonthItem.text,
+                                                'jan.',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                            )),
+                                          ),
                                         ),
-                                        child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            valueOrDefault<String>(
-                                              secondRowMonthItem.text,
-                                              'jan.',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.normal,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          )),
-                                        ),
-                                      ),
-                                    if (secondRowMonthItem.isChecked == false)
-                                      Container(
-                                        height: 36,
-                                        constraints: BoxConstraints(
-                                          maxWidth: 100,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .itemBackground,
-                                        ),
-                                        child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            valueOrDefault<String>(
-                                              secondRowMonthItem.text,
-                                              'jan.',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.normal,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          )),
-                                        ),
-                                      ),
-                                  ],
+                                    ],
+                                  ),
                                 );
                               }),
                             );
@@ -229,66 +245,74 @@ class _CustomRepetitionComponentWidgetState
                                   (thirdRowMonthIndex) {
                                 final thirdRowMonthItem =
                                     thirdRowMonth[thirdRowMonthIndex];
-                                return Stack(
-                                  children: [
-                                    if (thirdRowMonthItem.isChecked == true)
-                                      Container(
-                                        height: 36,
-                                        constraints: BoxConstraints(
-                                          maxWidth: 100,
+                                return Expanded(
+                                  child: Stack(
+                                    children: [
+                                      if (thirdRowMonthItem.isChecked == true)
+                                        Container(
+                                          height: 36,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF9980DD),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              valueOrDefault<String>(
+                                                thirdRowMonthItem.text,
+                                                'jan.',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                            )),
+                                          ),
                                         ),
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF9980DD),
+                                      if (thirdRowMonthItem.isChecked == false)
+                                        Container(
+                                          height: 36,
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .itemBackground,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              valueOrDefault<String>(
+                                                thirdRowMonthItem.text,
+                                                'jan.',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                            )),
+                                          ),
                                         ),
-                                        child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            valueOrDefault<String>(
-                                              thirdRowMonthItem.text,
-                                              'jan.',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.normal,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          )),
-                                        ),
-                                      ),
-                                    if (thirdRowMonthItem.isChecked == false)
-                                      Container(
-                                        height: 36,
-                                        constraints: BoxConstraints(
-                                          maxWidth: 100,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .itemBackground,
-                                        ),
-                                        child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            valueOrDefault<String>(
-                                              thirdRowMonthItem.text,
-                                              'jan.',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.normal,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          )),
-                                        ),
-                                      ),
-                                  ],
+                                    ],
+                                  ),
                                 );
                               }),
                             );
