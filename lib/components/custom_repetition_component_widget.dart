@@ -60,14 +60,14 @@ class _CustomRepetitionComponentWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Builder(
                         builder: (context) {
                           final firstRowMonth =
                               functions.getMonthsList().toList();
                           return Row(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: List.generate(firstRowMonth.length,
                                 (firstRowMonthIndex) {
