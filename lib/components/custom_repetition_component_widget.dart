@@ -143,12 +143,28 @@ class _CustomRepetitionComponentWidgetState
                                             )),
                                           ),
                                         ),
+                                      Align(
+                                        alignment: AlignmentDirectional(1, 0),
+                                        child: Container(
+                                          width: 1,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF7E8CA2),
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 );
                               }),
                             );
                           },
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 1,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF7E8CA2),
+                          ),
                         ),
                         Builder(
                           builder: (context) {
@@ -233,6 +249,13 @@ class _CustomRepetitionComponentWidgetState
                               }),
                             );
                           },
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 1,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF7E8CA2),
+                          ),
                         ),
                         Builder(
                           builder: (context) {
