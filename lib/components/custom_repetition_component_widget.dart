@@ -238,65 +238,67 @@ class _CustomRepetitionComponentWidgetState
       builder: (context) {
         final firstRowMonth = functions.getMonthsList().toList().sublist(startIndex, endIndex);
         return Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: List.generate(firstRowMonth.length, (firstRowMonthIndex) {
             final firstRowMonthItem = firstRowMonth[firstRowMonthIndex];
-            return Stack(
-              children: [
-                if (firstRowMonthItem.isChecked == true)
-                  Container(
-                    height: 36,
-                    constraints: BoxConstraints(
-                                        maxWidth: 100,
-                                      ),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF9980DD),
+            return Expanded(
+              child: Stack(
+                children: [
+                  if (firstRowMonthItem.isChecked == true)
+                    Container(
+                      height: 36,
+                      constraints: BoxConstraints(
+                                          maxWidth: 100,
+                                        ),
+                      decoration: BoxDecoration(
+                        color: Color(0xFF9980DD),
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: SelectionArea(
+                            child: Text(
+                          valueOrDefault<String>(
+                            firstRowMonthItem.text?.substring(0, 2),
+                            'jan.',
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Rubik',
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                                lineHeight: 1.5,
+                              ),
+                        )),
+                      ),
                     ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: SelectionArea(
-                          child: Text(
-                        valueOrDefault<String>(
-                          firstRowMonthItem.text?.substring(0, 2),
-                          'jan.',
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Rubik',
-                              color: Colors.white,
-                              fontWeight: FontWeight.normal,
-                              lineHeight: 1.5,
-                            ),
-                      )),
+                  if (firstRowMonthItem.isChecked == false)
+                    Container(
+                      height: 36,
+                      // constraints: BoxConstraints(
+                      //   maxWidth: 100,
+                      // ),
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).itemBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: SelectionArea(
+                            child: Text(
+                          valueOrDefault<String>(
+                            firstRowMonthItem.text?.substring(0, 2),
+                            'jan.',
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Rubik',
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal,
+                                lineHeight: 1.5,
+                              ),
+                        )),
+                      ),
                     ),
-                  ),
-                if (firstRowMonthItem.isChecked == false)
-                  Container(
-                    height: 36,
-                    constraints: BoxConstraints(
-                      maxWidth: 100,
-                    ),
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).itemBackground,
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: SelectionArea(
-                          child: Text(
-                        valueOrDefault<String>(
-                          firstRowMonthItem.text?.substring(0, 2),
-                          'jan.',
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Rubik',
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal,
-                              lineHeight: 1.5,
-                            ),
-                      )),
-                    ),
-                  ),
-              ],
+                ],
+              ),
             );
           }),
         );
@@ -362,15 +364,17 @@ class _CustomRepetitionComponentWidgetState
                       monthlyTypeChanged: (type) => monthlyTypeChanged(type),
                     ),
                   ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      rowBuilder(0, 4),
-                      rowBuilder(4, 8),
-                      rowBuilder(8, 12),
-                    ],
+                Container(
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        rowBuilder(0, 4),
+                        rowBuilder(4, 8),
+                        rowBuilder(8, 12),
+                      ],
+                    ),
                   ),
                 ),
               ],
