@@ -368,7 +368,6 @@ class _CustomRepetitionComponentWidgetState
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
                       children: [
                         rowBuilder(0, 4),
                         rowBuilder(4, 8),
