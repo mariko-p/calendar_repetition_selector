@@ -77,8 +77,10 @@ class _CustomRepetitionComponentWidgetState
                                 children: [
                                   if (firstRowMonthItem.isChecked == true)
                                     Container(
-                                      width: 100,
                                       height: 36,
+                                      constraints: BoxConstraints(
+                                        maxWidth: 100,
+                                      ),
                                       decoration: BoxDecoration(
                                         color: Color(0xFF9980DD),
                                       ),
@@ -103,10 +105,9 @@ class _CustomRepetitionComponentWidgetState
                                     ),
                                   if (firstRowMonthItem.isChecked == false)
                                     Container(
-                                      width: 100,
                                       height: 36,
                                       constraints: BoxConstraints(
-                                        maxWidth: 90,
+                                        maxWidth: 100,
                                       ),
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -152,8 +153,10 @@ class _CustomRepetitionComponentWidgetState
                                 children: [
                                   if (secondRowMonthItem.isChecked == true)
                                     Container(
-                                      width: 100,
                                       height: 36,
+                                      constraints: BoxConstraints(
+                                        maxWidth: 100,
+                                      ),
                                       decoration: BoxDecoration(
                                         color: Color(0xFF9980DD),
                                       ),
@@ -178,10 +181,9 @@ class _CustomRepetitionComponentWidgetState
                                     ),
                                   if (secondRowMonthItem.isChecked == false)
                                     Container(
-                                      width: 100,
                                       height: 36,
                                       constraints: BoxConstraints(
-                                        maxWidth: 90,
+                                        maxWidth: 100,
                                       ),
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -227,8 +229,10 @@ class _CustomRepetitionComponentWidgetState
                                 children: [
                                   if (thirdRowMonthItem.isChecked == true)
                                     Container(
-                                      width: 100,
                                       height: 36,
+                                      constraints: BoxConstraints(
+                                        maxWidth: 100,
+                                      ),
                                       decoration: BoxDecoration(
                                         color: Color(0xFF9980DD),
                                       ),
@@ -253,10 +257,9 @@ class _CustomRepetitionComponentWidgetState
                                     ),
                                   if (thirdRowMonthItem.isChecked == false)
                                     Container(
-                                      width: 100,
                                       height: 36,
                                       constraints: BoxConstraints(
-                                        maxWidth: 90,
+                                        maxWidth: 100,
                                       ),
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
