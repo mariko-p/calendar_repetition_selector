@@ -247,6 +247,9 @@ class _CustomRepetitionComponentWidgetState
                 if (firstRowMonthItem.isChecked == true)
                   Container(
                     height: 36,
+                    constraints: BoxConstraints(
+                                        maxWidth: 100,
+                                      ),
                     decoration: BoxDecoration(
                       color: Color(0xFF9980DD),
                     ),
@@ -271,7 +274,7 @@ class _CustomRepetitionComponentWidgetState
                   Container(
                     height: 36,
                     constraints: BoxConstraints(
-                      maxWidth: 90,
+                      maxWidth: 100,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).itemBackground,
