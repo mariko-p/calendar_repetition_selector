@@ -236,12 +236,15 @@ class _CustomRepetitionComponentWidgetState
   rowBuilder(int startIndex, int endIndex) {
     return Builder(
       builder: (context) {
-        final firstRowMonth = functions.getMonthsList().toList().sublist(startIndex, endIndex);
+        final itemMonth =
+            functions.getMonthsList().toList().sublist(startIndex, endIndex);
         return Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(firstRowMonth.length, (firstRowMonthIndex) {
-            final firstRowMonthItem = firstRowMonth[firstRowMonthIndex];
+          children: List.generate(itemMonth.length, (itemIndex) {
+            final firstRowMonthItem = itemMonth[itemIndex];
+            //final textValue = "${firstRowMonthItem.text?.substring(0, 3).toLowerCase()}.";
+            final textValue = 
             return Expanded(
               child: Stack(
                 children: [
@@ -249,8 +252,8 @@ class _CustomRepetitionComponentWidgetState
                     Container(
                       height: 36,
                       constraints: BoxConstraints(
-                                          maxWidth: 100,
-                                        ),
+                        maxWidth: 100,
+                      ),
                       decoration: BoxDecoration(
                         color: Color(0xFF9980DD),
                       ),
@@ -259,15 +262,16 @@ class _CustomRepetitionComponentWidgetState
                         child: SelectionArea(
                             child: Text(
                           valueOrDefault<String>(
-                            firstRowMonthItem.text?.substring(0, 2),
+                            textValue,
                             'jan.',
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Rubik',
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                lineHeight: 1.5,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Rubik',
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    lineHeight: 1.5,
+                                  ),
                         )),
                       ),
                     ),
@@ -285,16 +289,26 @@ class _CustomRepetitionComponentWidgetState
                         child: SelectionArea(
                             child: Text(
                           valueOrDefault<String>(
-                            firstRowMonthItem.text?.substring(0, 2),
+                            textValue,
                             'jan.',
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Rubik',
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal,
-                                lineHeight: 1.5,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Rubik',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal,
+                                    lineHeight: 1.5,
+                                  ),
                         )),
+                      ),
+                    ),
+                    if (itemIndex < itemMonth.length - 1)
+                    Align(
+                      alignment: AlignmentDirectional(1, 0),
+                      child: Container(
+                        height: 36,
+                          width: 0.5,
+                          color: FlutterFlowTheme.of(context).lineColor,
                       ),
                     ),
                 ],
@@ -308,79 +322,95 @@ class _CustomRepetitionComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Align(
-          alignment: AlignmentDirectional(0, -1),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                BottomSheetNavBarWidget(
-                    backText: "Repetition", title: "Custom repetition"),
-                FrequencyExpanderWidget(
-                    freqController: freqController,
-                    currentFrequency: currentFrequency,
-                    onItemChanged: (index) async {
-                      await frequencyItemChanged(index);
-                    }),
-                IntervalExpanderWidget(
-                    intController: intController,
-                    currentIntervals: currentIntervals,
-                    currentIntervalIndex: currentIntervalIndex,
-                    onItemChanged: (index) async {
-                      await intervalItemChanged(index);
-                    }),
-                RepetitionLabelWidget(humanReadableText: humanReadableText),
-                if (isCustomWeeklyVisible)
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                    child: WeekDayCheckerWidget(
-                        weekDays: weekDays,
-                        selectionChanged: ((items) => updateWeeklyRRule())),
-                  ),
-                if (isCustomMonthlyVisible)
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                    child: MonthDayCheckerCombinedWidget(
-                      monthlyType: monthlyType,
-                      monthDays: monthDays,
-                      bySetPos: bySetPos,
-                      byDay: byDay,
-                      monthController: monthController,
-                      monthDaySelectionChanged: (checkedItems) =>
-                          updateMonthlyMonthDayCheckerRRule(),
-                      bySetPosChanged: (bySetPos) async {
-                        this.bySetPos = bySetPos!;
-                        updateMonthlyMonthDayByDayPosRRule();
-                      },
-                      byDayChanged: (byDay) async {
-                        this.byDay = byDay!;
-                        updateMonthlyMonthDayByDayPosRRule();
-                      },
-                      monthlyTypeChanged: (type) => monthlyTypeChanged(type),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0, -1),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BottomSheetNavBarWidget(
+                      backText: "Repetition", title: "Custom repetition"),
+                  FrequencyExpanderWidget(
+                      freqController: freqController,
+                      currentFrequency: currentFrequency,
+                      onItemChanged: (index) async {
+                        await frequencyItemChanged(index);
+                      }),
+                  IntervalExpanderWidget(
+                      intController: intController,
+                      currentIntervals: currentIntervals,
+                      currentIntervalIndex: currentIntervalIndex,
+                      onItemChanged: (index) async {
+                        await intervalItemChanged(index);
+                      }),
+                  RepetitionLabelWidget(humanReadableText: humanReadableText),
+                  if (isCustomWeeklyVisible)
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                      child: WeekDayCheckerWidget(
+                          weekDays: weekDays,
+                          selectionChanged: ((items) => updateWeeklyRRule())),
+                    ),
+                  if (isCustomMonthlyVisible)
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                      child: MonthDayCheckerCombinedWidget(
+                        monthlyType: monthlyType,
+                        monthDays: monthDays,
+                        bySetPos: bySetPos,
+                        byDay: byDay,
+                        monthController: monthController,
+                        monthDaySelectionChanged: (checkedItems) =>
+                            updateMonthlyMonthDayCheckerRRule(),
+                        bySetPosChanged: (bySetPos) async {
+                          this.bySetPos = bySetPos!;
+                          updateMonthlyMonthDayByDayPosRRule();
+                        },
+                        byDayChanged: (byDay) async {
+                          this.byDay = byDay!;
+                          updateMonthlyMonthDayByDayPosRRule();
+                        },
+                        monthlyTypeChanged: (type) => monthlyTypeChanged(type),
+                      ),
+                    ),
+                  Container(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                      child: Column(
+                        children: [
+                          rowBuilder(0, 4),
+                          Container(
+                            width: double.infinity,
+                            height: 0.5,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).lineColor,
+                            ),
+                          ),
+                          rowBuilder(4, 8),
+                          Container(
+                            width: double.infinity,
+                            height: 0.5,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).lineColor,
+                            ),
+                          ),
+                          rowBuilder(8, 12),
+                        ],
+                      ),
                     ),
                   ),
-                Container(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
-                    child: Column(
-                      children: [
-                        rowBuilder(0, 4),
-                        rowBuilder(4, 8),
-                        rowBuilder(8, 12),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
