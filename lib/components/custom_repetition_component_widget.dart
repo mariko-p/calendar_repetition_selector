@@ -255,7 +255,7 @@ class _CustomRepetitionComponentWidgetState
                       ),
                       decoration: BoxDecoration(
                         color: Color(0xFF9980DD),
-                        borderRadius: getSpecificBorderRadius(itemIndex),
+                        borderRadius: getSpecificBorderRadius(item.text),
                       ),
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
@@ -280,7 +280,7 @@ class _CustomRepetitionComponentWidgetState
                       height: 36,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).itemBackground,
-                        borderRadius: getSpecificBorderRadius(itemIndex),
+                        borderRadius: getSpecificBorderRadius(item.text),
                       ),
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
@@ -318,9 +318,9 @@ class _CustomRepetitionComponentWidgetState
     );
   }
 
-  BorderRadiusGeometry? getSpecificBorderRadius(int index) {
-
-    if (index == 0) {
+  BorderRadiusGeometry? getSpecificBorderRadius(String? monthValue) {
+    
+    if (monthValue == Constants.JANUARY) {
       return BorderRadius.only(
         topLeft: Radius.circular(5),
         topRight: Radius.circular(0),
@@ -329,7 +329,7 @@ class _CustomRepetitionComponentWidgetState
       );
     }
 
-    if (index == 3) {
+    if (monthValue == Constants.APRIL) {
       return BorderRadius.only(
         topLeft: Radius.circular(0),
         topRight: Radius.circular(5),
@@ -338,7 +338,7 @@ class _CustomRepetitionComponentWidgetState
       );
     }
 
-    if (index == 8) {
+    if (monthValue == Constants.SEPTEMBER) {
       return BorderRadius.only(
           topLeft: Radius.circular(0),
           topRight: Radius.circular(0),
@@ -347,7 +347,7 @@ class _CustomRepetitionComponentWidgetState
       );
     }
 
-    if (index == 11) {
+    if (monthValue == Constants.DECEMBER) {
       return BorderRadius.only(
         topLeft: Radius.circular(0),
         topRight: Radius.circular(0),
