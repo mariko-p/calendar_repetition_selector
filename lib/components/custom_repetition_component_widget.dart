@@ -146,9 +146,12 @@ class _CustomRepetitionComponentWidgetState
                                       Align(
                                         alignment: AlignmentDirectional(1, 0),
                                         child: Container(
-                                          width: 1,
+                                          width: 10,
                                           decoration: BoxDecoration(
                                             color: Color(0xFF7E8CA2),
+                                            border: Border.all(
+                                              color: Color(0xFF7E8CA2),
+                                            ),
                                           ),
                                         ),
                                       ),
