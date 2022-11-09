@@ -44,12 +44,6 @@ class _$MonthStructSerializer implements StructuredSerializer<MonthStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.index;
-    if (value != null) {
-      result
-        ..add('index')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
     return result;
   }
 
@@ -76,10 +70,6 @@ class _$MonthStructSerializer implements StructuredSerializer<MonthStruct> {
           result.shortText = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'index':
-          result.index = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -100,8 +90,6 @@ class _$MonthStruct extends MonthStruct {
   @override
   final String? shortText;
   @override
-  final int? index;
-  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$MonthStruct([void Function(MonthStructBuilder)? updates]) =>
@@ -111,7 +99,6 @@ class _$MonthStruct extends MonthStruct {
       {this.text,
       this.isChecked,
       this.shortText,
-      this.index,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -132,17 +119,13 @@ class _$MonthStruct extends MonthStruct {
         text == other.text &&
         isChecked == other.isChecked &&
         shortText == other.shortText &&
-        index == other.index &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc(
-            $jc($jc($jc(0, text.hashCode), isChecked.hashCode),
-                shortText.hashCode),
-            index.hashCode),
+        $jc($jc($jc(0, text.hashCode), isChecked.hashCode), shortText.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -152,7 +135,6 @@ class _$MonthStruct extends MonthStruct {
           ..add('text', text)
           ..add('isChecked', isChecked)
           ..add('shortText', shortText)
-          ..add('index', index)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -173,10 +155,6 @@ class MonthStructBuilder implements Builder<MonthStruct, MonthStructBuilder> {
   String? get shortText => _$this._shortText;
   set shortText(String? shortText) => _$this._shortText = shortText;
 
-  int? _index;
-  int? get index => _$this._index;
-  set index(int? index) => _$this._index = index;
-
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -192,7 +170,6 @@ class MonthStructBuilder implements Builder<MonthStruct, MonthStructBuilder> {
       _text = $v.text;
       _isChecked = $v.isChecked;
       _shortText = $v.shortText;
-      _index = $v.index;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -219,7 +196,6 @@ class MonthStructBuilder implements Builder<MonthStruct, MonthStructBuilder> {
             text: text,
             isChecked: isChecked,
             shortText: shortText,
-            index: index,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'MonthStruct', 'firestoreUtilData'));
     replace(_$result);

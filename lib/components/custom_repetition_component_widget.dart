@@ -1,3 +1,4 @@
+import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:expandable/expandable.dart';
 
 import '../backend/schema/structs/month_day_struct.dart';
@@ -37,6 +38,8 @@ class _CustomRepetitionComponentWidgetState
   var bySetPos;
   var byDay;
   var monthlyType;
+
+  late List<MonthStruct> months;
 
   var freqController = ExpandableController();
   var intController = ExpandableController();
@@ -90,6 +93,8 @@ class _CustomRepetitionComponentWidgetState
     bySetPos = getBySetPositionList()[0];
     byDay = getByDayList()[0];
     monthlyType = MonthlyViewType.MONTH_DAY_CHECKER;
+    
+    months = getMonthsList();
 
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
@@ -236,71 +241,87 @@ class _CustomRepetitionComponentWidgetState
   rowBuilder(int startIndex, int endIndex) {
     return Builder(
       builder: (context) {
-        final itemMonth =
-            functions.getMonthsList().toList().sublist(startIndex, endIndex);
+        final rowList = months.sublist(startIndex, endIndex);
+        print ("ROWLIST $rowList");
+        
         return Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(itemMonth.length, (itemIndex) {
-            final item = itemMonth[itemIndex];
+          children: List.generate(rowList.length, (itemIndex) {
+            final item = rowList[itemIndex];
             final textValue = item.shortText;
+            final monthIndex = itemIndex + startIndex;
             return Expanded(
               child: Stack(
                 children: [
-                  if (item.isChecked == true)
-                    Container(
-                      height: 36,
-                      constraints: BoxConstraints(
-                        maxWidth: 100,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color(0xFF9980DD),
-                        borderRadius: getSpecificBorderRadius(item.text),
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: SelectionArea(
-                            child: Text(
-                          valueOrDefault<String>(
-                            textValue,
-                            'jan.',
+                  if (months[monthIndex].isChecked == true)
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          months[monthIndex] = months[monthIndex].rebuild((p0) => p0.isChecked = false);
+                        });
+                      }, 
+                      borderRadius: getSpecificBorderRadius(item.text),
+                      child: Container(
+                        height: 36,
+                        constraints: BoxConstraints(
+                          maxWidth: 100,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF9980DD),
+                          borderRadius: getSpecificBorderRadius(item.text),
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Text(
+                            valueOrDefault<String>(
+                              textValue,
+                              'jan.',
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Rubik',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      lineHeight: 1.5,
+                                    ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Rubik',
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    lineHeight: 1.5,
-                                  ),
-                        )),
+                        ),
                       ),
                     ),
-                  if (item.isChecked == false)
-                    Container(
-                      height: 36,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                        borderRadius: getSpecificBorderRadius(item.text),
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: SelectionArea(
-                            child: Text(
-                          valueOrDefault<String>(
-                            textValue,
-                            'jan.',
+                  if (months[monthIndex].isChecked == false)
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          months[monthIndex] = months[monthIndex].rebuild((p0) => p0.isChecked = true);
+                        });
+                      },
+                      borderRadius: getSpecificBorderRadius(item.text),
+                      child: Container(
+                        height: 36,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).itemBackground,
+                          borderRadius: getSpecificBorderRadius(item.text),
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Text(
+                            valueOrDefault<String>(
+                              textValue,
+                              'jan.',
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Rubik',
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.normal,
+                                      lineHeight: 1.5,
+                                    ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Rubik',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.normal,
-                                    lineHeight: 1.5,
-                                  ),
-                        )),
+                        ),
                       ),
                     ),
-                    if (itemIndex < (itemMonth.length - 1))
+                    if (itemIndex < (rowList.length - 1))
                     Align(
                       alignment: AlignmentDirectional(1, 0),
                       child: Container(
@@ -318,7 +339,7 @@ class _CustomRepetitionComponentWidgetState
     );
   }
 
-  BorderRadiusGeometry? getSpecificBorderRadius(String? monthValue) {
+  BorderRadius? getSpecificBorderRadius(String? monthValue) {
     
     if (monthValue == Constants.JANUARY) {
       return BorderRadius.only(
@@ -422,7 +443,7 @@ class _CustomRepetitionComponentWidgetState
                     ),
                   Container(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 40, 15, 15),
                       child: Column(
                         children: [
                           rowBuilder(0, 4),
