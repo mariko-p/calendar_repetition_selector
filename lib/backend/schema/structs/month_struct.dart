@@ -15,8 +15,6 @@ abstract class MonthStruct implements Built<MonthStruct, MonthStructBuilder> {
 
   String? get shortText;
 
-  int? get index;
-
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
@@ -24,7 +22,6 @@ abstract class MonthStruct implements Built<MonthStruct, MonthStructBuilder> {
     ..text = ''
     ..isChecked = false
     ..shortText = ''
-    ..index = 0
     ..firestoreUtilData = FirestoreUtilData();
 
   MonthStruct._();
@@ -36,7 +33,6 @@ MonthStruct createMonthStruct({
   String? text,
   bool? isChecked,
   String? shortText,
-  int? index,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -47,7 +43,6 @@ MonthStruct createMonthStruct({
         ..text = text
         ..isChecked = isChecked
         ..shortText = shortText
-        ..index = index
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,
