@@ -242,13 +242,12 @@ class _CustomRepetitionComponentWidgetState
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: List.generate(itemMonth.length, (itemIndex) {
-            final firstRowMonthItem = itemMonth[itemIndex];
-            //final textValue = "${firstRowMonthItem.text?.substring(0, 3).toLowerCase()}.";
-            final textValue = 
+            final item = itemMonth[itemIndex];
+            final textValue = item.shortText;
             return Expanded(
               child: Stack(
                 children: [
-                  if (firstRowMonthItem.isChecked == true)
+                  if (item.isChecked == true)
                     Container(
                       height: 36,
                       constraints: BoxConstraints(
@@ -256,6 +255,7 @@ class _CustomRepetitionComponentWidgetState
                       ),
                       decoration: BoxDecoration(
                         color: Color(0xFF9980DD),
+                        borderRadius: getSpecificBorderRadius(itemIndex),
                       ),
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
@@ -275,14 +275,12 @@ class _CustomRepetitionComponentWidgetState
                         )),
                       ),
                     ),
-                  if (firstRowMonthItem.isChecked == false)
+                  if (item.isChecked == false)
                     Container(
                       height: 36,
-                      // constraints: BoxConstraints(
-                      //   maxWidth: 100,
-                      // ),
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).itemBackground,
+                        borderRadius: getSpecificBorderRadius(itemIndex),
                       ),
                       child: Align(
                         alignment: AlignmentDirectional(0, 0),
@@ -302,7 +300,7 @@ class _CustomRepetitionComponentWidgetState
                         )),
                       ),
                     ),
-                    if (itemIndex < itemMonth.length - 1)
+                    if (itemIndex < (itemMonth.length - 1))
                     Align(
                       alignment: AlignmentDirectional(1, 0),
                       child: Container(
@@ -319,6 +317,49 @@ class _CustomRepetitionComponentWidgetState
       },
     );
   }
+
+  BorderRadiusGeometry? getSpecificBorderRadius(int index) {
+
+    if (index == 0) {
+      return BorderRadius.only(
+        topLeft: Radius.circular(5),
+        topRight: Radius.circular(0),
+        bottomLeft: Radius.circular(0),
+        bottomRight: Radius.circular(0),
+      );
+    }
+
+    if (index == 3) {
+      return BorderRadius.only(
+        topLeft: Radius.circular(0),
+        topRight: Radius.circular(5),
+        bottomLeft: Radius.circular(0),
+        bottomRight: Radius.circular(0),
+      );
+    }
+
+    if (index == 8) {
+      return BorderRadius.only(
+          topLeft: Radius.circular(0),
+          topRight: Radius.circular(0),
+          bottomLeft: Radius.circular(5),
+          bottomRight: Radius.circular(0),
+      );
+    }
+
+    if (index == 11) {
+      return BorderRadius.only(
+        topLeft: Radius.circular(0),
+        topRight: Radius.circular(0),
+        bottomLeft: Radius.circular(0),
+        bottomRight: Radius.circular(5),
+      );
+    }
+    
+    // Default no BorderRadius
+    return null;
+  }
+
 
   @override
   Widget build(BuildContext context) {

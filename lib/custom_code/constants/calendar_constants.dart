@@ -54,4 +54,17 @@ class Constants {
   static const String NOVEMBER = "November";
   static const String DECEMBER = "December";
   
+  static const String JANUARY_SHORT = "jan.";
+  static const String FEBRUARY_SHORT = "feb.";
+  static const String MARCH_SHORT = "mar.";
+  static const String APRIL_SHORT = "apr.";
+  static const String MAY_SHORT = "may";
+  static const String JUNE_SHORT = "june";
+  static const String JULY_SHORT = "july";
+  static const String AUGUST_SHORT = "aug.";
+  static const String SEPTEMBER_SHORT = "sep.";
+  static const String OCTOBER_SHORT = "oct.";
+  static const String NOVEMBER_SHORT = "nov.";
+  static const String DECEMBER_SHORT = "dec.";
+  
 }

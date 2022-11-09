@@ -227,17 +227,17 @@ String repetitionEveryYear() {
 List<MonthStruct> getMonthsList() {
   // Code written in flutter.
   return [
-    createMonthStruct(text: Constants.JANUARY, isChecked: false),
-    createMonthStruct(text: Constants.FEBRUARY, isChecked: false),
-    createMonthStruct(text: Constants.MARCH, isChecked: false),
-    createMonthStruct(text: Constants.APRIL, isChecked: false),
-    createMonthStruct(text: Constants.MAY, isChecked: false),
-    createMonthStruct(text: Constants.JUNE, isChecked: false),
-    createMonthStruct(text: Constants.JULY, isChecked: false),
-    createMonthStruct(text: Constants.AUGUST, isChecked: false),
-    createMonthStruct(text: Constants.SEPTEMBER, isChecked: false),
-    createMonthStruct(text: Constants.OCTOBER, isChecked: false),
-    createMonthStruct(text: Constants.NOVEMBER, isChecked: false),
-    createMonthStruct(text: Constants.DECEMBER, isChecked: false),
+    createMonthStruct(text: Constants.JANUARY, shortText: Constants.JANUARY_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.FEBRUARY, shortText: Constants.FEBRUARY_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.MARCH, shortText: Constants.MARCH_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.APRIL, shortText: Constants.APRIL_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.MAY, shortText: Constants.MAY_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.JUNE, shortText: Constants.JUNE_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.JULY, shortText: Constants.JULY_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.AUGUST, shortText: Constants.AUGUST_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.SEPTEMBER, shortText: Constants.SEPTEMBER_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.OCTOBER, shortText: Constants.OCTOBER_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.NOVEMBER, shortText: Constants.NOVEMBER_SHORT, isChecked: false),
+    createMonthStruct(text: Constants.DECEMBER, shortText: Constants.DECEMBER_SHORT, isChecked: false),
   ];
 }

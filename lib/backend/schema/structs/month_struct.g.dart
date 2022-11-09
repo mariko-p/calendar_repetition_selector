@@ -37,6 +37,13 @@ class _$MonthStructSerializer implements StructuredSerializer<MonthStruct> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.shortText;
+    if (value != null) {
+      result
+        ..add('shortText')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -59,6 +66,10 @@ class _$MonthStructSerializer implements StructuredSerializer<MonthStruct> {
           result.isChecked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'shortText':
+          result.shortText = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -77,12 +88,18 @@ class _$MonthStruct extends MonthStruct {
   @override
   final bool? isChecked;
   @override
+  final String? shortText;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$MonthStruct([void Function(MonthStructBuilder)? updates]) =>
       (new MonthStructBuilder()..update(updates))._build();
 
-  _$MonthStruct._({this.text, this.isChecked, required this.firestoreUtilData})
+  _$MonthStruct._(
+      {this.text,
+      this.isChecked,
+      this.shortText,
+      required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         firestoreUtilData, r'MonthStruct', 'firestoreUtilData');
@@ -101,12 +118,14 @@ class _$MonthStruct extends MonthStruct {
     return other is MonthStruct &&
         text == other.text &&
         isChecked == other.isChecked &&
+        shortText == other.shortText &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, text.hashCode), isChecked.hashCode),
+    return $jf($jc(
+        $jc($jc($jc(0, text.hashCode), isChecked.hashCode), shortText.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -115,6 +134,7 @@ class _$MonthStruct extends MonthStruct {
     return (newBuiltValueToStringHelper(r'MonthStruct')
           ..add('text', text)
           ..add('isChecked', isChecked)
+          ..add('shortText', shortText)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -131,6 +151,10 @@ class MonthStructBuilder implements Builder<MonthStruct, MonthStructBuilder> {
   bool? get isChecked => _$this._isChecked;
   set isChecked(bool? isChecked) => _$this._isChecked = isChecked;
 
+  String? _shortText;
+  String? get shortText => _$this._shortText;
+  set shortText(String? shortText) => _$this._shortText = shortText;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -145,6 +169,7 @@ class MonthStructBuilder implements Builder<MonthStruct, MonthStructBuilder> {
     if ($v != null) {
       _text = $v.text;
       _isChecked = $v.isChecked;
+      _shortText = $v.shortText;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -170,6 +195,7 @@ class MonthStructBuilder implements Builder<MonthStruct, MonthStructBuilder> {
         new _$MonthStruct._(
             text: text,
             isChecked: isChecked,
+            shortText: shortText,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'MonthStruct', 'firestoreUtilData'));
     replace(_$result);
