@@ -120,6 +120,8 @@ class _CustomRepetitionComponentWidgetState
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .itemBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
                                           ),
                                           child: Align(
                                             alignment:
