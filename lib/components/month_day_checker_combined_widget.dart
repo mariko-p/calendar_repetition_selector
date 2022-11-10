@@ -91,6 +91,12 @@ class _MonthDayCheckerCombinedWidgetState
                         }
                       });
                     },
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(5),
+                      topRight: Radius.circular(5),
+                    ),
                     child: Container(
                       width: double.infinity,
                       height: 36,

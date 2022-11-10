@@ -44,7 +44,7 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 40, 15, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
           child: MonthCheckerWidget(
             months: widget.months,
             monthSelectionChanged: (() => widget.monthSelectionChanged()),

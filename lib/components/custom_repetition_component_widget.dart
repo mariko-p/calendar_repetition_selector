@@ -158,8 +158,7 @@ class _CustomRepetitionComponentWidgetState
     } else if (freq == Constants.MONTHLY) {
       updateMonthlyRRule();
     } else if (freq == Constants.YEARLY) {
-      //TODO:
-      isCustomYearylVisible = true;
+      updateYearlyRRule();
     }
   }
 

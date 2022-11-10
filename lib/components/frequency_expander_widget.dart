@@ -109,7 +109,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                   child: Container(
                     width: double.infinity,
                     height: 0.5,

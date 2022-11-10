@@ -26,6 +26,31 @@ class IntervalExpanderWidget extends StatefulWidget {
 }
 
 class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
+  var isExpanded = false;
+
+  void onExpansionChanged() {
+    if (widget.intController.expanded) {
+      setState(() {
+        isExpanded = true;
+      });
+    } else {
+      setState(() {
+        isExpanded = false;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    widget.intController.addListener(onExpansionChanged);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.intController.removeListener(onExpansionChanged);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -62,7 +87,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                   child: Material(
                     color: FlutterFlowTheme.of(context).itemBackground,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: isExpanded ? BorderRadius.all(Radius.zero): BorderRadius.only(
                         bottomLeft: Radius.circular(5),
                         bottomRight: Radius.circular(5),
                         topLeft: Radius.circular(0),
@@ -71,7 +96,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                     ),
                     child: InkWell(
                       onTap: () => {widget.intController.toggle()},
-                      borderRadius: BorderRadius.only(
+                      borderRadius: isExpanded ? null: BorderRadius.only(
                           bottomLeft: Radius.circular(5),
                           bottomRight: Radius.circular(5),
                           topLeft: Radius.circular(0),
@@ -121,6 +146,17 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                     ),
                   ),
                 ),
+                if (isExpanded)
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 0.5,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).lineColor,
+                      ),
+                    ),
+                  ),
               ],
             ),
             collapsed: Container(),

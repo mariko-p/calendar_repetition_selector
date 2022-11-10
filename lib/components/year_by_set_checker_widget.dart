@@ -67,6 +67,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
               header: Container(
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).itemBackground,
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
