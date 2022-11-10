@@ -90,7 +90,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                                         fontFamily: 'Rubik',
                                         color: Color(0xFF9980DD),
                                         fontWeight: FontWeight.normal,
-                                        fontSize: 14
+                                        fontSize: 12
                                       ),
                                 ),
                               ),
