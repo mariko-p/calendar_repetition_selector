@@ -1,10 +1,10 @@
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_expander_widget.dart';
 import '../components/interval_expander_widget.dart';
-import '../components/month_checker_widget.dart';
 import '../components/month_day_checker_combined_widget.dart';
 import '../components/repetition_label_widget.dart';
 import '../components/week_day_checker_widget.dart';
+import '../components/year_checker_combined_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
@@ -58,10 +58,7 @@ class _CustomRepetitionComponentWidgetState
                     padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                     child: MonthDayCheckerCombinedWidget(),
                   ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 40, 15, 15),
-                  child: MonthCheckerWidget(),
-                ),
+                YearCheckerCombinedWidget(),
               ],
             ),
           ),
