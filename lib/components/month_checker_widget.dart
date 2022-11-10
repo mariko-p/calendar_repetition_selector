@@ -10,13 +10,11 @@ class MonthCheckerWidget extends StatefulWidget {
   const MonthCheckerWidget({
     Key? key,
     required this.months,
-    required this.monthSelectionChanged,
-    required this.isWeekDaysSelectionChanged
+    required this.monthSelectionChanged
   }) : super(key: key);
 
   final List<MonthStruct> months;
   final Future<dynamic> Function() monthSelectionChanged;
-  final Future<dynamic> Function(bool isWeekDaysActive) isWeekDaysSelectionChanged;
 
   @override
   _MonthCheckerWidgetState createState() => _MonthCheckerWidgetState();

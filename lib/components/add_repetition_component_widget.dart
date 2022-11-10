@@ -35,7 +35,7 @@ class _AddRepetitionComponentWidgetState
 
   void initSelectedItem() {
     selectedIndex = -1;
-    if (widget.rrule?.isEmpty == true) {
+    if (widget.rrule?.isEmpty == true || widget.rrule == null) {
       selectedIndex = 0;
     } else {
       if (widget.rrule == repetitionEveryDay()) {
@@ -71,6 +71,26 @@ class _AddRepetitionComponentWidgetState
     }
   }
 
+  BorderRadius? getSpecificBorderRadius(int itemIndex) {
+    if (itemIndex == 0) {
+      return BorderRadius.only(
+        topLeft: Radius.circular(5),
+        topRight: Radius.circular(5),
+        bottomLeft: Radius.circular(0),
+        bottomRight: Radius.circular(0),
+      );
+    }
+    if (itemIndex == 5) {
+      return BorderRadius.only(
+        topLeft: Radius.circular(0),
+        topRight: Radius.circular(0),
+        bottomLeft: Radius.circular(5),
+        bottomRight: Radius.circular(5),
+      );
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -101,20 +121,23 @@ class _AddRepetitionComponentWidgetState
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemCount: repetitions.length,
-                itemBuilder: (context, weekDaysIndex) {
-                  final weekDaysItem = repetitions[weekDaysIndex];
+                itemBuilder: (context, itemIndex) {
+                  final weekDaysItem = repetitions[itemIndex];
                   return Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       InkWell(
                         onTap: () async {
                           setState(() {
-                            selectedIndex = weekDaysIndex;
+                            selectedIndex = itemIndex;
                             applyRRule(selectedIndex);
                           });
                         },
                         child: Container(
-                          color: FlutterFlowTheme.of(context).itemBackground,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).itemBackground,
+                            borderRadius: getSpecificBorderRadius(itemIndex),
+                          ),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -154,7 +177,7 @@ class _AddRepetitionComponentWidgetState
                           ),
                         ),
                       ),
-                      if (weekDaysIndex != 5)
+                      if (itemIndex != 5)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(21, 0, 0, 0),
                           child: Container(
@@ -199,7 +222,10 @@ class _AddRepetitionComponentWidgetState
               ).then((value) => setState(() {}));
             },
             child: Container(
-              color: FlutterFlowTheme.of(context).itemBackground,
+              decoration: BoxDecoration (
+                color: FlutterFlowTheme.of(context).itemBackground,
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+              ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [

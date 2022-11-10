@@ -79,7 +79,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               child: Container(
                                 height:
                                     MediaQuery.of(context).size.height * 0.95,
-                                child: AddRepetitionComponentWidget(rrule: repetitionEveryMonth()),
+                                child: AddRepetitionComponentWidget(),
                               ),
                             );
                           },

@@ -6,13 +6,13 @@ import '../backend/schema/structs/week_day_struct.dart';
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_expander_widget.dart';
 import '../components/interval_expander_widget.dart';
-import '../components/month_checker_widget.dart';
 import '../components/month_day_checker_combined_widget.dart';
 import '../components/repetition_label_widget.dart';
 import '../components/week_day_checker_widget.dart';
 import '../custom_code/actions/update_r_rule.dart';
 import '../custom_code/constants/calendar_constants.dart';
 import '../flutter_flow/custom_functions.dart';
+import '../components/year_checker_combined_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
@@ -236,7 +236,6 @@ class _CustomRepetitionComponentWidgetState
     var freq = currentFrequency.value;
     var interval = currentInterval.value;
     var byMonthsList = List<int>.empty(growable: true);
-
     this.months.forEachIndexed((index, element) {
       if (element.isChecked == true) {
         // RRULE: Januar is 1. December is 12. etc.
@@ -247,6 +246,10 @@ class _CustomRepetitionComponentWidgetState
     if (isWeekDaysChecked == false) {
       updateRRule(freq, interval, byMonth: byMonthsList);
     } else if (isWeekDaysChecked == true) {
+      int position = bySetPos.value!;
+      List<String>? byDays = this.byDay.value?.toList(); 
+      print("UPDATE YEARLY");
+      updateRRule(freq, interval, byMonth: byMonthsList, bySetPos: [position], byDay: byDays);
     }
     await updateRepetitionLabel();
   }
@@ -290,6 +293,8 @@ class _CustomRepetitionComponentWidgetState
                         await intervalItemChanged(index);
                       }),
                   RepetitionLabelWidget(humanReadableText: humanReadableText),
+                  
+                  // Local WEEKLY.
                   if (isCustomWeeklyVisible)
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
@@ -297,6 +302,8 @@ class _CustomRepetitionComponentWidgetState
                           weekDays: weekDays,
                           selectionChanged: ((items) => updateWeeklyRRule())),
                     ),
+                  
+                  // Local MONTHLY.
                   if (isCustomMonthlyVisible)
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
@@ -319,21 +326,31 @@ class _CustomRepetitionComponentWidgetState
                         monthlyTypeChanged: (type) => monthlyTypeChanged(type),
                       ),
                     ),
-                  if (isCustomYearylVisible)
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 40, 15, 15),
-                      child: MonthCheckerWidget(
-                        months: months,
+
+                    // Local YEARLY.
+                    if (isCustomYearylVisible)
+                      YearCheckerCombinedWidget(
+                        months: this.months,
                         monthSelectionChanged: () async {
                           updateYearlyRRule();
                         },
                         isWeekDaysSelectionChanged: (isWeekDaysActive) async {
                           this.isWeekDaysChecked = isWeekDaysActive;
+                          updateYearlyRRule();
+                        },
+                        byDay: this.byDay,
+                        bySetPos: this.bySetPos,
+                        byDayChanged: (byDay) async {
+                          this.byDay = byDay;
+                          updateYearlyRRule();
+                        },
+                        bySetPosChanged: (bySetPos) async {
+                          this.bySetPos = bySetPos;
+                          updateYearlyRRule();
                         },
                       ),
-                    ),
                 ],
-              ),
+              )            
             ),
           ),
         ],
