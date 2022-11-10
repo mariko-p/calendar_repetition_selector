@@ -10,7 +10,8 @@ class MonthCheckerWidget extends StatefulWidget {
   const MonthCheckerWidget({
     Key? key,
     required this.months,
-    required this.monthSelectionChanged
+    required this.monthSelectionChanged,
+    required this.isWeekDaysSelectionChanged
   }) : super(key: key);
 
   final List<MonthStruct> months;

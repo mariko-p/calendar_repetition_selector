@@ -324,10 +324,12 @@ class _CustomRepetitionComponentWidgetState
                       padding: EdgeInsetsDirectional.fromSTEB(15, 40, 15, 15),
                       child: MonthCheckerWidget(
                         months: months,
-                        monthSelectionChanged: (isWeekDaysActive) async {
-                          this.isWeekDaysChecked = isWeekDaysChecked;
+                        monthSelectionChanged: () async {
                           updateYearlyRRule();
-                        }
+                        },
+                        isWeekDaysSelectionChanged: (isWeekDaysActive) async {
+                          this.isWeekDaysChecked = isWeekDaysActive;
+                        },
                       ),
                     ),
                 ],
