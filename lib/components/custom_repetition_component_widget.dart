@@ -6,6 +6,7 @@ import '../backend/schema/structs/week_day_struct.dart';
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_expander_widget.dart';
 import '../components/interval_expander_widget.dart';
+import '../components/month_checker_widget.dart';
 import '../components/month_day_checker_combined_widget.dart';
 import '../components/repetition_label_widget.dart';
 import '../components/week_day_checker_widget.dart';
@@ -16,6 +17,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:collection/collection.dart';
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
   const CustomRepetitionComponentWidget({Key? key}) : super(key: key);
@@ -40,6 +42,7 @@ class _CustomRepetitionComponentWidgetState
   var monthlyType;
 
   late List<MonthStruct> months;
+  var isWeekDaysChecked = false;
 
   var freqController = ExpandableController();
   var intController = ExpandableController();
@@ -93,7 +96,7 @@ class _CustomRepetitionComponentWidgetState
     bySetPos = getBySetPositionList()[0];
     byDay = getByDayList()[0];
     monthlyType = MonthlyViewType.MONTH_DAY_CHECKER;
-    
+
     months = getMonthsList();
 
     freqController.addListener(onFreqExpandedChanged);
@@ -229,6 +232,25 @@ class _CustomRepetitionComponentWidgetState
     await updateRepetitionLabel();
   }
 
+  Future updateYearlyRRule() async {
+    var freq = currentFrequency.value;
+    var interval = currentInterval.value;
+    var byMonthsList = List<int>.empty(growable: true);
+
+    this.months.forEachIndexed((index, element) {
+      if (element.isChecked == true) {
+        // RRULE: Januar is 1. December is 12. etc.
+        byMonthsList.add(index + 1);
+      }
+    });
+
+    if (isWeekDaysChecked == false) {
+      updateRRule(freq, interval, byMonth: byMonthsList);
+    } else if (isWeekDaysChecked == true) {
+    }
+    await updateRepetitionLabel();
+  }
+
   Future monthlyTypeChanged(MonthlyViewType type) async {
     monthlyType = type;
     if (monthlyType == MonthlyViewType.MONTH_DAY_CHECKER) {
@@ -237,150 +259,6 @@ class _CustomRepetitionComponentWidgetState
       updateMonthlyMonthDayByDayPosRRule();
     }
   }
-
-  rowBuilder(int startIndex, int endIndex) {
-    return Builder(
-      builder: (context) {
-        final rowList = months.sublist(startIndex, endIndex);
-        print ("ROWLIST $rowList");
-        
-        return Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(rowList.length, (itemIndex) {
-            final item = rowList[itemIndex];
-            final textValue = item.shortText;
-            final monthIndex = itemIndex + startIndex;
-            return Expanded(
-              child: Stack(
-                children: [
-                  if (months[monthIndex].isChecked == true)
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          months[monthIndex] = months[monthIndex].rebuild((p0) => p0.isChecked = false);
-                        });
-                      }, 
-                      borderRadius: getSpecificBorderRadius(item.text),
-                      child: Container(
-                        height: 36,
-                        constraints: BoxConstraints(
-                          maxWidth: 100,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xFF9980DD),
-                          borderRadius: getSpecificBorderRadius(item.text),
-                        ),
-                        child: Align(
-                          alignment: AlignmentDirectional(0, 0),
-                          child: Text(
-                            valueOrDefault<String>(
-                              textValue,
-                              'jan.',
-                            ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Rubik',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.normal,
-                                      lineHeight: 1.5,
-                                    ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  if (months[monthIndex].isChecked == false)
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          months[monthIndex] = months[monthIndex].rebuild((p0) => p0.isChecked = true);
-                        });
-                      },
-                      borderRadius: getSpecificBorderRadius(item.text),
-                      child: Container(
-                        height: 36,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).itemBackground,
-                          borderRadius: getSpecificBorderRadius(item.text),
-                        ),
-                        child: Align(
-                          alignment: AlignmentDirectional(0, 0),
-                          child: Text(
-                            valueOrDefault<String>(
-                              textValue,
-                              'jan.',
-                            ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Rubik',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.normal,
-                                      lineHeight: 1.5,
-                                    ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    if (itemIndex < (rowList.length - 1))
-                    Align(
-                      alignment: AlignmentDirectional(1, 0),
-                      child: Container(
-                        height: 36,
-                          width: 0.5,
-                          color: FlutterFlowTheme.of(context).lineColor,
-                      ),
-                    ),
-                ],
-              ),
-            );
-          }),
-        );
-      },
-    );
-  }
-
-  BorderRadius? getSpecificBorderRadius(String? monthValue) {
-    
-    if (monthValue == Constants.JANUARY) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(5),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(0),
-      );
-    }
-
-    if (monthValue == Constants.APRIL) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(0),
-        topRight: Radius.circular(5),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(0),
-      );
-    }
-
-    if (monthValue == Constants.SEPTEMBER) {
-      return BorderRadius.only(
-          topLeft: Radius.circular(0),
-          topRight: Radius.circular(0),
-          bottomLeft: Radius.circular(5),
-          bottomRight: Radius.circular(0),
-      );
-    }
-
-    if (monthValue == Constants.DECEMBER) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(0),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(5),
-      );
-    }
-    
-    // Default no BorderRadius
-    return null;
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -441,32 +319,17 @@ class _CustomRepetitionComponentWidgetState
                         monthlyTypeChanged: (type) => monthlyTypeChanged(type),
                       ),
                     ),
-                  Container(
-                    child: Padding(
+                  if (isCustomYearylVisible)
+                    Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(15, 40, 15, 15),
-                      child: Column(
-                        children: [
-                          rowBuilder(0, 4),
-                          Container(
-                            width: double.infinity,
-                            height: 0.5,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).lineColor,
-                            ),
-                          ),
-                          rowBuilder(4, 8),
-                          Container(
-                            width: double.infinity,
-                            height: 0.5,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).lineColor,
-                            ),
-                          ),
-                          rowBuilder(8, 12),
-                        ],
+                      child: MonthCheckerWidget(
+                        months: months,
+                        monthSelectionChanged: (isWeekDaysActive) async {
+                          this.isWeekDaysChecked = isWeekDaysChecked;
+                          updateYearlyRRule();
+                        }
                       ),
                     ),
-                  ),
                 ],
               ),
             ),
