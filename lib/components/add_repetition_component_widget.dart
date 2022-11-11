@@ -215,7 +215,10 @@ class _AddRepetitionComponentWidgetState
                     padding: MediaQuery.of(context).viewInsets,
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.95,
-                      child: CustomRepetitionComponentWidget(),
+                      child: CustomRepetitionComponentWidget(onRRuleChanged:
+                      (rrule) async {
+                        print("RRULE changed: $rrule");
+                      },),
                     ),
                   );
                 },

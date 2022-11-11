@@ -20,7 +20,12 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
-  const CustomRepetitionComponentWidget({Key? key}) : super(key: key);
+  const CustomRepetitionComponentWidget({
+    Key? key,
+    required this.onRRuleChanged,
+  }) : super(key: key);
+
+  final Future<dynamic> Function(String? rrule) onRRuleChanged;
 
   @override
   _CustomRepetitionComponentWidgetState createState() =>
@@ -86,6 +91,7 @@ class _CustomRepetitionComponentWidgetState
     // ignore: todo
     // TODO: For edit mode update initial values from RRULE string, stored in db.
     FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
+    invokeRRuleOnChanged();
     currentIntervalIndex = 0;
     currentIntervals = generateInterval("DAILY");
     currentInterval = currentIntervals[0];
@@ -101,7 +107,7 @@ class _CustomRepetitionComponentWidgetState
 
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
-
+    
     super.initState();
   }
 
@@ -149,10 +155,9 @@ class _CustomRepetitionComponentWidgetState
 
   updateOpenedViewRRule() {
     var freq = currentFrequency.value;
-    var interval = currentInterval.value;
 
     if (freq == Constants.DAILY) {
-      updateRRule(freq, interval);
+      updateDailyRRule();
     } else if (freq == Constants.WEEKLY) {
       updateWeeklyRRule();
     } else if (freq == Constants.MONTHLY) {
@@ -181,10 +186,16 @@ class _CustomRepetitionComponentWidgetState
     isCustomYearylVisible = false;
   }
 
+  void invokeRRuleOnChanged() {
+    var rrule = FFAppState().vCurrentRRule;
+    widget.onRRuleChanged(rrule);
+  }
+
   Future updateDailyRRule() async {
     var freq = currentFrequency.value;
     var interval = currentInterval.value;
     updateRRule(freq, interval);
+    invokeRRuleOnChanged();
   }
 
   Future updateWeeklyRRule() async {
@@ -198,6 +209,7 @@ class _CustomRepetitionComponentWidgetState
 
     updateRRule(freq, interval, byDay: selectedWeekDays);
     await updateRepetitionLabel();
+    invokeRRuleOnChanged();
   }
 
   Future updateMonthlyRRule() async {
@@ -219,6 +231,7 @@ class _CustomRepetitionComponentWidgetState
 
     updateRRule(freq, interval, byMonthDay: byMonthDays);
     await updateRepetitionLabel();
+    invokeRRuleOnChanged();
   }
 
   Future updateMonthlyMonthDayByDayPosRRule() async {
@@ -229,6 +242,7 @@ class _CustomRepetitionComponentWidgetState
 
     updateRRule(freq, interval, bySetPos: [position], byDay: byDays);
     await updateRepetitionLabel();
+    invokeRRuleOnChanged();
   }
 
   Future updateYearlyRRule() async {
@@ -251,6 +265,7 @@ class _CustomRepetitionComponentWidgetState
       updateRRule(freq, interval, byMonth: byMonthsList, bySetPos: [position], byDay: byDays);
     }
     await updateRepetitionLabel();
+    invokeRRuleOnChanged();
   }
 
   Future monthlyTypeChanged(MonthlyViewType type) async {

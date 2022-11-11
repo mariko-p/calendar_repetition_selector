@@ -35,7 +35,11 @@ class _CustomRepetitionPageWidgetState
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: CustomRepetitionComponentWidget(),
+          child: CustomRepetitionComponentWidget(
+            onRRuleChanged: (rrule) async {
+              print ("RRULE CHANGED: $rrule");
+            },
+          ),
         ),
       ),
     );
