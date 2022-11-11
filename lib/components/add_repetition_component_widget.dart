@@ -203,18 +203,20 @@ class _AddRepetitionComponentWidgetState
               //Navigator.pop(context);
               await showModalBottomSheet(
                 isScrollControlled: true,
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.transparent,
                 context: context,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                )),
                 builder: (context) {
                   return Padding(
                     padding: MediaQuery.of(context).viewInsets,
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.95,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        ),
+                        color: Colors.white,
+                      ),
                       child: CustomRepetitionComponentWidget(onRRuleChanged:
                       (rrule) async {
                         print("RRULE changed: $rrule");

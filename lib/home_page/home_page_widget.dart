@@ -66,12 +66,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       onPressed: () async {
                         await showModalBottomSheet(
                           isScrollControlled: true,
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                          )),
+                          backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
                             return Padding(
@@ -79,6 +74,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               child: Container(
                                 height:
                                     MediaQuery.of(context).size.height * 0.95,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10),
+                                    ),
+                                    color: Colors.white,
+                                ),
                                 child: AddRepetitionComponentWidget(),
                               ),
                             );
