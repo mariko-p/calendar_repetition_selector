@@ -87,9 +87,9 @@ flutter:
     - assets/pdfs/
 
   fonts:
-    - family: MaricoIcons
+    - family: Mariko
       fonts:
-        - asset: assets/fonts/marico-icons.ttf
+        - asset: assets/fonts/mariko.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
