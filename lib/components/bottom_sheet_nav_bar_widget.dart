@@ -39,63 +39,60 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
           alignment: AlignmentDirectional(-1, 0),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
-            child: Container(
-              height: 41,
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Text(
-                      widget.title!,
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Rubik',
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                          ),
-                    ),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0, 0),
+                  child: Text(
+                    widget.title!,
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Rubik',
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                          lineHeight: 1.167,
+                        ),
                   ),
-                  InkWell(
-                    onTap: () async {
-                      // BottomSheetDissmis
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(-1, 0),
-                            child: Icon(
-                              FFIcons.kangleSpacedLeft,
-                              color: Colors.black,
-                              size: 24,
+                ),
+                InkWell(
+                  onTap: () async {
+                    // BottomSheetDissmis
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(-1, 0),
+                          child: Icon(
+                            FFIcons.kangleSpacedLeft,
+                            color: Colors.black,
+                            size: 24,
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(-1, 0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
+                            child: Text(
+                              widget.backText!,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Rubik',
+                                    color: Color(0xFF9980DD),
+                                    fontWeight: FontWeight.normal,
+                                  ),
                             ),
                           ),
-                          Align(
-                            alignment: AlignmentDirectional(-1, 0),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
-                              child: Text(
-                                widget.backText!,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Rubik',
-                                      color: Color(0xFF9980DD),
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
