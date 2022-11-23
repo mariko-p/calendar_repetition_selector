@@ -10,9 +10,10 @@ import 'package:flutter/material.dart';
 Future updateRRule(
   String? frequency,
   int? interval,
-  List<String>? byDay,
   List<int>? byMonthDay,
-  List<int>? byMonth,
+  List<int>? bySetPos,
+  List<String>? byDay,
+  int? byMonth,
 ) async {
-  // Code written in flutter.
+  // Code written in local flutter.
 }

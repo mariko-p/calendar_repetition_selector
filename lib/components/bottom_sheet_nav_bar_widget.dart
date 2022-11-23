@@ -82,7 +82,8 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Rubik',
-                                    color: Color(0xFF9980DD),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
