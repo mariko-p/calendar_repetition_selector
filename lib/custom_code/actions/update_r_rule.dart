@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 
 //LOCAL_START
 Future updateRRule(String? frequency, int? interval,
-    {List<int>? byMonthDay, List<int>? bySetPos, List<String>? byDay, List<int>? byMonth}) async {
+    {List<int>? byMonthDay,
+    List<int>? bySetPos,
+    List<String>? byDay,
+    List<int>? byMonth}) async {
   // Code written in local flutter.
   final json = <String, dynamic>{
     'freq': frequency,

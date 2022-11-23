@@ -44,63 +44,69 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                 children: [
                   Align(
                     alignment: AlignmentDirectional(0, 0),
-                    child: Text(
-                      valueOrDefault(widget.title, ""),
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Rubik',
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                          ),
+                    child: Container(
+                      child: Text(
+                        valueOrDefault(widget.title, ""),
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Rubik',
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
+                            ),
+                      ),
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsetsDirectional.fromSTEB(6, 0, 12, 0),
-                    child: InkWell(
-                      onTap: () async {
-                        // BottomSheetDissmis
-                        Navigator.pop(context);
-                      },
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                      child: Container(
-                        padding: EdgeInsetsDirectional.fromSTEB(3, 0, 0, 0),
-                        decoration: BoxDecoration(),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(-1, 0),
-                              child: Icon(
-                                FFIcons.kangleFullLeft,
-                                color: Colors.black,
-                                size: 12,
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1, 0),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
-                                child: Text(
-                                  valueOrDefault(widget.backText, ""),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: Color(0xFF9980DD),
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 14
-                                      ),
+                  Align(
+                    alignment: AlignmentDirectional(-1,0),
+                    child: Container(
+                      padding: EdgeInsetsDirectional.fromSTEB(6, 0, 12, 0),
+                      child: InkWell(
+                        onTap: () async {
+                          // BottomSheetDissmis
+                          Navigator.pop(context);
+                        },
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        child: Container(
+                          padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                          decoration: BoxDecoration(),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(-1, 0),
+                                child: Icon(
+                                  FFIcons.kangleFullLeft,
+                                  color: Colors.black,
+                                  size: 12,
                                 ),
                               ),
-                            ),
-                          ],
+                              Align(
+                                alignment: AlignmentDirectional(-1, 0),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsetsDirectional.fromSTEB(6, 2, 6, 2),
+                                  child: Text(
+                                    valueOrDefault(widget.backText, ""),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Rubik',
+                                          color: FlutterFlowTheme.of(context)
+                                          .bottomSheetActionButtons,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 14
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              )
             ),
           ),
         ),

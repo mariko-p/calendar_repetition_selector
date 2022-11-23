@@ -10,8 +10,6 @@ import 'index.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await FlutterFlowTheme.initialize();
-
   FFAppState(); // Initialize FFAppState
 
   runApp(MyApp());
@@ -28,7 +26,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  ThemeMode _themeMode = ThemeMode.system;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
@@ -46,7 +44,6 @@ class _MyAppState extends State<MyApp> {
 
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
       });
 
   @override
@@ -61,8 +58,10 @@ class _MyAppState extends State<MyApp> {
       ],
       locale: _locale,
       supportedLocales: const [Locale('en', '')],
+      //LOCAL_START - Android default ripple behaviour is InkRipple.splashFactory.
       theme: ThemeData(brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
       darkTheme: ThemeData(brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
+      //LOCAL_END
       themeMode: _themeMode,
       routeInformationParser: _router.routeInformationParser,
       routerDelegate: _router.routerDelegate,
