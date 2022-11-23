@@ -40,7 +40,6 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
             child: Container(
-              height: 41,
               child: Stack(
                 children: [
                   Align(
@@ -100,8 +99,8 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
