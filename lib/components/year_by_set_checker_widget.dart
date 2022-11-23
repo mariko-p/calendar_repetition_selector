@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class YearBySetCheckerWidget extends StatefulWidget {
-  const YearBySetCheckerWidget({Key? key,
+  const YearBySetCheckerWidget({
+    Key? key,
     required this.bySetPos,
     required this.byDay,
     required this.bySetPosChanged,
@@ -19,10 +20,11 @@ class YearBySetCheckerWidget extends StatefulWidget {
   final BySetPositionStruct bySetPos;
   final ByDayStruct byDay;
 
-  final Future<dynamic> Function(bool isWeekDaysActive) isWeekDaysSelectionChanged;
+  final Future<dynamic> Function(bool isWeekDaysActive)
+      isWeekDaysSelectionChanged;
   final Future<dynamic> Function(BySetPositionStruct? bySetPos) bySetPosChanged;
   final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
-  
+
   @override
   _YearBySetCheckerWidgetState createState() => _YearBySetCheckerWidgetState();
 }
@@ -72,67 +74,77 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
-                      width: double.infinity,
-                      height: 36,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).itemBackground,
+                    Material(
+                      color: FlutterFlowTheme.of(context).itemBackground,
+                      child: InkWell(
+                        onTap: (() {
+                          controller.toggle();
+                        }),
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),
                         ),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).itemBackground,
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
-                            child: Text(
-                              'Weekdays',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Rubik',
-                                    fontWeight: FontWeight.w300,
-                                    lineHeight: 1.5,
-                                  ),
+                        child: Container(
+                          width: double.infinity,
+                          height: 36,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(5),
+                              topRight: Radius.circular(5),
+                            ),
+                            border: Border.all(
+                              color:
+                                  FlutterFlowTheme.of(context).itemBackground,
                             ),
                           ),
-                          if (isWeekDaysChecked == true)
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(1, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10.5, 12, 10.5),
-                                  child: Icon(
-                                    FFIcons.kcheckbox,
-                                    color: Color(0xFF9980DD),
-                                    size: 15,
-                                  ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 7.5, 0, 7.5),
+                                child: Text(
+                                  'Weekdays',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Rubik',
+                                        fontWeight: FontWeight.w300,
+                                        lineHeight: 1.5,
+                                      ),
                                 ),
                               ),
-                            ),
-                        ],
+                              if (isWeekDaysChecked == true)
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(1, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10.5, 12, 10.5),
+                                      child: Icon(
+                                        FFIcons.kcheckbox,
+                                        color: Color(0xFF9980DD),
+                                        size: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                     if (isWeekDaysChecked == true)
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 0.5,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).lineColor,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 0.5,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).lineColor,
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -157,7 +169,8 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                     MonthDayBySetCheckerWidget(
                       bySetPos: widget.bySetPos,
                       byDay: widget.byDay,
-                      bySetPosChanged: ((bySetPos) => widget.bySetPosChanged(bySetPos)), 
+                      bySetPosChanged: ((bySetPos) =>
+                          widget.bySetPosChanged(bySetPos)),
                       byDayChanged: ((byDay) => widget.byDayChanged(byDay)),
                     ),
                   ],

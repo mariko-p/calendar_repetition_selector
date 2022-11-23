@@ -80,68 +80,68 @@ class _MonthDayCheckerCombinedWidgetState
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        if (MonthlyViewType.MONTH_DAY_CHECKER != monthlyType) {
-                          setMonthlyViewType(MonthlyViewType.MONTH_DAY_CHECKER);
-                        }
-                        if (widget.monthController?.expanded == false) {
-                          widget.monthController?.expanded = true;
-                        }
-                      });
-                    },
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(5),
-                      topRight: Radius.circular(5),
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      height: 36,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(5),
-                          topRight: Radius.circular(5),
-                        ),
+                  Material(
+                    color: FlutterFlowTheme.of(context).itemBackground,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (MonthlyViewType.MONTH_DAY_CHECKER != monthlyType) {
+                            setMonthlyViewType(MonthlyViewType.MONTH_DAY_CHECKER);
+                          }
+                          if (widget.monthController?.expanded == false) {
+                            widget.monthController?.expanded = true;
+                          }
+                        });
+                      },
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(5),
+                        topRight: Radius.circular(5),
                       ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
-                            child: Text(
-                              'Every',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Rubik',
-                                    fontWeight: FontWeight.w300,
-                                    lineHeight: 1.5,
-                                  ),
-                            ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
+                            topLeft: Radius.circular(5),
+                            topRight: Radius.circular(5),
                           ),
-                          if (MonthlyViewType.MONTH_DAY_CHECKER == monthlyType)
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(1, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10.5, 12, 10.5),
-                                  child: Icon(
-                                    FFIcons.kcheckbox,
-                                    color: Color(0xFF9980DD),
-                                    size: 15,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                              child: Text(
+                                'Every',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Rubik',
+                                      fontWeight: FontWeight.w300,
+                                      lineHeight: 1.5,
+                                    ),
+                              ),
+                            ),
+                            if (MonthlyViewType.MONTH_DAY_CHECKER == monthlyType)
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(1, 0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10.5, 12, 10.5),
+                                    child: Icon(
+                                      FFIcons.kcheckbox,
+                                      color: Color(0xFF9980DD),
+                                      size: 15,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -155,69 +155,67 @@ class _MonthDayCheckerCombinedWidgetState
                       ),
                     ),
                   ),
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () {
-                      setState(() {
-                        if (MonthlyViewType.OF_THE_MONTH_CHECKER !=
-                            monthlyType) {
-                          setMonthlyViewType(
-                              MonthlyViewType.OF_THE_MONTH_CHECKER);
-                        }
-                        if (widget.monthController?.expanded == false) {
-                          widget.monthController?.expanded = true;
-                        }
-                      });
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: 36,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                        borderRadius: !widget.monthController!.expanded
-                            ? BorderRadius.only(
-                                bottomLeft: Radius.circular(5),
-                                bottomRight: Radius.circular(5),
-                                topLeft: Radius.circular(0),
-                                topRight: Radius.circular(0),
-                              )
-                            : null,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
-                            child: Text(
-                              'of the month...',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Rubik',
-                                    fontWeight: FontWeight.w300,
-                                    lineHeight: 1.5,
-                                  ),
+                  Material(
+                    color: FlutterFlowTheme.of(context).itemBackground,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (MonthlyViewType.OF_THE_MONTH_CHECKER !=
+                              monthlyType) {
+                            setMonthlyViewType(
+                                MonthlyViewType.OF_THE_MONTH_CHECKER);
+                          }
+                          if (widget.monthController?.expanded == false) {
+                            widget.monthController?.expanded = true;
+                          }
+                        });
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          borderRadius: !widget.monthController!.expanded
+                              ? BorderRadius.only(
+                                  bottomLeft: Radius.circular(5),
+                                  bottomRight: Radius.circular(5),
+                                )
+                              : null,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                              child: Text(
+                                'of the month...',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Rubik',
+                                      fontWeight: FontWeight.w300,
+                                      lineHeight: 1.5,
+                                    ),
+                              ),
                             ),
-                          ),
-                          if (MonthlyViewType.OF_THE_MONTH_CHECKER ==
-                              monthlyType)
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(1, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10.5, 12, 10.5),
-                                  child: Icon(
-                                    FFIcons.kcheckbox,
-                                    color: Color(0xFF9980DD),
-                                    size: 15,
+                            if (MonthlyViewType.OF_THE_MONTH_CHECKER ==
+                                monthlyType)
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(1, 0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10.5, 12, 10.5),
+                                    child: Icon(
+                                      FFIcons.kcheckbox,
+                                      color: Color(0xFF9980DD),
+                                      size: 15,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

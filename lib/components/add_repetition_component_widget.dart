@@ -241,7 +241,6 @@ class _AddRepetitionComponentWidgetState
               borderRadius: BorderRadius.circular(5),
               child: Container(
                 decoration: BoxDecoration(
-                  // color: FlutterFlowTheme.of(context).itemBackground,
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
                 child: Row(
