@@ -110,10 +110,10 @@ class _AddRepetitionComponentWidgetState
               repetitions.forEachIndexed((index, element) {
                 if (index == selectedIndex) {
                   repetitions[index] =
-                    element.rebuild((p0) => p0.isSelected = true);
+                      element.rebuild((p0) => p0.isSelected = true);
                 } else {
-                  repetitions[index] = 
-                    element.rebuild((p0) => p0.isSelected = false);
+                  repetitions[index] =
+                      element.rebuild((p0) => p0.isSelected = false);
                 }
               });
               return ListView.builder(
@@ -126,54 +126,61 @@ class _AddRepetitionComponentWidgetState
                   return Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      InkWell(
-                        onTap: () async {
-                          setState(() {
-                            selectedIndex = itemIndex;
-                            applyRRule(selectedIndex);
-                          });
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).itemBackground,
-                            borderRadius: getSpecificBorderRadius(itemIndex),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 7.5, 20, 7.5),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    weekDaysItem.text,
-                                    'Monday',
+                      Material(
+                        color: FlutterFlowTheme.of(context).itemBackground,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: getSpecificBorderRadius(itemIndex) ??
+                                BorderRadius.zero),
+                        child: InkWell(
+                          borderRadius: getSpecificBorderRadius(itemIndex),
+                          onTap: () async {
+                            setState(() {
+                              selectedIndex = itemIndex;
+                              applyRRule(selectedIndex);
+                            });
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: getSpecificBorderRadius(itemIndex),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20, 7.5, 20, 7.5),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      weekDaysItem.text,
+                                      'Monday',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Rubik',
+                                          fontWeight: FontWeight.w300,
+                                          lineHeight: 1.5,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        fontWeight: FontWeight.w300,
-                                        lineHeight: 1.5,
-                                      ),
                                 ),
-                              ),
-                              if (weekDaysItem.isSelected == true)
-                                Expanded(
-                                  child: Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10.5, 12, 10.5),
-                                      child: Icon(
-                                        FFIcons.kcheckbox,
-                                        color: Color(0xFF9980DD),
-                                        size: 15,
+                                if (weekDaysItem.isSelected == true)
+                                  Expanded(
+                                    child: Align(
+                                      alignment: AlignmentDirectional(1, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10.5, 12, 10.5),
+                                        child: Icon(
+                                          FFIcons.kcheckbox,
+                                          color: Color(0xFF9980DD),
+                                          size: 15,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -197,98 +204,107 @@ class _AddRepetitionComponentWidgetState
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
-          child: InkWell(
-            onTap: () async {
-              selectedIndex = 6;
-              //Navigator.pop(context);
-              await showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                context: context,
-                builder: (context) {
-                  return Padding(
-                    padding: MediaQuery.of(context).viewInsets,
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.95,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
+          child: Material(
+            color: FlutterFlowTheme.of(context).itemBackground,
+            elevation: 0,
+            borderRadius: BorderRadius.circular(5),
+            child: InkWell(
+              onTap: () async {
+                selectedIndex = 6;
+                //Navigator.pop(context);
+                await showModalBottomSheet(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (context) {
+                    return Padding(
+                      padding: MediaQuery.of(context).viewInsets,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.95,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          ),
+                          color: Colors.white,
                         ),
-                        color: Colors.white,
+                        child: CustomRepetitionComponentWidget(
+                          onRRuleChanged: (rrule) async {
+                            print("RRULE changed: $rrule");
+                          },
+                        ),
                       ),
-                      child: CustomRepetitionComponentWidget(onRRuleChanged:
-                      (rrule) async {
-                        print("RRULE changed: $rrule");
-                      },),
-                    ),
-                  );
-                },
-              ).then((value) => setState(() {}));
-            },
-            child: Container(
-              decoration: BoxDecoration (
-                color: FlutterFlowTheme.of(context).itemBackground,
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 7.5, 20, 7.5),
-                      child: Text(
-                        Constants.CUSTOM,
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Rubik',
-                              fontWeight: FontWeight.w300,
-                              lineHeight: 1.5,
-                            ),
+                    );
+                  },
+                ).then((value) => setState(() {}));
+              },
+              borderRadius: BorderRadius.circular(5),
+              child: Container(
+                decoration: BoxDecoration(
+                  // color: FlutterFlowTheme.of(context).itemBackground,
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(20, 7.5, 20, 7.5),
+                        child: Text(
+                          Constants.CUSTOM,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Rubik',
+                                    fontWeight: FontWeight.w300,
+                                    lineHeight: 1.5,
+                                  ),
+                        ),
                       ),
                     ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                        child: InkWell(
-                          onTap: () async {},
-                          child: Container(
-                            width: 30,
-                            height: 30,
-                            child: Stack(
-                              children: [
-                                if (selectedIndex != 6)
-                                  Align(
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 5, 0),
-                                      child: Icon(
-                                        FFIcons.kangleFullRight,
-                                        color: Color(0xFF7E8CA2),
-                                        size: 8,
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                          child: InkWell(
+                            onTap: () async {},
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              child: Stack(
+                                children: [
+                                  if (selectedIndex != 6)
+                                    Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 5, 0),
+                                        child: Icon(
+                                          FFIcons.kangleFullRight,
+                                          color: Color(0xFF7E8CA2),
+                                          size: 8,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                if (selectedIndex == 6)
-                                  Align(
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Icon(
-                                      FFIcons.kcheckbox,
-                                      color: Color(0xFF9980DD),
-                                      size: 15,
+                                  if (selectedIndex == 6)
+                                    Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Icon(
+                                        FFIcons.kcheckbox,
+                                        color: Color(0xFF9980DD),
+                                        size: 15,
+                                      ),
                                     ),
-                                  ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
