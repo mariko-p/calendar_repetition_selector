@@ -72,7 +72,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         // var rrule = 'RRULE:FREQ=DAILY;INTERVAL=4;BYMONTHDAY=10,15,20;';
                         // var rrule = 'RRULE:FREQ=MONTHLY;INTERVAL=2;BYMONTHDAY=10,15,20;';
                         // var rrule = 'RRULE:FREQ=MONTHLY;INTERVAL=2;BYDAY=SA,SU;BYSETPOS=5';
-                        // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYMONTH=3,5,6;';
+                        // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYMONTH=3,5,6;WKST=MO';
                         // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYDAY=SA,SU;BYSETPOS=5';
                         // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYDAY=SA,SU;BYSETPOS=5;BYMONTH=10';
                         FFAppState().vCurrentRRule = rrule;
@@ -98,7 +98,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             );
                           },
                         ).then((value) => setState(() {
-                          print ("RRULE: on back: $value");
+                          //print ("RRULE: on back: $value");
                         }));
                       },
                       text: 'Open',

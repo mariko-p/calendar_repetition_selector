@@ -246,7 +246,7 @@ class _AddRepetitionComponentWidgetState
                     );
                   },
                 ).then((value) => setState(() {
-                  print ("RRULE: on back: ${FFAppState().vCurrentRRule}");
+                  //print ("RRULE: on back: ${FFAppState().vCurrentRRule}");
                 }));
               },
               borderRadius: BorderRadius.circular(5),
