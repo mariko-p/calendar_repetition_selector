@@ -101,3 +101,8 @@ List<MonthStruct> getMonthsList() {
   // Code written in flutter.
   return [];
 }
+
+String? mapByDayToWeekDay(String? byDay) {
+  // Code written in local flutter.
+  return "";
+}
