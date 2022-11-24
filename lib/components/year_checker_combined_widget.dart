@@ -14,6 +14,7 @@ class YearCheckerCombinedWidget extends StatefulWidget {
     Key? key,
     required this.months,
     required this.monthSelectionChanged,
+    required this.isWeekDaysChecked,
     required this.isWeekDaysSelectionChanged,
     required this.bySetPos,
     required this.byDay,
@@ -22,6 +23,7 @@ class YearCheckerCombinedWidget extends StatefulWidget {
   }) : super(key: key);
 
   final List<MonthStruct> months;
+  final bool isWeekDaysChecked;
   final Future<dynamic> Function() monthSelectionChanged;
   final Future<dynamic> Function(bool isWeekDaysActive)
       isWeekDaysSelectionChanged;
@@ -55,6 +57,7 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
           byDay: widget.byDay,
           bySetPosChanged: ((bySetPos) => widget.bySetPosChanged(bySetPos)),
           byDayChanged: ((byDay) => widget.byDayChanged(byDay)),
+          isWeekDaysChecked: widget.isWeekDaysChecked,
           isWeekDaysSelectionChanged: (((isWeekDaysActive) =>
                 widget.isWeekDaysSelectionChanged(isWeekDaysActive))),
         ),

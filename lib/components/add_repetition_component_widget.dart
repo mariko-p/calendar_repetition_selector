@@ -232,7 +232,7 @@ class _AddRepetitionComponentWidgetState
                           rrule: widget.rrule,
                           onRRuleChanged: (rrule) async {
                             print("RRULE changed: $rrule");
-                            print("RRULE old value: ${widget.rrule}");
+                            print("RRULE initial value: ${widget.rrule}");
                           },
                         ),
                       ),

@@ -23,12 +23,6 @@ class _FrequencyCupertinoPickerWidgetState
   final items = generateFrequency();
 
   @override
-  void initState() {
-    print("INITIAL INDEX: ${widget.initialIndex}");
-    // TODO: implement initState
-    super.initState();
-  }
-  @override
   Widget build(BuildContext context) {
     return Container(
         height: 130,

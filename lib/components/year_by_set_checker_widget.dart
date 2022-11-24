@@ -1,3 +1,5 @@
+import 'package:flutter/scheduler.dart';
+
 import '../backend/schema/structs/by_day_struct.dart';
 import '../backend/schema/structs/by_set_position_struct.dart';
 import '../components/month_day_by_set_checker_widget.dart';
@@ -14,12 +16,14 @@ class YearBySetCheckerWidget extends StatefulWidget {
     required this.byDay,
     required this.bySetPosChanged,
     required this.byDayChanged,
+    required this.isWeekDaysChecked,
     required this.isWeekDaysSelectionChanged,
   }) : super(key: key);
 
   final BySetPositionStruct bySetPos;
   final ByDayStruct byDay;
 
+  final bool isWeekDaysChecked;
   final Future<dynamic> Function(bool isWeekDaysActive)
       isWeekDaysSelectionChanged;
   final Future<dynamic> Function(BySetPositionStruct? bySetPos) bySetPosChanged;
@@ -35,15 +39,26 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
 
   void onExpanded() {
     setState(() {
-      isWeekDaysChecked = !isWeekDaysChecked;
+      //isWeekDaysChecked = !isWeekDaysChecked; // this is not working in every case.
+      if (controller.expanded) {
+        isWeekDaysChecked = true;
+      } else {
+        isWeekDaysChecked = false;
+      }
     });
     widget.isWeekDaysSelectionChanged(isWeekDaysChecked);
   }
 
   @override
   void initState() {
+    this.isWeekDaysChecked = widget.isWeekDaysChecked;
+    print("STANJE ${this.isWeekDaysChecked}");
     controller.addListener(onExpanded);
     super.initState();
+
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      controller.expanded = isWeekDaysChecked;
+    });
   }
 
   @override
@@ -62,7 +77,9 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
         ),
         child: Container(
           width: double.infinity,
-          color: Colors.white,
+          decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
           child: ExpandableNotifier(
             controller: controller,
             child: ExpandablePanel(
@@ -76,6 +93,10 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                   children: [
                     Material(
                       color: FlutterFlowTheme.of(context).itemBackground,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(5),
+                        topRight: Radius.circular(5),
+                      ),
                       child: InkWell(
                         onTap: (() {
                           controller.toggle();
@@ -148,7 +169,15 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                   ],
                 ),
               ),
-              collapsed: Container(),
+              collapsed: Container(
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5),
+                    topRight: Radius.circular(5),
+                  ),
+                ),
+              ),
               expanded: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -156,11 +185,8 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(5),
                     bottomRight: Radius.circular(5),
-                    topLeft: Radius.circular(0),
-                    topRight: Radius.circular(0),
-                  ),
-                  border: Border.all(
-                    color: FlutterFlowTheme.of(context).itemBackground,
+                    topLeft: Radius.circular(5),
+                    topRight: Radius.circular(5),
                   ),
                 ),
                 child: Column(

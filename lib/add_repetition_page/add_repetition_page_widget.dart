@@ -24,7 +24,7 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: AddRepetitionComponentWidget(
-            rrule: 'RRULE:FREQ=WEEKLY;INTERVAL=3;',
+            rrule: '',
           ),
         ),
       ),

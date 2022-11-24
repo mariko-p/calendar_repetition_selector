@@ -243,6 +243,21 @@ List<MonthStruct> getMonthsList() {
 }
 
 String? mapByDayToWeekDay(String? byDay) {
-  // Code written in local flutter.
+  // Code written in flutter.
+  if (byDay == Constants.MO) {
+    return Constants.MONDAY;
+  } else if (byDay == Constants.TU) {
+    return Constants.TUESDAY;
+  } else if (byDay == Constants.WE) {
+    return Constants.WEDNESDAY;
+  } else if (byDay == Constants.TH) {
+    return Constants.THURSDAY;
+  } else if (byDay == Constants.FR) {
+    return Constants.FRIDAY;
+  } else if (byDay == Constants.SA) {
+    return Constants.SATURDAY;
+  } else if (byDay == Constants.SU) {
+    return Constants.SUNDAY;
+  }
   return "";
 }

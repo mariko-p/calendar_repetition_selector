@@ -64,6 +64,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        // TEST: Show the custom repetition selector.
+                        // var rrule = "";
+                        var rrule = 'RRULE:FREQ=DAILY;INTERVAL=4;';
+                        // var rrule = 'RRULE:FREQ=WEEKLY;INTERVAL=4;';
+                        // var rrule = 'RRULE:FREQ=WEEKLY;INTERVAL=4;BYDAY=MO,WE,FR,SA,SU;';
+                        // var rrule = 'RRULE:FREQ=DAILY;INTERVAL=4;BYMONTHDAY=10,15,20;';
+                        // var rrule = 'RRULE:FREQ=MONTHLY;INTERVAL=2;BYMONTHDAY=10,15,20;';
+                        // var rrule = 'RRULE:FREQ=MONTHLY;INTERVAL=2;BYDAY=SA,SU;BYSETPOS=5';
+                        // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYMONTH=3,5,6;';
+                        // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYDAY=SA,SU;BYSETPOS=5';
+                        // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYDAY=SA,SU;BYSETPOS=5;BYMONTH=10';
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,
@@ -81,7 +92,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                     color: Colors.white,
                                 ),
-                                child: AddRepetitionComponentWidget(rrule: 'RRULE:FREQ=WEEKLY;INTERVAL=3;'),
+                                child: AddRepetitionComponentWidget(rrule: rrule),
                               ),
                             );
                           },

@@ -26,7 +26,7 @@ class CustomRepetitionPageWidget extends StatefulWidget {
 class _CustomRepetitionPageWidgetState
     extends State<CustomRepetitionPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  var rrule = 'RRULE:FREQ=WEEKLY;INTERVAL=3;';
+  var rrule = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,7 @@ class _CustomRepetitionPageWidgetState
             rrule: this.rrule,
             onRRuleChanged: (rrule) async {
               print ("RRULE CHANGED: $rrule");
-              print ("RRULE OLD: $rrule");
+              print ("RRULE INITIAL: ${this.rrule}");
             },
           ),
         ),
