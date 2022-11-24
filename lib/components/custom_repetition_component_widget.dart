@@ -241,10 +241,10 @@ class _CustomRepetitionComponentWidgetState
   }
 
   Future updateRepetitionLabel() async {
-    //ONLY FOR TEST.
-    //var translation = await getActivityRepetitionAsText();
+    var translation = await getActivityRepetitionAsText();
 
-    var translation = FFAppState().vCurrentRRule;
+    //ONLY FOR TEST.
+    // var translation = FFAppState().vCurrentRRule;
     setState(() {
       humanReadableText = translation;
     });

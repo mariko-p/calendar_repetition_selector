@@ -65,8 +65,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         // TEST: Show the custom repetition selector.
-                        // var rrule = "";
-                        var rrule = 'RRULE:FREQ=DAILY;INTERVAL=4;';
+                        var rrule = "";
+                        // var rrule = 'RRULE:FREQ=DAILY;INTERVAL=4;';
                         // var rrule = 'RRULE:FREQ=WEEKLY;INTERVAL=4;';
                         // var rrule = 'RRULE:FREQ=WEEKLY;INTERVAL=4;BYDAY=MO,WE,FR,SA,SU;';
                         // var rrule = 'RRULE:FREQ=DAILY;INTERVAL=4;BYMONTHDAY=10,15,20;';
@@ -75,6 +75,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYMONTH=3,5,6;';
                         // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYDAY=SA,SU;BYSETPOS=5';
                         // var rrule = 'RRULE:FREQ=YEARLY;INTERVAL=5;BYDAY=SA,SU;BYSETPOS=5;BYMONTH=10';
+                        FFAppState().vCurrentRRule = rrule;
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,
@@ -96,7 +97,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             );
                           },
-                        ).then((value) => setState(() {}));
+                        ).then((value) => setState(() {
+                          print ("RRULE: on back: $value");
+                        }));
                       },
                       text: 'Open',
                       options: FFButtonOptions(

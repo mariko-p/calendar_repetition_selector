@@ -245,7 +245,9 @@ class _AddRepetitionComponentWidgetState
                       ),
                     );
                   },
-                ).then((value) => setState(() {}));
+                ).then((value) => setState(() {
+                  print ("RRULE: on back: ${FFAppState().vCurrentRRule}");
+                }));
               },
               borderRadius: BorderRadius.circular(5),
               child: Container(
