@@ -62,8 +62,8 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(6, 0, 12, 0),
                       child: InkWell(
                         onTap: () async {
-                          // BottomSheetDissmis
-                          Navigator.pop(context);
+                          // BottomSheetDissmis and return vCurrentRRule.
+                          Navigator.pop(context, FFAppState().vCurrentRRule);
                         },
                         borderRadius: BorderRadius.all(Radius.circular(5)),
                         child: Container(

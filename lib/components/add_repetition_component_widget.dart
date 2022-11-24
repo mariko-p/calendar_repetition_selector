@@ -1,5 +1,6 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
+import 'package:rrule/rrule.dart';
 
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
@@ -12,9 +13,10 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
-  AddRepetitionComponentWidget({Key? key, this.rrule}) : super(key: key);
+  AddRepetitionComponentWidget({Key? key, this.rrule, this.onRRuleChanged}) : super(key: key);
 
   String? rrule;
+  Future<dynamic> Function(String? rrule)? onRRuleChanged;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -65,9 +67,12 @@ class _AddRepetitionComponentWidgetState
 
   void applyRRule(index) {
     if (index == 6) {
-      FFAppState().vCurrentRRule = "RRULE:";
+      FFAppState().vCurrentRRule = widget.rrule ?? "";
+      // Custom selection - do nothing.
+      // Call when the data changes in custom_repetition_component_widget.dart.
     } else if (index >= 0 && index <= 5) {
       FFAppState().vCurrentRRule = repetitions[index].rrule!;
+      widget.onRRuleChanged?.call(FFAppState().vCurrentRRule);
     }
   }
 
@@ -231,8 +236,10 @@ class _AddRepetitionComponentWidgetState
                         child: CustomRepetitionComponentWidget(
                           rrule: widget.rrule,
                           onRRuleChanged: (rrule) async {
-                            print("RRULE changed: $rrule");
-                            print("RRULE initial value: ${widget.rrule}");
+                            // print("RRULE changed: $rrule");
+                            // print("RRULE initial value: ${widget.rrule}");
+                            FFAppState().vCurrentRRule = rrule ?? "";
+                            widget.onRRuleChanged?.call(rrule);
                           },
                         ),
                       ),
