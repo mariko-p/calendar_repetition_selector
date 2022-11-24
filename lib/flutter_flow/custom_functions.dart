@@ -241,3 +241,8 @@ List<MonthStruct> getMonthsList() {
     createMonthStruct(text: Constants.DECEMBER, shortText: Constants.DECEMBER_SHORT, isChecked: false),
   ];
 }
+
+String? mapByDayToWeekDay(String? byDay) {
+  // Code written in local flutter.
+  return "";
+}
