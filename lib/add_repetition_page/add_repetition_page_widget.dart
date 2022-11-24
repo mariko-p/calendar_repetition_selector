@@ -14,7 +14,7 @@ class AddRepetitionPageWidget extends StatefulWidget {
 
 class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +24,7 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: AddRepetitionComponentWidget(
+            rrule: 'RRULE:FREQ=WEEKLY;INTERVAL=3;',
           ),
         ),
       ),

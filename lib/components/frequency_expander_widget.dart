@@ -1,4 +1,6 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
+import 'package:custom_recurring_selectors/custom_code/constants/calendar_constants.dart';
+import 'package:custom_recurring_selectors/flutter_flow/custom_functions.dart';
 
 import '../components/frequency_cupertino_picker_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -25,6 +27,15 @@ class FrequencyExpanderWidget extends StatefulWidget {
 }
 
 class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
+  int initialIndex = 0;
+  @override
+  void initState() {
+    initialIndex = generateFrequency().indexWhere(
+        (element) => element.value == widget.currentFrequency.value);
+        
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -90,7 +101,10 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 20, 0),
-                                  child: Text(widget.currentFrequency.text?.toLowerCase() ?? "",
+                                  child: Text(
+                                    widget.currentFrequency.text
+                                            ?.toLowerCase() ??
+                                        "",
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
@@ -133,9 +147,10 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                       color: Color(0xFFFBFCFF),
                     ),
                     child: FrequencyCupertinoPickerWidget(
+                        initialIndex: this.initialIndex,
                         onItemChanged: (index) async {
-                      widget.onItemChanged(index);
-                    }),
+                          widget.onItemChanged(index);
+                        }),
                   ),
                 ),
               ],

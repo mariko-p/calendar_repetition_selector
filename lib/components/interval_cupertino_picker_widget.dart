@@ -9,10 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IntervalCupertinoPickerWidget extends StatefulWidget {
-  const IntervalCupertinoPickerWidget(
-      {Key? key, required this.items, required this.onItemChanged})
+  IntervalCupertinoPickerWidget(
+      {Key? key, required this.items, required this.onItemChanged, this.initialIndex = 0})
       : super(key: key);
 
+  int initialIndex;
   final List<IntervalStruct> items;
   final Future<dynamic> Function(int index) onItemChanged;
 
@@ -29,6 +30,7 @@ class _IntervalCupertinoPickerWidgetState
         height: 130,
         child: CupertinoPicker(
             itemExtent: 40,
+            scrollController: FixedExtentScrollController(initialItem: widget.initialIndex),
             children: widget.items
                 .map((item) => Center(
                         child: Text(

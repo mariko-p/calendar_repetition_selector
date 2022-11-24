@@ -12,9 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
-  const AddRepetitionComponentWidget({Key? key, this.rrule}) : super(key: key);
+  AddRepetitionComponentWidget({Key? key, this.rrule}) : super(key: key);
 
-  final String? rrule;
+  String? rrule;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -25,7 +25,7 @@ class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
   late int selectedIndex;
   late List<RepetitionStruct> repetitions;
-
+  
   @override
   void initState() {
     repetitions = functions.getPredefinedRepetitionList().toList();
@@ -229,8 +229,10 @@ class _AddRepetitionComponentWidgetState
                           color: Colors.white,
                         ),
                         child: CustomRepetitionComponentWidget(
+                          rrule: widget.rrule,
                           onRRuleChanged: (rrule) async {
                             print("RRULE changed: $rrule");
+                            print("RRULE old value: ${widget.rrule}");
                           },
                         ),
                       ),

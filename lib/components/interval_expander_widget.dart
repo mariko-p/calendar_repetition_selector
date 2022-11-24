@@ -179,6 +179,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                       ),
                       child: IntervalCupertinoPickerWidget(
                           items: widget.currentIntervals,
+                          initialIndex: widget.currentIntervalIndex,
                           onItemChanged: (index) async {
                             widget.onItemChanged(index);
                           }),

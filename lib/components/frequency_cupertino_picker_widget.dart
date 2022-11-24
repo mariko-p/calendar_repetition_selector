@@ -7,9 +7,10 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
 class FrequencyCupertinoPickerWidget extends StatefulWidget {
-  const FrequencyCupertinoPickerWidget({Key? key, required this.onItemChanged})
+  FrequencyCupertinoPickerWidget({Key? key, required this.onItemChanged, this.initialIndex = 0})
       : super(key: key);
 
+  int initialIndex;
   final Future<dynamic> Function(int index) onItemChanged;
 
   @override
@@ -22,12 +23,19 @@ class _FrequencyCupertinoPickerWidgetState
   final items = generateFrequency();
 
   @override
+  void initState() {
+    print("INITIAL INDEX: ${widget.initialIndex}");
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Container(
         height: 130,
         child: Center(
           child: CupertinoPicker(
               itemExtent: 40,
+              scrollController: FixedExtentScrollController(initialItem: widget.initialIndex),
               children: items
                   .map((item) => Center(
                           child: Text(

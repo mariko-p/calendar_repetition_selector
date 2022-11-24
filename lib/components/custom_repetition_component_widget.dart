@@ -1,5 +1,6 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:expandable/expandable.dart';
+import 'package:rrule/rrule.dart';
 
 import '../backend/schema/structs/month_day_struct.dart';
 import '../backend/schema/structs/week_day_struct.dart';
@@ -20,11 +21,13 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
-  const CustomRepetitionComponentWidget({
+  CustomRepetitionComponentWidget({
     Key? key,
+    required this.rrule,
     required this.onRRuleChanged,
   }) : super(key: key);
 
+  String? rrule;
   final Future<dynamic> Function(String? rrule) onRRuleChanged;
 
   @override
@@ -90,8 +93,8 @@ class _CustomRepetitionComponentWidgetState
   void initState() {
     // ignore: todo
     // TODO: For edit mode update initial values from RRULE string, stored in db.
-    FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
-    invokeRRuleOnChanged();
+    FFAppState().vCurrentRRule = widget.rrule ?? FFAppState().cInitialCustomRRuleText;
+    //invokeRRuleOnChanged();
     currentIntervalIndex = 0;
     currentIntervals = generateInterval("DAILY");
     currentInterval = currentIntervals[0];
@@ -102,12 +105,12 @@ class _CustomRepetitionComponentWidgetState
     bySetPos = getBySetPositionList()[0];
     byDay = getByDayList()[0];
     monthlyType = MonthlyViewType.MONTH_DAY_CHECKER;
-
     months = getMonthsList();
 
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
     
+    autoSelectRRule();
     super.initState();
   }
 
@@ -117,6 +120,38 @@ class _CustomRepetitionComponentWidgetState
     intController.removeListener(onIntExpandedChanged);
 
     super.dispose();
+  }
+
+  void autoSelectRRule() {
+    var rruleObj = RecurrenceRule.fromString(FFAppState().vCurrentRRule);
+    var freq = rruleObj.frequency.toString();
+    var interval = rruleObj.interval;
+    currentFrequency = generateFrequency().firstWhere((element) => element.value == freq);
+    currentIntervals = generateInterval(freq);
+    currentInterval = currentIntervals.firstWhere((element) => element.value == interval);
+    currentIntervalIndex = currentIntervals.indexWhere((element) => element.value == interval);
+    
+    updateOpenedViewRRule();
+    updateOpenViewVisibility(freq);
+    if (freq == Constants.WEEKLY) {
+      autoSelectWeeklyView();
+    } else if (freq == Constants.MONTHLY) {
+      autoSelectMonthlyView();
+    } else if (freq == Constants.YEARLY) {
+      autoSeleceYearlyView();
+    }
+  }
+
+  void autoSelectWeeklyView() {
+
+  }
+
+  void autoSelectMonthlyView() {
+
+  }
+
+  void autoSeleceYearlyView() {
+
   }
 
   Future updateRepetitionLabel() async {
@@ -139,7 +174,6 @@ class _CustomRepetitionComponentWidgetState
       updateOpenedViewRRule();
       updateOpenViewVisibility(freq);
     });
-    await updateRepetitionLabel();
   }
 
   Future intervalItemChanged(int index) async {

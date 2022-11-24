@@ -81,7 +81,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                     color: Colors.white,
                                 ),
-                                child: AddRepetitionComponentWidget(),
+                                child: AddRepetitionComponentWidget(rrule: 'RRULE:FREQ=WEEKLY;INTERVAL=3;'),
                               ),
                             );
                           },

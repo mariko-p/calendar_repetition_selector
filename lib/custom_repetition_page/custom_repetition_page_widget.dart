@@ -26,7 +26,7 @@ class CustomRepetitionPageWidget extends StatefulWidget {
 class _CustomRepetitionPageWidgetState
     extends State<CustomRepetitionPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  var rrule = 'RRULE:FREQ=WEEKLY;INTERVAL=3;';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +36,10 @@ class _CustomRepetitionPageWidgetState
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: CustomRepetitionComponentWidget(
+            rrule: this.rrule,
             onRRuleChanged: (rrule) async {
               print ("RRULE CHANGED: $rrule");
+              print ("RRULE OLD: $rrule");
             },
           ),
         ),
