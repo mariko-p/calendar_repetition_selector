@@ -29,7 +29,7 @@ dependencies:
   built_collection: 5.1.1
   built_value: 8.4.0
   cached_network_image: 3.2.1
-  cloud_firestore: 3.2.1
+  cloud_firestore: 4.2.0 #check
   cloud_firestore_platform_interface: 5.9.1 #check
   cloud_firestore_web: 3.1.1 #check
   expandable: 5.0.1
