@@ -30,7 +30,7 @@ dependencies:
   built_value: 8.4.0
   cached_network_image: 3.2.1
   cloud_firestore: 3.2.1
-  cloud_firestore_platform_interface: 5.5.10
+  cloud_firestore_platform_interface: 5.9.1 #check
   cloud_firestore_web: 3.1.1 #check
   expandable: 5.0.1
   firebase_core: 2.4.0 #check
@@ -46,7 +46,7 @@ dependencies:
   json_path: 0.4.1
   json_serializable: 6.3.1
   page_transition: 2.0.4
-  plugin_platform_interface: 2.1.3
+  plugin_platform_interface: 2.1.3 #check
   rrule: ^0.2.10
   shared_preferences: 2.0.15
   sqflite: 2.2.0+2
