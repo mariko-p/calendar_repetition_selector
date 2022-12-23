@@ -52,7 +52,6 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
   @override
   void initState() {
     this.isWeekDaysChecked = widget.isWeekDaysChecked;
-    print("STANJE ${this.isWeekDaysChecked}");
     controller.addListener(onExpanded);
     super.initState();
 
