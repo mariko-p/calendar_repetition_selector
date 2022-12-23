@@ -34,7 +34,7 @@ dependencies:
   cloud_firestore_web: 2.6.19
   expandable: 5.0.1
   firebase_core: 1.19.1
-  firebase_core_platform_interface: 4.4.3
+  firebase_core_platform_interface: 4.5.2 #check
   firebase_core_web: 2.0.2 #check
   flutter_animate: 1.0.0
   flutter_cache_manager: 3.3.0
