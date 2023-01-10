@@ -223,9 +223,10 @@ class _AddRepetitionComponentWidgetState
                   context: context,
                   builder: (context) {
                     return Padding(
-                      padding: MediaQuery.of(context).viewInsets,
+                      // padding: MediaQuery.of(context).viewInsets,
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 42, 0, 0),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.95,
+                        height: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
