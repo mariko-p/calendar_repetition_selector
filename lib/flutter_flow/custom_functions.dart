@@ -204,6 +204,10 @@ List<RepetitionStruct> getPredefinedRepetitionList() {
   ];
 }
 
+String recurrenceNever() {
+  return 'RRULE:NEVER';
+}
+
 String repetitionEveryDay() {
   return 'RRULE:FREQ=DAILY';
 }

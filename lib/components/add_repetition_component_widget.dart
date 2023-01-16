@@ -13,7 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
-  AddRepetitionComponentWidget({Key? key, this.rrule, this.onRRuleChanged}) : super(key: key);
+  AddRepetitionComponentWidget({Key? key, this.rrule, this.onRRuleChanged})
+      : super(key: key);
 
   String? rrule;
   Future<dynamic> Function(String? rrule)? onRRuleChanged;
@@ -27,17 +28,22 @@ class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
   late int selectedIndex;
   late List<RepetitionStruct> repetitions;
-  
+
   @override
   void initState() {
     repetitions = functions.getPredefinedRepetitionList().toList();
+    FFAppState().vCurrentRRule = widget.rrule ?? "";
     initSelectedItem();
     super.initState();
   }
 
   void initSelectedItem() {
     selectedIndex = -1;
-    if (widget.rrule?.isEmpty == true || widget.rrule == null) {
+    removePossibleLastSemicolon();
+
+    if (widget.rrule?.isEmpty == true ||
+        widget.rrule == null ||
+        widget.rrule == recurrenceNever()) {
       selectedIndex = 0;
     } else {
       if (widget.rrule == repetitionEveryDay()) {
@@ -62,6 +68,16 @@ class _AddRepetitionComponentWidgetState
           selectedIndex = 6;
         }
       }
+    }
+  }
+
+  /// RRULE rules.
+  /// RRULE:FREQ=DAILY and RRULE:FREQ=DAILY; have the same effect.
+  void removePossibleLastSemicolon() {
+    // Remove last possible ';' from rrule.
+    if (widget.rrule?.endsWith(";") == true) {
+      widget.rrule =
+          widget?.rrule?.substring(0, (widget?.rrule?.length ?? 1) - 1);
     }
   }
 
@@ -247,8 +263,8 @@ class _AddRepetitionComponentWidgetState
                     );
                   },
                 ).then((value) => setState(() {
-                  //print ("RRULE: on back: ${FFAppState().vCurrentRRule}");
-                }));
+                      //print ("RRULE: on back: ${FFAppState().vCurrentRRule}");
+                    }));
               },
               borderRadius: BorderRadius.circular(5),
               child: Container(

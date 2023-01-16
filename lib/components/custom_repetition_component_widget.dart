@@ -131,8 +131,11 @@ class _CustomRepetitionComponentWidgetState
 
   void autoSelectRRule() {
     var rruleObj = RecurrenceRule.fromString(FFAppState().vCurrentRRule);
-    var freq = rruleObj.frequency.toString();
-    var interval = rruleObj.interval;
+    var freq = getFrequencyOrDefault(rruleObj);
+    var interval = getIntervalOrDefault(rruleObj);
+
+    print ("FREQ: $freq");
+    print ("INTERVAL: $interval");
     currentFrequency =
         generateFrequency().firstWhere((element) => element.value == freq);
     currentIntervals = generateInterval(freq);
@@ -151,6 +154,27 @@ class _CustomRepetitionComponentWidgetState
 
     updateOpenedViewRRule();
     updateOpenViewVisibility(freq);
+  }
+
+  String getFrequencyOrDefault(RecurrenceRule rrule) {
+    if (rrule.frequency == null) {
+      return Constants.DAILY;
+    } else {
+      return rrule.frequency.toString();
+    }
+  }
+
+
+  int getIntervalOrDefault(RecurrenceRule rrule) {
+    var interval = rrule.interval ?? 1;
+    if (interval == null || interval <= 0) {
+      return 1;
+    }
+    if (interval > 100) {
+      return 100;
+    }
+    
+    return interval;
   }
 
   void autoSelectWeeklyView() {
