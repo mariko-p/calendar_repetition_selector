@@ -61,16 +61,15 @@ class _MyAppState extends State<MyApp> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      locale: _locale,
-      supportedLocales: const [Locale('en', '')],
       //LOCAL_START - Android default ripple behaviour is InkRipple.splashFactory.
       theme: ThemeData(brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
       darkTheme: ThemeData(brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
+      //LOCAL_END
+      locale: _locale,
       supportedLocales: const [
         Locale('en'),
         Locale('sv'),
       ],
-      //LOCAL_END
       themeMode: _themeMode,
       routeInformationParser: _router.routeInformationParser,
       routerDelegate: _router.routerDelegate,
