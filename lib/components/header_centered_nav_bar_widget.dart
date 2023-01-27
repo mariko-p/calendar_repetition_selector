@@ -107,6 +107,8 @@ class _HeaderCenteredNavBarWidgetState
                         if (widget.isSaveVisible! && widget.isSaveEnabled!) {
                           // onSave
                           await widget.onSaveTap?.call();
+                          // dismiss dialog
+                          Navigator.pop(context);
                         }
                       },
                       text: FFLocalizations.of(context).getText(
