@@ -429,95 +429,93 @@ class _CustomRepetitionComponentWidgetState
         children: [
           Align(
             alignment: AlignmentDirectional(0, -1),
-            child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    HeaderCenteredNavBarWidget(
-                    title: FFLocalizations.of(context).getVariableText(
-                      enText: 'Custom repetition',
-                      svText: 'Anpassad upprepning',
-                    ),
-                    isSaveVisible: true,
-                    isSaveEnabled: true,
-                    onSaveTap: () async {},
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                HeaderCenteredNavBarWidget(
+                title: FFLocalizations.of(context).getVariableText(
+                  enText: 'Custom repetition',
+                  svText: 'Anpassad upprepning',
+                ),
+                isSaveVisible: true,
+                isSaveEnabled: true,
+                onSaveTap: () async {},
+              ),
+                FrequencyExpanderWidget(
+                    freqController: freqController,
+                    currentFrequency: currentFrequency,
+                    onItemChanged: (index) async {
+                      await frequencyItemChanged(index);
+                    }),
+                IntervalExpanderWidget(
+                    intController: intController,
+                    currentIntervals: currentIntervals,
+                    currentIntervalIndex: currentIntervalIndex,
+                    onItemChanged: (index) async {
+                      await intervalItemChanged(index);
+                    }),
+                RepetitionLabelWidget(humanReadableText: humanReadableText),
+
+                // Local WEEKLY.
+                if (isCustomWeeklyVisible)
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                    child: WeekDayCheckerWidget(
+                        weekDays: weekDays,
+                        selectionChanged: ((items) => updateWeeklyRRule())),
                   ),
-                    FrequencyExpanderWidget(
-                        freqController: freqController,
-                        currentFrequency: currentFrequency,
-                        onItemChanged: (index) async {
-                          await frequencyItemChanged(index);
-                        }),
-                    IntervalExpanderWidget(
-                        intController: intController,
-                        currentIntervals: currentIntervals,
-                        currentIntervalIndex: currentIntervalIndex,
-                        onItemChanged: (index) async {
-                          await intervalItemChanged(index);
-                        }),
-                    RepetitionLabelWidget(humanReadableText: humanReadableText),
 
-                    // Local WEEKLY.
-                    if (isCustomWeeklyVisible)
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                        child: WeekDayCheckerWidget(
-                            weekDays: weekDays,
-                            selectionChanged: ((items) => updateWeeklyRRule())),
-                      ),
+                // Local MONTHLY.
+                if (isCustomMonthlyVisible)
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                    child: MonthDayCheckerCombinedWidget(
+                      monthlyType: monthlyType,
+                      monthDays: monthDays,
+                      bySetPos: bySetPos,
+                      byDay: byDay,
+                      monthController: monthController,
+                      monthDaySelectionChanged: (checkedItems) =>
+                          updateMonthlyMonthDayCheckerRRule(),
+                      bySetPosChanged: (bySetPos) async {
+                        this.bySetPos = bySetPos!;
+                        updateMonthlyMonthDayByDayPosRRule();
+                      },
+                      byDayChanged: (byDay) async {
+                        this.byDay = byDay!;
+                        updateMonthlyMonthDayByDayPosRRule();
+                      },
+                      monthlyTypeChanged: (type) =>
+                          monthlyTypeChanged(type),
+                    ),
+                  ),
 
-                    // Local MONTHLY.
-                    if (isCustomMonthlyVisible)
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                        child: MonthDayCheckerCombinedWidget(
-                          monthlyType: monthlyType,
-                          monthDays: monthDays,
-                          bySetPos: bySetPos,
-                          byDay: byDay,
-                          monthController: monthController,
-                          monthDaySelectionChanged: (checkedItems) =>
-                              updateMonthlyMonthDayCheckerRRule(),
-                          bySetPosChanged: (bySetPos) async {
-                            this.bySetPos = bySetPos!;
-                            updateMonthlyMonthDayByDayPosRRule();
-                          },
-                          byDayChanged: (byDay) async {
-                            this.byDay = byDay!;
-                            updateMonthlyMonthDayByDayPosRRule();
-                          },
-                          monthlyTypeChanged: (type) =>
-                              monthlyTypeChanged(type),
-                        ),
-                      ),
-
-                    // Local YEARLY.
-                    if (isCustomYearylVisible)
-                      YearCheckerCombinedWidget(
-                        months: this.months,
-                        monthSelectionChanged: () async {
-                          updateYearlyRRule();
-                        },
-                        isWeekDaysChecked: isWeekDaysChecked,
-                        isWeekDaysSelectionChanged: (isWeekDaysActive) async {
-                          this.isWeekDaysChecked = isWeekDaysActive;
-                          updateYearlyRRule();
-                        },
-                        byDay: this.byDay,
-                        bySetPos: this.bySetPos,
-                        byDayChanged: (byDay) async {
-                          this.byDay = byDay;
-                          updateYearlyRRule();
-                        },
-                        bySetPosChanged: (bySetPos) async {
-                          this.bySetPos = bySetPos;
-                          updateYearlyRRule();
-                        },
-                      ),
-                  ],
-                )),
+                // Local YEARLY.
+                if (isCustomYearylVisible)
+                  YearCheckerCombinedWidget(
+                    months: this.months,
+                    monthSelectionChanged: () async {
+                      updateYearlyRRule();
+                    },
+                    isWeekDaysChecked: isWeekDaysChecked,
+                    isWeekDaysSelectionChanged: (isWeekDaysActive) async {
+                      this.isWeekDaysChecked = isWeekDaysActive;
+                      updateYearlyRRule();
+                    },
+                    byDay: this.byDay,
+                    bySetPos: this.bySetPos,
+                    byDayChanged: (byDay) async {
+                      this.byDay = byDay;
+                      updateYearlyRRule();
+                    },
+                    bySetPosChanged: (bySetPos) async {
+                      this.bySetPos = bySetPos;
+                      updateYearlyRRule();
+                    },
+                  ),
+              ],
+            ),
           ),
         ],
       ),
