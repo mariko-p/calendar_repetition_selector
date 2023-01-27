@@ -248,7 +248,7 @@ class _AddRepetitionComponentWidgetState
             borderRadius: BorderRadius.circular(5),
             child: InkWell(
               onTap: () async {
-                selectedIndex = 6;
+                //selectedIndex = 6;
                 //Navigator.pop(context);
                 await showModalBottomSheet(
                   isScrollControlled: true,
