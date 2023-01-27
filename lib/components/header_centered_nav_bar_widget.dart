@@ -50,7 +50,9 @@ class _HeaderCenteredNavBarWidgetState
             ),
           ),
           Container(
-            height: 37,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+            ),
             child: Stack(
               alignment: AlignmentDirectional(0, 0),
               children: [
@@ -65,14 +67,14 @@ class _HeaderCenteredNavBarWidgetState
                       'usujndrb' /* Cancel */,
                     ),
                     options: FFButtonOptions(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      color: Colors.transparent,
                       textStyle:
                           FlutterFlowTheme.of(context).subtitle2.override(
                                 fontFamily: 'Rubik',
                                 color: FlutterFlowTheme.of(context)
                                     .bottomSheetActionButtons,
                                 fontSize: 14,
-                                fontWeight: FontWeight.normal,
+                                fontWeight: FontWeight.w300,
                                 lineHeight: 1.5,
                               ),
                       elevation: 0,
@@ -110,7 +112,7 @@ class _HeaderCenteredNavBarWidgetState
                         't7ggjw9g' /* Save */,
                       ),
                       options: FFButtonOptions(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        color: Colors.transparent,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
                                   fontFamily: 'Rubik',
