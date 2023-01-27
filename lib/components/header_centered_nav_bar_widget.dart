@@ -32,27 +32,25 @@ class _HeaderCenteredNavBarWidgetState
 
     return Container(
       width: double.infinity,
-      height: 43,
       decoration: BoxDecoration(
         color: Colors.transparent,
       ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-              child: Container(
-                width: 45,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE8EBF2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 8),
+            child: Container(
+              width: 45,
+              height: 5,
+              decoration: BoxDecoration(
+                color: Color(0xFFE8EBF2),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
-            Stack(
+          ),
+          Expanded(
+            child: Stack(
               children: [
                 Align(
                   alignment: AlignmentDirectional(-1, 0),
@@ -132,8 +130,8 @@ class _HeaderCenteredNavBarWidgetState
                   ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
