@@ -1,16 +1,12 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
-import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 
 import '../components/month_day_by_set_checker_widget.dart';
 import '../components/month_day_checker_widget.dart';
-import '../flutter_flow/custom_functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
   const MonthDayCheckerCombinedWidget(
@@ -65,6 +61,8 @@ class _MonthDayCheckerCombinedWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       child: Container(
@@ -115,7 +113,9 @@ class _MonthDayCheckerCombinedWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
                               child: Text(
-                                'Every',
+                                FFLocalizations.of(context).getText(
+                                  'sphagbrb' /* Every */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -155,6 +155,7 @@ class _MonthDayCheckerCombinedWidgetState
                       ),
                     ),
                   ),
+                  //LOCAL_START
                   Material(
                     color: FlutterFlowTheme.of(context).itemBackground,
                     child: InkWell(
@@ -188,7 +189,9 @@ class _MonthDayCheckerCombinedWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
                               child: Text(
-                                'of the month...',
+                                FFLocalizations.of(context).getText(
+                                  'tiwqbpnm' /* of the month... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -219,6 +222,7 @@ class _MonthDayCheckerCombinedWidgetState
                       ),
                     ),
                   ),
+                  //LOCAL_END
                   if (widget.monthController!.expanded == true)
                     Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),

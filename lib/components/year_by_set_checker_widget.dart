@@ -7,7 +7,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class YearBySetCheckerWidget extends StatefulWidget {
   const YearBySetCheckerWidget({
@@ -68,6 +68,8 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
       child: Container(
@@ -125,7 +127,9 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10, 7.5, 0, 7.5),
                                 child: Text(
-                                  'Weekdays',
+                                  FFLocalizations.of(context).getText(
+                                    'cl0eiplq' /* Weekdays */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(

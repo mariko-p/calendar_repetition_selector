@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class YearCheckerCombinedWidget extends StatefulWidget {
   const YearCheckerCombinedWidget({
@@ -42,6 +43,8 @@ class YearCheckerCombinedWidget extends StatefulWidget {
 class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [

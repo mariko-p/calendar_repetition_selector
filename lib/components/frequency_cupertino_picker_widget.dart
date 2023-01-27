@@ -1,13 +1,14 @@
 import 'package:custom_recurring_selectors/flutter_flow/custom_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class FrequencyCupertinoPickerWidget extends StatefulWidget {
-  FrequencyCupertinoPickerWidget({Key? key, required this.onItemChanged, this.initialIndex = 0})
+  FrequencyCupertinoPickerWidget(
+      {Key? key, required this.onItemChanged, this.initialIndex = 0})
       : super(key: key);
 
   int initialIndex;
@@ -24,12 +25,14 @@ class _FrequencyCupertinoPickerWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     return Container(
         height: 130,
         child: Center(
           child: CupertinoPicker(
               itemExtent: 40,
-              scrollController: FixedExtentScrollController(initialItem: widget.initialIndex),
+              scrollController:
+                  FixedExtentScrollController(initialItem: widget.initialIndex),
               children: items
                   .map((item) => Center(
                           child: Text(

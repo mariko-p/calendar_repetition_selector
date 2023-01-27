@@ -5,13 +5,12 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MonthCheckerWidget extends StatefulWidget {
-  const MonthCheckerWidget({
-    Key? key,
-    required this.months,
-    required this.monthSelectionChanged
-  }) : super(key: key);
+  const MonthCheckerWidget(
+      {Key? key, required this.months, required this.monthSelectionChanged})
+      : super(key: key);
 
   final List<MonthStruct> months;
   final Future<dynamic> Function() monthSelectionChanged;
@@ -19,8 +18,8 @@ class MonthCheckerWidget extends StatefulWidget {
   @override
   _MonthCheckerWidgetState createState() => _MonthCheckerWidgetState();
 }
-class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
 
+class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
   bool isWeekDaysActive = false;
 
   rowBuilder(int startIndex, int endIndex) {
@@ -44,7 +43,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                         setState(() {
                           widget.months[monthIndex] = widget.months[monthIndex]
                               .rebuild((p0) => p0.isChecked = false);
-                          
+
                           widget.monthSelectionChanged();
                         });
                       },
@@ -170,9 +169,9 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
     return null;
   }
 
-
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     return Container(
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),

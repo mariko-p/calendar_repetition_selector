@@ -1,16 +1,20 @@
+//LOCAL_START
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
 import 'package:rrule/rrule.dart';
-
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
 import '../custom_code/constants/calendar_constants.dart';
 import '../flutter_flow/custom_functions.dart';
+import 'package:collection/collection.dart';
+//LOCAL_END
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:collection/collection.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'header_centered_nav_bar_widget.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
   AddRepetitionComponentWidget({Key? key, this.rrule, this.onRRuleChanged})
@@ -114,15 +118,19 @@ class _AddRepetitionComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
-          child: BottomSheetNavBarWidget(
-            backText: 'Date',
-            title: 'Add repetition',
+        HeaderCenteredNavBarWidget(
+          title: FFLocalizations.of(context).getVariableText(
+            enText: 'Add repetition',
+            svText: 'Lägg till upprepning',
           ),
+          isSaveVisible: true,
+          isSaveEnabled: true,
+          onSaveTap: () async {},
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 15),
@@ -147,6 +155,7 @@ class _AddRepetitionComponentWidgetState
                   return Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
+                      //LOCAL_START
                       Material(
                         color: FlutterFlowTheme.of(context).itemBackground,
                         elevation: 0,
@@ -205,6 +214,7 @@ class _AddRepetitionComponentWidgetState
                           ),
                         ),
                       ),
+                      //LOCAL_END
                       if (itemIndex != 5)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(21, 0, 0, 0),
@@ -225,6 +235,7 @@ class _AddRepetitionComponentWidgetState
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+          //LOCAL_START
           child: Material(
             color: FlutterFlowTheme.of(context).itemBackground,
             elevation: 0,
@@ -335,6 +346,7 @@ class _AddRepetitionComponentWidgetState
               ),
             ),
           ),
+          //LOCAL_END
         ),
       ],
     );

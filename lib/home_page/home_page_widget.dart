@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class HomePageWidget extends StatefulWidget {
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -42,13 +44,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   }
 
   @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -103,7 +113,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           //print ("RRULE: on back: $value");
                         }));
                       },
-                      text: 'Open',
+                      text: FFLocalizations.of(context).getText(
+                        'xwyxwy9n' /* Open */,
+                      ),
                       options: FFButtonOptions(
                         width: 40,
                         padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),

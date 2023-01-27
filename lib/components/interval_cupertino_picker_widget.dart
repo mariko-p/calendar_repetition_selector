@@ -1,16 +1,17 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-
-import '../flutter_flow/custom_functions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class IntervalCupertinoPickerWidget extends StatefulWidget {
   IntervalCupertinoPickerWidget(
-      {Key? key, required this.items, required this.onItemChanged, this.initialIndex = 0})
+      {Key? key,
+      required this.items,
+      required this.onItemChanged,
+      this.initialIndex = 0})
       : super(key: key);
 
   int initialIndex;
@@ -26,11 +27,13 @@ class _IntervalCupertinoPickerWidgetState
     extends State<IntervalCupertinoPickerWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     return Container(
         height: 130,
         child: CupertinoPicker(
             itemExtent: 40,
-            scrollController: FixedExtentScrollController(initialItem: widget.initialIndex),
+            scrollController:
+                FixedExtentScrollController(initialItem: widget.initialIndex),
             children: widget.items
                 .map((item) => Center(
                         child: Text(

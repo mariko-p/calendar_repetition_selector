@@ -14,22 +14,31 @@ import 'lat_lng.dart';
 
 export 'lat_lng.dart';
 export 'place.dart';
+export 'local_file.dart';
 export '../app_state.dart';
 export 'dart:math' show min, max;
+export 'dart:typed_data' show Uint8List;
 export 'dart:convert' show jsonEncode, jsonDecode;
 export 'package:intl/intl.dart';
 export 'package:page_transition/page_transition.dart';
 export 'custom_icons.dart' show FFIcons;
+export 'internationalization.dart' show FFLocalizations;
 export 'nav/nav.dart';
 
 T valueOrDefault<T>(T? value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;
+
+void _setTimeagoLocales() {
+  timeago.setLocaleMessages('en', timeago.EnMessages());
+  timeago.setLocaleMessages('sv', timeago.SvMessages());
+}
 
 String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
   if (dateTime == null) {
     return '';
   }
   if (format == 'relative') {
+    _setTimeagoLocales();
     return timeago.format(dateTime, locale: locale);
   }
   return DateFormat(format).format(dateTime);
@@ -153,6 +162,15 @@ dynamic getJsonField(
   return isForList && value is! Iterable ? [value] : value;
 }
 
+Rect? getWidgetBoundingBox(BuildContext context) {
+  try {
+    final renderBox = context.findRenderObject() as RenderBox?;
+    return renderBox!.localToGlobal(Offset.zero) & renderBox.size;
+  } catch (_) {
+    return null;
+  }
+}
+
 bool get isAndroid => !kIsWeb && Platform.isAndroid;
 bool get isiOS => !kIsWeb && Platform.isIOS;
 bool get isWeb => kIsWeb;
@@ -184,6 +202,14 @@ const kTextValidatorEmailRegex =
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 const kTextValidatorWebsiteRegex =
     r'(https?:\/\/)?(www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)|(https?:\/\/)?(www\.)?(?!ww)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)';
+
+extension IterableExt<T> on Iterable<T> {
+  List<S> mapIndexed<S>(S Function(int, T) func) => toList()
+      .asMap()
+      .map((index, value) => MapEntry(index, func(index, value)))
+      .values
+      .toList();
+}
 
 void setAppLanguage(BuildContext context, String language) =>
     MyApp.of(context).setLocale(language);
@@ -226,4 +252,8 @@ extension FFStringExt on String {
       maxChars != null && length > maxChars
           ? replaceRange(maxChars, null, replacement)
           : this;
+}
+
+extension ListFilterExt<T> on Iterable<T?> {
+  List<T> get withoutNulls => where((s) => s != null).map((e) => e!).toList();
 }

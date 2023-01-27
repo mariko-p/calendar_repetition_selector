@@ -1,5 +1,7 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -10,9 +12,12 @@ import 'index.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  FFAppState(); // Initialize FFAppState
+  final appState = FFAppState(); // Initialize FFAppState
 
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => appState,
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -61,6 +66,10 @@ class _MyAppState extends State<MyApp> {
       //LOCAL_START - Android default ripple behaviour is InkRipple.splashFactory.
       theme: ThemeData(brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
       darkTheme: ThemeData(brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
+      supportedLocales: const [
+        Locale('en'),
+        Locale('sv'),
+      ],
       //LOCAL_END
       themeMode: _themeMode,
       routeInformationParser: _router.routeInformationParser,

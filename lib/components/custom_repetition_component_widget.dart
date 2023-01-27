@@ -1,11 +1,5 @@
-import 'package:custom_recurring_selectors/backend/backend.dart';
-import 'package:expandable/expandable.dart';
-import 'package:rrule/rrule.dart';
-
-import '../backend/schema/structs/month_day_struct.dart';
-import '../backend/schema/structs/week_day_struct.dart';
-import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_expander_widget.dart';
+import '../components/header_centered_nav_bar_widget.dart';
 import '../components/interval_expander_widget.dart';
 import '../components/month_day_checker_combined_widget.dart';
 import '../components/repetition_label_widget.dart';
@@ -14,11 +8,15 @@ import '../custom_code/actions/update_r_rule.dart';
 import '../custom_code/constants/calendar_constants.dart';
 import '../flutter_flow/custom_functions.dart';
 import '../components/year_checker_combined_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+//LOCAL_START
+import 'package:custom_recurring_selectors/backend/backend.dart';
+import 'package:expandable/expandable.dart';
+import 'package:rrule/rrule.dart';
 import 'package:collection/collection.dart';
+//LOCAL_END
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
   CustomRepetitionComponentWidget({
@@ -423,6 +421,8 @@ class _CustomRepetitionComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -435,8 +435,15 @@ class _CustomRepetitionComponentWidgetState
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    BottomSheetNavBarWidget(
-                        backText: "Repetition", title: "Custom repetition"),
+                    HeaderCenteredNavBarWidget(
+                    title: FFLocalizations.of(context).getVariableText(
+                      enText: 'Custom repetition',
+                      svText: 'Anpassad upprepning',
+                    ),
+                    isSaveVisible: true,
+                    isSaveEnabled: true,
+                    onSaveTap: () async {},
+                  ),
                     FrequencyExpanderWidget(
                         freqController: freqController,
                         currentFrequency: currentFrequency,

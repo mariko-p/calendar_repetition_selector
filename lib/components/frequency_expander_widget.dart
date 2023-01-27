@@ -1,5 +1,4 @@
 import 'package:custom_recurring_selectors/backend/backend.dart';
-import 'package:custom_recurring_selectors/custom_code/constants/calendar_constants.dart';
 import 'package:custom_recurring_selectors/flutter_flow/custom_functions.dart';
 
 import '../components/frequency_cupertino_picker_widget.dart';
@@ -7,7 +6,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class FrequencyExpanderWidget extends StatefulWidget {
   const FrequencyExpanderWidget(
@@ -32,12 +31,14 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
   void initState() {
     initialIndex = generateFrequency().indexWhere(
         (element) => element.value == widget.currentFrequency.value);
-        
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
       child: Container(
@@ -84,7 +85,9 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20, 7.5, 0, 7.5),
                               child: Text(
-                                'Frequency',
+                                FFLocalizations.of(context).getText(
+                                  'xmgwzs7h' /* Frequency */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
