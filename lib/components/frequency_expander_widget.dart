@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class FrequencyExpanderWidget extends StatefulWidget {
   const FrequencyExpanderWidget({Key? key}) : super(key: key);
@@ -16,6 +17,8 @@ class FrequencyExpanderWidget extends StatefulWidget {
 class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
       child: Container(
@@ -60,7 +63,9 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                           padding:
                               EdgeInsetsDirectional.fromSTEB(20, 7.5, 0, 7.5),
                           child: Text(
-                            'Frequency',
+                            FFLocalizations.of(context).getText(
+                              'xmgwzs7h' /* Frequency */,
+                            ),
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Rubik',
                                   color: Colors.black,
@@ -76,7 +81,9 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                               child: Text(
-                                'every day',
+                                FFLocalizations.of(context).getText(
+                                  'r3anp0or' /* every day */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(

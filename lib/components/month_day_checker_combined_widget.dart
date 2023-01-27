@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
   const MonthDayCheckerCombinedWidget({Key? key}) : super(key: key);
@@ -18,6 +19,8 @@ class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 100,
@@ -57,7 +60,9 @@ class _MonthDayCheckerCombinedWidgetState
                           padding:
                               EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
                           child: Text(
-                            'Every',
+                            FFLocalizations.of(context).getText(
+                              'sphagbrb' /* Every */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Rubik',
@@ -110,7 +115,9 @@ class _MonthDayCheckerCombinedWidgetState
                           padding:
                               EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
                           child: Text(
-                            'of the month...',
+                            FFLocalizations.of(context).getText(
+                              'tiwqbpnm' /* of the month... */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Rubik',

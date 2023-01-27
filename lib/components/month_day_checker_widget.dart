@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MonthDayCheckerWidget extends StatefulWidget {
   const MonthDayCheckerWidget({Key? key}) : super(key: key);
@@ -15,6 +16,8 @@ class MonthDayCheckerWidget extends StatefulWidget {
 class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(0, 0),
       child: Padding(

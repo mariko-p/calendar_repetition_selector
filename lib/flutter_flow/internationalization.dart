@@ -12,7 +12,7 @@ class FFLocalizations {
   static FFLocalizations of(BuildContext context) =>
       Localizations.of<FFLocalizations>(context, FFLocalizations)!;
 
-  static List<String> languages() => ['en'];
+  static List<String> languages() => ['en', 'sv'];
 
   static late SharedPreferences _prefs;
   static Future initialize() async =>
@@ -34,8 +34,9 @@ class FFLocalizations {
 
   String getVariableText({
     String? enText = '',
+    String? svText = '',
   }) =>
-      [enText][languageIndex] ?? '';
+      [enText, svText][languageIndex] ?? '';
 }
 
 class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
@@ -66,5 +67,88 @@ Locale createLocale(String language) => language.contains('_')
       )
     : Locale(language);
 
-final kTranslationsMap =
-    <Map<String, Map<String, String>>>[].reduce((a, b) => a..addAll(b));
+final kTranslationsMap = <Map<String, Map<String, String>>>[
+  // HomePage
+  {
+    'xwyxwy9n': {
+      'en': 'Open',
+      'sv': 'Öppet',
+    },
+    'lfkwkzb1': {
+      'en': 'Home',
+      'sv': 'Hem',
+    },
+  },
+  // AddRepetitionPage
+  {
+    'cz0zhzb4': {
+      'en': 'Home',
+      'sv': 'Hem',
+    },
+  },
+  // CustomRepetitionPage
+  {
+    '55lx4rjh': {
+      'en': 'Home',
+      'sv': 'Hem',
+    },
+  },
+  // FrequencyExpander
+  {
+    'xmgwzs7h': {
+      'en': 'Frequency',
+      'sv': 'Frekvens',
+    },
+    'r3anp0or': {
+      'en': 'every day',
+      'sv': 'varje dag',
+    },
+  },
+  // IntervalExpander
+  {
+    '2952w46f': {
+      'en': 'With the interval',
+      'sv': 'Med intervallet',
+    },
+    'e15u4phe': {
+      'en': '1 week',
+      'sv': '1 vecka',
+    },
+  },
+  // MonthDayCheckerCombined
+  {
+    'sphagbrb': {
+      'en': 'Every',
+      'sv': 'Varje',
+    },
+    'tiwqbpnm': {
+      'en': 'of the month...',
+      'sv': 'av månaden...',
+    },
+  },
+  // AddRepetitionComponent
+  {
+    'pwpi343g': {
+      'en': 'Custom',
+      'sv': 'Beställnings',
+    },
+  },
+  // YearBySetChecker
+  {
+    'cl0eiplq': {
+      'en': 'Weekdays',
+      'sv': 'Vardagar',
+    },
+  },
+  // HeaderCenteredNavBar
+  {
+    'usujndrb': {
+      'en': 'Cancel',
+      'sv': 'Annullera',
+    },
+    't7ggjw9g': {
+      'en': 'Save',
+      'sv': 'Spara',
+    },
+  },
+].reduce((a, b) => a..addAll(b));

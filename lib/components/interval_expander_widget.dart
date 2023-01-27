@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class IntervalExpanderWidget extends StatefulWidget {
   const IntervalExpanderWidget({Key? key}) : super(key: key);
@@ -15,6 +16,8 @@ class IntervalExpanderWidget extends StatefulWidget {
 class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
       child: Container(
@@ -45,7 +48,9 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(20, 7.5, 0, 7.5),
                         child: Text(
-                          'With the interval',
+                          FFLocalizations.of(context).getText(
+                            '2952w46f' /* With the interval */,
+                          ),
                           style: FlutterFlowTheme.of(context).title1.override(
                                 fontFamily: 'Rubik',
                                 color: Colors.black,
@@ -61,7 +66,9 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                             child: Text(
-                              '1 week',
+                              FFLocalizations.of(context).getText(
+                                'e15u4phe' /* 1 week */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(

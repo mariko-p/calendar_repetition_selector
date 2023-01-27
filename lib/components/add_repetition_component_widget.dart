@@ -1,10 +1,11 @@
-import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
+import '../components/header_centered_nav_bar_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
   const AddRepetitionComponentWidget({Key? key}) : super(key: key);
@@ -18,15 +19,19 @@ class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
-          child: BottomSheetNavBarWidget(
-            backText: 'Date',
-            title: 'Add repetition',
+        HeaderCenteredNavBarWidget(
+          title: FFLocalizations.of(context).getVariableText(
+            enText: 'Add repetition',
+            svText: 'Lägg till upprepning',
           ),
+          isSaveVisible: true,
+          isSaveEnabled: true,
+          onSaveTap: () async {},
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 15),
@@ -49,7 +54,9 @@ class _AddRepetitionComponentWidgetState
                     children: [
                       InkWell(
                         onTap: () async {
-                          setState(() => FFAppState().vTmp = false);
+                          FFAppState().update(() {
+                            FFAppState().vTmp = false;
+                          });
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -111,7 +118,9 @@ class _AddRepetitionComponentWidgetState
           padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
           child: InkWell(
             onTap: () async {
-              setState(() => FFAppState().vTmp = false);
+              FFAppState().update(() {
+                FFAppState().vTmp = false;
+              });
             },
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -120,7 +129,9 @@ class _AddRepetitionComponentWidgetState
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 7.5, 20, 7.5),
                     child: Text(
-                      'Custom',
+                      FFLocalizations.of(context).getText(
+                        'pwpi343g' /* Custom */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Rubik',
                             fontWeight: FontWeight.w300,

@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class RepetitionLabelWidget extends StatefulWidget {
   const RepetitionLabelWidget({
@@ -18,6 +19,8 @@ class RepetitionLabelWidget extends StatefulWidget {
 class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(35, 5, 15, 0),
       child: Container(

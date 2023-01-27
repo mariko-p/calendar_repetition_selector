@@ -1,5 +1,5 @@
-import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/frequency_expander_widget.dart';
+import '../components/header_centered_nav_bar_widget.dart';
 import '../components/interval_expander_widget.dart';
 import '../components/month_day_checker_combined_widget.dart';
 import '../components/repetition_label_widget.dart';
@@ -10,6 +10,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
   const CustomRepetitionComponentWidget({Key? key}) : super(key: key);
@@ -23,6 +24,8 @@ class _CustomRepetitionComponentWidgetState
     extends State<CustomRepetitionComponentWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -34,9 +37,14 @@ class _CustomRepetitionComponentWidgetState
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomSheetNavBarWidget(
-                  backText: 'Repetition',
-                  title: 'Custom Repetition',
+                HeaderCenteredNavBarWidget(
+                  title: FFLocalizations.of(context).getVariableText(
+                    enText: 'Custom repetition',
+                    svText: 'Anpassad upprepning',
+                  ),
+                  isSaveVisible: true,
+                  isSaveEnabled: true,
+                  onSaveTap: () async {},
                 ),
                 FrequencyExpanderWidget(),
                 IntervalExpanderWidget(),
