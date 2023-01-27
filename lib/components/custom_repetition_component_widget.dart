@@ -30,7 +30,6 @@ class CustomRepetitionComponentWidget extends StatefulWidget {
   final Future<dynamic> Function(String? rrule) onRRuleChanged;
   final Future<dynamic> Function(String? rrule) onSaveTap;
 
-
   @override
   _CustomRepetitionComponentWidgetState createState() =>
       _CustomRepetitionComponentWidgetState();

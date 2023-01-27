@@ -17,11 +17,12 @@ import 'package:provider/provider.dart';
 import 'header_centered_nav_bar_widget.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
-  AddRepetitionComponentWidget({Key? key, this.rrule, this.onRRuleChanged})
+  AddRepetitionComponentWidget({Key? key, this.rrule, this.onRRuleChanged, this.onSaveTap})
       : super(key: key);
 
   String? rrule;
   Future<dynamic> Function(String? rrule)? onRRuleChanged;
+  Future<dynamic> Function(String? rrule)? onSaveTap;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -130,7 +131,12 @@ class _AddRepetitionComponentWidgetState
           ),
           isSaveVisible: true,
           isSaveEnabled: true,
-          onSaveTap: () async {},
+          onSaveTap: () async {
+            //LOCAL_START
+            print ("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
+            widget.onSaveTap?.call(FFAppState().vCurrentRRule);
+            //LOCAL_END
+          },
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 15),
