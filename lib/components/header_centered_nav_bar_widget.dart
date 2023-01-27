@@ -50,6 +50,7 @@ class _HeaderCenteredNavBarWidgetState
             ),
           ),
           Container(
+            height: 37,
             decoration: BoxDecoration(
               color: Colors.transparent,
             ),
