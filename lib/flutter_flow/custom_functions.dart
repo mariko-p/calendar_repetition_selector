@@ -210,11 +210,11 @@ String recurrenceNever() {
 }
 
 String repetitionEveryDay() {
-  return 'RRULE:FREQ=DAILY';
+  return 'RRULE:FREQ=DAILY;INTERVAL=1';
 }
 
 String repetitionEveryWeek() {
-  return 'RRULE:FREQ=WEEKLY';
+  return 'RRULE:FREQ=WEEKLY;INTERVAL=1';
 }
 
 String repetitionEverySecondWeek() {
@@ -222,11 +222,11 @@ String repetitionEverySecondWeek() {
 }
 
 String repetitionEveryMonth() {
-  return 'RRULE:FREQ=MONTHLY';
+  return 'RRULE:FREQ=MONTHLY;INTERVAL=1';
 }
 
 String repetitionEveryYear() {
-  return 'RRULE:FREQ=YEARLY';
+  return 'RRULE:FREQ=YEARLY;INTERVAL=1';
 }
 
 List<MonthStruct> getMonthsList() {
