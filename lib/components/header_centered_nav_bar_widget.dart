@@ -39,7 +39,7 @@ class _HeaderCenteredNavBarWidgetState
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 8),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
             child: Container(
               width: 45,
               height: 5,
@@ -49,62 +49,20 @@ class _HeaderCenteredNavBarWidgetState
               ),
             ),
           ),
-          Stack(
-            alignment: AlignmentDirectional(0, 0),
-            children: [
-              Align(
-                alignment: AlignmentDirectional(-1, 0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    // Dismiss bottom sheet
-                    Navigator.pop(context);
-                  },
-                  text: FFLocalizations.of(context).getText(
-                    'usujndrb' /* Cancel */,
-                  ),
-                  options: FFButtonOptions(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily: 'Rubik',
-                          color: FlutterFlowTheme.of(context)
-                              .bottomSheetActionButtons,
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                          lineHeight: 1.5,
-                        ),
-                    elevation: 0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0, 0),
-                child: Text(
-                  widget.title!,
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Rubik',
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal,
-                      ),
-                ),
-              ),
-              if (widget.isSaveVisible ?? true)
+          Container(
+            height: 37,
+            child: Stack(
+              alignment: AlignmentDirectional(0, 0),
+              children: [
                 Align(
-                  alignment: AlignmentDirectional(1, 0),
+                  alignment: AlignmentDirectional(-1, 0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      if (widget.isSaveVisible! && widget.isSaveEnabled!) {
-                        // onSave
-                        await widget.onSaveTap?.call();
-                      }
+                      // Dismiss bottom sheet
+                      Navigator.pop(context);
                     },
                     text: FFLocalizations.of(context).getText(
-                      't7ggjw9g' /* Save */,
+                      'usujndrb' /* Cancel */,
                     ),
                     options: FFButtonOptions(
                       color: FlutterFlowTheme.of(context).primaryBackground,
@@ -126,7 +84,53 @@ class _HeaderCenteredNavBarWidgetState
                     ),
                   ),
                 ),
-            ],
+                Align(
+                  alignment: AlignmentDirectional(0, 0),
+                  child: Text(
+                    widget.title!,
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Rubik',
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                        ),
+                  ),
+                ),
+                if (widget.isSaveVisible ?? true)
+                  Align(
+                    alignment: AlignmentDirectional(1, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        if (widget.isSaveVisible! && widget.isSaveEnabled!) {
+                          // onSave
+                          await widget.onSaveTap?.call();
+                        }
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        't7ggjw9g' /* Save */,
+                      ),
+                      options: FFButtonOptions(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        textStyle:
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                                  fontFamily: 'Rubik',
+                                  color: FlutterFlowTheme.of(context)
+                                      .bottomSheetActionButtons,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  lineHeight: 1.5,
+                                ),
+                        elevation: 0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ],
       ),
