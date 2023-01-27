@@ -26,52 +26,54 @@ class _CustomRepetitionComponentWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Align(
-          alignment: AlignmentDirectional(0, -1),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                HeaderCenteredNavBarWidget(
-                  title: FFLocalizations.of(context).getVariableText(
-                    enText: 'Custom repetition',
-                    svText: 'Anpassad upprepning',
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0, -1),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  HeaderCenteredNavBarWidget(
+                    title: FFLocalizations.of(context).getVariableText(
+                      enText: 'Custom repetition',
+                      svText: 'Anpassad upprepning',
+                    ),
+                    isSaveVisible: true,
+                    isSaveEnabled: true,
+                    onSaveTap: () async {},
                   ),
-                  isSaveVisible: true,
-                  isSaveEnabled: true,
-                  onSaveTap: () async {},
-                ),
-                FrequencyExpanderWidget(),
-                IntervalExpanderWidget(),
-                Align(
-                  alignment: AlignmentDirectional(-1, 0),
-                  child: RepetitionLabelWidget(
-                    humanReadableText: 'The activity will repeat daily',
-                  ),
-                ),
-                if (FFAppState().vTmp)
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                    child: WeekDayCheckerWidget(
-                      weekDays: functions.getWeekDayList().toList(),
+                  FrequencyExpanderWidget(),
+                  IntervalExpanderWidget(),
+                  Align(
+                    alignment: AlignmentDirectional(-1, 0),
+                    child: RepetitionLabelWidget(
+                      humanReadableText: 'The activity will repeat daily',
                     ),
                   ),
-                if (FFAppState().vTmp)
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                    child: MonthDayCheckerCombinedWidget(),
-                  ),
-                YearCheckerCombinedWidget(),
-              ],
+                  if (FFAppState().vTmp)
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                      child: WeekDayCheckerWidget(
+                        weekDays: functions.getWeekDayList().toList(),
+                      ),
+                    ),
+                  if (FFAppState().vTmp)
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                      child: MonthDayCheckerCombinedWidget(),
+                    ),
+                  YearCheckerCombinedWidget(),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
