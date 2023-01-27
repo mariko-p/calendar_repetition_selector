@@ -23,10 +23,13 @@ class CustomRepetitionComponentWidget extends StatefulWidget {
     Key? key,
     required this.rrule,
     required this.onRRuleChanged,
+    required this.onSaveTap,
   }) : super(key: key);
 
   String? rrule;
   final Future<dynamic> Function(String? rrule) onRRuleChanged;
+  final Future<dynamic> Function(String? rrule) onSaveTap;
+
 
   @override
   _CustomRepetitionComponentWidgetState createState() =>
@@ -440,7 +443,11 @@ class _CustomRepetitionComponentWidgetState
                 ),
                 isSaveVisible: true,
                 isSaveEnabled: true,
-                onSaveTap: () async {},
+                onSaveTap: () async {
+                  //LOCAL_START
+                  await widget.onSaveTap(FFAppState().vCurrentRRule);
+                  //LOCAL_END
+                },
               ),
                 FrequencyExpanderWidget(
                     freqController: freqController,

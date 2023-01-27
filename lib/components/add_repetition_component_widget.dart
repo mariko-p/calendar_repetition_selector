@@ -269,6 +269,13 @@ class _AddRepetitionComponentWidgetState
                             FFAppState().vCurrentRRule = rrule ?? "";
                             widget.onRRuleChanged?.call(rrule);
                           },
+                          onSaveTap: (rrule) async {
+                            print ("RRULE SAVED FROM CUSTOM: $rrule");
+                            setState(() {
+                              widget.rrule = rrule ?? widget.rrule;
+                              initSelectedItem();
+                            });
+                          },
                         ),
                       ),
                     );

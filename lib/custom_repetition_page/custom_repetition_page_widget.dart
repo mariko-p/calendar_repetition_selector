@@ -39,6 +39,10 @@ class _CustomRepetitionPageWidgetState
               print ("RRULE CHANGED: $rrule");
               print ("RRULE INITIAL: ${this.rrule}");
             },
+            onSaveTap: (rrule) async {
+              print ("RRULE SAVED FROM CUSTOM: $rrule");
+              this.rrule = rrule ?? this.rrule;
+            },
           ),
         ),
       ),
