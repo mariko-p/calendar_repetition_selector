@@ -30,19 +30,24 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: AddRepetitionComponentWidget(
-            rrule: FFAppState().cInitialCustomRRule,
-            onRRuleChanged: (value) async {
-              MyApp.onRRuleChanged?.call(value);
-            },
-            onSaveTap: (rrule) async {
-              MyApp.onSaveTap?.call(rrule);
-            },
-          ),
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).primaryBackground,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          )
+        ),
+        padding: EdgeInsetsDirectional.fromSTEB(0, 42, 0, 0),
+        child: AddRepetitionComponentWidget(
+          rrule: FFAppState().cInitialCustomRRule,
+          onRRuleChanged: (value) async {
+            MyApp.onRRuleChanged?.call(value);
+          },
+          onSaveTap: (rrule) async {
+            MyApp.onSaveTap?.call(rrule);
+          },
         ),
       ),
     );
