@@ -35,7 +35,13 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: AddRepetitionComponentWidget(
-            rrule: '', 
+            rrule: FFAppState().cInitialCustomRRule,
+            onRRuleChanged: (value) async {
+              MyApp.onRRuleChanged?.call(value);
+            },
+            onSaveTap: (rrule) async {
+              MyApp.onSaveTap?.call(rrule);
+            },
           ),
         ),
       ),

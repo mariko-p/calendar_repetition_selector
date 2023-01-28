@@ -33,10 +33,14 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
   //LOCAL_START
   Locale? locale;
+  static Future<dynamic> Function(String? rrule)? onRRuleChanged;
+  static Future<dynamic> Function(String? rrule)? onSaveTap;
   //LOCAL_END
   
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
+  
+
 }
 
 class _MyAppState extends State<MyApp> {
