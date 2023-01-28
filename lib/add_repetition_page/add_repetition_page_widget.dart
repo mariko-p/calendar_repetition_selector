@@ -39,6 +39,7 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
             topRight: Radius.circular(10),
           )
         ),
+        //Add padding from parent app.
         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
         child: AddRepetitionComponentWidget(
           rrule: FFAppState().cInitialCustomRRule,

@@ -257,7 +257,8 @@ class _AddRepetitionComponentWidgetState
                   builder: (context) {
                     return Padding(
                       // padding: MediaQuery.of(context).viewInsets,
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 42, 0, 0),
+                      // Add padding from user app.
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       child: Container(
                         height: double.infinity,
                         decoration: BoxDecoration(
