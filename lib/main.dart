@@ -21,10 +21,20 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
+  //LOCAL_START
+  MyApp({
+    Key? key,
+    this.locale,
+  }) : super(key: key);
+  //LOCAL_END
+
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
-
+  //LOCAL_START
+  Locale? locale;
+  //LOCAL_END
+  
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
 }
@@ -39,6 +49,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    //LOCAL_START
+    _locale = widget.locale;
+    //LOCAL_END
     _appStateNotifier = AppStateNotifier();
     _router = createRouter(_appStateNotifier);
   }
