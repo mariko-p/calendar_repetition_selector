@@ -139,7 +139,9 @@ class _AddRepetitionComponentWidgetState
             print ("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
             widget.onSaveTap?.call(FFAppState().vCurrentRRule);
             if (MyApp.isExitAppOnBackON == true) {
-              exit(0);
+              //exit(0);
+              Navigator.pop(context);
+              Navigator.pop(context);
             } else {
               Navigator.pop(context);
             }
@@ -147,7 +149,9 @@ class _AddRepetitionComponentWidgetState
           },
           onCancelTap: () async {
             if (MyApp.isExitAppOnBackON == true) {
-              exit(0);
+              //exit(0);
+              Navigator.pop(context);
+              Navigator.pop(context);
             } else {
               Navigator.pop(context);
             }
