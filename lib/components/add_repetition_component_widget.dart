@@ -21,13 +21,29 @@ import 'header_centered_nav_bar_widget.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
   AddRepetitionComponentWidget(
-      {Key? key, this.rrule, this.onRRuleChanged, this.onSaveTap, this.onCancelTap})
+      {Key? key,
+      this.rrule,
+      this.onRRuleChanged,
+      this.onSaveTapFromAddPage,
+      this.onCancelTapFromAddPage,
+      this.onSaveTapFromCustomPage})
       : super(key: key);
 
+  // Initial rrule value.
   String? rrule;
+
+  // Called on every change, from main screen, or from custom repetition screen.
+  // Do not save rrule to database if save is not called.
   Future<dynamic> Function(String? rrule)? onRRuleChanged;
-  Future<dynamic> Function(String? rrule)? onSaveTap;
-  Future<dynamic> Function()? onCancelTap;
+
+  // Called on save from main screen.
+  Future<dynamic> Function(String? rrule)? onSaveTapFromAddPage;
+
+  // Called on cancel from main screen.
+  Future<dynamic> Function()? onCancelTapFromAddPage;
+
+  // Called on save from custom repetition screen.
+  Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -139,7 +155,7 @@ class _AddRepetitionComponentWidgetState
           onSaveTap: () async {
             //LOCAL_START
             print("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
-            widget.onSaveTap?.call(FFAppState().vCurrentRRule);
+            widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule);
             if (MyApp.isExitAppOnBackON == true) {
               exit(0);
             } else {
@@ -151,7 +167,7 @@ class _AddRepetitionComponentWidgetState
           },
           onCancelTap: () async {
             print("RRULE CANCEL FROM ADD: ${FFAppState().vCurrentRRule}");
-            widget.onCancelTap?.call();
+            widget.onCancelTapFromAddPage?.call();
             if (MyApp.isExitAppOnBackON == true) {
               exit(0);
             } else {
@@ -306,6 +322,7 @@ class _AddRepetitionComponentWidgetState
                               widget.rrule = rrule ?? widget.rrule;
                               initSelectedItem();
                             });
+                            widget.onSaveTapFromCustomPage?.call(rrule);
                           },
                         ),
                       ),

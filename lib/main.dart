@@ -31,11 +31,12 @@ class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
-  //LOCAL_START
+  //LOCAL_START - see AddRepetitionComponent for detailed explanation.
   Locale? locale;
   static Future<dynamic> Function(String? rrule)? onRRuleChanged;
-  static Future<dynamic> Function(String? rrule)? onSaveTap;
-  static Future<dynamic> Function()? onCancelTap;
+  static Future<dynamic> Function(String? rrule)? onSaveTapFromAddPage;
+  static Future<dynamic> Function()? onCancelTapFromAddPage;
+  static Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
   static bool isExitAppOnBackON = false;
   //LOCAL_END
   
