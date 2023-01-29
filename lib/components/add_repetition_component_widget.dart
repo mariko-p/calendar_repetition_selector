@@ -20,12 +20,14 @@ import 'package:provider/provider.dart';
 import 'header_centered_nav_bar_widget.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
-  AddRepetitionComponentWidget({Key? key, this.rrule, this.onRRuleChanged, this.onSaveTap})
+  AddRepetitionComponentWidget(
+      {Key? key, this.rrule, this.onRRuleChanged, this.onSaveTap, this.onCancelTap})
       : super(key: key);
 
   String? rrule;
   Future<dynamic> Function(String? rrule)? onRRuleChanged;
   Future<dynamic> Function(String? rrule)? onSaveTap;
+  Future<dynamic> Function()? onCancelTap;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -136,24 +138,26 @@ class _AddRepetitionComponentWidgetState
           isSaveEnabled: true,
           onSaveTap: () async {
             //LOCAL_START
-            print ("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
+            print("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
             widget.onSaveTap?.call(FFAppState().vCurrentRRule);
             if (MyApp.isExitAppOnBackON == true) {
-              //exit(0);
-              Navigator.pop(context);
-              Navigator.pop(context);
+              exit(0);
             } else {
-              Navigator.pop(context);
+              // Pop from outside of the package.
+              // Otherwise, empty stack will be shown.
+              // Navigator.pop(context);
             }
             //LOCAL_END
           },
           onCancelTap: () async {
+            print("RRULE CANCEL FROM ADD: ${FFAppState().vCurrentRRule}");
+            widget.onCancelTap?.call();
             if (MyApp.isExitAppOnBackON == true) {
-              //exit(0);
-              Navigator.pop(context);
-              Navigator.pop(context);
+              exit(0);
             } else {
-              Navigator.pop(context);
+              // Pop from outside of the package.
+              // Otherwise, empty stack will be shown.
+              // Navigator.pop(context);
             }
           },
         ),
@@ -296,7 +300,7 @@ class _AddRepetitionComponentWidgetState
                             widget.onRRuleChanged?.call(rrule);
                           },
                           onSaveTap: (rrule) async {
-                            print ("RRULE SAVED FROM CUSTOM: $rrule");
+                            print("RRULE SAVED FROM CUSTOM: $rrule");
                             FFAppState().vCurrentRRule = rrule ?? "";
                             setState(() {
                               widget.rrule = rrule ?? widget.rrule;
