@@ -35,6 +35,7 @@ class MyApp extends StatefulWidget {
   Locale? locale;
   static Future<dynamic> Function(String? rrule)? onRRuleChanged;
   static Future<dynamic> Function(String? rrule)? onSaveTap;
+  static bool isExitAppOnBackON = true;
   //LOCAL_END
   
   static _MyAppState of(BuildContext context) =>

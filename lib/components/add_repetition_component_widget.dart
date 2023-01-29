@@ -1,6 +1,9 @@
 //LOCAL_START
+import 'dart:io';
+
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
+import 'package:custom_recurring_selectors/main.dart';
 import 'package:rrule/rrule.dart';
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
@@ -135,7 +138,19 @@ class _AddRepetitionComponentWidgetState
             //LOCAL_START
             print ("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
             widget.onSaveTap?.call(FFAppState().vCurrentRRule);
+            if (MyApp.isExitAppOnBackON == true) {
+              exit(0);
+            } else {
+              Navigator.pop(context);
+            }
             //LOCAL_END
+          },
+          onCancelTap: () async {
+            if (MyApp.isExitAppOnBackON == true) {
+              exit(0);
+            } else {
+              Navigator.pop(context);
+            }
           },
         ),
         Padding(
@@ -273,11 +288,12 @@ class _AddRepetitionComponentWidgetState
                           onRRuleChanged: (rrule) async {
                             // print("RRULE changed: $rrule");
                             // print("RRULE initial value: ${widget.rrule}");
-                            FFAppState().vCurrentRRule = rrule ?? "";
+                            // FFAppState().vCurrentRRule = rrule ?? "";
                             widget.onRRuleChanged?.call(rrule);
                           },
                           onSaveTap: (rrule) async {
                             print ("RRULE SAVED FROM CUSTOM: $rrule");
+                            FFAppState().vCurrentRRule = rrule ?? "";
                             setState(() {
                               widget.rrule = rrule ?? widget.rrule;
                               initSelectedItem();

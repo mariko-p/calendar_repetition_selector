@@ -445,6 +445,12 @@ class _CustomRepetitionComponentWidgetState
                 onSaveTap: () async {
                   //LOCAL_START
                   await widget.onSaveTap(FFAppState().vCurrentRRule);
+                  Navigator.pop(context);
+                  //LOCAL_END
+                },
+                onCancelTap: () async {
+                  //LOCAL_START
+                  Navigator.pop(context);
                   //LOCAL_END
                 },
               ),

@@ -12,12 +12,15 @@ class HeaderCenteredNavBarWidget extends StatefulWidget {
     this.isSaveVisible,
     this.isSaveEnabled,
     this.onSaveTap,
+    this.onCancelTap,
+    /*L*/
   }) : super(key: key);
 
   final String? title;
   final bool? isSaveVisible;
   final bool? isSaveEnabled;
   final Future<dynamic> Function()? onSaveTap;
+  final Future<dynamic> Function()? onCancelTap;
 
   @override
   _HeaderCenteredNavBarWidgetState createState() =>
@@ -62,7 +65,9 @@ class _HeaderCenteredNavBarWidgetState
                   child: FFButtonWidget(
                     onPressed: () async {
                       // Dismiss bottom sheet
-                      Navigator.pop(context);
+                      // Needs to be propagated to distinguish between cancel and exit app.
+                      await widget.onCancelTap?.call();
+                      // Navigator.pop(context);
                     },
                     text: FFLocalizations.of(context).getText(
                       'usujndrb' /* Cancel */,
@@ -108,7 +113,7 @@ class _HeaderCenteredNavBarWidgetState
                           // onSave
                           await widget.onSaveTap?.call();
                           // dismiss dialog
-                          Navigator.pop(context);
+                          // Navigator.pop(context);
                         }
                       },
                       text: FFLocalizations.of(context).getText(
