@@ -28,10 +28,9 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.transparent,
-      body: Container(
+    return Material(
+      
+      child: Container(
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.only(
