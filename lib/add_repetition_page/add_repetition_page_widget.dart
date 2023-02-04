@@ -29,7 +29,12 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
     context.watch<FFAppState>();
 
     return Material(
-      
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
