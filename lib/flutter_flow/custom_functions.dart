@@ -43,9 +43,10 @@ String getRRuleAsText() {
   return "";
 }
 
-String getActivityRepetitionAsText() {
+String getActivityRepetitionCustomAsText() {
   // Code is written in flutter.
-  return "";
+  var rruleTranslation = await getRRuleAsText();
+  return "The activity will repeat " + rruleTranslation.toLowerCase();
 }
 
 List<WeekDayStruct> getWeekDayList() {
