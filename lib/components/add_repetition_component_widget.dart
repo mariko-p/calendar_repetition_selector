@@ -153,7 +153,7 @@ class _AddRepetitionComponentWidgetState
 
   @override
   void dispose() {
-    _model.maybeDispose();
+    _model.dispose();
 
     super.dispose();
   }
