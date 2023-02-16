@@ -108,3 +108,62 @@ String? mapByDayToWeekDay(String? byDay) {
   // Code written in local flutter.
   return "";
 }
+
+String? getActivityRepetitionAnyAsText(String? rrule) {
+  // Add localy in flutter code.
+
+  // rrule = removePossibleLastSemicolon(rrule);
+  //
+  // if ((rrule?.isEmpty == true) || rrule == repetitionNever()) {
+  //  // No repetition.
+  //  return "";
+  // } else {
+  //  if (rrule == repetitionEveryDay()) {
+  //    return FFLocalizations.of(context).getText(
+  //      'daxykqq2' /* The activity will repeat every day. */,
+  //    );
+  //  }
+  //  if (rrule == repetitionEveryWeek()) {
+  //    return FFLocalizations.of(context).getText(
+  //      'mfg5rhah' /* The activity will repeat every week. */,
+  //    );
+  //  }
+  //  if (rrule == repetitionEverySecondWeek()) {
+  //    return FFLocalizations.of(context).getText(
+  //      'vbn8qvxy' /* The activity will repeat every second week. */,
+  //    );
+  //  }
+  //  if (rrule == repetitionEveryMonth()) {
+  //    return FFLocalizations.of(context).getText(
+  //      'zpky99wo' /* The activity will repeat every month. */,
+  //    );
+  //  }
+  //  if (rrule == repetitionEveryYear()) {
+  //    return FFLocalizations.of(context).getText(
+  //      'vy44jrpj' /* The activity will repeat every year. */,
+  //    );
+  //  }
+
+  // Custom repetition selection.
+  //  if (rrule?.startsWith("RRULE:") == true) {
+  //    return getActivityRepetitionCustomAsText();
+  //  }
+  //}
+
+  // No repetition.
+  return "";
+}
+
+String repetitionNever() {
+  return 'RRULE:NEVER';
+}
+
+String? removePossibleLastSemicolon(String? rrule) {
+  /// RRULE rules.
+  /// RRULE:FREQ=DAILY and RRULE:FREQ=DAILY; have the same effect.
+  /// Remove last possible ';' from rrule.
+  if (rrule?.endsWith(";") == true) {
+    rrule = rrule?.substring(0, rrule?.length ?? 1) - 1;
+  }
+  return rrule;
+}
