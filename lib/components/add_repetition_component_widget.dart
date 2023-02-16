@@ -68,6 +68,7 @@ class _AddRepetitionComponentWidgetState
     repetitions = functions.getPredefinedRepetitionList().toList();
     FFAppState().vCurrentRRule = widget.rrule ?? "";
     initSelectedItem();
+    updateRepetitionText();
   }
 
   void initSelectedItem() {
@@ -123,6 +124,17 @@ class _AddRepetitionComponentWidgetState
       FFAppState().vCurrentRRule = repetitions[index].rrule!;
       widget.onRRuleChanged?.call(FFAppState().vCurrentRRule);
     }
+    updateRepetitionText();
+  }
+
+  void updateRepetitionText() {
+    Future.delayed(Duration.zero, () async {
+      var rrule = FFAppState().vCurrentRRule;
+      var humanReadableText = await functions.getActivityRepetitionAnyAsText(context, rrule);
+      setState(() {
+        _model.repetitionLabelText = humanReadableText;
+      });
+    });
   }
 
   BorderRadius? getSpecificBorderRadius(int itemIndex) {
@@ -302,6 +314,9 @@ class _AddRepetitionComponentWidgetState
             },
           ),
         ),
+        //LOCAL_START
+        if (_model.repetitionLabelText.length > 0)
+        //LOCAL_END
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
           child: wrapWithModel(
@@ -309,7 +324,7 @@ class _AddRepetitionComponentWidgetState
             updateCallback: () => setState(() {}),
             child: RepetitionLabelWidget(
               //LOCAL_START
-              humanReadableText: '[Pass parameter localy]',
+              humanReadableText: _model.repetitionLabelText,
               //LOCAL_END
             ),
           ),
@@ -359,6 +374,7 @@ class _AddRepetitionComponentWidgetState
                               initSelectedItem();
                             });
                             widget.onSaveTapFromCustomPage?.call(rrule);
+                            updateRepetitionText();
                           },
                         ),
                       ),
