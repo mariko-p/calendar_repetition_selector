@@ -188,7 +188,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Spara',
     },
   },
-  // RepetitionTranslationLabel
+  // CustomFunctionsTranslationsMap
   {
     'daxykqq2': {
       'en': 'The activity will repeat every day',
@@ -209,6 +209,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'vy44jrpj': {
       'en': 'The activity will repeat every year',
       'sv': 'Aktiviteten kommer att upprepas varje år',
+    },
+    'oyc9uml8': {
+      'en': 'The activity will repeat ',
+      'sv': 'Aktiviteten kommer att upprepas',
     },
   },
 ].reduce((a, b) => a..addAll(b));

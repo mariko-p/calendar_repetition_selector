@@ -3,20 +3,20 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'repetition_translation_label_model.dart';
-export 'repetition_translation_label_model.dart';
+import 'custom_functions_translations_map_model.dart';
+export 'custom_functions_translations_map_model.dart';
 
-class RepetitionTranslationLabelWidget extends StatefulWidget {
-  const RepetitionTranslationLabelWidget({Key? key}) : super(key: key);
+class CustomFunctionsTranslationsMapWidget extends StatefulWidget {
+  const CustomFunctionsTranslationsMapWidget({Key? key}) : super(key: key);
 
   @override
-  _RepetitionTranslationLabelWidgetState createState() =>
-      _RepetitionTranslationLabelWidgetState();
+  _CustomFunctionsTranslationsMapWidgetState createState() =>
+      _CustomFunctionsTranslationsMapWidgetState();
 }
 
-class _RepetitionTranslationLabelWidgetState
-    extends State<RepetitionTranslationLabelWidget> {
-  late RepetitionTranslationLabelModel _model;
+class _CustomFunctionsTranslationsMapWidgetState
+    extends State<CustomFunctionsTranslationsMapWidget> {
+  late CustomFunctionsTranslationsMapModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -27,7 +27,7 @@ class _RepetitionTranslationLabelWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RepetitionTranslationLabelModel());
+    _model = createModel(context, () => CustomFunctionsTranslationsMapModel());
   }
 
   @override
@@ -102,6 +102,21 @@ class _RepetitionTranslationLabelWidgetState
                   fontFamily: 'Rubik',
                   fontWeight: FontWeight.normal,
                 ),
+          ),
+        ),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+            child: Text(
+              FFLocalizations.of(context).getText(
+                'oyc9uml8' /* The activity will repeat  */,
+              ),
+              style: FlutterFlowTheme.of(context).bodyText1.override(
+                    fontFamily: 'Rubik',
+                    fontWeight: FontWeight.normal,
+                  ),
+            ),
           ),
         ),
       ],
