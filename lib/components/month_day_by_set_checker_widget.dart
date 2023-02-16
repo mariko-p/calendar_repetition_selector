@@ -8,6 +8,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'month_day_by_set_checker_model.dart';
+export 'month_day_by_set_checker_model.dart';
 
 class MonthDayBySetCheckerWidget extends StatefulWidget {
   const MonthDayBySetCheckerWidget(
@@ -34,9 +36,12 @@ class _MonthDayBySetCheckerWidgetState
   late List<ByDayStruct> byDayItems;
   var positionIndex;
   var dayIndex;
+  late MonthDayBySetCheckerModel _model;
 
   @override
   void initState() {
+    _model = createModel(context, () => MonthDayBySetCheckerModel());
+
     bySetPositionItems = getBySetPositionList();
     byDayItems = getByDayList();
 
@@ -48,13 +53,25 @@ class _MonthDayBySetCheckerWidgetState
     }
 
     // Initialize initial dayIndex.
-    dayIndex =
-        byDayItems.indexWhere((e) => e.value == widget.byDay.value);
+    dayIndex = byDayItems.indexWhere((e) => e.value == widget.byDay.value);
     if (dayIndex == -1) {
       dayIndex = 0;
     }
 
     super.initState();
+  }
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -69,8 +86,8 @@ class _MonthDayBySetCheckerWidgetState
             width: MediaQuery.of(context).size.width * 0.4,
             child: Center(
               child: CupertinoPicker(
-                  scrollController: FixedExtentScrollController(
-                      initialItem: positionIndex),
+                  scrollController:
+                      FixedExtentScrollController(initialItem: positionIndex),
                   itemExtent: 40,
                   children: bySetPositionItems
                       .map((item) => Center(
@@ -116,7 +133,7 @@ class _MonthDayBySetCheckerWidgetState
                     SystemSound.play(SystemSoundType.click);
                     HapticFeedback.lightImpact();
                     dayIndex = index;
-                    
+
                     widget.byDayChanged(byDayItems[index]);
                   }),
             )),

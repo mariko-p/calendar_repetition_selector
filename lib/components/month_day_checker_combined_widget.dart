@@ -7,6 +7,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'month_day_checker_combined_model.dart';
+export 'month_day_checker_combined_model.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
   const MonthDayCheckerCombinedWidget(
@@ -47,16 +49,31 @@ class _MonthDayCheckerCombinedWidgetState
 
   @override
   void initState() {
+    super.initState();
+    _model = createModel(context, () => MonthDayCheckerCombinedModel());
     monthlyType = widget.monthlyType;
 
     // By design expander is always expanded.
     widget.monthController?.expanded = true;
-    super.initState();
   }
 
   setMonthlyViewType(MonthlyViewType type) {
     monthlyType = type;
     widget.monthlyTypeChanged(type);
+  }
+
+  late MonthDayCheckerCombinedModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+    super.dispose();
   }
 
   @override
@@ -83,8 +100,10 @@ class _MonthDayCheckerCombinedWidgetState
                     child: InkWell(
                       onTap: () {
                         setState(() {
-                          if (MonthlyViewType.MONTH_DAY_CHECKER != monthlyType) {
-                            setMonthlyViewType(MonthlyViewType.MONTH_DAY_CHECKER);
+                          if (MonthlyViewType.MONTH_DAY_CHECKER !=
+                              monthlyType) {
+                            setMonthlyViewType(
+                                MonthlyViewType.MONTH_DAY_CHECKER);
                           }
                           if (widget.monthController?.expanded == false) {
                             widget.monthController?.expanded = true;
@@ -110,8 +129,8 @@ class _MonthDayCheckerCombinedWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 7.5, 0, 7.5),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'sphagbrb' /* Every */,
@@ -125,7 +144,8 @@ class _MonthDayCheckerCombinedWidgetState
                                     ),
                               ),
                             ),
-                            if (MonthlyViewType.MONTH_DAY_CHECKER == monthlyType)
+                            if (MonthlyViewType.MONTH_DAY_CHECKER ==
+                                monthlyType)
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(1, 0),
@@ -186,8 +206,8 @@ class _MonthDayCheckerCombinedWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 7.5, 0, 7.5),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'tiwqbpnm' /* of the month... */,
@@ -255,18 +275,26 @@ class _MonthDayCheckerCombinedWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   if (MonthlyViewType.MONTH_DAY_CHECKER == monthlyType)
-                    MonthDayCheckerWidget(
-                      days: widget.monthDays,
-                      selectionChanged: (checkedItems) =>
-                          widget.monthDaySelectionChanged(checkedItems),
+                    wrapWithModel(
+                      child: MonthDayCheckerWidget(
+                        days: widget.monthDays,
+                        selectionChanged: (checkedItems) =>
+                            widget.monthDaySelectionChanged(checkedItems),
+                      ),
+                      model: _model.monthDayCheckerModel,
+                      updateCallback: (() => setState(() {})),
                     ),
                   if (MonthlyViewType.OF_THE_MONTH_CHECKER == monthlyType)
-                    MonthDayBySetCheckerWidget(
-                      bySetPos: widget.bySetPos,
-                      byDay: widget.byDay,
-                      bySetPosChanged: (bySetPos) =>
-                          widget.bySetPosChanged(bySetPos),
-                      byDayChanged: (byDay) => widget.byDayChanged(byDay),
+                    wrapWithModel(
+                      child: MonthDayBySetCheckerWidget(
+                        bySetPos: widget.bySetPos,
+                        byDay: widget.byDay,
+                        bySetPosChanged: (bySetPos) =>
+                            widget.bySetPosChanged(bySetPos),
+                        byDayChanged: (byDay) => widget.byDayChanged(byDay),
+                      ),
+                      model: _model.monthDayBySetCheckerModel,
+                      updateCallback: (() => setState(() {})),
                     )
                 ],
               ),

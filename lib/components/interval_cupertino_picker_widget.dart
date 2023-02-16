@@ -5,6 +5,8 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'interval_cupertino_picker_model.dart';
+export 'interval_cupertino_picker_model.dart';
 
 class IntervalCupertinoPickerWidget extends StatefulWidget {
   IntervalCupertinoPickerWidget(
@@ -25,6 +27,27 @@ class IntervalCupertinoPickerWidget extends StatefulWidget {
 
 class _IntervalCupertinoPickerWidgetState
     extends State<IntervalCupertinoPickerWidget> {
+  late IntervalCupertinoPickerModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => IntervalCupertinoPickerModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();

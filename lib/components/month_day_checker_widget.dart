@@ -7,9 +7,12 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'month_day_checker_model.dart';
+export 'month_day_checker_model.dart';
 
 class MonthDayCheckerWidget extends StatefulWidget {
-  MonthDayCheckerWidget({Key? key, required this.days, required this.selectionChanged})
+  MonthDayCheckerWidget(
+      {Key? key, required this.days, required this.selectionChanged})
       : super(key: key);
 
   final List<MonthDayStruct> days;
@@ -22,6 +25,7 @@ class MonthDayCheckerWidget extends StatefulWidget {
 
 class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
   final List<MonthDayStruct> checkedItems = List.empty(growable: true);
+  late MonthDayCheckerModel _model;
 
   void updateCheckedItems(MonthDayStruct updatedItem) {
     var foundIndex = checkedItems
@@ -43,19 +47,25 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
   }
 
   @override
-  void initState() {
-    super.initState();
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
   }
 
-  rowBuilder(int startIndex, int endIndex) {
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MonthDayCheckerModel());
+  }
+
+  Builder rowBuilder(int startIndex, int endIndex) {
     return Builder(
       builder: (context) {
         var weekDays = widget.days.sublist(startIndex, endIndex);
         return Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children:
-              List.generate(weekDays.length, (weekDayIndex) {
+          children: List.generate(weekDays.length, (weekDayIndex) {
             var weekDay = weekDays[weekDayIndex];
 
             return MonthDayItemWidget(
@@ -69,6 +79,12 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
         );
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+    super.dispose();
   }
 
   @override

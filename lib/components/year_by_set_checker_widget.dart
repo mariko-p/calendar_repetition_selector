@@ -8,6 +8,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'year_by_set_checker_model.dart';
+export 'year_by_set_checker_model.dart';
 
 class YearBySetCheckerWidget extends StatefulWidget {
   const YearBySetCheckerWidget({
@@ -36,6 +38,7 @@ class YearBySetCheckerWidget extends StatefulWidget {
 class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
   var isWeekDaysChecked = false;
   var controller = ExpandableController();
+  late YearBySetCheckerModel _model;
 
   void onExpanded() {
     setState(() {
@@ -50,10 +53,17 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
   }
 
   @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
   void initState() {
+    super.initState();
+    _model = createModel(context, () => YearBySetCheckerModel());
     this.isWeekDaysChecked = widget.isWeekDaysChecked;
     controller.addListener(onExpanded);
-    super.initState();
 
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       controller.expanded = isWeekDaysChecked;
@@ -63,6 +73,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
   @override
   void dispose() {
     controller.removeListener(onExpanded);
+    _model.dispose();
     super.dispose();
   }
 
@@ -196,12 +207,16 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    MonthDayBySetCheckerWidget(
-                      bySetPos: widget.bySetPos,
-                      byDay: widget.byDay,
-                      bySetPosChanged: ((bySetPos) =>
-                          widget.bySetPosChanged(bySetPos)),
-                      byDayChanged: ((byDay) => widget.byDayChanged(byDay)),
+                    wrapWithModel(
+                      child: MonthDayBySetCheckerWidget(
+                        bySetPos: widget.bySetPos,
+                        byDay: widget.byDay,
+                        bySetPosChanged: ((bySetPos) =>
+                            widget.bySetPosChanged(bySetPos)),
+                        byDayChanged: ((byDay) => widget.byDayChanged(byDay)),
+                      ),
+                      model: _model.monthDayBySetCheckerModel,
+                      updateCallback: () => setState(() {}),
                     ),
                   ],
                 ),

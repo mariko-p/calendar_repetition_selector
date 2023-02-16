@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'custom_repetition_page_model.dart';
+export 'custom_repetition_page_model.dart';
 
 class CustomRepetitionPageWidget extends StatefulWidget {
   const CustomRepetitionPageWidget({Key? key}) : super(key: key);
@@ -14,11 +16,22 @@ class CustomRepetitionPageWidget extends StatefulWidget {
 
 class _CustomRepetitionPageWidgetState
     extends State<CustomRepetitionPageWidget> {
-  final _unfocusNode = FocusNode();
+  late CustomRepetitionPageModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var rrule = '';
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => CustomRepetitionPageModel());
+  }
+
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -33,16 +46,20 @@ class _CustomRepetitionPageWidgetState
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: CustomRepetitionComponentWidget(
-            rrule: this.rrule,
-            onRRuleChanged: (rrule) async {
-              print ("RRULE CHANGED: $rrule");
-              print ("RRULE INITIAL: ${this.rrule}");
-            },
-            onSaveTap: (rrule) async {
-              print ("RRULE SAVED FROM CUSTOM: $rrule");
-              this.rrule = rrule ?? this.rrule;
-            },
+          child: wrapWithModel(
+            child: CustomRepetitionComponentWidget(
+              rrule: this.rrule,
+              onRRuleChanged: (rrule) async {
+                print("RRULE CHANGED: $rrule");
+                print("RRULE INITIAL: ${this.rrule}");
+              },
+              onSaveTap: (rrule) async {
+                print("RRULE SAVED FROM CUSTOM: $rrule");
+                this.rrule = rrule ?? this.rrule;
+              },
+            ),
+            model: _model.customRepetitionComponentModel,
+            updateCallback: () => setState(() {}),
           ),
         ),
       ),

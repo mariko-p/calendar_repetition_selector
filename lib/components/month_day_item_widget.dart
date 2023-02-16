@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'month_day_item_model.dart';
+export 'month_day_item_model.dart';
 
 class MonthDayItemWidget extends StatefulWidget {
   MonthDayItemWidget({
@@ -20,7 +22,9 @@ class MonthDayItemWidget extends StatefulWidget {
 }
 
 class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
-  uncheckItem(int? index ) {
+  late MonthDayItemModel _model;
+
+  uncheckItem(int? index) {
     if (skipItem(index)) return;
     setState(() {
       var text = widget.monthDay?.text;
@@ -51,6 +55,24 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
       return true;
     }
     return false;
+  }
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MonthDayItemModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+    super.dispose();
   }
 
   @override

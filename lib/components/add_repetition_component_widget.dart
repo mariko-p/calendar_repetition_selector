@@ -1,16 +1,11 @@
-//LOCAL_START
-import 'dart:io';
-
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
 import 'package:custom_recurring_selectors/main.dart';
 import 'package:rrule/rrule.dart';
 import '../components/bottom_sheet_nav_bar_widget.dart';
 import '../components/custom_repetition_component_widget.dart';
-import '../custom_code/constants/calendar_constants.dart';
-import '../flutter_flow/custom_functions.dart';
-import 'package:collection/collection.dart';
-//LOCAL_END
+import '../components/header_centered_nav_bar_widget.dart';
+import '../components/repetition_label_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
@@ -18,6 +13,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'header_centered_nav_bar_widget.dart';
+import 'add_repetition_component_model.dart';
+export 'add_repetition_component_model.dart';
+
+//LOCAL_START
+import 'dart:io';
+import '../custom_code/constants/calendar_constants.dart';
+import '../flutter_flow/custom_functions.dart';
+import 'package:collection/collection.dart';
+//LOCAL_END
 
 class AddRepetitionComponentWidget extends StatefulWidget {
   AddRepetitionComponentWidget(
@@ -52,15 +56,18 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 
 class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
+
   late int selectedIndex;
   late List<RepetitionStruct> repetitions;
+  late AddRepetitionComponentModel _model;
 
   @override
   void initState() {
+    super.initState();
+    _model = createModel(context, () => AddRepetitionComponentModel());
     repetitions = functions.getPredefinedRepetitionList().toList();
     FFAppState().vCurrentRRule = widget.rrule ?? "";
     initSelectedItem();
-    super.initState();
   }
 
   void initSelectedItem() {
@@ -139,46 +146,63 @@ class _AddRepetitionComponentWidgetState
   }
 
   @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        HeaderCenteredNavBarWidget(
-          title: FFLocalizations.of(context).getVariableText(
-            enText: 'Add repetition',
-            svText: 'Lägg till upprepning',
+        wrapWithModel(
+          model: _model.headerCenteredNavBarModel,
+          updateCallback: () => setState(() {}),
+          child: HeaderCenteredNavBarWidget(
+            title: FFLocalizations.of(context).getVariableText(
+              enText: 'Add repetition',
+              svText: 'Lägg till upprepning',
+            ),
+            isSaveEnabled: true,
+            isSaveVisible: true,
+            onSaveTap: () async {
+              //LOCAL_START
+              print("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
+              widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule);
+              if (MyApp.isExitAppOnBackON == true) {
+                exit(0);
+              } else {
+                // Pop from outside of the package.
+                // Otherwise, empty stack will be shown.
+                // Navigator.pop(context);
+              }
+              //LOCAL_END
+            },
+            onCancelTap: () async {
+              print("RRULE CANCEL FROM ADD: ${FFAppState().vCurrentRRule}");
+              widget.onCancelTapFromAddPage?.call();
+              if (MyApp.isExitAppOnBackON == true) {
+                exit(0);
+              } else {
+                // Pop from outside of the package.
+                // Otherwise, empty stack will be shown.
+                // Navigator.pop(context);
+              }
+            },
           ),
-          isSaveVisible: true,
-          isSaveEnabled: true,
-          onSaveTap: () async {
-            //LOCAL_START
-            print("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
-            widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule);
-            if (MyApp.isExitAppOnBackON == true) {
-              exit(0);
-            } else {
-              // Pop from outside of the package.
-              // Otherwise, empty stack will be shown.
-              // Navigator.pop(context);
-            }
-            //LOCAL_END
-          },
-          onCancelTap: () async {
-            print("RRULE CANCEL FROM ADD: ${FFAppState().vCurrentRRule}");
-            widget.onCancelTapFromAddPage?.call();
-            if (MyApp.isExitAppOnBackON == true) {
-              exit(0);
-            } else {
-              // Pop from outside of the package.
-              // Otherwise, empty stack will be shown.
-              // Navigator.pop(context);
-            }
-          },
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 10),
           child: Builder(
             builder: (context) {
               repetitions.forEachIndexed((index, element) {
@@ -276,6 +300,18 @@ class _AddRepetitionComponentWidgetState
                 },
               );
             },
+          ),
+        ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          child: wrapWithModel(
+            model: _model.repetitionLabelModel,
+            updateCallback: () => setState(() {}),
+            child: RepetitionLabelWidget(
+              //LOCAL_START
+              humanReadableText: '[Pass parameter localy]',
+              //LOCAL_END
+            ),
           ),
         ),
         Padding(

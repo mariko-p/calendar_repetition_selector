@@ -11,6 +11,8 @@ import '../components/year_checker_combined_widget.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'custom_repetition_component_model.dart';
+export 'custom_repetition_component_model.dart';
 //LOCAL_START
 import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:expandable/expandable.dart';
@@ -91,6 +93,9 @@ class _CustomRepetitionComponentWidgetState
 
   @override
   void initState() {
+    super.initState();
+    _model = createModel(context, () => CustomRepetitionComponentModel());
+
     if (widget.rrule?.isNotEmpty == true) {
       FFAppState().vCurrentRRule = widget.rrule!;
     } else {
@@ -118,14 +123,23 @@ class _CustomRepetitionComponentWidgetState
     intController.addListener(onIntExpandedChanged);
 
     autoSelectRRule();
-    super.initState();
+  }
+
+  late CustomRepetitionComponentModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
   }
 
   @override
   void dispose() {
+    //LOCAL_START
     freqController.removeListener(onFreqExpandedChanged);
     intController.removeListener(onIntExpandedChanged);
-
+    //LOCAL_END
+    _model.dispose();
     super.dispose();
   }
 
@@ -134,8 +148,8 @@ class _CustomRepetitionComponentWidgetState
     var freq = getFrequencyOrDefault(rruleObj);
     var interval = getIntervalOrDefault(rruleObj);
 
-    print ("FREQ: $freq");
-    print ("INTERVAL: $interval");
+    print("FREQ: $freq");
+    print("INTERVAL: $interval");
     currentFrequency =
         generateFrequency().firstWhere((element) => element.value == freq);
     currentIntervals = generateInterval(freq);
@@ -164,7 +178,6 @@ class _CustomRepetitionComponentWidgetState
     }
   }
 
-
   int getIntervalOrDefault(RecurrenceRule rrule) {
     var interval = rrule.interval ?? 1;
     if (interval == null || interval <= 0) {
@@ -173,7 +186,7 @@ class _CustomRepetitionComponentWidgetState
     if (interval > 100) {
       return 100;
     }
-    
+
     return interval;
   }
 
@@ -435,96 +448,124 @@ class _CustomRepetitionComponentWidgetState
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                HeaderCenteredNavBarWidget(
-                title: FFLocalizations.of(context).getVariableText(
-                  enText: 'Custom repetition',
-                  svText: 'Anpassad upprepning',
+                wrapWithModel(
+                  child: HeaderCenteredNavBarWidget(
+                    title: FFLocalizations.of(context).getVariableText(
+                      enText: 'Custom repetition',
+                      svText: 'Anpassad upprepning',
+                    ),
+                    isSaveVisible: true,
+                    isSaveEnabled: true,
+                    onSaveTap: () async {
+                      //LOCAL_START
+                      await widget.onSaveTap(FFAppState().vCurrentRRule);
+                      Navigator.pop(context);
+                      //LOCAL_END
+                    },
+                    onCancelTap: () async {
+                      //LOCAL_START
+                      Navigator.pop(context);
+                      //LOCAL_END
+                    },
+                  ),
+                  model: _model.headerCenteredNavBarModel,
+                  updateCallback: () => setState(() {}),
                 ),
-                isSaveVisible: true,
-                isSaveEnabled: true,
-                onSaveTap: () async {
-                  //LOCAL_START
-                  await widget.onSaveTap(FFAppState().vCurrentRRule);
-                  Navigator.pop(context);
-                  //LOCAL_END
-                },
-                onCancelTap: () async {
-                  //LOCAL_START
-                  Navigator.pop(context);
-                  //LOCAL_END
-                },
-              ),
-                FrequencyExpanderWidget(
-                    freqController: freqController,
-                    currentFrequency: currentFrequency,
-                    onItemChanged: (index) async {
-                      await frequencyItemChanged(index);
-                    }),
-                IntervalExpanderWidget(
-                    intController: intController,
-                    currentIntervals: currentIntervals,
-                    currentIntervalIndex: currentIntervalIndex,
-                    onItemChanged: (index) async {
-                      await intervalItemChanged(index);
-                    }),
-                RepetitionLabelWidget(humanReadableText: humanReadableText),
+                wrapWithModel(
+                  child: FrequencyExpanderWidget(
+                      freqController: freqController,
+                      currentFrequency: currentFrequency,
+                      onItemChanged: (index) async {
+                        await frequencyItemChanged(index);
+                      }),
+                  model: _model.frequencyExpanderModel,
+                  updateCallback: () => setState(() {}),
+                ),
+                wrapWithModel(
+                  child: IntervalExpanderWidget(
+                      intController: intController,
+                      currentIntervals: currentIntervals,
+                      currentIntervalIndex: currentIntervalIndex,
+                      onItemChanged: (index) async {
+                        await intervalItemChanged(index);
+                      }),
+                  model: _model.intervalExpanderModel,
+                  updateCallback: () => setState(() {}),
+                ),
+                wrapWithModel(
+                  child: RepetitionLabelWidget(
+                      humanReadableText: humanReadableText),
+                  model: _model.repetitionLabelModel,
+                  updateCallback: () => setState(() {}),
+                ),
 
                 // Local WEEKLY.
                 if (isCustomWeeklyVisible)
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                    child: WeekDayCheckerWidget(
-                        weekDays: weekDays,
-                        selectionChanged: ((items) => updateWeeklyRRule())),
+                    child: wrapWithModel(
+                      child: WeekDayCheckerWidget(
+                          weekDays: weekDays,
+                          selectionChanged: ((items) => updateWeeklyRRule())),
+                      model: _model.weekDayCheckerModel,
+                      updateCallback: () => setState(() {}),
+                    ),
                   ),
 
                 // Local MONTHLY.
                 if (isCustomMonthlyVisible)
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
-                    child: MonthDayCheckerCombinedWidget(
-                      monthlyType: monthlyType,
-                      monthDays: monthDays,
-                      bySetPos: bySetPos,
-                      byDay: byDay,
-                      monthController: monthController,
-                      monthDaySelectionChanged: (checkedItems) =>
-                          updateMonthlyMonthDayCheckerRRule(),
-                      bySetPosChanged: (bySetPos) async {
-                        this.bySetPos = bySetPos!;
-                        updateMonthlyMonthDayByDayPosRRule();
-                      },
-                      byDayChanged: (byDay) async {
-                        this.byDay = byDay!;
-                        updateMonthlyMonthDayByDayPosRRule();
-                      },
-                      monthlyTypeChanged: (type) =>
-                          monthlyTypeChanged(type),
+                    child: wrapWithModel(
+                      child: MonthDayCheckerCombinedWidget(
+                        monthlyType: monthlyType,
+                        monthDays: monthDays,
+                        bySetPos: bySetPos,
+                        byDay: byDay,
+                        monthController: monthController,
+                        monthDaySelectionChanged: (checkedItems) =>
+                            updateMonthlyMonthDayCheckerRRule(),
+                        bySetPosChanged: (bySetPos) async {
+                          this.bySetPos = bySetPos!;
+                          updateMonthlyMonthDayByDayPosRRule();
+                        },
+                        byDayChanged: (byDay) async {
+                          this.byDay = byDay!;
+                          updateMonthlyMonthDayByDayPosRRule();
+                        },
+                        monthlyTypeChanged: (type) => monthlyTypeChanged(type),
+                      ),
+                      model: _model.monthDayCheckerCombinedModel,
+                      updateCallback: () => setState(() {}),
                     ),
                   ),
 
                 // Local YEARLY.
                 if (isCustomYearylVisible)
-                  YearCheckerCombinedWidget(
-                    months: this.months,
-                    monthSelectionChanged: () async {
-                      updateYearlyRRule();
-                    },
-                    isWeekDaysChecked: isWeekDaysChecked,
-                    isWeekDaysSelectionChanged: (isWeekDaysActive) async {
-                      this.isWeekDaysChecked = isWeekDaysActive;
-                      updateYearlyRRule();
-                    },
-                    byDay: this.byDay,
-                    bySetPos: this.bySetPos,
-                    byDayChanged: (byDay) async {
-                      this.byDay = byDay;
-                      updateYearlyRRule();
-                    },
-                    bySetPosChanged: (bySetPos) async {
-                      this.bySetPos = bySetPos;
-                      updateYearlyRRule();
-                    },
+                  wrapWithModel(
+                    child: YearCheckerCombinedWidget(
+                      months: this.months,
+                      monthSelectionChanged: () async {
+                        updateYearlyRRule();
+                      },
+                      isWeekDaysChecked: isWeekDaysChecked,
+                      isWeekDaysSelectionChanged: (isWeekDaysActive) async {
+                        this.isWeekDaysChecked = isWeekDaysActive;
+                        updateYearlyRRule();
+                      },
+                      byDay: this.byDay,
+                      bySetPos: this.bySetPos,
+                      byDayChanged: (byDay) async {
+                        this.byDay = byDay;
+                        updateYearlyRRule();
+                      },
+                      bySetPosChanged: (bySetPos) async {
+                        this.bySetPos = bySetPos;
+                        updateYearlyRRule();
+                      },
+                    ),
+                    model: _model.yearCheckerCombinedModel,
+                    updateCallback: () => setState(() {}),
                   ),
               ],
             ),

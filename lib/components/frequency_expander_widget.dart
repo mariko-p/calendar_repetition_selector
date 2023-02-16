@@ -7,6 +7,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'frequency_expander_model.dart';
+export 'frequency_expander_model.dart';
 
 class FrequencyExpanderWidget extends StatefulWidget {
   const FrequencyExpanderWidget(
@@ -26,13 +28,25 @@ class FrequencyExpanderWidget extends StatefulWidget {
 }
 
 class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
+  late FrequencyExpanderModel _model;
   int initialIndex = 0;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
   @override
   void initState() {
-    initialIndex = generateFrequency().indexWhere(
-        (element) => element.value == widget.currentFrequency.value);
-
     super.initState();
+    _model = createModel(context, () => FrequencyExpanderModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+    super.dispose();
   }
 
   @override
@@ -149,11 +163,15 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                     decoration: BoxDecoration(
                       color: Color(0xFFFBFCFF),
                     ),
-                    child: FrequencyCupertinoPickerWidget(
-                        initialIndex: this.initialIndex,
-                        onItemChanged: (index) async {
-                          widget.onItemChanged(index);
-                        }),
+                    child: wrapWithModel(
+                      child: FrequencyCupertinoPickerWidget(
+                          initialIndex: this.initialIndex,
+                          onItemChanged: (index) async {
+                            widget.onItemChanged(index);
+                          }),
+                      model: _model.frequencyCupertinoPickerModel,
+                      updateCallback: () => setState(() {}),
+                    ),
                   ),
                 ),
               ],

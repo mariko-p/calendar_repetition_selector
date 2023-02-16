@@ -6,6 +6,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'interval_expander_model.dart';
+export 'interval_expander_model.dart';
 
 class IntervalExpanderWidget extends StatefulWidget {
   const IntervalExpanderWidget(
@@ -27,6 +29,7 @@ class IntervalExpanderWidget extends StatefulWidget {
 
 class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
   var isExpanded = false;
+  late IntervalExpanderModel _model;
 
   void onExpansionChanged() {
     if (widget.intController.expanded) {
@@ -41,14 +44,22 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
   }
 
   @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
   void initState() {
-    widget.intController.addListener(onExpansionChanged);
     super.initState();
+    _model = createModel(context, () => IntervalExpanderModel());
+    widget.intController.addListener(onExpansionChanged);
   }
 
   @override
   void dispose() {
     widget.intController.removeListener(onExpansionChanged);
+    _model.dispose();
     super.dispose();
   }
 
@@ -186,12 +197,16 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                           topRight: Radius.circular(0),
                         ),
                       ),
-                      child: IntervalCupertinoPickerWidget(
-                          items: widget.currentIntervals,
-                          initialIndex: widget.currentIntervalIndex,
-                          onItemChanged: (index) async {
-                            widget.onItemChanged(index);
-                          }),
+                      child: wrapWithModel(
+                        child: IntervalCupertinoPickerWidget(
+                            items: widget.currentIntervals,
+                            initialIndex: widget.currentIntervalIndex,
+                            onItemChanged: (index) async {
+                              widget.onItemChanged(index);
+                            }),
+                        model: _model.intervalCupertinoPickerModel,
+                        updateCallback: () => setState(() {}),
+                      ),
                     )),
               ],
             ),
