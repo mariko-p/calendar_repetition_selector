@@ -44,9 +44,65 @@ class _RepetitionTranslationLabelWidgetState
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Text(
-          '',
-          style: FlutterFlowTheme.of(context).bodyText1,
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'daxykqq2' /* The activity will repeat every... */,
+            ),
+            style: FlutterFlowTheme.of(context).bodyText1.override(
+                  fontFamily: 'Rubik',
+                  fontWeight: FontWeight.normal,
+                ),
+          ),
+        ),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'mfg5rhah' /* The activity will repeat every... */,
+            ),
+            style: FlutterFlowTheme.of(context).bodyText1.override(
+                  fontFamily: 'Rubik',
+                  fontWeight: FontWeight.normal,
+                ),
+          ),
+        ),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'vbn8qvxy' /* The activity will repeat every... */,
+            ),
+            style: FlutterFlowTheme.of(context).bodyText1.override(
+                  fontFamily: 'Rubik',
+                  fontWeight: FontWeight.normal,
+                ),
+          ),
+        ),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'zpky99wo' /* The activity will repeat every... */,
+            ),
+            style: FlutterFlowTheme.of(context).bodyText1.override(
+                  fontFamily: 'Rubik',
+                  fontWeight: FontWeight.normal,
+                ),
+          ),
+        ),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'vy44jrpj' /* The activity will repeat every... */,
+            ),
+            style: FlutterFlowTheme.of(context).bodyText1.override(
+                  fontFamily: 'Rubik',
+                  fontWeight: FontWeight.normal,
+                ),
+          ),
         ),
       ],
     );

@@ -188,4 +188,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Spara',
     },
   },
+  // RepetitionTranslationLabel
+  {
+    'daxykqq2': {
+      'en': 'The activity will repeat every day',
+      'sv': 'Aktiviteten kommer att upprepas varje dag',
+    },
+    'mfg5rhah': {
+      'en': 'The activity will repeat every week',
+      'sv': 'Aktiviteten kommer att upprepas varje vecka',
+    },
+    'vbn8qvxy': {
+      'en': 'The activity will repeat every second week',
+      'sv': 'Aktiviteten kommer att upprepas varannan vecka',
+    },
+    'zpky99wo': {
+      'en': 'The activity will repeat every month',
+      'sv': 'Aktiviteten kommer att upprepas varje månad',
+    },
+    'vy44jrpj': {
+      'en': 'The activity will repeat every year',
+      'sv': 'Aktiviteten kommer att upprepas varje år',
+    },
+  },
 ].reduce((a, b) => a..addAll(b));
