@@ -1,6 +1,7 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -52,7 +53,11 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: Color(0xFF9980DD),
+              color: valueOrDefault<Color>(
+                functions.combineColors(
+                    FFAppState().cMonthDayCheckedColors.toList()),
+                FlutterFlowTheme.of(context).secondaryText,
+              ),
               shape: BoxShape.circle,
             ),
             child: Align(
@@ -64,7 +69,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
                       fontFamily: 'Rubik',
                       color: Colors.white,
                       fontSize: 12,
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w500,
                     ),
               )),
             ),

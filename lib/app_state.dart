@@ -47,6 +47,24 @@ class FFAppState extends ChangeNotifier {
   set vTmp(bool _value) {
     _vTmp = _value;
   }
+
+  List<Color> _cMonthDayCheckedColors = [Color(4280908287), Color(3566178191)];
+  List<Color> get cMonthDayCheckedColors => _cMonthDayCheckedColors;
+  set cMonthDayCheckedColors(List<Color> _value) {
+    _cMonthDayCheckedColors = _value;
+  }
+
+  void addToCMonthDayCheckedColors(Color _value) {
+    _cMonthDayCheckedColors.add(_value);
+  }
+
+  void removeFromCMonthDayCheckedColors(Color _value) {
+    _cMonthDayCheckedColors.remove(_value);
+  }
+
+  void removeAtIndexFromCMonthDayCheckedColors(int _index) {
+    _cMonthDayCheckedColors.removeAt(_index);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
@@ -57,4 +75,11 @@ LatLng? _latLngFromString(String? val) {
   final lat = double.parse(split.first);
   final lng = double.parse(split.last);
   return LatLng(lat, lng);
+}
+
+Color? _colorFromIntValue(int? val) {
+  if (val == null) {
+    return null;
+  }
+  return Color(val);
 }
