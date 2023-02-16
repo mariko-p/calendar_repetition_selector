@@ -19,7 +19,9 @@ class YearBySetCheckerModel extends FlutterFlowModel {
         createModel(context, () => MonthDayBySetCheckerModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    monthDayBySetCheckerModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

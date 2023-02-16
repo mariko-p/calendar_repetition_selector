@@ -32,7 +32,7 @@ class _IntervalCupertinoPickerWidgetState
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }

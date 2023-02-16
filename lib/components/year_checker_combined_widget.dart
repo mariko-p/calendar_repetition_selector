@@ -34,7 +34,7 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }

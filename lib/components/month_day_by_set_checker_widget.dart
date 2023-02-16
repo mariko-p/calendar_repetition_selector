@@ -32,7 +32,7 @@ class _MonthDayBySetCheckerWidgetState
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }

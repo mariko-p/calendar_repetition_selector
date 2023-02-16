@@ -37,7 +37,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }

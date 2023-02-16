@@ -32,7 +32,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }
