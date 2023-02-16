@@ -5,6 +5,8 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'interval_expander_model.dart';
+export 'interval_expander_model.dart';
 
 class IntervalExpanderWidget extends StatefulWidget {
   const IntervalExpanderWidget({Key? key}) : super(key: key);
@@ -14,6 +16,27 @@ class IntervalExpanderWidget extends StatefulWidget {
 }
 
 class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
+  late IntervalExpanderModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => IntervalExpanderModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -114,7 +137,11 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                         topRight: Radius.circular(0),
                       ),
                     ),
-                    child: IntervalCupertinoPickerWidget(),
+                    child: wrapWithModel(
+                      model: _model.intervalCupertinoPickerModel,
+                      updateCallback: () => setState(() {}),
+                      child: IntervalCupertinoPickerWidget(),
+                    ),
                   ),
                 ),
               ],

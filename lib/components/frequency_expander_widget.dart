@@ -5,6 +5,8 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'frequency_expander_model.dart';
+export 'frequency_expander_model.dart';
 
 class FrequencyExpanderWidget extends StatefulWidget {
   const FrequencyExpanderWidget({Key? key}) : super(key: key);
@@ -15,6 +17,27 @@ class FrequencyExpanderWidget extends StatefulWidget {
 }
 
 class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
+  late FrequencyExpanderModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => FrequencyExpanderModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -124,7 +147,11 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
-                    child: FrequencyCupertinoPickerWidget(),
+                    child: wrapWithModel(
+                      model: _model.frequencyCupertinoPickerModel,
+                      updateCallback: () => setState(() {}),
+                      child: FrequencyCupertinoPickerWidget(),
+                    ),
                   ),
                 ),
               ],

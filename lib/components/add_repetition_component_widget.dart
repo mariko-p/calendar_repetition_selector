@@ -1,11 +1,14 @@
 import '../components/custom_repetition_component_widget.dart';
 import '../components/header_centered_nav_bar_widget.dart';
+import '../components/repetition_label_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'add_repetition_component_model.dart';
+export 'add_repetition_component_model.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
   const AddRepetitionComponentWidget({Key? key}) : super(key: key);
@@ -17,6 +20,27 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 
 class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
+  late AddRepetitionComponentModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => AddRepetitionComponentModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -24,17 +48,21 @@ class _AddRepetitionComponentWidgetState
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        HeaderCenteredNavBarWidget(
-          title: FFLocalizations.of(context).getVariableText(
-            enText: 'Add repetition',
-            svText: 'Lägg till upprepning',
+        wrapWithModel(
+          model: _model.headerCenteredNavBarModel,
+          updateCallback: () => setState(() {}),
+          child: HeaderCenteredNavBarWidget(
+            title: FFLocalizations.of(context).getVariableText(
+              enText: 'Add repetition',
+              svText: 'Lägg till upprepning',
+            ),
+            isSaveVisible: true,
+            isSaveEnabled: true,
+            onSaveTap: () async {},
           ),
-          isSaveVisible: true,
-          isSaveEnabled: true,
-          onSaveTap: () async {},
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 10),
           child: Builder(
             builder: (context) {
               final weekDays = functions
@@ -112,6 +140,16 @@ class _AddRepetitionComponentWidgetState
                 },
               );
             },
+          ),
+        ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          child: wrapWithModel(
+            model: _model.repetitionLabelModel,
+            updateCallback: () => setState(() {}),
+            child: RepetitionLabelWidget(
+              humanReadableText: '[Pass parameter localy]',
+            ),
           ),
         ),
         Padding(

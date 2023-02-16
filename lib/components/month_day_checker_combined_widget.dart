@@ -6,6 +6,8 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'month_day_checker_combined_model.dart';
+export 'month_day_checker_combined_model.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
   const MonthDayCheckerCombinedWidget({Key? key}) : super(key: key);
@@ -17,6 +19,27 @@ class MonthDayCheckerCombinedWidget extends StatefulWidget {
 
 class _MonthDayCheckerCombinedWidgetState
     extends State<MonthDayCheckerCombinedWidget> {
+  late MonthDayCheckerCombinedModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MonthDayCheckerCombinedModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -178,9 +201,17 @@ class _MonthDayCheckerCombinedWidgetState
                   Container(
                     height: 200,
                     decoration: BoxDecoration(),
-                    child: MonthDayCheckerWidget(),
+                    child: wrapWithModel(
+                      model: _model.monthDayCheckerModel,
+                      updateCallback: () => setState(() {}),
+                      child: MonthDayCheckerWidget(),
+                    ),
                   ),
-                  MonthDayBySetCheckerWidget(),
+                  wrapWithModel(
+                    model: _model.monthDayBySetCheckerModel,
+                    updateCallback: () => setState(() {}),
+                    child: MonthDayBySetCheckerWidget(),
+                  ),
                 ],
               ),
             ),

@@ -5,6 +5,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'month_day_checker_model.dart';
+export 'month_day_checker_model.dart';
 
 class MonthDayCheckerWidget extends StatefulWidget {
   const MonthDayCheckerWidget({Key? key}) : super(key: key);
@@ -14,6 +16,27 @@ class MonthDayCheckerWidget extends StatefulWidget {
 }
 
 class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
+  late MonthDayCheckerModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MonthDayCheckerModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -40,7 +63,8 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                     children: List.generate(weekItem.length, (weekItemIndex) {
                       final weekItemItem = weekItem[weekItemIndex];
                       return MonthDayItemWidget(
-                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        key: Key(
+                            'Key2cb_${weekItemIndex}_of_${weekItem.length}'),
                         monthDay: weekItemItem,
                       );
                     }),
@@ -62,7 +86,8 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                     children: List.generate(weekItem.length, (weekItemIndex) {
                       final weekItemItem = weekItem[weekItemIndex];
                       return MonthDayItemWidget(
-                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        key: Key(
+                            'Keyasr_${weekItemIndex}_of_${weekItem.length}'),
                         monthDay: weekItemItem,
                       );
                     }),
@@ -84,7 +109,8 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                     children: List.generate(weekItem.length, (weekItemIndex) {
                       final weekItemItem = weekItem[weekItemIndex];
                       return MonthDayItemWidget(
-                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        key: Key(
+                            'Keyj3q_${weekItemIndex}_of_${weekItem.length}'),
                         monthDay: weekItemItem,
                       );
                     }),
@@ -106,7 +132,8 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                     children: List.generate(weekItem.length, (weekItemIndex) {
                       final weekItemItem = weekItem[weekItemIndex];
                       return MonthDayItemWidget(
-                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        key: Key(
+                            'Keylh0_${weekItemIndex}_of_${weekItem.length}'),
                         monthDay: weekItemItem,
                       );
                     }),
@@ -128,7 +155,8 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                     children: List.generate(weekItem.length, (weekItemIndex) {
                       final weekItemItem = weekItem[weekItemIndex];
                       return MonthDayItemWidget(
-                        key: Key('MonthDayItem_${weekItemIndex}'),
+                        key: Key(
+                            'Keyq7l_${weekItemIndex}_of_${weekItem.length}'),
                         monthDay: weekItemItem,
                       );
                     }),

@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'bottom_sheet_nav_bar_model.dart';
+export 'bottom_sheet_nav_bar_model.dart';
 
 class BottomSheetNavBarWidget extends StatefulWidget {
   const BottomSheetNavBarWidget({
@@ -20,6 +22,27 @@ class BottomSheetNavBarWidget extends StatefulWidget {
 }
 
 class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
+  late BottomSheetNavBarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => BottomSheetNavBarModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();

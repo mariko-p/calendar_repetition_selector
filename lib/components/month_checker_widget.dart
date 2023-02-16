@@ -5,6 +5,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'month_checker_model.dart';
+export 'month_checker_model.dart';
 
 class MonthCheckerWidget extends StatefulWidget {
   const MonthCheckerWidget({
@@ -19,6 +21,27 @@ class MonthCheckerWidget extends StatefulWidget {
 }
 
 class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
+  late MonthCheckerModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MonthCheckerModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();

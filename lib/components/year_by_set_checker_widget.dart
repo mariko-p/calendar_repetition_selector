@@ -5,6 +5,8 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'year_by_set_checker_model.dart';
+export 'year_by_set_checker_model.dart';
 
 class YearBySetCheckerWidget extends StatefulWidget {
   const YearBySetCheckerWidget({Key? key}) : super(key: key);
@@ -14,6 +16,27 @@ class YearBySetCheckerWidget extends StatefulWidget {
 }
 
 class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
+  late YearBySetCheckerModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => YearBySetCheckerModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -121,7 +144,11 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    MonthDayBySetCheckerWidget(),
+                    wrapWithModel(
+                      model: _model.monthDayBySetCheckerModel,
+                      updateCallback: () => setState(() {}),
+                      child: MonthDayBySetCheckerWidget(),
+                    ),
                   ],
                 ),
               ),
