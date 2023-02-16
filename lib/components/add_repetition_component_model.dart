@@ -26,7 +26,10 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
     repetitionLabelModel = createModel(context, () => RepetitionLabelModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    headerCenteredNavBarModel.dispose();
+    repetitionLabelModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

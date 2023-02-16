@@ -46,7 +46,15 @@ class CustomRepetitionComponentModel extends FlutterFlowModel {
         createModel(context, () => YearCheckerCombinedModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    headerCenteredNavBarModel.dispose();
+    frequencyExpanderModel.dispose();
+    intervalExpanderModel.dispose();
+    repetitionLabelModel.dispose();
+    weekDayCheckerModel.dispose();
+    monthDayCheckerCombinedModel.dispose();
+    yearCheckerCombinedModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

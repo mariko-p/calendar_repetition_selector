@@ -139,7 +139,7 @@ class _CustomRepetitionComponentWidgetState
     freqController.removeListener(onFreqExpandedChanged);
     intController.removeListener(onIntExpandedChanged);
     //LOCAL_END
-    _model.dispose();
+    _model.maybeDispose();
     super.dispose();
   }
 

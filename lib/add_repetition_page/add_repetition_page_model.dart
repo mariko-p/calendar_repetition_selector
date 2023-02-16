@@ -18,7 +18,9 @@ class AddRepetitionPageModel extends FlutterFlowModel {
         createModel(context, () => AddRepetitionComponentModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    addRepetitionComponentModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

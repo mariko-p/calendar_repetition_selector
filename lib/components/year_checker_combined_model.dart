@@ -22,7 +22,10 @@ class YearCheckerCombinedModel extends FlutterFlowModel {
     yearBySetCheckerModel = createModel(context, () => YearBySetCheckerModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    monthCheckerModel.dispose();
+    yearBySetCheckerModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

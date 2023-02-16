@@ -19,7 +19,9 @@ class IntervalExpanderModel extends FlutterFlowModel {
         createModel(context, () => IntervalCupertinoPickerModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    intervalCupertinoPickerModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

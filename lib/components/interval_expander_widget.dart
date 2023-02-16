@@ -58,8 +58,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
 
   @override
   void dispose() {
-    widget.intController.removeListener(onExpansionChanged);
-    _model.dispose();
+    _model.maybeDispose();
     super.dispose();
   }
 

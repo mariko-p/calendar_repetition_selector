@@ -23,7 +23,10 @@ class MonthDayCheckerCombinedModel extends FlutterFlowModel {
         createModel(context, () => MonthDayBySetCheckerModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    monthDayCheckerModel.dispose();
+    monthDayBySetCheckerModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

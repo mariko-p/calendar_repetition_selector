@@ -19,7 +19,9 @@ class FrequencyExpanderModel extends FlutterFlowModel {
         createModel(context, () => FrequencyCupertinoPickerModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    frequencyCupertinoPickerModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

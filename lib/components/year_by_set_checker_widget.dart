@@ -73,7 +73,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
   @override
   void dispose() {
     controller.removeListener(onExpanded);
-    _model.dispose();
+    _model.maybeDispose();
     super.dispose();
   }
 

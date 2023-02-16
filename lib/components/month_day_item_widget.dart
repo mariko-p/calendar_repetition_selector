@@ -71,7 +71,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
     super.dispose();
   }
 
