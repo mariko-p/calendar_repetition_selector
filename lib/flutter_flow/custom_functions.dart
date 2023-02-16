@@ -399,3 +399,20 @@ String? removePossibleLastSemicolon(String? rrule) {
   }
   return rrule;
 }
+
+Color combineColors(List<Color> colors) {
+  if (colors.isEmpty) {
+    return Colors.transparent;
+  }
+  if (colors.length == 1) {
+    return colors.first;
+  }
+
+  // General example.
+  Color result = colors[0];
+  for (var i = 1; i < colors.length; i++) {
+    // Parameter order is important.
+    result = Color.alphaBlend(colors[i], result);
+  }
+  return result;
+}
