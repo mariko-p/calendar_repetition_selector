@@ -14,7 +14,9 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   // Model for HeaderCenteredNavBar component.
   late HeaderCenteredNavBarModel headerCenteredNavBarModel;
   // Model for RepetitionLabel component.
-  late RepetitionLabelModel repetitionLabelModel;
+  late RepetitionLabelModel repetitionLabelModel1;
+  // Model for RepetitionLabel component.
+  late RepetitionLabelModel repetitionLabelModel2;
 
   String repetitionLabelText = "";
 
@@ -23,12 +25,14 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     headerCenteredNavBarModel =
         createModel(context, () => HeaderCenteredNavBarModel());
-    repetitionLabelModel = createModel(context, () => RepetitionLabelModel());
+    repetitionLabelModel1 = createModel(context, () => RepetitionLabelModel());
+    repetitionLabelModel2 = createModel(context, () => RepetitionLabelModel());
   }
 
   void dispose() {
     headerCenteredNavBarModel.dispose();
-    repetitionLabelModel.dispose();
+    repetitionLabelModel1.dispose();
+    repetitionLabelModel2.dispose();
   }
 
   /// Additional helper methods are added here.

@@ -230,6 +230,7 @@ class _AddRepetitionComponentWidgetState
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: repetitions.length,
                 itemBuilder: (context, itemIndex) {
                   final weekDaysItem = repetitions[itemIndex];
@@ -315,12 +316,12 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         //LOCAL_START
-        if (_model.repetitionLabelText.length > 0)
+        if (_model.repetitionLabelText.length > 0 && selectedIndex != 6)
         //LOCAL_END
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
           child: wrapWithModel(
-            model: _model.repetitionLabelModel,
+            model: _model.repetitionLabelModel1,
             updateCallback: () => setState(() {}),
             child: RepetitionLabelWidget(
               //LOCAL_START
@@ -330,7 +331,7 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 10),
           //LOCAL_START
           child: Material(
             color: FlutterFlowTheme.of(context).itemBackground,
@@ -454,6 +455,21 @@ class _AddRepetitionComponentWidgetState
             ),
           ),
           //LOCAL_END
+        ),
+        //LOCAL_START
+        if (_model.repetitionLabelText.length > 0 && selectedIndex == 6)
+        //LOCAL_END
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          child: wrapWithModel(
+            model: _model.repetitionLabelModel2,
+            updateCallback: () => setState(() {}),
+            child: RepetitionLabelWidget(
+              //LOCAL_START
+              humanReadableText: _model.repetitionLabelText,
+              //LOCAL_END
+            ),
+          ),
         ),
       ],
     );
