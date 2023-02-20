@@ -145,7 +145,7 @@ class _AddRepetitionComponentWidgetState
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
           child: wrapWithModel(
-            model: _model.repetitionLabelModel,
+            model: _model.repetitionLabelModel1,
             updateCallback: () => setState(() {}),
             child: RepetitionLabelWidget(
               humanReadableText: '[Pass parameter localy]',
@@ -153,7 +153,7 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 10),
           child: InkWell(
             onTap: () async {
               FFAppState().update(() {
@@ -236,6 +236,16 @@ class _AddRepetitionComponentWidgetState
                   ],
                 ),
               ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          child: wrapWithModel(
+            model: _model.repetitionLabelModel2,
+            updateCallback: () => setState(() {}),
+            child: RepetitionLabelWidget(
+              humanReadableText: '[Pass parameter localy]',
             ),
           ),
         ),
