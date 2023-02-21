@@ -96,6 +96,7 @@ class _CustomRepetitionComponentWidgetState
     super.initState();
     _model = createModel(context, () => CustomRepetitionComponentModel());
 
+  
     if (widget.rrule?.isNotEmpty == true) {
       FFAppState().vCurrentRRule = widget.rrule!;
     } else {
@@ -123,6 +124,10 @@ class _CustomRepetitionComponentWidgetState
     intController.addListener(onIntExpandedChanged);
 
     autoSelectRRule();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      initHumanReadableText();
+    });
   }
 
   late CustomRepetitionComponentModel _model;
@@ -141,6 +146,14 @@ class _CustomRepetitionComponentWidgetState
     //LOCAL_END
     _model.maybeDispose();
     super.dispose();
+  }
+
+  void initHumanReadableText() {
+    setState(() => {
+      humanReadableText = FFLocalizations.of(context).getText(
+        'daxykqq2' /* The activity will repeat every day */,
+      )
+    });
   }
 
   void autoSelectRRule() {
@@ -278,7 +291,7 @@ class _CustomRepetitionComponentWidgetState
   }
 
   Future updateRepetitionLabel() async {
-    var translation = await getActivityRepetitionCustomAsText();
+    var translation = await getActivityRepetitionCustomAsText(context);
 
     //ONLY FOR TEST.
     // var translation = FFAppState().vCurrentRRule;

@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:custom_recurring_selectors/backend/backend.dart';
+import 'package:custom_recurring_selectors/custom_code/codecs/sv.dart';
+import 'package:custom_recurring_selectors/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -89,9 +91,9 @@ Frequency mapFrequencyToRRuleFrequency(String? frequency) {
 
 Future<String> getRRuleAsText() async {
   // Code is written in flutter.
-  // First, load the localizations (currently, only English is supported):
-  // Rrule10nEn package take care of initializing only once.
-  final l10n = await RruleL10nEn.create();
+  // First, load the localizations (currently, only English and Swedish is supported):
+  // Rrule10n package take care of initializing only once.
+  final l10n = await getRRuleCodec();
 
   // Get rrule from local state.
   var rrule = FFAppState().vCurrentRRule;
@@ -101,11 +103,15 @@ Future<String> getRRuleAsText() async {
   return translation;
 }
 
-/*L*/ Future<String> getActivityRepetitionCustomAsText() async {
+/*L*/ Future<String> getActivityRepetitionCustomAsText(
+    BuildContext context) async {
   /*L*/
   // Code is written in flutter.
   var rruleTranslation = await getRRuleAsText();
-  return "The activity will repeat " + rruleTranslation.toLowerCase();
+
+  //The activity will repeat 
+  return FFLocalizations.of(context).getText('oyc9uml8') +
+      rruleTranslation.toLowerCase();
 }
 
 List<WeekDayStruct> getWeekDayList() {
@@ -343,44 +349,45 @@ String? mapByDayToWeekDay(String? byDay) {
   return "";
 }
 
-/*L*/ Future<String> /*L*/ getActivityRepetitionAnyAsText(/*L*/ BuildContext context /*L*/, String? rrule) async {
+/*L*/ Future<String> /*L*/ getActivityRepetitionAnyAsText(
+    /*L*/ BuildContext context /*L*/, String? rrule) async {
   // Add localy in flutter code.
   rrule = removePossibleLastSemicolon(rrule);
-  
-  if ((rrule?.isEmpty == true) || rrule == repetitionNever()) {
-   // No repetition.
-   return "";
-  } else {
-   if (rrule == repetitionEveryDay()) {
-     return FFLocalizations.of(context).getText(
-       'daxykqq2' /* The activity will repeat every day. */,
-     );
-   }
-   if (rrule == repetitionEveryWeek()) {
-     return FFLocalizations.of(context).getText(
-       'mfg5rhah' /* The activity will repeat every week. */,
-     );
-   }
-   if (rrule == repetitionEverySecondWeek()) {
-     return FFLocalizations.of(context).getText(
-       'vbn8qvxy' /* The activity will repeat every second week. */,
-     );
-   }
-   if (rrule == repetitionEveryMonth()) {
-     return FFLocalizations.of(context).getText(
-       'zpky99wo' /* The activity will repeat every month. */,
-     );
-   }
-   if (rrule == repetitionEveryYear()) {
-     return FFLocalizations.of(context).getText(
-       'vy44jrpj' /* The activity will repeat every year. */,
-     );
-   }
 
-   // Custom repetition selection.
-   if (rrule?.startsWith("RRULE:") == true) {
-     return await getActivityRepetitionCustomAsText();
-   }
+  if ((rrule?.isEmpty == true) || rrule == repetitionNever()) {
+    // No repetition.
+    return "";
+  } else {
+    if (rrule == repetitionEveryDay()) {
+      return FFLocalizations.of(context).getText(
+        'daxykqq2' /* The activity will repeat every day. */,
+      );
+    }
+    if (rrule == repetitionEveryWeek()) {
+      return FFLocalizations.of(context).getText(
+        'mfg5rhah' /* The activity will repeat every week. */,
+      );
+    }
+    if (rrule == repetitionEverySecondWeek()) {
+      return FFLocalizations.of(context).getText(
+        'vbn8qvxy' /* The activity will repeat every second week. */,
+      );
+    }
+    if (rrule == repetitionEveryMonth()) {
+      return FFLocalizations.of(context).getText(
+        'zpky99wo' /* The activity will repeat every month. */,
+      );
+    }
+    if (rrule == repetitionEveryYear()) {
+      return FFLocalizations.of(context).getText(
+        'vy44jrpj' /* The activity will repeat every year. */,
+      );
+    }
+
+    // Custom repetition selection.
+    if (rrule?.startsWith("RRULE:") == true) {
+      return await getActivityRepetitionCustomAsText(context);
+    }
   }
   // No repetition.
   return "";
@@ -417,7 +424,18 @@ Color combineColors(List<Color> colors) {
   return result;
 }
 
-String? getRRuleCodec() {
+Future<RruleL10n> getRRuleCodec() async {
   // Code written localy.
-  return null;
+  var locale = MyApp().locale?.languageCode;
+  //LOCAL_START
+  if (locale == 'en') {
+    return await RruleL10nEn.create();
+  }
+  if (locale == 'sv') {
+    return await RruleL10nSv.create();
+  }
+
+  //FALLBACK to english.
+  return await RruleL10nEn.create();
+  //LOCAL_END
 }

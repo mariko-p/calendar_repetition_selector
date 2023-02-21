@@ -16,7 +16,7 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: MyApp(),
+    child: MyApp(locale: Locale('sv'),),
   ));
 }
 
