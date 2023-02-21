@@ -416,3 +416,8 @@ Color combineColors(List<Color> colors) {
   }
   return result;
 }
+
+String? getRRuleCodec() {
+  // Code written localy.
+  return null;
+}
