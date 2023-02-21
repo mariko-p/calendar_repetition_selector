@@ -276,11 +276,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'd3l22vhu': {
       'en': 'January',
-      'sv': 'Januari',
+      'sv': 'januari',
     },
     '9g3z94s7': {
       'en': 'February',
-      'sv': 'Februari',
+      'sv': 'februari',
     },
     'lnt22ld1': {
       'en': 'March',
@@ -288,7 +288,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '034u8g9a': {
       'en': 'April',
-      'sv': 'April',
+      'sv': 'april',
     },
     '6hls65tt': {
       'en': 'May',
@@ -296,31 +296,59 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'pej4ktvz': {
       'en': 'June',
-      'sv': 'Juni',
+      'sv': 'juni',
     },
     '6betrjev': {
       'en': 'July',
-      'sv': 'Juli',
+      'sv': 'juli',
     },
     '6qvjh0si': {
       'en': 'August',
-      'sv': 'Augusti',
+      'sv': 'augusti',
     },
     'sgku9oc9': {
       'en': 'September',
-      'sv': 'September',
+      'sv': 'september',
     },
     '8sca82td': {
       'en': 'October',
-      'sv': 'Oktober',
+      'sv': 'oktober',
     },
     'wqms1orj': {
       'en': 'November',
-      'sv': 'November',
+      'sv': 'november',
     },
     'd09m6bre': {
       'en': 'December',
-      'sv': 'December',
+      'sv': 'december',
+    },
+    'qh1jdrfs': {
+      'en': 'Never',
+      'sv': 'Aldrig',
+    },
+    'j2qbaf0p': {
+      'en': 'Every day',
+      'sv': 'Varje dag',
+    },
+    '6f13hwqg': {
+      'en': 'Every week',
+      'sv': 'Varje vecka',
+    },
+    'n5k10s1l': {
+      'en': 'Every second week',
+      'sv': 'Varannan vecka',
+    },
+    'ss0z0b17': {
+      'en': 'Every month',
+      'sv': 'Varje månad',
+    },
+    '4u8zezxi': {
+      'en': 'Every year',
+      'sv': 'Varje år',
+    },
+    '33iznp6j': {
+      'en': 'Custom',
+      'sv': 'Beställnings',
     },
   },
 ].reduce((a, b) => a..addAll(b));
