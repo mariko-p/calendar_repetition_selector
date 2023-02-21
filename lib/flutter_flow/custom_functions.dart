@@ -439,3 +439,9 @@ Future<RruleL10n> getRRuleCodec() async {
   return await RruleL10nEn.create();
   //LOCAL_END
 }
+
+String? getShortMonthText(String? month) {
+  var lowerCase = month?.toLowerCase();
+  var threeLetters = ((lowerCase?.substring(0, 4) ?? "")) + ".";
+  return threeLetters;
+}
