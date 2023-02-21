@@ -65,10 +65,14 @@ class _AddRepetitionComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => AddRepetitionComponentModel());
-    repetitions = functions.getPredefinedRepetitionList().toList();
+  
     FFAppState().vCurrentRRule = widget.rrule ?? "";
     initSelectedItem();
     updateRepetitionText();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      repetitions = functions.getPredefinedRepetitionList(context).toList();
+    });
   }
 
   void initSelectedItem() {
@@ -398,7 +402,9 @@ class _AddRepetitionComponentWidgetState
                         padding:
                             EdgeInsetsDirectional.fromSTEB(20, 7.5, 20, 7.5),
                         child: Text(
-                          Constants.CUSTOM,
+                          //LOCAL_START
+                          FFLocalizations.of(context).getText("pwpi343g"),
+                          //LOCAL_END,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Rubik',

@@ -239,29 +239,35 @@ List<ByDayStruct> getByDayList() {
   ];
 }
 
-List<RepetitionStruct> getPredefinedRepetitionList() {
+List<RepetitionStruct> getPredefinedRepetitionList(BuildContext context) {
   // Code written in flutter.
-  var NEVER = FFLocalizations(getLocale()).getText(key)
+  var never = FFLocalizations.of(context).getText('qh1jdrfs');
+  var everyDay = FFLocalizations.of(context).getText('j2qbaf0p');
+  var everyWeek = FFLocalizations.of(context).getText('6f13hwqg');
+  var everySecondWeek = FFLocalizations.of(context).getText('n5k10s1l');
+  var everyMonth = FFLocalizations.of(context).getText('ss0z0b17');
+  var everyYear = FFLocalizations.of(context).getText('4u8zezxi');
+  
   return [
-    createRepetitionStruct(text: Constants.NEVER, isSelected: false, rrule: ""),
+    createRepetitionStruct(text: never, isSelected: false, rrule: ""),
     createRepetitionStruct(
-        text: Constants.EVERY_DAY,
+        text: everyDay,
         isSelected: false,
         rrule: repetitionEveryDay()),
     createRepetitionStruct(
-        text: Constants.EVERY_WEEK,
+        text: everyWeek,
         isSelected: false,
         rrule: repetitionEveryWeek()),
     createRepetitionStruct(
-        text: Constants.EVERY_SECOND_WEEK,
+        text: everySecondWeek,
         isSelected: false,
         rrule: repetitionEverySecondWeek()),
     createRepetitionStruct(
-        text: Constants.EVERY_MONTH,
+        text: everyMonth,
         isSelected: false,
         rrule: repetitionEveryMonth()),
     createRepetitionStruct(
-        text: Constants.EVERY_YEAR,
+        text: everyYear,
         isSelected: false,
         rrule: repetitionEveryYear()),
   ];
