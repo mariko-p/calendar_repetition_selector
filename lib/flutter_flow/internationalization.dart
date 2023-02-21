@@ -214,5 +214,113 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'The activity will repeat ',
       'sv': 'Aktiviteten kommer att upprepas',
     },
+    'gwyr9cx1': {
+      'en': 'day',
+      'sv': 'dag',
+    },
+    '2cpvzq7y': {
+      'en': 'days',
+      'sv': 'dagar',
+    },
+    'lsowp12l': {
+      'en': 'week',
+      'sv': 'vecka',
+    },
+    '3e5xfez2': {
+      'en': 'weeks',
+      'sv': 'Veckor',
+    },
+    'hptgspwe': {
+      'en': 'month',
+      'sv': 'månad',
+    },
+    'ax9vtym8': {
+      'en': 'months',
+      'sv': 'månader',
+    },
+    'rrpiidap': {
+      'en': 'year',
+      'sv': 'år',
+    },
+    'n4wmlxr5': {
+      'en': 'years',
+      'sv': 'år',
+    },
+    '1g631ksb': {
+      'en': 'Monday',
+      'sv': 'måndag',
+    },
+    'nzdgw5w6': {
+      'en': 'Tuesday',
+      'sv': 'tisdag',
+    },
+    'clmax87t': {
+      'en': 'Wednesday',
+      'sv': 'onsdag',
+    },
+    'n6lnn8xv': {
+      'en': 'Thursday',
+      'sv': 'torsdag',
+    },
+    'qi8cotop': {
+      'en': 'Friday',
+      'sv': 'fredag',
+    },
+    '3h99ug2f': {
+      'en': 'Saturday',
+      'sv': 'lördag',
+    },
+    'ax1lx5sz': {
+      'en': 'Sunday',
+      'sv': 'söndag',
+    },
+    'd3l22vhu': {
+      'en': 'January',
+      'sv': 'Januari',
+    },
+    '9g3z94s7': {
+      'en': 'February',
+      'sv': 'Februari',
+    },
+    'lnt22ld1': {
+      'en': 'March',
+      'sv': 'Mars',
+    },
+    '034u8g9a': {
+      'en': 'April',
+      'sv': 'April',
+    },
+    '6hls65tt': {
+      'en': 'May',
+      'sv': 'Maj',
+    },
+    'pej4ktvz': {
+      'en': 'June',
+      'sv': 'Juni',
+    },
+    '6betrjev': {
+      'en': 'July',
+      'sv': 'Juli',
+    },
+    '6qvjh0si': {
+      'en': 'August',
+      'sv': 'Augusti',
+    },
+    'sgku9oc9': {
+      'en': 'September',
+      'sv': 'September',
+    },
+    '8sca82td': {
+      'en': 'October',
+      'sv': 'Oktober',
+    },
+    'wqms1orj': {
+      'en': 'November',
+      'sv': 'November',
+    },
+    'd09m6bre': {
+      'en': 'December',
+      'sv': 'December',
+    },
   },
 ].reduce((a, b) => a..addAll(b));
