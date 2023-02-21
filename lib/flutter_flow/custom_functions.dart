@@ -41,7 +41,10 @@ List<IntervalStruct> generateInterval(String? frequency) {
 List<IntervalStruct> generateDailyInterval() {
   return List.generate(100, (index) {
     var value = index + 1;
-    var textValue = (index == 0) ? "$value day" : "$value days";
+    var dayLang = FFLocalizations(getLocale()).getText('gwyr9cx1');
+    var daysLang = FFLocalizations(getLocale()).getText('2cpvzq7y');
+
+    var textValue = (index == 0) ? "$value $dayLang" : "$value $daysLang";
     var interval = createIntervalStruct(text: textValue, value: value);
     return interval;
   });
@@ -50,7 +53,10 @@ List<IntervalStruct> generateDailyInterval() {
 List<IntervalStruct> generateWeeklyInterval() {
   return List.generate(100, (index) {
     var value = index + 1;
-    var textValue = (index == 0) ? "$value week" : "$value weeks";
+    var weekLang = FFLocalizations(getLocale()).getText('lsowp12l');
+    var weeksLang = FFLocalizations(getLocale()).getText('3e5xfez2');
+
+    var textValue = (index == 0) ? "$value $weekLang" : "$value $weeksLang";
     var interval = createIntervalStruct(text: textValue, value: value);
     return interval;
   });
@@ -59,7 +65,10 @@ List<IntervalStruct> generateWeeklyInterval() {
 List<IntervalStruct> generateMonthlyInterval() {
   return List.generate(100, (index) {
     var value = index + 1;
-    var textValue = (index == 0) ? "$value month" : "$value months";
+    var monthLang = FFLocalizations(getLocale()).getText('hptgspwe');
+    var monthsLang = FFLocalizations(getLocale()).getText('ax9vtym8');
+
+    var textValue = (index == 0) ? "$value $monthLang" : "$value $monthsLang";
     var interval = createIntervalStruct(text: textValue, value: value);
     return interval;
   });
@@ -68,7 +77,10 @@ List<IntervalStruct> generateMonthlyInterval() {
 List<IntervalStruct> generateYearlyInterval() {
   return List.generate(100, (index) {
     var value = index + 1;
-    var textValue = (index == 0) ? "$value year" : "$value years";
+    var yearLang = FFLocalizations(getLocale()).getText('rrpiidap');
+    var yearsLang = FFLocalizations(getLocale()).getText('n4wmlxr5');
+
+    var textValue = (index == 0) ? "$value $yearLang" : "$value $yearsLang";
     var interval = createIntervalStruct(text: textValue, value: value);
     return interval;
   });
@@ -116,6 +128,7 @@ Future<String> getRRuleAsText() async {
 
 List<WeekDayStruct> getWeekDayList() {
   // Code written in flutter.
+
   return [
     createWeekDayStruct(text: Constants.MONDAY, isChecked: false),
     createWeekDayStruct(text: Constants.TUESDAY, isChecked: false),
@@ -228,6 +241,7 @@ List<ByDayStruct> getByDayList() {
 
 List<RepetitionStruct> getPredefinedRepetitionList() {
   // Code written in flutter.
+  var NEVER = FFLocalizations(getLocale()).getText(key)
   return [
     createRepetitionStruct(text: Constants.NEVER, isSelected: false, rrule: ""),
     createRepetitionStruct(
@@ -445,3 +459,37 @@ String? getShortMonthText(String? month) {
   var threeLetters = ((lowerCase?.substring(0, 4) ?? "")) + ".";
   return threeLetters;
 }
+
+//LOCAL_START
+Locale getLocale() {
+  return MyApp().locale ?? Locale('en', 'US');
+}
+String monday() {
+  //Monday
+  return FFLocalizations(getLocale()).getText('1g631ksb');
+}
+String tuesday() {
+  //Tuesday
+  return FFLocalizations(getLocale()).getText('nzdgw5w6');
+}
+String wednesday() {
+  //Wednesday
+  return FFLocalizations(getLocale()).getText('clmax87t');
+}
+String thursday() {
+  //Thursday
+  return FFLocalizations(getLocale()).getText('n6lnn8xv');
+}
+String friday() {
+  //Friday
+  return FFLocalizations(getLocale()).getText('qi8cotop');
+}
+String saturday() {
+  //Saturday
+  return FFLocalizations(getLocale()).getText('3h99ug2f');
+}
+String sunday() {
+  //Sunday
+  return FFLocalizations(getLocale()).getText('ax1lx5sz');
+}
+//LOCAL_END
