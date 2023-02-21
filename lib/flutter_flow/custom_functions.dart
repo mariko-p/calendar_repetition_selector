@@ -189,3 +189,9 @@ String? getRRuleCodec() {
   // Code written localy.
   return null;
 }
+
+String? getShortMonthText(String? month) {
+  var lowerCase = month?.toLowerCase();
+  var threeLetters = ((lowerCase?.substring(0, 4) ?? "")) + ".";
+  return threeLetters;
+}
