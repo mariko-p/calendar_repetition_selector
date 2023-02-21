@@ -466,6 +466,101 @@ class _CustomFunctionsTranslationsMapWidgetState
               ),
             ],
           ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'qh1jdrfs' /* Never */,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Rubik',
+                          fontWeight: FontWeight.normal,
+                        ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'j2qbaf0p' /* Every day */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '6f13hwqg' /* Every week */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'n5k10s1l' /* Every second week */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'ss0z0b17' /* Every month */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '4u8zezxi' /* Every year */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: InkWell(
+                  onTap: () async {},
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      '33iznp6j' /* Custom */,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Rubik',
+                          fontWeight: FontWeight.normal,
+                        ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
