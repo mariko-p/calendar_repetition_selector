@@ -350,5 +350,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Custom',
       'sv': 'Beställnings',
     },
+    'kqd4z9pz': {
+      'en': 'First',
+      'sv': 'Först',
+    },
+    's7uatyuu': {
+      'en': 'Second',
+      'sv': 'Andra',
+    },
+    'jcfzzqjr': {
+      'en': 'Third',
+      'sv': 'Tredje',
+    },
+    '1bpw60wp': {
+      'en': 'Fourth',
+      'sv': 'Fjärde',
+    },
+    'b9stiig0': {
+      'en': 'Fifth',
+      'sv': 'Femte',
+    },
+    '2o2mi8pi': {
+      'en': 'Last',
+      'sv': 'Sista',
+    },
+    'nnq9e346': {
+      'en': 'Weekend day',
+      'sv': 'Helgdag',
+    },
+    'yl4rh0ou': {
+      'en': 'WeekDay',
+      'sv': 'Veckodag',
+    },
+    'ahnsj6ps': {
+      'en': 'Day',
+      'sv': 'Dag',
+    },
   },
 ].reduce((a, b) => a..addAll(b));
