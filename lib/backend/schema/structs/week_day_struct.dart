@@ -14,12 +14,15 @@ abstract class WeekDayStruct
 
   bool? get isChecked;
 
+  String? get value;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
   static void _initializeBuilder(WeekDayStructBuilder builder) => builder
     ..text = ''
     ..isChecked = false
+    ..value = ''
     ..firestoreUtilData = FirestoreUtilData();
 
   WeekDayStruct._();
@@ -30,6 +33,7 @@ abstract class WeekDayStruct
 WeekDayStruct createWeekDayStruct({
   String? text,
   bool? isChecked,
+  String? value,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -39,6 +43,7 @@ WeekDayStruct createWeekDayStruct({
       (w) => w
         ..text = text
         ..isChecked = isChecked
+        ..value = value
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

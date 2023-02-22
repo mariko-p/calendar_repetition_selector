@@ -248,39 +248,39 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1g631ksb': {
       'en': 'Monday',
-      'sv': 'måndag',
+      'sv': 'Måndag',
     },
     'nzdgw5w6': {
       'en': 'Tuesday',
-      'sv': 'tisdag',
+      'sv': 'Tisdag',
     },
     'clmax87t': {
       'en': 'Wednesday',
-      'sv': 'onsdag',
+      'sv': 'Onsdag',
     },
     'n6lnn8xv': {
       'en': 'Thursday',
-      'sv': 'torsdag',
+      'sv': 'Torsdag',
     },
     'qi8cotop': {
       'en': 'Friday',
-      'sv': 'fredag',
+      'sv': 'Fredag',
     },
     '3h99ug2f': {
       'en': 'Saturday',
-      'sv': 'lördag',
+      'sv': 'Lördag',
     },
     'ax1lx5sz': {
       'en': 'Sunday',
-      'sv': 'söndag',
+      'sv': 'Söndag',
     },
     'd3l22vhu': {
       'en': 'January',
-      'sv': 'januari',
+      'sv': 'Januari',
     },
     '9g3z94s7': {
       'en': 'February',
-      'sv': 'februari',
+      'sv': 'Februari',
     },
     'lnt22ld1': {
       'en': 'March',
@@ -288,7 +288,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '034u8g9a': {
       'en': 'April',
-      'sv': 'april',
+      'sv': 'April',
     },
     '6hls65tt': {
       'en': 'May',
@@ -296,31 +296,31 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'pej4ktvz': {
       'en': 'June',
-      'sv': 'juni',
+      'sv': 'Juni',
     },
     '6betrjev': {
       'en': 'July',
-      'sv': 'juli',
+      'sv': 'Juli',
     },
     '6qvjh0si': {
       'en': 'August',
-      'sv': 'augusti',
+      'sv': 'Augusti',
     },
     'sgku9oc9': {
       'en': 'September',
-      'sv': 'september',
+      'sv': 'September',
     },
     '8sca82td': {
       'en': 'October',
-      'sv': 'oktober',
+      'sv': 'Oktober',
     },
     'wqms1orj': {
       'en': 'November',
-      'sv': 'november',
+      'sv': 'November',
     },
     'd09m6bre': {
       'en': 'December',
-      'sv': 'december',
+      'sv': 'December',
     },
     'qh1jdrfs': {
       'en': 'Never',
