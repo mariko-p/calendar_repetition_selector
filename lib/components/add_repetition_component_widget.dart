@@ -63,21 +63,18 @@ class _AddRepetitionComponentWidgetState
   @override
   void initState() {
     super.initState();
-    
+
     _model = createModel(context, () => AddRepetitionComponentModel());
     repetitions = [];
     FFAppState().vCurrentRRule = widget.rrule ?? "";
     initSelectedItem();
     updateRepetitionText();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      setAppLanguage(context, 'sv_SE');
-      Future.delayed(Duration(milliseconds: 300), () {
-        setState(() {
-          repetitions = functions.getPredefinedRepetitionList(context).toList();
-          FFAppState().vCurrentRRule = widget.rrule ?? "";
-          initSelectedItem();
-          updateRepetitionText();
-        });
+      setState(() {
+        repetitions = functions.getPredefinedRepetitionList(context).toList();
+        FFAppState().vCurrentRRule = widget.rrule ?? "";
+        initSelectedItem();
+        updateRepetitionText();
       });
     });
   }
