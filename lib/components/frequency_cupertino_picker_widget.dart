@@ -23,7 +23,7 @@ class FrequencyCupertinoPickerWidget extends StatefulWidget {
 
 class _FrequencyCupertinoPickerWidgetState
     extends State<FrequencyCupertinoPickerWidget> {
-  final items = generateFrequency();
+  var _items = generateFrequency();
   late FrequencyCupertinoPickerModel _model;
 
   @override
@@ -36,12 +36,14 @@ class _FrequencyCupertinoPickerWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => FrequencyCupertinoPickerModel());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _items = generateFrequency(context);
+    });
   }
 
   @override
   void dispose() {
     _model.maybeDispose();
-
     super.dispose();
   }
 
@@ -55,7 +57,7 @@ class _FrequencyCupertinoPickerWidgetState
               itemExtent: 40,
               scrollController:
                   FixedExtentScrollController(initialItem: widget.initialIndex),
-              children: items
+              children: _items
                   .map((item) => Center(
                           child: Text(
                         item.text ?? "",

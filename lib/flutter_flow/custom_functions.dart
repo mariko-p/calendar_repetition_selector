@@ -15,13 +15,23 @@ import 'internationalization.dart';
 import 'lat_lng.dart';
 import 'place.dart';
 
-List<FrequencyStruct> generateFrequency() {
+List<FrequencyStruct> generateFrequency([BuildContext? context]) {
+  //Used for initialising the frequency dropdown.
+  if (context == null) {
+    return [
+      createFrequencyStruct(value: Constants.DAILY, text: Constants.DAILY),
+      createFrequencyStruct(value: Constants.WEEKLY, text: Constants.WEEKLY),
+      createFrequencyStruct(
+          value: Constants.MONTHLY, text: Constants.EVERY_MONTH),
+      createFrequencyStruct(value: Constants.YEARLY, text: Constants.YEARLY)
+    ];
+  }
+  // Used for generating the frequency dropdown.
   return [
-    createFrequencyStruct(value: Constants.DAILY, text: Constants.EVERY_DAY),
-    createFrequencyStruct(value: Constants.WEEKLY, text: Constants.EVERY_WEEK),
-    createFrequencyStruct(
-        value: Constants.MONTHLY, text: Constants.EVERY_MONTH),
-    createFrequencyStruct(value: Constants.YEARLY, text: Constants.EVERY_YEAR)
+    createFrequencyStruct(value: Constants.DAILY, text: everyDay(context)),
+    createFrequencyStruct(value: Constants.WEEKLY, text: everyWeek(context)),
+    createFrequencyStruct(value: Constants.MONTHLY, text: everyMonth(context)),
+    createFrequencyStruct(value: Constants.YEARLY, text: everyYear(context))
   ];
 }
 
@@ -121,22 +131,32 @@ Future<String> getRRuleAsText() async {
   // Code is written in flutter.
   var rruleTranslation = await getRRuleAsText();
 
-  //The activity will repeat 
+  //The activity will repeat
   return FFLocalizations.of(context).getText('oyc9uml8') +
       rruleTranslation.toLowerCase();
 }
 
-List<WeekDayStruct> getWeekDayList() {
+List<WeekDayStruct> getWeekDayList([BuildContext? context]) {
   // Code written in flutter.
-
+  if (context == null) {
+    return [
+      createWeekDayStruct(text: Constants.MONDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.TUESDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.WEDNESDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.THURSDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.FRIDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.SATURDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.SUNDAY, isChecked: false),
+    ];
+  }
   return [
-    createWeekDayStruct(text: Constants.MONDAY, isChecked: false),
-    createWeekDayStruct(text: Constants.TUESDAY, isChecked: false),
-    createWeekDayStruct(text: Constants.WEDNESDAY, isChecked: false),
-    createWeekDayStruct(text: Constants.THURSDAY, isChecked: false),
-    createWeekDayStruct(text: Constants.FRIDAY, isChecked: false),
-    createWeekDayStruct(text: Constants.SATURDAY, isChecked: false),
-    createWeekDayStruct(text: Constants.SUNDAY, isChecked: false),
+    createWeekDayStruct(text: monday(context), isChecked: false),
+    createWeekDayStruct(text: tuesday(context), isChecked: false),
+    createWeekDayStruct(text: wednesday(context), isChecked: false),
+    createWeekDayStruct(text: thursday(context), isChecked: false),
+    createWeekDayStruct(text: friday(context), isChecked: false),
+    createWeekDayStruct(text: saturday(context), isChecked: false),
+    createWeekDayStruct(text: sunday(context), isChecked: false),
   ];
 }
 
@@ -176,8 +196,17 @@ String mapWeekDayToByDay(String? weekDay) {
   return "";
 }
 
-List<BySetPositionStruct> getBySetPositionList() {
+List<BySetPositionStruct> getBySetPositionList([BuildContext? context]) {
   // Code written in flutter.
+  if (context == null)
+  return [
+    createBySetPositionStruct(text: Constants.First, value: 1),
+    createBySetPositionStruct(text: Constants.Second, value: 2),
+    createBySetPositionStruct(text: Constants.Third, value: 3),
+    createBySetPositionStruct(text: Constants.Fourth, value: 4),
+    createBySetPositionStruct(text: Constants.Fifth, value: 5),
+    createBySetPositionStruct(text: Constants.Last, value: -1),
+  ];
   return [
     createBySetPositionStruct(text: Constants.First, value: 1),
     createBySetPositionStruct(text: Constants.Second, value: 2),
@@ -247,29 +276,21 @@ List<RepetitionStruct> getPredefinedRepetitionList(BuildContext context) {
   var everySecondWeek = FFLocalizations.of(context).getText('n5k10s1l');
   var everyMonth = FFLocalizations.of(context).getText('ss0z0b17');
   var everyYear = FFLocalizations.of(context).getText('4u8zezxi');
-  
+
   return [
     createRepetitionStruct(text: never, isSelected: false, rrule: ""),
     createRepetitionStruct(
-        text: everyDay,
-        isSelected: false,
-        rrule: repetitionEveryDay()),
+        text: everyDay, isSelected: false, rrule: repetitionEveryDay()),
     createRepetitionStruct(
-        text: everyWeek,
-        isSelected: false,
-        rrule: repetitionEveryWeek()),
+        text: everyWeek, isSelected: false, rrule: repetitionEveryWeek()),
     createRepetitionStruct(
         text: everySecondWeek,
         isSelected: false,
         rrule: repetitionEverySecondWeek()),
     createRepetitionStruct(
-        text: everyMonth,
-        isSelected: false,
-        rrule: repetitionEveryMonth()),
+        text: everyMonth, isSelected: false, rrule: repetitionEveryMonth()),
     createRepetitionStruct(
-        text: everyYear,
-        isSelected: false,
-        rrule: repetitionEveryYear()),
+        text: everyYear, isSelected: false, rrule: repetitionEveryYear()),
   ];
 }
 
@@ -470,32 +491,83 @@ String? getShortMonthText(String? month) {
 Locale getLocale() {
   return MyApp().locale ?? Locale('en', 'US');
 }
-String monday() {
+
+String monday(BuildContext context) {
   //Monday
-  return FFLocalizations(getLocale()).getText('1g631ksb');
+  return FFLocalizations.of(context).getText('1g631ksb');
 }
-String tuesday() {
+
+String tuesday(BuildContext context) {
   //Tuesday
-  return FFLocalizations(getLocale()).getText('nzdgw5w6');
+  return FFLocalizations.of(context).getText('nzdgw5w6');
 }
-String wednesday() {
+
+String wednesday(BuildContext context) {
   //Wednesday
-  return FFLocalizations(getLocale()).getText('clmax87t');
+  return FFLocalizations.of(context).getText('clmax87t');
 }
-String thursday() {
+
+String thursday(BuildContext context) {
   //Thursday
-  return FFLocalizations(getLocale()).getText('n6lnn8xv');
+  return FFLocalizations.of(context).getText('n6lnn8xv');
 }
-String friday() {
+
+String friday(BuildContext context) {
   //Friday
-  return FFLocalizations(getLocale()).getText('qi8cotop');
+  return FFLocalizations.of(context).getText('qi8cotop');
 }
-String saturday() {
+
+String saturday(BuildContext context) {
   //Saturday
-  return FFLocalizations(getLocale()).getText('3h99ug2f');
+  return FFLocalizations.of(context).getText('3h99ug2f');
 }
-String sunday() {
+
+String sunday(BuildContext context) {
   //Sunday
-  return FFLocalizations(getLocale()).getText('ax1lx5sz');
+  return FFLocalizations.of(context).getText('ax1lx5sz');
+}
+
+String everyDay(BuildContext context) {
+  //Every day
+  return FFLocalizations.of(context).getText('j2qbaf0p');
+}
+
+String everyWeek(BuildContext context) {
+  //Every week
+  return FFLocalizations.of(context).getText('6f13hwqg');
+}
+
+String everyMonth(BuildContext context) {
+  //Every month
+  return FFLocalizations.of(context).getText('ss0z0b17');
+}
+
+String everyYear(BuildContext context) {
+  //Every year
+  return FFLocalizations.of(context).getText('4u8zezxi');
+}
+String first(BuildContext context) {
+  //First
+  return FFLocalizations.of(context).getText('1g631ksb');
+}
+String second(BuildContext context) {
+  //Second
+  return FFLocalizations.of(context).getText('nzdgw5w6');
+}
+String third(BuildContext context) {
+  //Third
+  return FFLocalizations.of(context).getText('clmax87t');
+}
+String fourth(BuildContext context) {
+  //Fourth
+  return FFLocalizations.of(context).getText('n6lnn8xv');
+}
+String fifth(BuildContext context) {
+  //Fifth
+  return FFLocalizations.of(context).getText('qi8cotop');
+}
+String last(BuildContext context) {
+  //Last
+  return FFLocalizations.of(context).getText('3h99ug2f');
 }
 //LOCAL_END

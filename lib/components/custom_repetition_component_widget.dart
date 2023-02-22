@@ -123,9 +123,12 @@ class _CustomRepetitionComponentWidgetState
     freqController.addListener(onFreqExpandedChanged);
     intController.addListener(onIntExpandedChanged);
 
-    autoSelectRRule();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      currentFrequency = generateFrequency(context)[0];
+      weekDays = getWeekDayList(context);
+      
+      autoSelectRRule();
       initHumanReadableText();
     });
   }
@@ -164,7 +167,7 @@ class _CustomRepetitionComponentWidgetState
     print("FREQ: $freq");
     print("INTERVAL: $interval");
     currentFrequency =
-        generateFrequency().firstWhere((element) => element.value == freq);
+        generateFrequency(context).firstWhere((element) => element.value == freq);
     currentIntervals = generateInterval(freq);
     currentInterval =
         currentIntervals.firstWhere((element) => element.value == interval);
@@ -302,7 +305,7 @@ class _CustomRepetitionComponentWidgetState
 
   Future frequencyItemChanged(int index) async {
     setState(() {
-      currentFrequency = generateFrequency().toList()[index];
+      currentFrequency = generateFrequency(context).toList()[index];
       currentIntervals = generateInterval(currentFrequency.value);
       currentInterval = currentIntervals[currentIntervalIndex];
       var freq = currentFrequency.value;
