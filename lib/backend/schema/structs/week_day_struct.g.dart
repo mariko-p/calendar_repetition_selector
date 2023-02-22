@@ -38,6 +38,13 @@ class _$WeekDayStructSerializer implements StructuredSerializer<WeekDayStruct> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.value;
+    if (value != null) {
+      result
+        ..add('value')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -61,6 +68,10 @@ class _$WeekDayStructSerializer implements StructuredSerializer<WeekDayStruct> {
           result.isChecked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'value':
+          result.value = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -79,13 +90,15 @@ class _$WeekDayStruct extends WeekDayStruct {
   @override
   final bool? isChecked;
   @override
+  final String? value;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$WeekDayStruct([void Function(WeekDayStructBuilder)? updates]) =>
       (new WeekDayStructBuilder()..update(updates))._build();
 
   _$WeekDayStruct._(
-      {this.text, this.isChecked, required this.firestoreUtilData})
+      {this.text, this.isChecked, this.value, required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         firestoreUtilData, r'WeekDayStruct', 'firestoreUtilData');
@@ -104,12 +117,14 @@ class _$WeekDayStruct extends WeekDayStruct {
     return other is WeekDayStruct &&
         text == other.text &&
         isChecked == other.isChecked &&
+        value == other.value &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, text.hashCode), isChecked.hashCode),
+    return $jf($jc(
+        $jc($jc($jc(0, text.hashCode), isChecked.hashCode), value.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -118,6 +133,7 @@ class _$WeekDayStruct extends WeekDayStruct {
     return (newBuiltValueToStringHelper(r'WeekDayStruct')
           ..add('text', text)
           ..add('isChecked', isChecked)
+          ..add('value', value)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -135,6 +151,10 @@ class WeekDayStructBuilder
   bool? get isChecked => _$this._isChecked;
   set isChecked(bool? isChecked) => _$this._isChecked = isChecked;
 
+  String? _value;
+  String? get value => _$this._value;
+  set value(String? value) => _$this._value = value;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -149,6 +169,7 @@ class WeekDayStructBuilder
     if ($v != null) {
       _text = $v.text;
       _isChecked = $v.isChecked;
+      _value = $v.value;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -174,6 +195,7 @@ class WeekDayStructBuilder
         new _$WeekDayStruct._(
             text: text,
             isChecked: isChecked,
+            value: value,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'WeekDayStruct', 'firestoreUtilData'));
     replace(_$result);

@@ -63,12 +63,12 @@ class _AddRepetitionComponentWidgetState
   @override
   void initState() {
     super.initState();
-
     _model = createModel(context, () => AddRepetitionComponentModel());
     repetitions = [];
     FFAppState().vCurrentRRule = widget.rrule ?? "";
     initSelectedItem();
     updateRepetitionText();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         repetitions = functions.getPredefinedRepetitionList(context).toList();

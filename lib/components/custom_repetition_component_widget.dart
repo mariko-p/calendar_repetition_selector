@@ -381,7 +381,7 @@ class _CustomRepetitionComponentWidgetState
     var selectedWeekDays = this
         .weekDays
         .where(((e) => e.isChecked == true))
-        .map((e) => mapWeekDayToByDay(e.text))
+        .map((e) => mapWeekDayToByDay(e.value))
         .toList();
 
     updateRRule(freq, interval, byDay: selectedWeekDays);
@@ -526,7 +526,10 @@ class _CustomRepetitionComponentWidgetState
                     child: wrapWithModel(
                       child: WeekDayCheckerWidget(
                           weekDays: weekDays,
-                          selectionChanged: ((items) => updateWeeklyRRule())),
+                          selectionChanged: ((items) async {
+                            updateWeeklyRRule();
+                          }),
+                          ),
                       model: _model.weekDayCheckerModel,
                       updateCallback: () => setState(() {}),
                     ),

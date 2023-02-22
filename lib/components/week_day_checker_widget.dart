@@ -78,9 +78,10 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                         onTap: () async {
                           setState(() {
                             var text = weekDaysItem.text;
+                            var value = weekDaysItem.value;
                             bool isChecked = weekDaysItem.isChecked ?? true;
                             var newWeekDayItem = createWeekDayStruct(
-                                text: text, isChecked: !isChecked);
+                                text: text, value: value, isChecked: !isChecked);
                             widget.weekDays?[weekDaysIndex] = newWeekDayItem;
                             widget.selectionChanged(widget.weekDays);
                           });

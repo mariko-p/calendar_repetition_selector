@@ -140,23 +140,23 @@ List<WeekDayStruct> getWeekDayList([BuildContext? context]) {
   // Code written in flutter.
   if (context == null) {
     return [
-      createWeekDayStruct(text: Constants.MONDAY, isChecked: false),
-      createWeekDayStruct(text: Constants.TUESDAY, isChecked: false),
-      createWeekDayStruct(text: Constants.WEDNESDAY, isChecked: false),
-      createWeekDayStruct(text: Constants.THURSDAY, isChecked: false),
-      createWeekDayStruct(text: Constants.FRIDAY, isChecked: false),
-      createWeekDayStruct(text: Constants.SATURDAY, isChecked: false),
-      createWeekDayStruct(text: Constants.SUNDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.MONDAY, value: Constants.MONDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.TUESDAY, value: Constants.TUESDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.WEDNESDAY, value: Constants.WEDNESDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.THURSDAY, value: Constants.THURSDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.FRIDAY, value: Constants.FRIDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.SATURDAY, value: Constants.SATURDAY, isChecked: false),
+      createWeekDayStruct(text: Constants.SUNDAY, value: Constants.SUNDAY, isChecked: false),
     ];
   }
   return [
-    createWeekDayStruct(text: monday(context), isChecked: false),
-    createWeekDayStruct(text: tuesday(context), isChecked: false),
-    createWeekDayStruct(text: wednesday(context), isChecked: false),
-    createWeekDayStruct(text: thursday(context), isChecked: false),
-    createWeekDayStruct(text: friday(context), isChecked: false),
-    createWeekDayStruct(text: saturday(context), isChecked: false),
-    createWeekDayStruct(text: sunday(context), isChecked: false),
+    createWeekDayStruct(text: monday(context), value: Constants.MONDAY, isChecked: false),
+      createWeekDayStruct(text: tuesday(context), value: Constants.TUESDAY, isChecked: false),
+      createWeekDayStruct(text: wednesday(context), value: Constants.WEDNESDAY, isChecked: false),
+      createWeekDayStruct(text: thursday(context), value: Constants.THURSDAY, isChecked: false),
+      createWeekDayStruct(text: friday(context), value: Constants.FRIDAY, isChecked: false),
+      createWeekDayStruct(text: saturday(context), value: Constants.SATURDAY, isChecked: false),
+      createWeekDayStruct(text: sunday(context), value: Constants.SUNDAY, isChecked: false),
   ];
 }
 
@@ -178,6 +178,7 @@ List<MonthDayStruct> getMonthDayList() {
 
 String mapWeekDayToByDay(String? weekDay) {
   // Code written in flutter.
+
   if (weekDay == Constants.MONDAY) {
     return Constants.MO;
   } else if (weekDay == Constants.TUESDAY) {
@@ -737,7 +738,7 @@ String monthShort(BuildContext context, String monthEn) {
   //Month
   var monthLang = month(context, monthEn);
   var shortMonth = getShortMonthText(monthLang);
-  print ("SHORT MONTH $monthLang -> $shortMonth");
+  // print ("SHORT MONTH $monthLang -> $shortMonth");
   return getShortMonthText(monthLang) ?? "";
 }
 //LOCAL_END
