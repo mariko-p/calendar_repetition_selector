@@ -70,7 +70,10 @@ class _AddRepetitionComponentWidgetState
     initSelectedItem();
     updateRepetitionText();
 
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
+
+      setAppLanguage(context, 'sv');
       repetitions = functions.getPredefinedRepetitionList(context).toList();
     });
   }

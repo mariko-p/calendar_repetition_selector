@@ -16,7 +16,7 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: MyApp(locale: Locale('sv'),),
+    child: MyApp(),
   ));
 }
 
@@ -70,6 +70,10 @@ class _MyAppState extends State<MyApp> {
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
       });
+
+  //LOCAL_START
+  getLocale() => _locale;
+  //LOCAL_END
 
   @override
   Widget build(BuildContext context) {

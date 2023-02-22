@@ -111,11 +111,11 @@ Frequency mapFrequencyToRRuleFrequency(String? frequency) {
   return Frequency.daily;
 }
 
-Future<String> getRRuleAsText() async {
+Future<String> getRRuleAsText(BuildContext context) async {
   // Code is written in flutter.
   // First, load the localizations (currently, only English and Swedish is supported):
   // Rrule10n package take care of initializing only once.
-  final l10n = await getRRuleCodec();
+  final l10n = await getRRuleCodec(context);
 
   // Get rrule from local state.
   var rrule = FFAppState().vCurrentRRule;
@@ -129,7 +129,8 @@ Future<String> getRRuleAsText() async {
     BuildContext context) async {
   /*L*/
   // Code is written in flutter.
-  var rruleTranslation = await getRRuleAsText();
+  var rruleTranslation = await getRRuleAsText(context);
+
 
   //The activity will repeat
   return FFLocalizations.of(context).getText('oyc9uml8') +
@@ -208,34 +209,69 @@ List<BySetPositionStruct> getBySetPositionList([BuildContext? context]) {
     createBySetPositionStruct(text: Constants.Last, value: -1),
   ];
   return [
-    createBySetPositionStruct(text: Constants.First, value: 1),
-    createBySetPositionStruct(text: Constants.Second, value: 2),
-    createBySetPositionStruct(text: Constants.Third, value: 3),
-    createBySetPositionStruct(text: Constants.Fourth, value: 4),
-    createBySetPositionStruct(text: Constants.Fifth, value: 5),
-    createBySetPositionStruct(text: Constants.Last, value: -1),
+    createBySetPositionStruct(text: first(context), value: 1),
+    createBySetPositionStruct(text: second(context), value: 2),
+    createBySetPositionStruct(text: third(context), value: 3),
+    createBySetPositionStruct(text: fourth(context), value: 4),
+    createBySetPositionStruct(text: fifth(context), value: 5),
+    createBySetPositionStruct(text: last(context), value: -1),
   ];
 }
 
-List<ByDayStruct> getByDayList() {
+List<ByDayStruct> getByDayList([BuildContext? context]) {
+  var sundayLang;
+  var mondayLang;
+  var tuesdayLang;
+  var wednesdayLang;
+  var thursdayLang;
+  var fridayLang;
+  var saturdayLang;
+  var weekendDayLang;
+  var weekDayLang;
+  var dayLang;
+
+  if (context == null) {
+    sundayLang = Constants.SUNDAY;
+    mondayLang = Constants.MONDAY;
+    tuesdayLang = Constants.TUESDAY;
+    wednesdayLang = Constants.WEDNESDAY;
+    thursdayLang = Constants.THURSDAY;
+    fridayLang = Constants.FRIDAY;
+    saturdayLang = Constants.SATURDAY;
+    weekendDayLang = Constants.WeekendDay;
+    weekDayLang = Constants.WeekDay;
+    dayLang = Constants.Day;
+  } else {
+    sundayLang = sunday(context);
+    mondayLang = monday(context);
+    tuesdayLang = tuesday(context);
+    wednesdayLang = wednesday(context);
+    thursdayLang = thursday(context);
+    fridayLang = friday(context);
+    saturdayLang = saturday(context);
+    weekendDayLang = weekendDay(context);
+    weekDayLang = weekday(context);
+    dayLang = day(context);
+  }
+
   // Code written in flutter.
-  ByDayStruct? sunday = createByDayStruct(text: Constants.SUNDAY)
+  ByDayStruct? sundayStruct = createByDayStruct(text: sundayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.SU]));
-  ByDayStruct? monday = createByDayStruct(text: Constants.MONDAY)
+  ByDayStruct? mondayStruct = createByDayStruct(text: mondayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.MO]));
-  ByDayStruct? tuesday = createByDayStruct(text: Constants.TUESDAY)
+  ByDayStruct? tuesdayStruct = createByDayStruct(text: tuesdayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.TU]));
-  ByDayStruct? wednesday = createByDayStruct(text: Constants.WEDNESDAY)
+  ByDayStruct? wednesdayStruct = createByDayStruct(text: wednesdayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.WE]));
-  ByDayStruct? thursday = createByDayStruct(text: Constants.THURSDAY)
+  ByDayStruct? thursdayStruct = createByDayStruct(text: thursdayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.TH]));
-  ByDayStruct? friday = createByDayStruct(text: Constants.FRIDAY)
+  ByDayStruct? fridayStruct = createByDayStruct(text: fridayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.FR]));
-  ByDayStruct? saturday = createByDayStruct(text: Constants.SATURDAY)
+  ByDayStruct? saturdayStruct = createByDayStruct(text: saturdayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.SA]));
-  ByDayStruct? weekendDay = createByDayStruct(text: Constants.WeekendDay)
+  ByDayStruct? weekendDayStruct = createByDayStruct(text: weekendDayLang)
       .rebuild((p0) => p0.value = ListBuilder([Constants.SA, Constants.SU]));
-  ByDayStruct? weekDay = createByDayStruct(text: Constants.WeekDay).rebuild(
+  ByDayStruct? weekDayStruct = createByDayStruct(text: weekDayLang).rebuild(
       (p0) => p0.value = ListBuilder([
             Constants.MO,
             Constants.TU,
@@ -243,7 +279,7 @@ List<ByDayStruct> getByDayList() {
             Constants.TH,
             Constants.FR
           ]));
-  ByDayStruct? day = createByDayStruct(text: Constants.Day)
+  ByDayStruct? dayStruct = createByDayStruct(text: dayLang)
       .rebuild((p0) => p0.value = ListBuilder([
             Constants.MO,
             Constants.TU,
@@ -255,16 +291,16 @@ List<ByDayStruct> getByDayList() {
           ]));
 
   return [
-    sunday,
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday,
-    saturday,
-    weekendDay,
-    weekDay,
-    day
+    sundayStruct,
+    mondayStruct,
+    tuesdayStruct,
+    wednesdayStruct,
+    thursdayStruct,
+    fridayStruct,
+    saturdayStruct,
+    weekendDayStruct,
+    weekDayStruct,
+    dayStruct,
   ];
 }
 
@@ -465,18 +501,23 @@ Color combineColors(List<Color> colors) {
   return result;
 }
 
-Future<RruleL10n> getRRuleCodec() async {
+Future<RruleL10n> getRRuleCodec(BuildContext context) async {
   // Code written localy.
-  var locale = MyApp().locale?.languageCode;
+  var code = MyApp.of(context).getLocale().languageCode;
+  print ("LOCALE: $code");
+
   //LOCAL_START
-  if (locale == 'en') {
+  if (code == 'en') {
+    print ("RRULE: ENGLISH");
     return await RruleL10nEn.create();
   }
-  if (locale == 'sv') {
+  if (code == 'sv') {
+    print ("RRULE: SWEDISH");
     return await RruleL10nSv.create();
   }
 
   //FALLBACK to english.
+  print ("RRULE: FALLBACK TO ENGLISH");
   return await RruleL10nEn.create();
   //LOCAL_END
 }
@@ -548,26 +589,38 @@ String everyYear(BuildContext context) {
 }
 String first(BuildContext context) {
   //First
-  return FFLocalizations.of(context).getText('1g631ksb');
+  return FFLocalizations.of(context).getText('kqd4z9pz');
 }
 String second(BuildContext context) {
   //Second
-  return FFLocalizations.of(context).getText('nzdgw5w6');
+  return FFLocalizations.of(context).getText('s7uatyuu');
 }
 String third(BuildContext context) {
   //Third
-  return FFLocalizations.of(context).getText('clmax87t');
+  return FFLocalizations.of(context).getText('jcfzzqjr');
 }
 String fourth(BuildContext context) {
   //Fourth
-  return FFLocalizations.of(context).getText('n6lnn8xv');
+  return FFLocalizations.of(context).getText('1bpw60wp');
 }
 String fifth(BuildContext context) {
   //Fifth
-  return FFLocalizations.of(context).getText('qi8cotop');
+  return FFLocalizations.of(context).getText('b9stiig0');
 }
 String last(BuildContext context) {
   //Last
-  return FFLocalizations.of(context).getText('3h99ug2f');
+  return FFLocalizations.of(context).getText('2o2mi8pi');
+}
+String weekendDay(BuildContext context) {
+  //Weekend day
+  return FFLocalizations.of(context).getText('nnq9e346');
+}
+String weekday(BuildContext context) {
+  //Weekday
+  return FFLocalizations.of(context).getText('yl4rh0ou');
+}
+String day(BuildContext context) {
+  //Day
+  return FFLocalizations.of(context).getText('ahnsj6ps');
 }
 //LOCAL_END

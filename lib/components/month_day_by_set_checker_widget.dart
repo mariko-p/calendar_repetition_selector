@@ -40,6 +40,7 @@ class _MonthDayBySetCheckerWidgetState
 
   @override
   void initState() {
+    super.initState();
     _model = createModel(context, () => MonthDayBySetCheckerModel());
 
     bySetPositionItems = getBySetPositionList();
@@ -58,7 +59,13 @@ class _MonthDayBySetCheckerWidgetState
       dayIndex = 0;
     }
 
-    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      //Apply specific language.
+      setState(() {  
+        bySetPositionItems = getBySetPositionList(context);
+        byDayItems = getByDayList(context);
+      });
+    });
   }
 
   @override
