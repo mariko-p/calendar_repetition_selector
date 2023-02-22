@@ -546,17 +546,138 @@ class _CustomFunctionsTranslationsMapWidgetState
               ),
               Align(
                 alignment: AlignmentDirectional(-1, 0),
-                child: InkWell(
-                  onTap: () async {},
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '33iznp6j' /* Custom */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      '33iznp6j' /* Custom */,
+                      'kqd4z9pz' /* First */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Rubik',
                           fontWeight: FontWeight.normal,
                         ),
                   ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    's7uatyuu' /* Second */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'jcfzzqjr' /* Third */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '1bpw60wp' /* Fourth */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'b9stiig0' /* Fifth */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '2o2mi8pi' /* Last */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'nnq9e346' /* Weekend day */,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Rubik',
+                          fontWeight: FontWeight.normal,
+                        ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'yl4rh0ou' /* WeekDay */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'ahnsj6ps' /* Day */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.normal,
+                      ),
                 ),
               ),
             ],
