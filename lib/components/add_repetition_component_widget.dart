@@ -56,7 +56,6 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 
 class _AddRepetitionComponentWidgetState
     extends State<AddRepetitionComponentWidget> {
-
   late int selectedIndex;
   late List<RepetitionStruct> repetitions;
   late AddRepetitionComponentModel _model;
@@ -64,17 +63,22 @@ class _AddRepetitionComponentWidgetState
   @override
   void initState() {
     super.initState();
+    
     _model = createModel(context, () => AddRepetitionComponentModel());
-  
+    repetitions = [];
     FFAppState().vCurrentRRule = widget.rrule ?? "";
     initSelectedItem();
     updateRepetitionText();
-
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
-
-      setAppLanguage(context, 'sv');
-      repetitions = functions.getPredefinedRepetitionList(context).toList();
+      setAppLanguage(context, 'sv_SE');
+      Future.delayed(Duration(milliseconds: 300), () {
+        setState(() {
+          repetitions = functions.getPredefinedRepetitionList(context).toList();
+          FFAppState().vCurrentRRule = widget.rrule ?? "";
+          initSelectedItem();
+          updateRepetitionText();
+        });
+      });
     });
   }
 
@@ -137,7 +141,8 @@ class _AddRepetitionComponentWidgetState
   void updateRepetitionText() {
     Future.delayed(Duration.zero, () async {
       var rrule = FFAppState().vCurrentRRule;
-      var humanReadableText = await functions.getActivityRepetitionAnyAsText(context, rrule);
+      var humanReadableText =
+          await functions.getActivityRepetitionAnyAsText(context, rrule);
       setState(() {
         _model.repetitionLabelText = humanReadableText;
       });
@@ -324,19 +329,19 @@ class _AddRepetitionComponentWidgetState
         ),
         //LOCAL_START
         if (_model.repetitionLabelText.length > 0 && selectedIndex != 6)
-        //LOCAL_END
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-          child: wrapWithModel(
-            model: _model.repetitionLabelModel1,
-            updateCallback: () => setState(() {}),
-            child: RepetitionLabelWidget(
-              //LOCAL_START
-              humanReadableText: _model.repetitionLabelText,
-              //LOCAL_END
+          //LOCAL_END
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+            child: wrapWithModel(
+              model: _model.repetitionLabelModel1,
+              updateCallback: () => setState(() {}),
+              child: RepetitionLabelWidget(
+                //LOCAL_START
+                humanReadableText: _model.repetitionLabelText,
+                //LOCAL_END
+              ),
             ),
           ),
-        ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 10),
           //LOCAL_START
@@ -467,19 +472,19 @@ class _AddRepetitionComponentWidgetState
         ),
         //LOCAL_START
         if (_model.repetitionLabelText.length > 0 && selectedIndex == 6)
-        //LOCAL_END
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-          child: wrapWithModel(
-            model: _model.repetitionLabelModel2,
-            updateCallback: () => setState(() {}),
-            child: RepetitionLabelWidget(
-              //LOCAL_START
-              humanReadableText: _model.repetitionLabelText,
-              //LOCAL_END
+          //LOCAL_END
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+            child: wrapWithModel(
+              model: _model.repetitionLabelModel2,
+              updateCallback: () => setState(() {}),
+              child: RepetitionLabelWidget(
+                //LOCAL_START
+                humanReadableText: _model.repetitionLabelText,
+                //LOCAL_END
+              ),
             ),
           ),
-        ),
       ],
     );
   }

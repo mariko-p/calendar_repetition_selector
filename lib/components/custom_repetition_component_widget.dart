@@ -39,7 +39,7 @@ class CustomRepetitionComponentWidget extends StatefulWidget {
 
 class _CustomRepetitionComponentWidgetState
     extends State<CustomRepetitionComponentWidget> {
-  var currentFrequency;
+  var currentFrequency = generateFrequency()[0];
   var currentInterval;
   var currentIntervals;
 
@@ -106,7 +106,6 @@ class _CustomRepetitionComponentWidgetState
     currentIntervalIndex = 0;
     currentIntervals = generateInterval("DAILY");
     currentInterval = currentIntervals[0];
-    currentFrequency = generateFrequency()[0];
 
     // WEEKLY part
     weekDays = getWeekDayList();
@@ -125,11 +124,16 @@ class _CustomRepetitionComponentWidgetState
 
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      currentFrequency = generateFrequency(context)[0];
-      weekDays = getWeekDayList(context);
+      // Change to specific language.
+      setState(() {
+        currentFrequency = generateFrequency(context)[0];
+        weekDays = getWeekDayList(context);
+        months = getMonthsList(context);
+      });
       
       autoSelectRRule();
       initHumanReadableText();
+      setState(() { });
     });
   }
 
@@ -310,7 +314,7 @@ class _CustomRepetitionComponentWidgetState
       currentInterval = currentIntervals[currentIntervalIndex];
       var freq = currentFrequency.value;
       updateOpenedViewRRule();
-      updateOpenViewVisibility(freq);
+      updateOpenViewVisibility(freq ?? "");
     });
   }
 

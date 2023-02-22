@@ -131,7 +131,6 @@ Future<String> getRRuleAsText(BuildContext context) async {
   // Code is written in flutter.
   var rruleTranslation = await getRRuleAsText(context);
 
-
   //The activity will repeat
   return FFLocalizations.of(context).getText('oyc9uml8') +
       rruleTranslation.toLowerCase();
@@ -200,14 +199,14 @@ String mapWeekDayToByDay(String? weekDay) {
 List<BySetPositionStruct> getBySetPositionList([BuildContext? context]) {
   // Code written in flutter.
   if (context == null)
-  return [
-    createBySetPositionStruct(text: Constants.First, value: 1),
-    createBySetPositionStruct(text: Constants.Second, value: 2),
-    createBySetPositionStruct(text: Constants.Third, value: 3),
-    createBySetPositionStruct(text: Constants.Fourth, value: 4),
-    createBySetPositionStruct(text: Constants.Fifth, value: 5),
-    createBySetPositionStruct(text: Constants.Last, value: -1),
-  ];
+    return [
+      createBySetPositionStruct(text: Constants.First, value: 1),
+      createBySetPositionStruct(text: Constants.Second, value: 2),
+      createBySetPositionStruct(text: Constants.Third, value: 3),
+      createBySetPositionStruct(text: Constants.Fourth, value: 4),
+      createBySetPositionStruct(text: Constants.Fifth, value: 5),
+      createBySetPositionStruct(text: Constants.Last, value: -1),
+    ];
   return [
     createBySetPositionStruct(text: first(context), value: 1),
     createBySetPositionStruct(text: second(context), value: 2),
@@ -279,8 +278,8 @@ List<ByDayStruct> getByDayList([BuildContext? context]) {
             Constants.TH,
             Constants.FR
           ]));
-  ByDayStruct? dayStruct = createByDayStruct(text: dayLang)
-      .rebuild((p0) => p0.value = ListBuilder([
+  ByDayStruct? dayStruct =
+      createByDayStruct(text: dayLang).rebuild((p0) => p0.value = ListBuilder([
             Constants.MO,
             Constants.TU,
             Constants.WE,
@@ -304,14 +303,32 @@ List<ByDayStruct> getByDayList([BuildContext? context]) {
   ];
 }
 
-List<RepetitionStruct> getPredefinedRepetitionList(BuildContext context) {
+List<RepetitionStruct> getPredefinedRepetitionList([BuildContext? context]) {
   // Code written in flutter.
-  var never = FFLocalizations.of(context).getText('qh1jdrfs');
-  var everyDay = FFLocalizations.of(context).getText('j2qbaf0p');
-  var everyWeek = FFLocalizations.of(context).getText('6f13hwqg');
-  var everySecondWeek = FFLocalizations.of(context).getText('n5k10s1l');
-  var everyMonth = FFLocalizations.of(context).getText('ss0z0b17');
-  var everyYear = FFLocalizations.of(context).getText('4u8zezxi');
+  var never;
+  var everyDay;
+  var everyWeek;
+  var everySecondWeek;
+  var everyMonth;
+  var everyYear;
+  if (context == null) {
+    never = Constants.NEVER;
+    everyDay = Constants.EVERY_DAY;
+    everyWeek = Constants.EVERY_WEEK;
+    everySecondWeek = Constants.EVERY_SECOND_WEEK;
+    everyMonth = Constants.EVERY_MONTH;
+    everyYear = Constants.EVERY_YEAR;
+  } else {
+    print ("context is not null ${FFLocalizations.of(context).languageCode}");
+
+    never = FFLocalizations.of(context).getText('qh1jdrfs');
+    everyDay = FFLocalizations.of(context).getText('j2qbaf0p');
+    everyWeek = FFLocalizations.of(context).getText('6f13hwqg');
+    everySecondWeek = FFLocalizations.of(context).getText('n5k10s1l');
+    everyMonth = FFLocalizations.of(context).getText('ss0z0b17');
+    everyYear = FFLocalizations.of(context).getText('4u8zezxi');
+    print (never + everyDay + everyWeek + everySecondWeek + everyMonth + everyYear);
+  }
 
   return [
     createRepetitionStruct(text: never, isSelected: false, rrule: ""),
@@ -354,54 +371,99 @@ String repetitionEveryYear() {
   return 'RRULE:FREQ=YEARLY;INTERVAL=1';
 }
 
-List<MonthStruct> getMonthsList() {
+List<MonthStruct> getMonthsList([BuildContext? context]) {
   // Code written in flutter.
+
   return [
     createMonthStruct(
-        text: Constants.JANUARY,
-        shortText: Constants.JANUARY_SHORT,
+        text: (context == null)
+            ? Constants.JANUARY
+            : month(context, Constants.JANUARY),
+        shortText: (context == null)
+            ? Constants.JANUARY_SHORT
+            : monthShort(context, Constants.JANUARY),
         isChecked: false),
     createMonthStruct(
-        text: Constants.FEBRUARY,
-        shortText: Constants.FEBRUARY_SHORT,
+        text: (context == null)
+            ? Constants.FEBRUARY
+            : month(context, Constants.FEBRUARY),
+        shortText: (context == null)
+            ? Constants.FEBRUARY_SHORT
+            : monthShort(context, Constants.FEBRUARY),
         isChecked: false),
     createMonthStruct(
-        text: Constants.MARCH,
-        shortText: Constants.MARCH_SHORT,
+        text: (context == null)
+            ? Constants.MARCH
+            : month(context, Constants.MARCH),
+        shortText: (context == null)
+            ? Constants.MARCH_SHORT
+            : monthShort(context, Constants.MARCH),
         isChecked: false),
     createMonthStruct(
-        text: Constants.APRIL,
-        shortText: Constants.APRIL_SHORT,
+        text: (context == null)
+            ? Constants.APRIL
+            : month(context, Constants.APRIL),
+        shortText: (context == null)
+            ? Constants.APRIL_SHORT
+            : monthShort(context, Constants.APRIL),
         isChecked: false),
     createMonthStruct(
-        text: Constants.MAY, shortText: Constants.MAY_SHORT, isChecked: false),
-    createMonthStruct(
-        text: Constants.JUNE,
-        shortText: Constants.JUNE_SHORT,
+        text: (context == null) ? Constants.MAY : month(context, Constants.MAY),
+        shortText: (context == null)
+            ? Constants.MAY_SHORT
+            : monthShort(context, Constants.MAY),
         isChecked: false),
     createMonthStruct(
-        text: Constants.JULY,
-        shortText: Constants.JULY_SHORT,
+        text:
+            (context == null) ? Constants.JUNE : month(context, Constants.JUNE),
+        shortText: (context == null)
+            ? Constants.JUNE_SHORT
+            : monthShort(context, Constants.JUNE),
         isChecked: false),
     createMonthStruct(
-        text: Constants.AUGUST,
-        shortText: Constants.AUGUST_SHORT,
+        text:
+            (context == null) ? Constants.JULY : month(context, Constants.JULY),
+        shortText: (context == null)
+            ? Constants.JULY_SHORT
+            : monthShort(context, Constants.JULY),
         isChecked: false),
     createMonthStruct(
-        text: Constants.SEPTEMBER,
+        text: (context == null)
+            ? Constants.AUGUST
+            : month(context, Constants.AUGUST),
+        shortText: (context == null)
+            ? Constants.AUGUST_SHORT
+            : monthShort(context, Constants.AUGUST),
+        isChecked: false),
+    createMonthStruct(
+        text: (context == null)
+            ? Constants.SEPTEMBER
+            : month(context, Constants.SEPTEMBER),
         shortText: Constants.SEPTEMBER_SHORT,
         isChecked: false),
     createMonthStruct(
-        text: Constants.OCTOBER,
-        shortText: Constants.OCTOBER_SHORT,
+        text: (context == null)
+            ? Constants.OCTOBER
+            : month(context, Constants.OCTOBER),
+        shortText: (context == null)
+            ? Constants.OCTOBER_SHORT
+            : monthShort(context, Constants.OCTOBER),
         isChecked: false),
     createMonthStruct(
-        text: Constants.NOVEMBER,
-        shortText: Constants.NOVEMBER_SHORT,
+        text: (context == null)
+            ? Constants.NOVEMBER
+            : month(context, Constants.NOVEMBER),
+        shortText: (context == null)
+            ? Constants.NOVEMBER_SHORT
+            : monthShort(context, Constants.NOVEMBER),
         isChecked: false),
     createMonthStruct(
-        text: Constants.DECEMBER,
-        shortText: Constants.DECEMBER_SHORT,
+        text: (context == null)
+            ? Constants.DECEMBER
+            : month(context, Constants.DECEMBER),
+        shortText: (context == null)
+            ? Constants.DECEMBER_SHORT
+            : monthShort(context, Constants.DECEMBER),
         isChecked: false),
   ];
 }
@@ -504,27 +566,23 @@ Color combineColors(List<Color> colors) {
 Future<RruleL10n> getRRuleCodec(BuildContext context) async {
   // Code written localy.
   var code = MyApp.of(context).getLocale().languageCode;
-  print ("LOCALE: $code");
 
   //LOCAL_START
   if (code == 'en') {
-    print ("RRULE: ENGLISH");
     return await RruleL10nEn.create();
   }
   if (code == 'sv') {
-    print ("RRULE: SWEDISH");
     return await RruleL10nSv.create();
   }
 
   //FALLBACK to english.
-  print ("RRULE: FALLBACK TO ENGLISH");
   return await RruleL10nEn.create();
   //LOCAL_END
 }
 
 String? getShortMonthText(String? month) {
   var lowerCase = month?.toLowerCase();
-  var threeLetters = ((lowerCase?.substring(0, 4) ?? "")) + ".";
+  var threeLetters = ((lowerCase?.substring(0, 3) ?? "")) + ".";
   return threeLetters;
 }
 
@@ -587,40 +645,99 @@ String everyYear(BuildContext context) {
   //Every year
   return FFLocalizations.of(context).getText('4u8zezxi');
 }
+
 String first(BuildContext context) {
   //First
   return FFLocalizations.of(context).getText('kqd4z9pz');
 }
+
 String second(BuildContext context) {
   //Second
   return FFLocalizations.of(context).getText('s7uatyuu');
 }
+
 String third(BuildContext context) {
   //Third
   return FFLocalizations.of(context).getText('jcfzzqjr');
 }
+
 String fourth(BuildContext context) {
   //Fourth
   return FFLocalizations.of(context).getText('1bpw60wp');
 }
+
 String fifth(BuildContext context) {
   //Fifth
   return FFLocalizations.of(context).getText('b9stiig0');
 }
+
 String last(BuildContext context) {
   //Last
   return FFLocalizations.of(context).getText('2o2mi8pi');
 }
+
 String weekendDay(BuildContext context) {
   //Weekend day
   return FFLocalizations.of(context).getText('nnq9e346');
 }
+
 String weekday(BuildContext context) {
   //Weekday
   return FFLocalizations.of(context).getText('yl4rh0ou');
 }
+
 String day(BuildContext context) {
   //Day
   return FFLocalizations.of(context).getText('ahnsj6ps');
+}
+
+String month(BuildContext context, String month) {
+  //Month
+  if (month == Constants.JANUARY) {
+    return FFLocalizations.of(context).getText('d3l22vhu');
+  }
+  if (month == Constants.FEBRUARY) {
+    return FFLocalizations.of(context).getText('9g3z94s7');
+  }
+  if (month == Constants.MARCH) {
+    return FFLocalizations.of(context).getText('lnt22ld1');
+  }
+  if (month == Constants.APRIL) {
+    return FFLocalizations.of(context).getText('034u8g9a');
+  }
+  if (month == Constants.MAY) {
+    return FFLocalizations.of(context).getText('6hls65tt');
+  }
+  if (month == Constants.JUNE) {
+    return FFLocalizations.of(context).getText('pej4ktvz');
+  }
+  if (month == Constants.JULY) {
+    return FFLocalizations.of(context).getText('6betrjev');
+  }
+  if (month == Constants.AUGUST) {
+    return FFLocalizations.of(context).getText('6qvjh0si');
+  }
+  if (month == Constants.SEPTEMBER) {
+    return FFLocalizations.of(context).getText('sgku9oc9');
+  }
+  if (month == Constants.OCTOBER) {
+    return FFLocalizations.of(context).getText('8sca82td');
+  }
+  if (month == Constants.NOVEMBER) {
+    return FFLocalizations.of(context).getText('wqms1orj');
+  }
+  if (month == Constants.DECEMBER) {
+    return FFLocalizations.of(context).getText('d09m6bre');
+  }
+
+  return Constants.JANUARY;
+}
+
+String monthShort(BuildContext context, String monthEn) {
+  //Month
+  var monthLang = month(context, monthEn);
+  var shortMonth = getShortMonthText(monthLang);
+  print ("SHORT MONTH $monthLang -> $shortMonth");
+  return getShortMonthText(monthLang) ?? "";
 }
 //LOCAL_END
