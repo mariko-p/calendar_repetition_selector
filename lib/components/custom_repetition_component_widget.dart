@@ -215,7 +215,7 @@ class _CustomRepetitionComponentWidgetState
         RecurrenceRule.fromString(FFAppState().vCurrentRRule).byWeekDays;
     byDays.forEach((byDay) {
       weekDays.forEachIndexed((index, weekDay) {
-        if (byDay.toString() == mapWeekDayToByDay(weekDay.text)) {
+        if (byDay.toString() == mapWeekDayToByDay(weekDay.value)) {
           //weekDay = weekDay.rebuild((p0) => p0.isChecked = true); // This is not working.
           weekDays[index] = weekDay.rebuild((p0) => {p0.isChecked = true});
         }

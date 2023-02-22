@@ -176,22 +176,22 @@ List<MonthDayStruct> getMonthDayList() {
   });
 }
 
-String mapWeekDayToByDay(String? weekDay) {
+String mapWeekDayToByDay(String? weekDayLangValue) {
   // Code written in flutter.
 
-  if (weekDay == Constants.MONDAY) {
+  if (weekDayLangValue == Constants.MONDAY) {
     return Constants.MO;
-  } else if (weekDay == Constants.TUESDAY) {
+  } else if (weekDayLangValue == Constants.TUESDAY) {
     return Constants.TU;
-  } else if (weekDay == Constants.WEDNESDAY) {
+  } else if (weekDayLangValue == Constants.WEDNESDAY) {
     return Constants.WE;
-  } else if (weekDay == Constants.THURSDAY) {
+  } else if (weekDayLangValue == Constants.THURSDAY) {
     return Constants.TH;
-  } else if (weekDay == Constants.FRIDAY) {
+  } else if (weekDayLangValue == Constants.FRIDAY) {
     return Constants.FR;
-  } else if (weekDay == Constants.SATURDAY) {
+  } else if (weekDayLangValue == Constants.SATURDAY) {
     return Constants.SA;
-  } else if (weekDay == Constants.SUNDAY) {
+  } else if (weekDayLangValue == Constants.SUNDAY) {
     return Constants.SU;
   }
   return "";
