@@ -1,7 +1,7 @@
-import '../components/month_day_by_set_checker_widget.dart';
-import '../components/month_day_checker_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/components/month_day_by_set_checker_widget.dart';
+import '/components/month_day_checker_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,7 +46,7 @@ class _MonthDayCheckerCombinedWidgetState
 
     return Container(
       width: double.infinity,
-      height: 100,
+      height: 100.0,
       decoration: BoxDecoration(),
       child: Container(
         width: double.infinity,
@@ -63,14 +63,14 @@ class _MonthDayCheckerCombinedWidgetState
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 36,
+                    height: 36.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).itemBackground,
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(5),
-                        topRight: Radius.circular(5),
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(5.0),
+                        topRight: Radius.circular(5.0),
                       ),
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).itemBackground,
@@ -80,8 +80,8 @@ class _MonthDayCheckerCombinedWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 7.5, 0.0, 7.5),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'sphagbrb' /* Every */,
@@ -97,14 +97,14 @@ class _MonthDayCheckerCombinedWidgetState
                         if (FFAppState().vTmp)
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1, 0),
+                              alignment: AlignmentDirectional(1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 10.5, 12, 10.5),
+                                    0.0, 10.5, 12.0, 10.5),
                                 child: Icon(
                                   FFIcons.kcheckbox,
                                   color: Color(0xFF9980DD),
-                                  size: 15,
+                                  size: 15.0,
                                 ),
                               ),
                             ),
@@ -113,7 +113,8 @@ class _MonthDayCheckerCombinedWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 0.5,
@@ -124,7 +125,7 @@ class _MonthDayCheckerCombinedWidgetState
                   ),
                   Container(
                     width: double.infinity,
-                    height: 36,
+                    height: 36.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).itemBackground,
                       border: Border.all(
@@ -135,8 +136,8 @@ class _MonthDayCheckerCombinedWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 7.5, 0, 7.5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 7.5, 0.0, 7.5),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'tiwqbpnm' /* of the month... */,
@@ -152,14 +153,14 @@ class _MonthDayCheckerCombinedWidgetState
                         if (FFAppState().vTmp)
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1, 0),
+                              alignment: AlignmentDirectional(1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 10.5, 12, 10.5),
+                                    0.0, 10.5, 12.0, 10.5),
                                 child: Icon(
                                   FFIcons.kcheckbox,
                                   color: Color(0xFF9980DD),
-                                  size: 15,
+                                  size: 15.0,
                                 ),
                               ),
                             ),
@@ -168,7 +169,8 @@ class _MonthDayCheckerCombinedWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 0.5,
@@ -186,10 +188,10 @@ class _MonthDayCheckerCombinedWidgetState
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).itemBackground,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(5),
-                  bottomRight: Radius.circular(5),
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(5.0),
+                  bottomRight: Radius.circular(5.0),
+                  topLeft: Radius.circular(0.0),
+                  topRight: Radius.circular(0.0),
                 ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).itemBackground,
@@ -199,7 +201,7 @@ class _MonthDayCheckerCombinedWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    height: 200,
+                    height: 200.0,
                     decoration: BoxDecoration(),
                     child: wrapWithModel(
                       model: _model.monthDayCheckerModel,

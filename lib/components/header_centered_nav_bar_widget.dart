@@ -1,6 +1,6 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -62,26 +62,26 @@ class _HeaderCenteredNavBarWidgetState
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 11, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 11.0, 0.0, 0.0),
             child: Container(
-              width: 45,
-              height: 5,
+              width: 45.0,
+              height: 5.0,
               decoration: BoxDecoration(
                 color: Color(0xFFE8EBF2),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.0),
               ),
             ),
           ),
           Container(
-            height: 37,
+            height: 37.0,
             decoration: BoxDecoration(
               color: Colors.transparent,
             ),
             child: Stack(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1, 0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       // Dismiss bottom sheet
@@ -91,40 +91,44 @@ class _HeaderCenteredNavBarWidgetState
                       'usujndrb' /* Cancel */,
                     ),
                     options: FFButtonOptions(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: Colors.transparent,
                       textStyle:
                           FlutterFlowTheme.of(context).subtitle2.override(
                                 fontFamily: 'Rubik',
                                 color: FlutterFlowTheme.of(context)
                                     .bottomSheetActionButtons,
-                                fontSize: 14,
+                                fontSize: 14.0,
                                 fontWeight: FontWeight.w300,
                                 lineHeight: 1.5,
                               ),
-                      elevation: 0,
+                      elevation: 0.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
-                        width: 1,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     widget.title!,
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Rubik',
-                          fontSize: 18,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
                 ),
                 if (widget.isSaveVisible ?? true)
                   Align(
-                    alignment: AlignmentDirectional(1, 0),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (widget.isSaveVisible! && widget.isSaveEnabled!) {
@@ -138,22 +142,26 @@ class _HeaderCenteredNavBarWidgetState
                         't7ggjw9g' /* Save */,
                       ),
                       options: FFButtonOptions(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: Colors.transparent,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
                                   fontFamily: 'Rubik',
                                   color: FlutterFlowTheme.of(context)
                                       .bottomSheetActionButtons,
-                                  fontSize: 14,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.normal,
                                   lineHeight: 1.5,
                                 ),
-                        elevation: 0,
+                        elevation: 0.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
                   ),

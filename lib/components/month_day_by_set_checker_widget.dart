@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -42,10 +42,10 @@ class _MonthDayBySetCheckerWidgetState
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
       child: Container(
         width: double.infinity,
-        height: 100,
+        height: 100.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
         ),
@@ -54,14 +54,14 @@ class _MonthDayBySetCheckerWidgetState
           children: [
             Container(
               width: MediaQuery.of(context).size.width * 0.5,
-              height: 100,
+              height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.5,
-              height: 100,
+              height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),

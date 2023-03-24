@@ -1,7 +1,7 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -47,7 +47,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
       child: Container(
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -69,15 +69,15 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                         children: [
                           if (firstRowMonthItem.isChecked == true)
                             Container(
-                              height: 36,
+                              height: 36.0,
                               constraints: BoxConstraints(
-                                maxWidth: 100,
+                                maxWidth: 100.0,
                               ),
                               decoration: BoxDecoration(
                                 color: Color(0xFF9980DD),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: SelectionArea(
                                     child: Text(
                                   valueOrDefault<String>(
@@ -97,17 +97,17 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                             ),
                           if (firstRowMonthItem.isChecked == false)
                             Container(
-                              height: 36,
+                              height: 36.0,
                               constraints: BoxConstraints(
-                                maxWidth: 100,
+                                maxWidth: 100.0,
                               ),
                               decoration: BoxDecoration(
                                 color:
                                     FlutterFlowTheme.of(context).itemBackground,
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(5.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: SelectionArea(
                                     child: Text(
                                   valueOrDefault<String>(
@@ -126,10 +126,10 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                               ),
                             ),
                           Align(
-                            alignment: AlignmentDirectional(1, 0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Container(
                               width: 0.5,
-                              height: 36,
+                              height: 36.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).lineColor,
                               ),
@@ -144,7 +144,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
             ),
             Container(
               width: double.infinity,
-              height: 1,
+              height: 1.0,
               decoration: BoxDecoration(
                 color: Color(0xFF7E8CA2),
               ),

@@ -1,7 +1,7 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -50,8 +50,8 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
       children: [
         if (widget.monthDay?.isChecked == true)
           Container(
-            width: 32,
-            height: 32,
+            width: 32.0,
+            height: 32.0,
             decoration: BoxDecoration(
               color: valueOrDefault<Color>(
                 functions.combineColors(
@@ -61,14 +61,14 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               shape: BoxShape.circle,
             ),
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: SelectionArea(
                   child: Text(
                 widget.monthDay!.text!,
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Rubik',
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w500,
                     ),
               )),
@@ -76,20 +76,20 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
           ),
         if (widget.monthDay?.isChecked == false)
           Container(
-            width: 32,
-            height: 32,
+            width: 32.0,
+            height: 32.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
             ),
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: SelectionArea(
                   child: Text(
                 widget.monthDay!.text!,
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Rubik',
                       color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 12,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.normal,
                     ),
               )),

@@ -1,13 +1,13 @@
-import '../components/frequency_expander_widget.dart';
-import '../components/header_centered_nav_bar_widget.dart';
-import '../components/interval_expander_widget.dart';
-import '../components/month_day_checker_combined_widget.dart';
-import '../components/repetition_label_widget.dart';
-import '../components/week_day_checker_widget.dart';
-import '../components/year_checker_combined_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/components/frequency_expander_widget.dart';
+import '/components/header_centered_nav_bar_widget.dart';
+import '/components/interval_expander_widget.dart';
+import '/components/month_day_checker_combined_widget.dart';
+import '/components/repetition_label_widget.dart';
+import '/components/week_day_checker_widget.dart';
+import '/components/year_checker_combined_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -54,7 +54,7 @@ class _CustomRepetitionComponentWidgetState
         mainAxisSize: MainAxisSize.max,
         children: [
           Align(
-            alignment: AlignmentDirectional(0, -1),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +83,7 @@ class _CustomRepetitionComponentWidgetState
                   child: IntervalExpanderWidget(),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1, 0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: wrapWithModel(
                     model: _model.repetitionLabelModel,
                     updateCallback: () => setState(() {}),
@@ -94,7 +94,8 @@ class _CustomRepetitionComponentWidgetState
                 ),
                 if (FFAppState().vTmp)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: wrapWithModel(
                       model: _model.weekDayCheckerModel,
                       updateCallback: () => setState(() {}),
@@ -105,7 +106,8 @@ class _CustomRepetitionComponentWidgetState
                   ),
                 if (FFAppState().vTmp)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: wrapWithModel(
                       model: _model.monthDayCheckerCombinedModel,
                       updateCallback: () => setState(() {}),

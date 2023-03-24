@@ -1,9 +1,9 @@
-import '../components/custom_repetition_component_widget.dart';
-import '../components/header_centered_nav_bar_widget.dart';
-import '../components/repetition_label_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/components/custom_repetition_component_widget.dart';
+import '/components/header_centered_nav_bar_widget.dart';
+import '/components/repetition_label_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -62,7 +62,7 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(15.0, 24.0, 15.0, 10.0),
           child: Builder(
             builder: (context) {
               final weekDays = functions
@@ -91,7 +91,7 @@ class _AddRepetitionComponentWidgetState
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  20, 7.5, 20, 7.5),
+                                  20.0, 7.5, 20.0, 7.5),
                               child: Text(
                                 valueOrDefault<String>(
                                   weekDaysItem.text,
@@ -109,14 +109,14 @@ class _AddRepetitionComponentWidgetState
                             if (weekDaysItem.isSelected ?? true)
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1, 0),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 10.5, 12, 10.5),
+                                        0.0, 10.5, 12.0, 10.5),
                                     child: Icon(
                                       FFIcons.kcheckbox,
                                       color: Color(0xFF9980DD),
-                                      size: 15,
+                                      size: 15.0,
                                     ),
                                   ),
                                 ),
@@ -126,7 +126,8 @@ class _AddRepetitionComponentWidgetState
                       ),
                       if (weekDaysIndex != 5)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(21, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              21.0, 0.0, 0.0, 0.0),
                           child: Container(
                             width: double.infinity,
                             height: 0.5,
@@ -143,7 +144,7 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
           child: wrapWithModel(
             model: _model.repetitionLabelModel1,
             updateCallback: () => setState(() {}),
@@ -153,7 +154,7 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 10.0),
           child: InkWell(
             onTap: () async {
               FFAppState().update(() {
@@ -165,7 +166,8 @@ class _AddRepetitionComponentWidgetState
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 7.5, 20, 7.5),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 7.5, 20.0, 7.5),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'pwpi343g' /* Custom */,
@@ -182,12 +184,14 @@ class _AddRepetitionComponentWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                       child: InkWell(
                         onTap: () async {
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
+                            barrierColor: Color(0x00000000),
                             context: context,
                             builder: (context) {
                               return Padding(
@@ -202,30 +206,30 @@ class _AddRepetitionComponentWidgetState
                           ).then((value) => setState(() {}));
                         },
                         child: Container(
-                          width: 30,
-                          height: 30,
+                          width: 30.0,
+                          height: 30.0,
                           child: Stack(
                             children: [
                               if (FFAppState().vTmp)
                                 Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 1.5, 0),
+                                        0.0, 0.0, 1.5, 0.0),
                                     child: Icon(
                                       FFIcons.kangleFullRight,
                                       color: Color(0xFF7E8CA2),
-                                      size: 12,
+                                      size: 12.0,
                                     ),
                                   ),
                                 ),
                               if (FFAppState().vTmp)
                                 Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Icon(
                                     FFIcons.kcheckbox,
                                     color: Color(0xFF9980DD),
-                                    size: 15,
+                                    size: 15.0,
                                   ),
                                 ),
                             ],
@@ -240,7 +244,7 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
           child: wrapWithModel(
             model: _model.repetitionLabelModel2,
             updateCallback: () => setState(() {}),

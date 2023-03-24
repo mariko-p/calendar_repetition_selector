@@ -1,7 +1,7 @@
-import '../components/month_day_item_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/components/month_day_item_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -42,15 +42,15 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
               child: Builder(
                 builder: (context) {
                   final weekItem = functions
@@ -73,7 +73,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Builder(
                 builder: (context) {
                   final weekItem = functions
@@ -96,7 +96,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Builder(
                 builder: (context) {
                   final weekItem = functions
@@ -119,7 +119,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Builder(
                 builder: (context) {
                   final weekItem = functions
@@ -142,7 +142,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Builder(
                 builder: (context) {
                   final weekItem = functions

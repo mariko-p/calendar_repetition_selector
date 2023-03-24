@@ -52,8 +52,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CustomRepetitionPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
-        ).toRoute(appStateNotifier),
-      ],
+        ),
+      ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
     );
 
@@ -63,6 +63,18 @@ extension NavParamExtensions on Map<String, String?> {
             .where((e) => e.value != null)
             .map((e) => MapEntry(e.key, e.value!)),
       );
+}
+
+extension NavigationExtensions on BuildContext {
+  void safePop() {
+    // If there is only one route on the stack, navigate to the initial
+    // page instead of popping.
+    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
+      go('/');
+    } else {
+      pop();
+    }
+  }
 }
 
 extension _GoRouterStateExtensions on GoRouterState {

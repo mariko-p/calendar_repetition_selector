@@ -1,6 +1,6 @@
-import '../components/frequency_cupertino_picker_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/components/frequency_cupertino_picker_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,7 +43,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(15.0, 24.0, 15.0, 0.0),
       child: Container(
         width: double.infinity,
         color: FlutterFlowTheme.of(context).itemBackground,
@@ -55,25 +55,25 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
               children: [
                 Material(
                   color: Colors.transparent,
-                  elevation: 0,
+                  elevation: 0.0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(5),
-                      topRight: Radius.circular(5),
+                      bottomLeft: Radius.circular(0.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(5.0),
+                      topRight: Radius.circular(5.0),
                     ),
                   ),
                   child: Container(
                     width: double.infinity,
-                    height: 36,
+                    height: 36.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).itemBackground,
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(5),
-                        topRight: Radius.circular(5),
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(5.0),
+                        topRight: Radius.circular(5.0),
                       ),
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).itemBackground,
@@ -83,8 +83,8 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 7.5, 0, 7.5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 7.5, 0.0, 7.5),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'xmgwzs7h' /* Frequency */,
@@ -92,17 +92,17 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Rubik',
                                   color: Colors.black,
-                                  fontSize: 14,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(1, 0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 20.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'r3anp0or' /* every day */,
@@ -123,7 +123,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 0.5,
@@ -140,10 +140,10 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Container(
                     width: double.infinity,
-                    height: 0,
+                    height: 0.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),

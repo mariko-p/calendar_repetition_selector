@@ -1,6 +1,6 @@
-import '../components/interval_cupertino_picker_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/components/interval_cupertino_picker_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,7 +42,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
       child: Container(
         width: double.infinity,
         color: Color(0xFFFBFCFF),
@@ -54,14 +54,14 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 36,
+                  height: 36.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).itemBackground,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(5),
-                      bottomRight: Radius.circular(5),
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(5.0),
+                      bottomRight: Radius.circular(5.0),
+                      topLeft: Radius.circular(0.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                   child: Row(
@@ -69,7 +69,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(20, 7.5, 0, 7.5),
+                            EdgeInsetsDirectional.fromSTEB(20.0, 7.5, 0.0, 7.5),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '2952w46f' /* With the interval */,
@@ -77,17 +77,17 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                           style: FlutterFlowTheme.of(context).title1.override(
                                 fontFamily: 'Rubik',
                                 color: Colors.black,
-                                fontSize: 14,
+                                fontSize: 14.0,
                                 fontWeight: FontWeight.w300,
                               ),
                         ),
                       ),
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(1, 0),
+                          alignment: AlignmentDirectional(1.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 20.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'e15u4phe' /* 1 week */,
@@ -107,7 +107,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 0.5,
@@ -124,17 +124,17 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Container(
                     width: double.infinity,
-                    height: 0,
+                    height: 0.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(5),
-                        bottomRight: Radius.circular(5),
-                        topLeft: Radius.circular(0),
-                        topRight: Radius.circular(0),
+                        bottomLeft: Radius.circular(5.0),
+                        bottomRight: Radius.circular(5.0),
+                        topLeft: Radius.circular(0.0),
+                        topRight: Radius.circular(0.0),
                       ),
                     ),
                     child: wrapWithModel(
