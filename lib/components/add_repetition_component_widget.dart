@@ -1,14 +1,11 @@
-import 'package:custom_recurring_selectors/backend/backend.dart';
-import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
-import 'package:custom_recurring_selectors/main.dart';
-import 'package:rrule/rrule.dart';
-import '../components/bottom_sheet_nav_bar_widget.dart';
-import '../components/custom_repetition_component_widget.dart';
-import '../components/header_centered_nav_bar_widget.dart';
-import '../components/repetition_label_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '../backend/schema/structs/repetition_struct.dart';
+import '../main.dart';
+import '/components/custom_repetition_component_widget.dart';
+import '/components/header_centered_nav_bar_widget.dart';
+import '/components/repetition_label_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -223,7 +220,7 @@ class _AddRepetitionComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(15.0, 24.0, 15.0, 10.0),
           child: Builder(
             builder: (context) {
               repetitions.forEachIndexed((index, element) {
@@ -308,7 +305,8 @@ class _AddRepetitionComponentWidgetState
                       //LOCAL_END
                       if (itemIndex != 5)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(21, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              21.0, 0.0, 0.0, 0.0),
                           child: Container(
                             width: double.infinity,
                             height: 0.5,

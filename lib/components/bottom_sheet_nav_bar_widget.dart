@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -51,18 +51,18 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
           child: Container(
-            width: 45,
-            height: 5,
+            width: 45.0,
+            height: 5.0,
             decoration: BoxDecoration(
               color: Color(0xFFE8EBF2),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.0),
             ),
           ),
         ),
         Align(
-          alignment: AlignmentDirectional(-1, 0),
+          alignment: AlignmentDirectional(-1.0, 0.0),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
             child: Container(

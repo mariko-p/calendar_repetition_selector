@@ -1,11 +1,10 @@
-import 'package:custom_recurring_selectors/backend/backend.dart';
-
-import '../components/interval_cupertino_picker_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '../backend/schema/structs/interval_struct.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'interval_cupertino_picker_widget.dart';
 import 'interval_expander_model.dart';
 export 'interval_expander_model.dart';
 
@@ -67,7 +66,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -87,14 +86,14 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 36,
+                  height: 36.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).itemBackground,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(5),
-                      bottomRight: Radius.circular(5),
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(5.0),
+                      bottomRight: Radius.circular(5.0),
+                      topLeft: Radius.circular(0.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                   child: Material(

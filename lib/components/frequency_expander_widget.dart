@@ -1,9 +1,7 @@
-import 'package:custom_recurring_selectors/backend/backend.dart';
-import 'package:custom_recurring_selectors/flutter_flow/custom_functions.dart';
-
-import '../components/frequency_cupertino_picker_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '../backend/schema/structs/frequency_struct.dart';
+import '/components/frequency_cupertino_picker_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +53,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15, 24, 15, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(15.0, 24.0, 15.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -77,10 +75,10 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(5),
-                        topRight: Radius.circular(5),
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(5.0),
+                        topRight: Radius.circular(5.0),
                       ),
                     ),
                     child: InkWell(
@@ -158,7 +156,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(

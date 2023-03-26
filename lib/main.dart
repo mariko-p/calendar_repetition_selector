@@ -18,6 +18,11 @@ void main() async {
     create: (context) => appState,
     child: MyApp(),
   ));
+  // Used for testing in local flutter.
+  // runApp(ChangeNotifierProvider(
+  //   create: (context) => appState,
+  //   child: MyApp(locale: Locale('sv')),
+  // ));
 }
 
 class MyApp extends StatefulWidget {

@@ -2,9 +2,9 @@ import 'package:flutter/scheduler.dart';
 
 import '../backend/schema/structs/by_day_struct.dart';
 import '../backend/schema/structs/by_set_position_struct.dart';
-import '../components/month_day_by_set_checker_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/components/month_day_by_set_checker_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -82,7 +82,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+      padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(

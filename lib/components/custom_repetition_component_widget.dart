@@ -1,14 +1,12 @@
-import '../components/frequency_expander_widget.dart';
-import '../components/header_centered_nav_bar_widget.dart';
-import '../components/interval_expander_widget.dart';
-import '../components/month_day_checker_combined_widget.dart';
-import '../components/repetition_label_widget.dart';
-import '../components/week_day_checker_widget.dart';
+
+import 'package:custom_recurring_selectors/components/year_checker_combined_widget.dart';
+
 import '../custom_code/actions/update_r_rule.dart';
-import '../custom_code/constants/calendar_constants.dart';
-import '../flutter_flow/custom_functions.dart';
-import '../components/year_checker_combined_widget.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/components/frequency_expander_widget.dart';
+import '/components/header_centered_nav_bar_widget.dart';
+import '/components/interval_expander_widget.dart';
+import '/components/month_day_checker_combined_widget.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'custom_repetition_component_model.dart';
@@ -18,6 +16,10 @@ import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:expandable/expandable.dart';
 import 'package:rrule/rrule.dart';
 import 'package:collection/collection.dart';
+import '../custom_code/constants/calendar_constants.dart';
+import '../flutter_flow/custom_functions.dart';
+import 'repetition_label_widget.dart';
+import 'week_day_checker_widget.dart';
 //LOCAL_END
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
@@ -463,7 +465,7 @@ class _CustomRepetitionComponentWidgetState
         mainAxisSize: MainAxisSize.max,
         children: [
           Align(
-            alignment: AlignmentDirectional(0, -1),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -522,7 +524,8 @@ class _CustomRepetitionComponentWidgetState
                 // Local WEEKLY.
                 if (isCustomWeeklyVisible)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: wrapWithModel(
                       child: WeekDayCheckerWidget(
                           weekDays: weekDays,
@@ -538,7 +541,8 @@ class _CustomRepetitionComponentWidgetState
                 // Local MONTHLY.
                 if (isCustomMonthlyVisible)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                     child: wrapWithModel(
                       child: MonthDayCheckerCombinedWidget(
                         monthlyType: monthlyType,

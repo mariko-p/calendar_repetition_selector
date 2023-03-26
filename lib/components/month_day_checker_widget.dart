@@ -1,11 +1,8 @@
-import 'package:custom_recurring_selectors/backend/backend.dart';
-
-import '../components/month_day_item_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '../backend/schema/structs/month_day_struct.dart';
+import '/components/month_day_item_widget.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_day_checker_model.dart';
 export 'month_day_checker_model.dart';
@@ -92,9 +89,9 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,

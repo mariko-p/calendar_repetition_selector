@@ -1,12 +1,12 @@
-import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
+import '../backend/schema/structs/by_day_struct.dart';
+import '../backend/schema/structs/by_set_position_struct.dart';
 import '../flutter_flow/custom_functions.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_day_by_set_checker_model.dart';
 export 'month_day_by_set_checker_model.dart';

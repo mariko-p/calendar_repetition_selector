@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -45,19 +45,19 @@ class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(35, 5, 15, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(35.0, 5.0, 15.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(),
         child: Align(
-          alignment: AlignmentDirectional(-1, 0),
+          alignment: AlignmentDirectional(-1.0, 0.0),
           child: Text(
             widget.humanReadableText!,
             textAlign: TextAlign.start,
             style: FlutterFlowTheme.of(context).bodyText1.override(
                   fontFamily: 'Rubik',
                   color: Color(0xFF7E8CA2),
-                  fontSize: 12,
+                  fontSize: 12.0,
                   fontWeight: FontWeight.normal,
                 ),
           ),

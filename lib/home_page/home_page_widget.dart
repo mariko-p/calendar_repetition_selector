@@ -1,13 +1,8 @@
-import 'package:custom_recurring_selectors/flutter_flow/custom_functions.dart';
-
-import '../components/add_repetition_component_widget.dart';
-import '../components/custom_repetition_component_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/components/add_repetition_component_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -71,12 +66,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(40, 40, 40, 40),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(40.0, 40.0, 40.0, 40.0),
                   child: Container(
-                    width: 150,
-                    height: 60,
+                    width: 150.0,
+                    height: 60.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -125,8 +121,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         'xwyxwy9n' /* Open */,
                       ),
                       options: FFButtonOptions(
-                        width: 40,
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+                        width: 40.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 20.0, 0.0, 20.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
@@ -135,9 +134,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ),
@@ -147,15 +146,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 100.0,
+                    height: 100.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                   ),
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 100.0,
+                    height: 100.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),

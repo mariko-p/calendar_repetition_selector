@@ -1,13 +1,14 @@
-import 'package:custom_recurring_selectors/backend/backend.dart';
-
-import '../components/month_day_by_set_checker_widget.dart';
-import '../components/month_day_checker_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '../backend/schema/structs/by_day_struct.dart';
+import '../backend/schema/structs/by_set_position_struct.dart';
+import '../backend/schema/structs/month_day_struct.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'month_day_by_set_checker_widget.dart';
 import 'month_day_checker_combined_model.dart';
+import 'month_day_checker_widget.dart';
 export 'month_day_checker_combined_model.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
@@ -166,7 +167,8 @@ class _MonthDayCheckerCombinedWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 0.5,
@@ -262,10 +264,10 @@ class _MonthDayCheckerCombinedWidgetState
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).itemBackground,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(5),
-                  bottomRight: Radius.circular(5),
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(5.0),
+                  bottomRight: Radius.circular(5.0),
+                  topLeft: Radius.circular(0.0),
+                  topRight: Radius.circular(0.0),
                 ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).itemBackground,
