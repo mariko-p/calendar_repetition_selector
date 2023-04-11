@@ -72,7 +72,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                   child: Text(
                     widget.title!,
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
                           fontSize: 18.0,
                           fontWeight: FontWeight.normal,
@@ -106,11 +106,10 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                             child: Text(
                               widget.backText!,
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Rubik',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),

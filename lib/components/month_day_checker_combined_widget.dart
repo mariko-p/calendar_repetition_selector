@@ -86,12 +86,13 @@ class _MonthDayCheckerCombinedWidgetState
                             FFLocalizations.of(context).getText(
                               'sphagbrb' /* Every */,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Rubik',
-                                      fontWeight: FontWeight.w300,
-                                      lineHeight: 1.5,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Rubik',
+                                  fontWeight: FontWeight.w300,
+                                  lineHeight: 1.5,
+                                ),
                           ),
                         ),
                         if (FFAppState().vTmp)
@@ -142,12 +143,13 @@ class _MonthDayCheckerCombinedWidgetState
                             FFLocalizations.of(context).getText(
                               'tiwqbpnm' /* of the month... */,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Rubik',
-                                      fontWeight: FontWeight.w300,
-                                      lineHeight: 1.5,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Rubik',
+                                  fontWeight: FontWeight.w300,
+                                  lineHeight: 1.5,
+                                ),
                           ),
                         ),
                         if (FFAppState().vTmp)

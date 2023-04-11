@@ -74,7 +74,9 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                           FFLocalizations.of(context).getText(
                             '2952w46f' /* With the interval */,
                           ),
-                          style: FlutterFlowTheme.of(context).title1.override(
+                          style: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .override(
                                 fontFamily: 'Rubik',
                                 color: Colors.black,
                                 fontSize: 14.0,
@@ -93,7 +95,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                                 'e15u4phe' /* 1 week */,
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Rubik',
                                     color: Color(0xFF7E8CA2),

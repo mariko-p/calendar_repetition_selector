@@ -89,7 +89,9 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                             FFLocalizations.of(context).getText(
                               'xmgwzs7h' /* Frequency */,
                             ),
-                            style: FlutterFlowTheme.of(context).title1.override(
+                            style: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .override(
                                   fontFamily: 'Rubik',
                                   color: Colors.black,
                                   fontSize: 14.0,
@@ -108,7 +110,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                                   'r3anp0or' /* every day */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Rubik',
                                       color: Color(0xFF7E8CA2),

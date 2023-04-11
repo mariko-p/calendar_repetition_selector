@@ -181,7 +181,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'usujndrb': {
       'en': 'Cancel',
-      'sv': 'Annullera',
+      'sv': 'Avbryt',
     },
     't7ggjw9g': {
       'en': 'Save',

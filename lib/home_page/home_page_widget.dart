@@ -35,12 +35,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         backgroundColor: Colors.transparent,
         barrierColor: Color(0x00000000),
         context: context,
-        builder: (context) {
-          return Padding(
-            padding: MediaQuery.of(context).viewInsets,
-            child: Container(
-              height: double.infinity,
-              child: CustomRepetitionComponentWidget(),
+        builder: (bottomSheetContext) {
+          return GestureDetector(
+            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+            child: Padding(
+              padding: MediaQuery.of(bottomSheetContext).viewInsets,
+              child: Container(
+                height: double.infinity,
+                child: CustomRepetitionComponentWidget(),
+              ),
             ),
           );
         },
@@ -60,12 +63,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -87,13 +90,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           backgroundColor: Colors.white,
                           barrierColor: Color(0x00000000),
                           context: context,
-                          builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.of(context).viewInsets,
-                              child: Container(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.95,
-                                child: AddRepetitionComponentWidget(),
+                          builder: (bottomSheetContext) {
+                            return GestureDetector(
+                              onTap: () => FocusScope.of(context)
+                                  .requestFocus(_unfocusNode),
+                              child: Padding(
+                                padding: MediaQuery.of(bottomSheetContext)
+                                    .viewInsets,
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.95,
+                                  child: AddRepetitionComponentWidget(),
+                                ),
                               ),
                             );
                           },
@@ -108,12 +116,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             0.0, 20.0, 0.0, 20.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Rubik',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,

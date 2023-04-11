@@ -65,7 +65,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               child: SelectionArea(
                   child: Text(
                 widget.monthDay!.text!,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Rubik',
                       color: Colors.white,
                       fontSize: 12.0,
@@ -86,7 +86,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               child: SelectionArea(
                   child: Text(
                 widget.monthDay!.text!,
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Rubik',
                       color: FlutterFlowTheme.of(context).primaryText,
                       fontSize: 12.0,
