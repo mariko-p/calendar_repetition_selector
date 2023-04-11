@@ -66,7 +66,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                               'jan.',
                             ),
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
+                                FlutterFlowTheme.of(context).bodyMedium.override(
                                       fontFamily: 'Rubik',
                                       color: Colors.white,
                                       fontWeight: FontWeight.normal,
@@ -101,7 +101,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                               'jan.',
                             ),
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
+                                FlutterFlowTheme.of(context).bodyMedium.override(
                                       fontFamily: 'Rubik',
                                       color: Colors.black,
                                       fontWeight: FontWeight.normal,

@@ -101,7 +101,7 @@ class _MonthDayBySetCheckerWidgetState
                               child: Text(
                             item.text ?? "",
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
+                                FlutterFlowTheme.of(context).bodyMedium.override(
                                       fontFamily: 'Rubik',
                                       color: Colors.black,
                                       fontWeight: FontWeight.w300,
@@ -129,7 +129,7 @@ class _MonthDayBySetCheckerWidgetState
                               child: Text(
                             item.text ?? "",
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
+                                FlutterFlowTheme.of(context).bodyMedium.override(
                                       fontFamily: 'Rubik',
                                       color: Colors.black,
                                       fontWeight: FontWeight.w300,

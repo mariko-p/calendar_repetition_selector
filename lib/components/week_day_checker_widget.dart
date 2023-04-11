@@ -106,7 +106,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                                   'Monday',
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Rubik',
                                       fontWeight: FontWeight.w300,

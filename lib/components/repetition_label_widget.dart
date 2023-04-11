@@ -54,7 +54,7 @@ class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
           child: Text(
             widget.humanReadableText!,
             textAlign: TextAlign.start,
-            style: FlutterFlowTheme.of(context).bodyText1.override(
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Rubik',
                   color: Color(0xFF7E8CA2),
                   fontSize: 12.0,

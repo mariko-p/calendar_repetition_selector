@@ -274,7 +274,7 @@ class _AddRepetitionComponentWidgetState
                                       'Monday',
                                     ),
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Rubik',
                                           fontWeight: FontWeight.w300,
@@ -352,9 +352,9 @@ class _AddRepetitionComponentWidgetState
                   isScrollControlled: true,
                   backgroundColor: Colors.transparent,
                   context: context,
-                  builder: (context) {
+                  builder: (bottomSheetContext) {
                     return Padding(
-                      // padding: MediaQuery.of(context).viewInsets,
+                      // padding: MediaQuery.of(bottomSheetContext).viewInsets,
                       // Add padding from user app.
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       child: Container(
@@ -409,7 +409,7 @@ class _AddRepetitionComponentWidgetState
                           FFLocalizations.of(context).getText("pwpi343g"),
                           //LOCAL_END,
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Rubik',
                                     fontWeight: FontWeight.w300,
                                     lineHeight: 1.5,

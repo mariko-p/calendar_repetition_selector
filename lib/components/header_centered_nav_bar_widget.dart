@@ -102,7 +102,7 @@ class _HeaderCenteredNavBarWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: Colors.transparent,
                       textStyle:
-                          FlutterFlowTheme.of(context).subtitle2.override(
+                          FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Rubik',
                                 color: FlutterFlowTheme.of(context)
                                     .bottomSheetActionButtons,
@@ -124,7 +124,7 @@ class _HeaderCenteredNavBarWidgetState
                   child: Text(
                     widget.title!,
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
                           fontSize: 18.0,
                           fontWeight: FontWeight.normal,
@@ -153,7 +153,7 @@ class _HeaderCenteredNavBarWidgetState
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: Colors.transparent,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Rubik',
                                   color: FlutterFlowTheme.of(context)
                                       .bottomSheetActionButtons,

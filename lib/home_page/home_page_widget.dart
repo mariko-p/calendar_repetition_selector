@@ -31,9 +31,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     //     isScrollControlled: true,
     //     backgroundColor: Colors.transparent,
     //     context: context,
-    //     builder: (context) {
+    //     builder: (bottomSheetContext) {
     //       return Padding(
-    //         padding: MediaQuery.of(context).viewInsets,
+    //         padding: MediaQuery.of(bottomSheetContext).viewInsets,
     //         child: Container(
     //           height: double.infinity,
     //           child: CustomRepetitionComponentWidget(),
@@ -56,12 +56,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -94,10 +94,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,
                           context: context,
-                          builder: (context) {
+                          builder: (bottomSheetContext) {
                             return Padding(
-                              // padding: MediaQuery.of(context).viewInsets,
+                              //LOCAL_START
                               padding: EdgeInsetsDirectional.fromSTEB(0, 42, 0, 0),
+                              //LOCAL_END
                               child: Container(
                                 // height:
                                 //     MediaQuery.of(context).size.height * 0.95,
@@ -126,12 +127,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             0.0, 20.0, 0.0, 20.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Rubik',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,

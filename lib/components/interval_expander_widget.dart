@@ -128,7 +128,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                                 '2952w46f' /* With the interval */,
                               ),
                               style:
-                                  FlutterFlowTheme.of(context).title1.override(
+                                  FlutterFlowTheme.of(context).displaySmall.override(
                                         fontFamily: 'Rubik',
                                         color: Colors.black,
                                         fontSize: 14,
@@ -149,7 +149,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                                           .text ??
                                       "",
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Rubik',
                                         color: Color(0xFF7E8CA2),

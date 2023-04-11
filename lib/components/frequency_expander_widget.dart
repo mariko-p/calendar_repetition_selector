@@ -102,7 +102,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                                   'xmgwzs7h' /* Frequency */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title1
+                                    .displaySmall
                                     .override(
                                       fontFamily: 'Rubik',
                                       color: Colors.black,
@@ -122,7 +122,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                                             ?.toLowerCase() ??
                                         "",
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Rubik',
                                           color: Color(0xFF7E8CA2),
