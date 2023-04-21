@@ -934,10 +934,10 @@ packages:
     dependency: "direct main"
     description:
       name: url_launcher
-      sha256: "4f0d5f9bf7efba3da5a7ff03bd33cc898c84bac978c068e1c94483828e709592"
+      sha256: "75f2846facd11168d007529d6cd8fcb2b750186bea046af9711f10b907e1587e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.5"
+    version: "6.1.10"
   url_launcher_android:
     dependency: transitive
     description:
