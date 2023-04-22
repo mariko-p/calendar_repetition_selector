@@ -35,7 +35,7 @@ dependencies:
   expandable: 5.0.1
   firebase_core: 2.10.0 #check
   firebase_core_platform_interface: 4.6.0 #check
-  firebase_core_web: 2.0.2 #check
+  firebase_core_web: 2.3.0 #check
   flutter_animate: 4.1.1+1 
   flutter_cache_manager: 3.3.0
   font_awesome_flutter: 10.2.1
