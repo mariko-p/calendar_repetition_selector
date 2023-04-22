@@ -542,7 +542,8 @@ String? removePossibleLastSemicolon(String? rrule) {
   /// RRULE:FREQ=DAILY and RRULE:FREQ=DAILY; have the same effect.
   /// Remove last possible ';' from rrule.
   if (rrule?.endsWith(";") == true) {
-    rrule = rrule?.substring(0, (rrule?.length ?? 1) - 1);
+    var length = (rrule?.length == 0) ? 1 : rrule?.length ?? 1;
+    rrule = rrule?.substring(0, length - 1);
   }
   return rrule;
 }
