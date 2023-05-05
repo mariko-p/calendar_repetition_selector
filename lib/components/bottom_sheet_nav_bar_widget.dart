@@ -81,6 +81,10 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                   ),
                 ),
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     // BottomSheetDissmis
                     Navigator.pop(context);

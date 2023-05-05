@@ -81,6 +81,10 @@ class _AddRepetitionComponentWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           FFAppState().update(() {
                             FFAppState().vTmp = false;
@@ -156,6 +160,10 @@ class _AddRepetitionComponentWidgetState
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 10.0),
           child: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onTap: () async {
               FFAppState().update(() {
                 FFAppState().vTmp = false;
@@ -187,6 +195,10 @@ class _AddRepetitionComponentWidgetState
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           await showModalBottomSheet(
                             isScrollControlled: true,
