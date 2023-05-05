@@ -56,6 +56,9 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
               padding: EdgeInsets.zero,
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
+              //LOCAL_START
+              physics: NeverScrollableScrollPhysics(),
+              //LOCAL_END
               itemCount: weekDays.length,
               itemBuilder: (context, weekDaysIndex) {
                 final weekDaysItem = weekDays[weekDaysIndex];
@@ -74,6 +77,10 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                                   bottomLeft: Radius.circular(5),
                                   bottomRight: Radius.circular(5)),
                       child: InkWell(
+                        // splashColor: Colors.transparent,
+                        // focusColor: Colors.transparent,
+                        // hoverColor: Colors.transparent,
+                        // highlightColor: Colors.transparent,
                         onTap: () async {
                           setState(() {
                             var text = weekDaysItem.text;
@@ -99,7 +106,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  20, 7.5, 0, 7.5),
+                                  20.0, 7.5, 0.0, 7.5),
                               child: Text(
                                 valueOrDefault<String>(
                                   weekDaysItem.text,
@@ -136,7 +143,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                     ),
                     if (weekDaysIndex < 6)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           height: 0.5,

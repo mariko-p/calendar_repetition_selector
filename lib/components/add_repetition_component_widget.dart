@@ -251,6 +251,10 @@ class _AddRepetitionComponentWidgetState
                             borderRadius: getSpecificBorderRadius(itemIndex) ??
                                 BorderRadius.zero),
                         child: InkWell(
+                          // splashColor: Colors.transparent,
+                          // focusColor: Colors.transparent,
+                          // hoverColor: Colors.transparent,
+                          // highlightColor: Colors.transparent,
                           borderRadius: getSpecificBorderRadius(itemIndex),
                           onTap: () async {
                             setState(() {
@@ -267,7 +271,7 @@ class _AddRepetitionComponentWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 7.5, 20, 7.5),
+                                      20.0, 7.5, 20.0, 7.5),
                                   child: Text(
                                     valueOrDefault<String>(
                                       weekDaysItem.text,
@@ -338,13 +342,17 @@ class _AddRepetitionComponentWidgetState
             ),
           ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 10.0),
           //LOCAL_START
           child: Material(
             color: FlutterFlowTheme.of(context).itemBackground,
             elevation: 0,
             borderRadius: BorderRadius.circular(5),
             child: InkWell(
+              // splashColor: Colors.transparent,
+              // focusColor: Colors.transparent,
+              // hoverColor: Colors.transparent,
+              // highlightColor: Colors.transparent,
               onTap: () async {
                 //selectedIndex = 6;
                 //Navigator.pop(context);
@@ -403,7 +411,7 @@ class _AddRepetitionComponentWidgetState
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(20, 7.5, 20, 7.5),
+                            EdgeInsetsDirectional.fromSTEB(20.0, 7.5, 20.0, 7.5),
                         child: Text(
                           //LOCAL_START
                           FFLocalizations.of(context).getText("pwpi343g"),

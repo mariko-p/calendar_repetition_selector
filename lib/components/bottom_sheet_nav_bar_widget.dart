@@ -64,7 +64,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
         Align(
           alignment: AlignmentDirectional(-1.0, 0.0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
             child: Container(
               child: Stack(
                 children: [
@@ -87,6 +87,10 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                     child: Container(
                       padding: EdgeInsetsDirectional.fromSTEB(6, 0, 12, 0),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           // BottomSheetDissmis and return vCurrentRRule.
                           Navigator.pop(context, FFAppState().vCurrentRRule);
