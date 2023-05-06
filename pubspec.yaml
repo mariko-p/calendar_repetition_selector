@@ -34,9 +34,9 @@ dependencies:
   cloud_firestore_web: 3.1.1 #check
   expandable: 5.0.1
   #LOCAL_START
-  firebase_core: 2.10.0 #check
-  firebase_core_platform_interface: 4.6.0 #check
-  firebase_core_web: 2.3.0 #check
+  firebase_core: ^2.11.0 #check
+  firebase_core_platform_interface: ^4.7.0 #check
+  firebase_core_web: ^2.4.0 #check
   flutter_animate: 4.1.1+1 
   #LOCAL_END
   flutter_cache_manager: 3.3.0
