@@ -52,7 +52,7 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
             model: _model.monthCheckerModel,
             updateCallback: () => setState(() {}),
             child: MonthCheckerWidget(
-              months: functions.getMonthsList().toList(),
+              months: functions.getMonthsList(),
             ),
           ),
         ),

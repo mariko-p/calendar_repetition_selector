@@ -100,7 +100,7 @@ class _CustomRepetitionComponentWidgetState
                       model: _model.weekDayCheckerModel,
                       updateCallback: () => setState(() {}),
                       child: WeekDayCheckerWidget(
-                        weekDays: functions.getWeekDayList().toList(),
+                        weekDays: functions.getWeekDayList(),
                       ),
                     ),
                   ),

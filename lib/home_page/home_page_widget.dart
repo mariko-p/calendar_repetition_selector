@@ -35,11 +35,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         backgroundColor: Colors.transparent,
         barrierColor: Color(0x00000000),
         context: context,
-        builder: (bottomSheetContext) {
+        builder: (context) {
           return GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
             child: Padding(
-              padding: MediaQuery.of(bottomSheetContext).viewInsets,
+              padding: MediaQuery.of(context).viewInsets,
               child: Container(
                 height: double.infinity,
                 child: CustomRepetitionComponentWidget(),
@@ -69,6 +69,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -90,13 +91,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           backgroundColor: Colors.white,
                           barrierColor: Color(0x00000000),
                           context: context,
-                          builder: (bottomSheetContext) {
+                          builder: (context) {
                             return GestureDetector(
                               onTap: () => FocusScope.of(context)
                                   .requestFocus(_unfocusNode),
                               child: Padding(
-                                padding: MediaQuery.of(bottomSheetContext)
-                                    .viewInsets,
+                                padding: MediaQuery.of(context).viewInsets,
                                 child: Container(
                                   height:
                                       MediaQuery.of(context).size.height * 0.95,

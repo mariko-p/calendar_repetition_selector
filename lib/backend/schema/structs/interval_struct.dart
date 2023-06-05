@@ -1,108 +1,78 @@
-import 'dart:async';
+// ignore_for_file: unnecessary_getters_setters
 
-import '../index.dart';
-import '../serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/backend/schema/util/schema_util.dart';
 
-part 'interval_struct.g.dart';
+import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-abstract class IntervalStruct
-    implements Built<IntervalStruct, IntervalStructBuilder> {
-  static Serializer<IntervalStruct> get serializer =>
-      _$intervalStructSerializer;
+class IntervalStruct extends BaseStruct {
+  IntervalStruct({
+    String? text,
+    int? value,
+  })  : _text = text,
+        _value = value;
 
-  String? get text;
+  // "text" field.
+  String? _text;
+  String get text => _text ?? '';
+  set text(String? val) => _text = val;
+  bool hasText() => _text != null;
 
-  int? get value;
+  // "value" field.
+  int? _value;
+  int get value => _value ?? 0;
+  set value(int? val) => _value = val;
+  void incrementValue(int amount) => _value = value + amount;
+  bool hasValue() => _value != null;
 
-  /// Utility class for Firestore updates
-  FirestoreUtilData get firestoreUtilData;
+  static IntervalStruct fromMap(Map<String, dynamic> data) => IntervalStruct(
+        text: data['text'] as String?,
+        value: data['value'] as int?,
+      );
 
-  static void _initializeBuilder(IntervalStructBuilder builder) => builder
-    ..text = ''
-    ..value = 0
-    ..firestoreUtilData = FirestoreUtilData();
+  static IntervalStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? IntervalStruct.fromMap(data) : null;
 
-  IntervalStruct._();
-  factory IntervalStruct([void Function(IntervalStructBuilder) updates]) =
-      _$IntervalStruct;
+  Map<String, dynamic> toMap() => {
+        'text': _text,
+        'value': _value,
+      }.withoutNulls;
+
+  @override
+  Map<String, dynamic> toSerializableMap() => {
+        'text': serializeParam(
+          _text,
+          ParamType.String,
+        ),
+        'value': serializeParam(
+          _value,
+          ParamType.int,
+        ),
+      }.withoutNulls;
+
+  static IntervalStruct fromSerializableMap(Map<String, dynamic> data) =>
+      IntervalStruct(
+        text: deserializeParam(
+          data['text'],
+          ParamType.String,
+          false,
+        ),
+        value: deserializeParam(
+          data['value'],
+          ParamType.int,
+          false,
+        ),
+      );
+
+  @override
+  String toString() => 'IntervalStruct(${toMap()})';
 }
 
 IntervalStruct createIntervalStruct({
   String? text,
   int? value,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     IntervalStruct(
-      (i) => i
-        ..text = text
-        ..value = value
-        ..firestoreUtilData = FirestoreUtilData(
-          clearUnsetFields: clearUnsetFields,
-          create: create,
-          delete: delete,
-          fieldValues: fieldValues,
-        ),
+      text: text,
+      value: value,
     );
-
-IntervalStruct? updateIntervalStruct(
-  IntervalStruct? interval, {
-  bool clearUnsetFields = true,
-}) =>
-    interval != null
-        ? (interval.toBuilder()
-              ..firestoreUtilData =
-                  FirestoreUtilData(clearUnsetFields: clearUnsetFields))
-            .build()
-        : null;
-
-void addIntervalStructData(
-  Map<String, dynamic> firestoreData,
-  IntervalStruct? interval,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (interval == null) {
-    return;
-  }
-  if (interval.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  if (!forFieldValue && interval.firestoreUtilData.clearUnsetFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final intervalData = getIntervalFirestoreData(interval, forFieldValue);
-  final nestedData = intervalData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final create = interval.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
-
-  return;
-}
-
-Map<String, dynamic> getIntervalFirestoreData(
-  IntervalStruct? interval, [
-  bool forFieldValue = false,
-]) {
-  if (interval == null) {
-    return {};
-  }
-  final firestoreData =
-      serializers.toFirestore(IntervalStruct.serializer, interval);
-
-  // Add any Firestore field values
-  interval.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getIntervalListFirestoreData(
-  List<IntervalStruct>? intervals,
-) =>
-    intervals?.map((i) => getIntervalFirestoreData(i, true)).toList() ?? [];

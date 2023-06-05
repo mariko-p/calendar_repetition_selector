@@ -110,7 +110,7 @@ class _AddRepetitionComponentWidgetState
                                     ),
                               ),
                             ),
-                            if (weekDaysItem.isSelected ?? true)
+                            if (weekDaysItem.isSelected)
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(1.0, 0.0),
@@ -205,10 +205,9 @@ class _AddRepetitionComponentWidgetState
                             backgroundColor: Colors.transparent,
                             barrierColor: Color(0x00000000),
                             context: context,
-                            builder: (bottomSheetContext) {
+                            builder: (context) {
                               return Padding(
-                                padding: MediaQuery.of(bottomSheetContext)
-                                    .viewInsets,
+                                padding: MediaQuery.of(context).viewInsets,
                                 child: Container(
                                   height:
                                       MediaQuery.of(context).size.height * 0.09,

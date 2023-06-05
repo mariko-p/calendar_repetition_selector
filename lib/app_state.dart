@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/backend/schema/structs/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -59,6 +60,13 @@ class FFAppState extends ChangeNotifier {
   void removeAtIndexFromCMonthDayCheckedColors(int _index) {
     _cMonthDayCheckedColors.removeAt(_index);
   }
+
+  void updateCMonthDayCheckedColorsAtIndex(
+    int _index,
+    Function(Color) updateFn,
+  ) {
+    updateFn(_cMonthDayCheckedColors[_index]);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
@@ -69,6 +77,18 @@ LatLng? _latLngFromString(String? val) {
   final lat = double.parse(split.first);
   final lng = double.parse(split.last);
   return LatLng(lat, lng);
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }
 
 Color? _colorFromIntValue(int? val) {

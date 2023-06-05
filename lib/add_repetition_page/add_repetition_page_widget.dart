@@ -45,6 +45,7 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
+          top: true,
           child: wrapWithModel(
             model: _model.addRepetitionComponentModel,
             updateCallback: () => setState(() {}),

@@ -387,4 +387,91 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Dag',
     },
   },
+  // Miscellaneous
+  {
+    'v9dnedq2': {
+      'en': '',
+      'sv': '',
+    },
+    'gkz0ytg9': {
+      'en': '',
+      'sv': '',
+    },
+    'us2prp87': {
+      'en': '',
+      'sv': '',
+    },
+    'pr4py6oe': {
+      'en': '',
+      'sv': '',
+    },
+    'uinse2p7': {
+      'en': '',
+      'sv': '',
+    },
+    'qs41lcyr': {
+      'en': '',
+      'sv': '',
+    },
+    '6hzc57ks': {
+      'en': '',
+      'sv': '',
+    },
+    'kzo3icm9': {
+      'en': '',
+      'sv': '',
+    },
+    'urj5v03u': {
+      'en': '',
+      'sv': '',
+    },
+    'xqs4ujnl': {
+      'en': '',
+      'sv': '',
+    },
+    '0ie94nr8': {
+      'en': '',
+      'sv': '',
+    },
+    'cty6cqot': {
+      'en': '',
+      'sv': '',
+    },
+    'h890ff4y': {
+      'en': '',
+      'sv': '',
+    },
+    'vjmfngrb': {
+      'en': '',
+      'sv': '',
+    },
+    'jv8ke3ql': {
+      'en': '',
+      'sv': '',
+    },
+    '0nwe472y': {
+      'en': '',
+      'sv': '',
+    },
+    'ua5vxybs': {
+      'en': '',
+      'sv': '',
+    },
+    't5iyln2f': {
+      'en': '',
+      'sv': '',
+    },
+    'aoq1deuz': {
+      'en': '',
+      'sv': '',
+    },
+    '6olo4mtq': {
+      'en': '',
+      'sv': '',
+    },
+    'z2zc9j78': {
+      'en': '',
+      'sv': '',
+    },
+  },
 ].reduce((a, b) => a..addAll(b));

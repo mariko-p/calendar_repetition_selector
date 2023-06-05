@@ -55,7 +55,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                 builder: (context) {
                   final weekItem = functions
                       .getMonthDayList()
-                      .where((e) => e.index! >= 0)
+                      .where((e) => e.index >= 0)
                       .toList();
                   return Row(
                     mainAxisSize: MainAxisSize.max,
@@ -78,7 +78,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                 builder: (context) {
                   final weekItem = functions
                       .getMonthDayList()
-                      .where((e) => e.index! >= 0)
+                      .where((e) => e.index >= 0)
                       .toList();
                   return Row(
                     mainAxisSize: MainAxisSize.max,
@@ -101,7 +101,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                 builder: (context) {
                   final weekItem = functions
                       .getMonthDayList()
-                      .where((e) => e.index! >= 0)
+                      .where((e) => e.index >= 0)
                       .toList();
                   return Row(
                     mainAxisSize: MainAxisSize.max,
@@ -124,7 +124,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                 builder: (context) {
                   final weekItem = functions
                       .getMonthDayList()
-                      .where((e) => e.index! >= 0)
+                      .where((e) => e.index >= 0)
                       .toList();
                   return Row(
                     mainAxisSize: MainAxisSize.max,
@@ -147,7 +147,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                 builder: (context) {
                   final weekItem = functions
                       .getMonthDayList()
-                      .where((e) => e.index! >= 0)
+                      .where((e) => e.index >= 0)
                       .toList();
                   return Row(
                     mainAxisSize: MainAxisSize.max,

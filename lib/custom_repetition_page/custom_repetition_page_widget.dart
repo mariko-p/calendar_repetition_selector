@@ -46,6 +46,7 @@ class _CustomRepetitionPageWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
+          top: true,
           child: wrapWithModel(
             model: _model.customRepetitionComponentModel,
             updateCallback: () => setState(() {}),

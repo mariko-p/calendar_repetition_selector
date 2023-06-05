@@ -255,9 +255,12 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
-  String get bodyLargeFamily => '';
+  String get bodyLargeFamily => 'Rubik';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Rubik',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Rubik';
   TextStyle get bodyMedium => GoogleFonts.getFont(
