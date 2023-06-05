@@ -103,8 +103,8 @@ class _MyAppState extends State<MyApp> {
         Locale('sv'),
       ],
       themeMode: _themeMode,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
+      // routeInformationParser: _router.routeInformationParser,
+      // routerDelegate: _router.routerDelegate,
       routerConfig: _router,
     );
   }
