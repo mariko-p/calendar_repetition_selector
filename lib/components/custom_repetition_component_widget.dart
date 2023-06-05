@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 import 'custom_repetition_component_model.dart';
 export 'custom_repetition_component_model.dart';
 //LOCAL_START
-import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:expandable/expandable.dart';
 import 'package:rrule/rrule.dart';
 import 'package:collection/collection.dart';
@@ -20,6 +19,7 @@ import '../custom_code/constants/calendar_constants.dart';
 import '../flutter_flow/custom_functions.dart';
 import 'repetition_label_widget.dart';
 import 'week_day_checker_widget.dart';
+import '../backend/schema/structs/index.dart';
 //LOCAL_END
 
 class CustomRepetitionComponentWidget extends StatefulWidget {
@@ -219,7 +219,7 @@ class _CustomRepetitionComponentWidgetState
       weekDays.forEachIndexed((index, weekDay) {
         if (byDay.toString() == mapWeekDayToByDay(weekDay.value)) {
           //weekDay = weekDay.rebuild((p0) => p0.isChecked = true); // This is not working.
-          weekDays[index] = weekDay.rebuild((p0) => {p0.isChecked = true});
+          weekDays[index] = weekDay.rebuild(isChecked: true);
         }
       });
     });
@@ -238,7 +238,7 @@ class _CustomRepetitionComponentWidgetState
       byMonthDaysRRule.forEach((element) {
         monthDays.forEachIndexed((index, monthDay) {
           if (element == ((monthDay.index ?? 0) + 1)) {
-            monthDays[index] = monthDay.rebuild((p0) => {p0.isChecked = true});
+            monthDays[index] = monthDay.rebuild(isChecked: true);
           }
         });
       });
@@ -259,14 +259,14 @@ class _CustomRepetitionComponentWidgetState
     byMonthsRRule.forEach((month) {
       months.forEachIndexed((index, element) {
         if (month == (index + 1)) {
-          months[index] = element.rebuild((p0) => {p0.isChecked = true});
+          months[index] = element.rebuild(isChecked: true);
         }
       });
     });
 
     // In our case if bySetPos is not empty, weekdays are checked.
     if (bySetPosRRule.length > 0) {
-      print("DA");
+      // print("DA");
       isWeekDaysChecked = true;
       _autoSelectBySetPosAndByDay();
     } else {

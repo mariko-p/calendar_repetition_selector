@@ -1,109 +1,119 @@
-import 'dart:async';
+// ignore_for_file: unnecessary_getters_setters
 
-import '../index.dart';
-import '../serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/backend/schema/util/schema_util.dart';
 
-part 'month_struct.g.dart';
+import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-abstract class MonthStruct implements Built<MonthStruct, MonthStructBuilder> {
-  static Serializer<MonthStruct> get serializer => _$monthStructSerializer;
+//LOCAL_START
+import '../local_rebuilder.dart';
+//LOCAL_END
 
-  String? get text;
+//LOCAL_START
+class MonthStruct extends BaseStruct implements LocalRebuilder<MonthStruct>{
+//LOCAL_END  
+  MonthStruct({
+    String? text,
+    bool? isChecked,
+    String? shortText,
+  })  : _text = text,
+        _isChecked = isChecked,
+        _shortText = shortText;
 
-  bool? get isChecked;
+  // "text" field.
+  String? _text;
+  String get text => _text ?? '';
+  set text(String? val) => _text = val;
+  bool hasText() => _text != null;
 
-  String? get shortText;
+  // "isChecked" field.
+  bool? _isChecked;
+  bool get isChecked => _isChecked ?? false;
+  set isChecked(bool? val) => _isChecked = val;
+  bool hasIsChecked() => _isChecked != null;
 
-  /// Utility class for Firestore updates
-  FirestoreUtilData get firestoreUtilData;
+  // "shortText" field.
+  String? _shortText;
+  String get shortText => _shortText ?? '';
+  set shortText(String? val) => _shortText = val;
+  bool hasShortText() => _shortText != null;
 
-  static void _initializeBuilder(MonthStructBuilder builder) => builder
-    ..text = ''
-    ..isChecked = false
-    ..shortText = ''
-    ..firestoreUtilData = FirestoreUtilData();
+  static MonthStruct fromMap(Map<String, dynamic> data) => MonthStruct(
+        text: data['text'] as String?,
+        isChecked: data['isChecked'] as bool?,
+        shortText: data['shortText'] as String?,
+      );
 
-  MonthStruct._();
-  factory MonthStruct([void Function(MonthStructBuilder) updates]) =
-      _$MonthStruct;
+  static MonthStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? MonthStruct.fromMap(data) : null;
+
+  Map<String, dynamic> toMap() => {
+        'text': _text,
+        'isChecked': _isChecked,
+        'shortText': _shortText,
+      }.withoutNulls;
+
+  @override
+  Map<String, dynamic> toSerializableMap() => {
+        'text': serializeParam(
+          _text,
+          ParamType.String,
+        ),
+        'isChecked': serializeParam(
+          _isChecked,
+          ParamType.bool,
+        ),
+        'shortText': serializeParam(
+          _shortText,
+          ParamType.String,
+        ),
+      }.withoutNulls;
+
+  static MonthStruct fromSerializableMap(Map<String, dynamic> data) =>
+      MonthStruct(
+        text: deserializeParam(
+          data['text'],
+          ParamType.String,
+          false,
+        ),
+        isChecked: deserializeParam(
+          data['isChecked'],
+          ParamType.bool,
+          false,
+        ),
+        shortText: deserializeParam(
+          data['shortText'],
+          ParamType.String,
+          false,
+        ),
+      );
+
+  @override
+  String toString() => 'MonthStruct(${toMap()})';
+  
+  @override
+  //LOCAL_START
+  MonthStruct? rebuild<MonthStruct>({String? text, bool? isChecked, String? shortText}) {
+    _text = text ?? _text;
+    _isChecked = isChecked ?? _isChecked;
+    _shortText = shortText ?? _shortText;
+
+    var instance = this;
+    if (this is MonthStruct) {
+      return instance as MonthStruct;
+    }
+    return null;
+  }
+  //LOCAL_END
 }
 
 MonthStruct createMonthStruct({
   String? text,
   bool? isChecked,
   String? shortText,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     MonthStruct(
-      (m) => m
-        ..text = text
-        ..isChecked = isChecked
-        ..shortText = shortText
-        ..firestoreUtilData = FirestoreUtilData(
-          clearUnsetFields: clearUnsetFields,
-          create: create,
-          delete: delete,
-          fieldValues: fieldValues,
-        ),
+      text: text,
+      isChecked: isChecked,
+      shortText: shortText,
     );
-
-MonthStruct? updateMonthStruct(
-  MonthStruct? month, {
-  bool clearUnsetFields = true,
-}) =>
-    month != null
-        ? (month.toBuilder()
-              ..firestoreUtilData =
-                  FirestoreUtilData(clearUnsetFields: clearUnsetFields))
-            .build()
-        : null;
-
-void addMonthStructData(
-  Map<String, dynamic> firestoreData,
-  MonthStruct? month,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (month == null) {
-    return;
-  }
-  if (month.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  if (!forFieldValue && month.firestoreUtilData.clearUnsetFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final monthData = getMonthFirestoreData(month, forFieldValue);
-  final nestedData = monthData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final create = month.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
-
-  return;
-}
-
-Map<String, dynamic> getMonthFirestoreData(
-  MonthStruct? month, [
-  bool forFieldValue = false,
-]) {
-  if (month == null) {
-    return {};
-  }
-  final firestoreData = serializers.toFirestore(MonthStruct.serializer, month);
-
-  // Add any Firestore field values
-  month.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getMonthListFirestoreData(
-  List<MonthStruct>? months,
-) =>
-    months?.map((m) => getMonthFirestoreData(m, true)).toList() ?? [];

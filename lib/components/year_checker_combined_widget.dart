@@ -2,10 +2,10 @@ import '../backend/schema/structs/by_day_struct.dart';
 import '../backend/schema/structs/by_set_position_struct.dart';
 import '../backend/schema/structs/month_struct.dart';
 import '/components/year_by_set_checker_widget.dart';
+import '/components/month_checker_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'month_checker_widget.dart';
 import 'year_checker_combined_model.dart';
 export 'year_checker_combined_model.dart';
 

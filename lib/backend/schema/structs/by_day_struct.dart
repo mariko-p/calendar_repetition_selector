@@ -1,103 +1,96 @@
-import 'dart:async';
+// ignore_for_file: unnecessary_getters_setters
+import '/backend/schema/util/schema_util.dart';
 
-import '../index.dart';
-import '../serializers.dart';
-import 'package:built_value/built_value.dart';
+import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+//LOCAL_START
+import '../local_rebuilder.dart';
+//LOCAL_END
 
-part 'by_day_struct.g.dart';
+//LOCAL_START
+class ByDayStruct extends BaseStruct implements LocalRebuilder<ByDayStruct>{
+//LOCAL_END
+  
+  ByDayStruct({
+    String? text,
+    List<String>? value,
+  })  : _text = text,
+        _value = value;
 
-abstract class ByDayStruct implements Built<ByDayStruct, ByDayStructBuilder> {
-  static Serializer<ByDayStruct> get serializer => _$byDayStructSerializer;
+  // "text" field.
+  String? _text;
+  String get text => _text ?? '';
+  set text(String? val) => _text = val;
+  bool hasText() => _text != null;
 
-  String? get text;
+  // "value" field.
+  List<String>? _value;
+  List<String> get value => _value ?? const [];
+  set value(List<String>? val) => _value = val;
+  void updateValue(Function(List<String>) updateFn) => updateFn(_value ??= []);
+  bool hasValue() => _value != null;
 
-  BuiltList<String>? get value;
+  static ByDayStruct fromMap(Map<String, dynamic> data) => ByDayStruct(
+        text: data['text'] as String?,
+        value: getDataList(data['value']),
+      );
 
-  /// Utility class for Firestore updates
-  FirestoreUtilData get firestoreUtilData;
+  static ByDayStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? ByDayStruct.fromMap(data) : null;
 
-  static void _initializeBuilder(ByDayStructBuilder builder) => builder
-    ..text = ''
-    ..value = ListBuilder()
-    ..firestoreUtilData = FirestoreUtilData();
+  Map<String, dynamic> toMap() => {
+        'text': _text,
+        'value': _value,
+      }.withoutNulls;
 
-  ByDayStruct._();
-  factory ByDayStruct([void Function(ByDayStructBuilder) updates]) =
-      _$ByDayStruct;
+  @override
+  Map<String, dynamic> toSerializableMap() => {
+        'text': serializeParam(
+          _text,
+          ParamType.String,
+        ),
+        'value': serializeParam(
+          _value,
+          ParamType.String,
+          true,
+        ),
+      }.withoutNulls;
+
+  static ByDayStruct fromSerializableMap(Map<String, dynamic> data) =>
+      ByDayStruct(
+        text: deserializeParam(
+          data['text'],
+          ParamType.String,
+          false,
+        ),
+        value: deserializeParam<String>(
+          data['value'],
+          ParamType.String,
+          true,
+        ),
+      );
+
+  @override
+  String toString() => 'ByDayStruct(${toMap()})';
+  
+  @override
+  //LOCAL_START
+  ByDayStruct? rebuild<ByDayStruct>({String? text, List<String>? value}) {
+    _text = text ?? _text;
+    _value = value ?? _value;
+    
+    var instance = this;
+    if (this is ByDayStruct) {
+      return instance as ByDayStruct;
+    }
+    return null;
+  }
+  //LOCAL_END
 }
 
 ByDayStruct createByDayStruct({
   String? text,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     ByDayStruct(
-      (b) => b
-        ..text = text
-        ..value = null
-        ..firestoreUtilData = FirestoreUtilData(
-          clearUnsetFields: clearUnsetFields,
-          create: create,
-          delete: delete,
-          fieldValues: fieldValues,
-        ),
+      text: text,
     );
-
-ByDayStruct? updateByDayStruct(
-  ByDayStruct? byDay, {
-  bool clearUnsetFields = true,
-}) =>
-    byDay != null
-        ? (byDay.toBuilder()
-              ..firestoreUtilData =
-                  FirestoreUtilData(clearUnsetFields: clearUnsetFields))
-            .build()
-        : null;
-
-void addByDayStructData(
-  Map<String, dynamic> firestoreData,
-  ByDayStruct? byDay,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (byDay == null) {
-    return;
-  }
-  if (byDay.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  if (!forFieldValue && byDay.firestoreUtilData.clearUnsetFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final byDayData = getByDayFirestoreData(byDay, forFieldValue);
-  final nestedData = byDayData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final create = byDay.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
-
-  return;
-}
-
-Map<String, dynamic> getByDayFirestoreData(
-  ByDayStruct? byDay, [
-  bool forFieldValue = false,
-]) {
-  if (byDay == null) {
-    return {};
-  }
-  final firestoreData = serializers.toFirestore(ByDayStruct.serializer, byDay);
-
-  // Add any Firestore field values
-  byDay.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getByDayListFirestoreData(
-  List<ByDayStruct>? byDays,
-) =>
-    byDays?.map((b) => getByDayFirestoreData(b, true)).toList() ?? [];

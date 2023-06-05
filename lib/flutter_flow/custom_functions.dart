@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:math' as math;
 
-import 'package:custom_recurring_selectors/backend/backend.dart';
 import 'package:custom_recurring_selectors/custom_code/codecs/sv.dart';
 import 'package:custom_recurring_selectors/main.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +13,7 @@ import '../custom_code/constants/calendar_constants.dart';
 import 'internationalization.dart';
 import 'lat_lng.dart';
 import 'place.dart';
+import '/backend/schema/structs/index.dart';
 
 List<FrequencyStruct> generateFrequency([BuildContext? context]) {
   //Used for initialising the frequency dropdown.
@@ -256,23 +256,23 @@ List<ByDayStruct> getByDayList([BuildContext? context]) {
 
   // Code written in flutter.
   ByDayStruct? sundayStruct = createByDayStruct(text: sundayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.SU]));
+      .rebuild(value: List.of([Constants.SU]));
   ByDayStruct? mondayStruct = createByDayStruct(text: mondayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.MO]));
+      .rebuild(value: List.of([Constants.MO]));
   ByDayStruct? tuesdayStruct = createByDayStruct(text: tuesdayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.TU]));
+      .rebuild(value: List.of([Constants.TU]));
   ByDayStruct? wednesdayStruct = createByDayStruct(text: wednesdayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.WE]));
+      .rebuild(value: List.of([Constants.WE]));
   ByDayStruct? thursdayStruct = createByDayStruct(text: thursdayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.TH]));
+      .rebuild(value: List.of([Constants.TH]));
   ByDayStruct? fridayStruct = createByDayStruct(text: fridayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.FR]));
+      .rebuild(value: List.of([Constants.FR]));
   ByDayStruct? saturdayStruct = createByDayStruct(text: saturdayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.SA]));
+      .rebuild(value: List.of([Constants.SA]));
   ByDayStruct? weekendDayStruct = createByDayStruct(text: weekendDayLang)
-      .rebuild((p0) => p0.value = ListBuilder([Constants.SA, Constants.SU]));
+      .rebuild(value: List.of([Constants.SA, Constants.SU]));
   ByDayStruct? weekDayStruct = createByDayStruct(text: weekDayLang).rebuild(
-      (p0) => p0.value = ListBuilder([
+    value: List.of([
             Constants.MO,
             Constants.TU,
             Constants.WE,
@@ -280,7 +280,7 @@ List<ByDayStruct> getByDayList([BuildContext? context]) {
             Constants.FR
           ]));
   ByDayStruct? dayStruct =
-      createByDayStruct(text: dayLang).rebuild((p0) => p0.value = ListBuilder([
+      createByDayStruct(text: dayLang).rebuild(value: List.of([
             Constants.MO,
             Constants.TU,
             Constants.WE,
@@ -290,17 +290,19 @@ List<ByDayStruct> getByDayList([BuildContext? context]) {
             Constants.SU
           ]));
 
+  ByDayStruct emptyElement = createByDayStruct();
+
   return [
-    sundayStruct,
-    mondayStruct,
-    tuesdayStruct,
-    wednesdayStruct,
-    thursdayStruct,
-    fridayStruct,
-    saturdayStruct,
-    weekendDayStruct,
-    weekDayStruct,
-    dayStruct,
+    sundayStruct ?? emptyElement,
+    mondayStruct ?? emptyElement,
+    tuesdayStruct ?? emptyElement,
+    wednesdayStruct ?? emptyElement,
+    thursdayStruct ?? emptyElement,
+    fridayStruct ?? emptyElement,
+    saturdayStruct ?? emptyElement,
+    weekendDayStruct ?? emptyElement,
+    weekDayStruct ?? emptyElement,
+    dayStruct ?? emptyElement,
   ];
 }
 

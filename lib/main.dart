@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
@@ -20,10 +22,11 @@ void main() async {
     create: (context) => appState,
     child: MyApp(),
   ));
-  // Used for testing in local flutter.
+  // Uncomment for testing in local flutter
+  // test the app in a specific language.
   // runApp(ChangeNotifierProvider(
   //   create: (context) => appState,
-  //   child: MyApp(locale: Locale('sv')),
+  //   child: MyApp(locale: Locale('en')),
   // ));
 }
 
@@ -66,7 +69,7 @@ class _MyAppState extends State<MyApp> {
     //LOCAL_START
     _locale = widget.locale;
     //LOCAL_END
-    _appStateNotifier = AppStateNotifier();
+    _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
   }
 
@@ -102,8 +105,7 @@ class _MyAppState extends State<MyApp> {
         Locale('sv'),
       ],
       themeMode: _themeMode,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
+      routerConfig: _router,
     );
   }
 }

@@ -226,10 +226,10 @@ class _AddRepetitionComponentWidgetState
               repetitions.forEachIndexed((index, element) {
                 if (index == selectedIndex) {
                   repetitions[index] =
-                      element.rebuild((p0) => p0.isSelected = true);
+                      element.rebuild(isSelected: true);
                 } else {
                   repetitions[index] =
-                      element.rebuild((p0) => p0.isSelected = false);
+                      element.rebuild(isSelected: false);
                 }
               });
               return ListView.builder(

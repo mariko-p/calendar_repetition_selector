@@ -1,111 +1,120 @@
-import 'dart:async';
+// ignore_for_file: unnecessary_getters_setters
 
-import '../index.dart';
-import '../serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/backend/schema/util/schema_util.dart';
 
-part 'week_day_struct.g.dart';
+import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+//LOCAL_START
+import '../local_rebuilder.dart';
+//LOCAL_END
 
-abstract class WeekDayStruct
-    implements Built<WeekDayStruct, WeekDayStructBuilder> {
-  static Serializer<WeekDayStruct> get serializer => _$weekDayStructSerializer;
+//LOCAL_START
+class WeekDayStruct extends BaseStruct implements LocalRebuilder<WeekDayStruct>{
+//LOCAL_END
+  
+  WeekDayStruct({
+    String? text,
+    bool? isChecked,
+    String? value,
+  })  : _text = text,
+        _isChecked = isChecked,
+        _value = value;
 
-  String? get text;
+  // "text" field.
+  String? _text;
+  String get text => _text ?? '';
+  set text(String? val) => _text = val;
+  bool hasText() => _text != null;
 
-  bool? get isChecked;
+  // "isChecked" field.
+  bool? _isChecked;
+  bool get isChecked => _isChecked ?? false;
+  set isChecked(bool? val) => _isChecked = val;
+  bool hasIsChecked() => _isChecked != null;
 
-  String? get value;
+  // "value" field.
+  String? _value;
+  String get value => _value ?? '';
+  set value(String? val) => _value = val;
+  bool hasValue() => _value != null;
 
-  /// Utility class for Firestore updates
-  FirestoreUtilData get firestoreUtilData;
+  static WeekDayStruct fromMap(Map<String, dynamic> data) => WeekDayStruct(
+        text: data['text'] as String?,
+        isChecked: data['isChecked'] as bool?,
+        value: data['value'] as String?,
+      );
 
-  static void _initializeBuilder(WeekDayStructBuilder builder) => builder
-    ..text = ''
-    ..isChecked = false
-    ..value = ''
-    ..firestoreUtilData = FirestoreUtilData();
+  static WeekDayStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? WeekDayStruct.fromMap(data) : null;
 
-  WeekDayStruct._();
-  factory WeekDayStruct([void Function(WeekDayStructBuilder) updates]) =
-      _$WeekDayStruct;
+  Map<String, dynamic> toMap() => {
+        'text': _text,
+        'isChecked': _isChecked,
+        'value': _value,
+      }.withoutNulls;
+
+  @override
+  Map<String, dynamic> toSerializableMap() => {
+        'text': serializeParam(
+          _text,
+          ParamType.String,
+        ),
+        'isChecked': serializeParam(
+          _isChecked,
+          ParamType.bool,
+        ),
+        'value': serializeParam(
+          _value,
+          ParamType.String,
+        ),
+      }.withoutNulls;
+
+  static WeekDayStruct fromSerializableMap(Map<String, dynamic> data) =>
+      WeekDayStruct(
+        text: deserializeParam(
+          data['text'],
+          ParamType.String,
+          false,
+        ),
+        isChecked: deserializeParam(
+          data['isChecked'],
+          ParamType.bool,
+          false,
+        ),
+        value: deserializeParam(
+          data['value'],
+          ParamType.String,
+          false,
+        ),
+      );
+
+  @override
+  String toString() => 'WeekDayStruct(${toMap()})';
+  
+  
+  @override
+  //LOCAL_START
+  WeekDayStruct? rebuild<WeekDayStruct>({String? text, bool? isChecked, String? value}) {
+    _text = text ?? _text;
+    _isChecked = isChecked ?? _isChecked;
+    _value = value ?? _value;
+    
+    var instance = this;
+    if (this is WeekDayStruct) {
+      return instance as WeekDayStruct;
+    }
+    return null;
+  }
+  //LOCAL_END
 }
 
 WeekDayStruct createWeekDayStruct({
   String? text,
   bool? isChecked,
   String? value,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     WeekDayStruct(
-      (w) => w
-        ..text = text
-        ..isChecked = isChecked
-        ..value = value
-        ..firestoreUtilData = FirestoreUtilData(
-          clearUnsetFields: clearUnsetFields,
-          create: create,
-          delete: delete,
-          fieldValues: fieldValues,
-        ),
+      text: text,
+      isChecked: isChecked,
+      value: value,
     );
-
-WeekDayStruct? updateWeekDayStruct(
-  WeekDayStruct? weekDay, {
-  bool clearUnsetFields = true,
-}) =>
-    weekDay != null
-        ? (weekDay.toBuilder()
-              ..firestoreUtilData =
-                  FirestoreUtilData(clearUnsetFields: clearUnsetFields))
-            .build()
-        : null;
-
-void addWeekDayStructData(
-  Map<String, dynamic> firestoreData,
-  WeekDayStruct? weekDay,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (weekDay == null) {
-    return;
-  }
-  if (weekDay.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  if (!forFieldValue && weekDay.firestoreUtilData.clearUnsetFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final weekDayData = getWeekDayFirestoreData(weekDay, forFieldValue);
-  final nestedData = weekDayData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final create = weekDay.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
-
-  return;
-}
-
-Map<String, dynamic> getWeekDayFirestoreData(
-  WeekDayStruct? weekDay, [
-  bool forFieldValue = false,
-]) {
-  if (weekDay == null) {
-    return {};
-  }
-  final firestoreData =
-      serializers.toFirestore(WeekDayStruct.serializer, weekDay);
-
-  // Add any Firestore field values
-  weekDay.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getWeekDayListFirestoreData(
-  List<WeekDayStruct>? weekDays,
-) =>
-    weekDays?.map((w) => getWeekDayFirestoreData(w, true)).toList() ?? [];

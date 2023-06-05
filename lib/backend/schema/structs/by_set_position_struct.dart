@@ -1,114 +1,79 @@
-import 'dart:async';
+// ignore_for_file: unnecessary_getters_setters
 
-import '../index.dart';
-import '../serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/backend/schema/util/schema_util.dart';
 
-part 'by_set_position_struct.g.dart';
+import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-abstract class BySetPositionStruct
-    implements Built<BySetPositionStruct, BySetPositionStructBuilder> {
-  static Serializer<BySetPositionStruct> get serializer =>
-      _$bySetPositionStructSerializer;
+class BySetPositionStruct extends BaseStruct {
+  BySetPositionStruct({
+    String? text,
+    int? value,
+  })  : _text = text,
+        _value = value;
 
-  String? get text;
+  // "text" field.
+  String? _text;
+  String get text => _text ?? '';
+  set text(String? val) => _text = val;
+  bool hasText() => _text != null;
 
-  int? get value;
+  // "value" field.
+  int? _value;
+  int get value => _value ?? 0;
+  set value(int? val) => _value = val;
+  void incrementValue(int amount) => _value = value + amount;
+  bool hasValue() => _value != null;
 
-  /// Utility class for Firestore updates
-  FirestoreUtilData get firestoreUtilData;
+  static BySetPositionStruct fromMap(Map<String, dynamic> data) =>
+      BySetPositionStruct(
+        text: data['text'] as String?,
+        value: data['value'] as int?,
+      );
 
-  static void _initializeBuilder(BySetPositionStructBuilder builder) => builder
-    ..text = ''
-    ..value = 0
-    ..firestoreUtilData = FirestoreUtilData();
+  static BySetPositionStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? BySetPositionStruct.fromMap(data) : null;
 
-  BySetPositionStruct._();
-  factory BySetPositionStruct(
-          [void Function(BySetPositionStructBuilder) updates]) =
-      _$BySetPositionStruct;
+  Map<String, dynamic> toMap() => {
+        'text': _text,
+        'value': _value,
+      }.withoutNulls;
+
+  @override
+  Map<String, dynamic> toSerializableMap() => {
+        'text': serializeParam(
+          _text,
+          ParamType.String,
+        ),
+        'value': serializeParam(
+          _value,
+          ParamType.int,
+        ),
+      }.withoutNulls;
+
+  static BySetPositionStruct fromSerializableMap(Map<String, dynamic> data) =>
+      BySetPositionStruct(
+        text: deserializeParam(
+          data['text'],
+          ParamType.String,
+          false,
+        ),
+        value: deserializeParam(
+          data['value'],
+          ParamType.int,
+          false,
+        ),
+      );
+
+  @override
+  String toString() => 'BySetPositionStruct(${toMap()})';
 }
 
 BySetPositionStruct createBySetPositionStruct({
   String? text,
   int? value,
-  Map<String, dynamic> fieldValues = const {},
-  bool clearUnsetFields = true,
-  bool create = false,
-  bool delete = false,
 }) =>
     BySetPositionStruct(
-      (b) => b
-        ..text = text
-        ..value = value
-        ..firestoreUtilData = FirestoreUtilData(
-          clearUnsetFields: clearUnsetFields,
-          create: create,
-          delete: delete,
-          fieldValues: fieldValues,
-        ),
+      text: text,
+      value: value,
     );
-
-BySetPositionStruct? updateBySetPositionStruct(
-  BySetPositionStruct? bySetPosition, {
-  bool clearUnsetFields = true,
-}) =>
-    bySetPosition != null
-        ? (bySetPosition.toBuilder()
-              ..firestoreUtilData =
-                  FirestoreUtilData(clearUnsetFields: clearUnsetFields))
-            .build()
-        : null;
-
-void addBySetPositionStructData(
-  Map<String, dynamic> firestoreData,
-  BySetPositionStruct? bySetPosition,
-  String fieldName, [
-  bool forFieldValue = false,
-]) {
-  firestoreData.remove(fieldName);
-  if (bySetPosition == null) {
-    return;
-  }
-  if (bySetPosition.firestoreUtilData.delete) {
-    firestoreData[fieldName] = FieldValue.delete();
-    return;
-  }
-  if (!forFieldValue && bySetPosition.firestoreUtilData.clearUnsetFields) {
-    firestoreData[fieldName] = <String, dynamic>{};
-  }
-  final bySetPositionData =
-      getBySetPositionFirestoreData(bySetPosition, forFieldValue);
-  final nestedData =
-      bySetPositionData.map((k, v) => MapEntry('$fieldName.$k', v));
-
-  final create = bySetPosition.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
-
-  return;
-}
-
-Map<String, dynamic> getBySetPositionFirestoreData(
-  BySetPositionStruct? bySetPosition, [
-  bool forFieldValue = false,
-]) {
-  if (bySetPosition == null) {
-    return {};
-  }
-  final firestoreData =
-      serializers.toFirestore(BySetPositionStruct.serializer, bySetPosition);
-
-  // Add any Firestore field values
-  bySetPosition.firestoreUtilData.fieldValues
-      .forEach((k, v) => firestoreData[k] = v);
-
-  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
-}
-
-List<Map<String, dynamic>> getBySetPositionListFirestoreData(
-  List<BySetPositionStruct>? bySetPositions,
-) =>
-    bySetPositions
-        ?.map((b) => getBySetPositionFirestoreData(b, true))
-        .toList() ??
-    [];

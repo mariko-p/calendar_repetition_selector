@@ -1,5 +1,5 @@
+import '../backend/schema/structs/index.dart';
 import '../custom_code/constants/calendar_constants.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                       onTap: () {
                         setState(() {
                           widget.months[monthIndex] = widget.months[monthIndex]
-                              .rebuild((p0) => p0.isChecked = false);
+                              .rebuild(isChecked: false);
 
                           widget.monthSelectionChanged();
                         });
@@ -81,7 +81,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                       onTap: () {
                         setState(() {
                           widget.months[monthIndex] = widget.months[monthIndex]
-                              .rebuild((p0) => p0.isChecked = true);
+                              .rebuild(isChecked: true);
 
                           widget.monthSelectionChanged();
                         });

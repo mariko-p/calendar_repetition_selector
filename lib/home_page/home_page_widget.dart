@@ -62,6 +62,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -100,8 +101,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(0, 42, 0, 0),
                               //LOCAL_END
                               child: Container(
+                                //LOCAL_START
                                 // height:
                                 //     MediaQuery.of(context).size.height * 0.95,
+                                //LOCAL_END
                                 height: double.infinity,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
