@@ -167,7 +167,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'pwpi343g': {
       'en': 'Custom',
-      'sv': 'Beställnings',
+      // LOCAL_START
+      'sv': 'Anpassad',
+      // LOCAL_END
     },
   },
   // YearBySetChecker
@@ -348,7 +350,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '33iznp6j': {
       'en': 'Custom',
-      'sv': 'Beställnings',
+      // LOCAL_START
+      'sv': 'Anpassad',
+      // LOCAL_END
     },
     'kqd4z9pz': {
       'en': 'First',

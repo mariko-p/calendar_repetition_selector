@@ -49,11 +49,9 @@ class MyApp extends StatefulWidget {
   static Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
   static bool isExitAppOnBackON = false;
   //LOCAL_END
-  
+
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
-  
-
 }
 
 class _MyAppState extends State<MyApp> {
@@ -95,9 +93,11 @@ class _MyAppState extends State<MyApp> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      //LOCAL_START - Android default ripple behaviour is InkRipple.splashFactory.
-      theme: ThemeData(brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
-      darkTheme: ThemeData(brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
+      //LOCAL_START - Android default ripple behavior is InkRipple.splashFactory.
+      theme: ThemeData(
+          brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
       //LOCAL_END
       locale: _locale,
       supportedLocales: const [
