@@ -12,6 +12,7 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
@@ -46,11 +47,9 @@ class MyApp extends StatefulWidget {
   static Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
   static bool isExitAppOnBackON = false;
   //LOCAL_END
-  
+
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
-  
-
 }
 
 class _MyAppState extends State<MyApp> {
@@ -66,7 +65,7 @@ class _MyAppState extends State<MyApp> {
     //LOCAL_START
     _locale = widget.locale;
     //LOCAL_END
-    _appStateNotifier = AppStateNotifier();
+    _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
   }
 
@@ -92,9 +91,11 @@ class _MyAppState extends State<MyApp> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      //LOCAL_START - Android default ripple behaviour is InkRipple.splashFactory.
-      theme: ThemeData(brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
-      darkTheme: ThemeData(brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
+      //LOCAL_START - Android default ripple behavior is InkRipple.splashFactory.
+      theme: ThemeData(
+          brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
       //LOCAL_END
       locale: _locale,
       supportedLocales: const [
@@ -104,6 +105,7 @@ class _MyAppState extends State<MyApp> {
       themeMode: _themeMode,
       routeInformationParser: _router.routeInformationParser,
       routerDelegate: _router.routerDelegate,
+      routerConfig: _router,
     );
   }
 }
