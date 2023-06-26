@@ -28,7 +28,7 @@ class BySetPositionStruct extends BaseStruct {
   static BySetPositionStruct fromMap(Map<String, dynamic> data) =>
       BySetPositionStruct(
         text: data['text'] as String?,
-        value: data['value'] as int?,
+        value: castToType<int>(data['value']),
       );
 
   static BySetPositionStruct? maybeFromMap(dynamic data) =>
@@ -67,6 +67,16 @@ class BySetPositionStruct extends BaseStruct {
 
   @override
   String toString() => 'BySetPositionStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is BySetPositionStruct &&
+        text == other.text &&
+        value == other.value;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, value]);
 }
 
 BySetPositionStruct createBySetPositionStruct({

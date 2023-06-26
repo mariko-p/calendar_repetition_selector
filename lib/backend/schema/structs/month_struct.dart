@@ -84,6 +84,17 @@ class MonthStruct extends BaseStruct {
 
   @override
   String toString() => 'MonthStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is MonthStruct &&
+        text == other.text &&
+        isChecked == other.isChecked &&
+        shortText == other.shortText;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, isChecked, shortText]);
 }
 
 MonthStruct createMonthStruct({

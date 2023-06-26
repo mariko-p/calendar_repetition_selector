@@ -84,6 +84,17 @@ class WeekDayStruct extends BaseStruct {
 
   @override
   String toString() => 'WeekDayStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is WeekDayStruct &&
+        text == other.text &&
+        isChecked == other.isChecked &&
+        value == other.value;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, isChecked, value]);
 }
 
 WeekDayStruct createWeekDayStruct({

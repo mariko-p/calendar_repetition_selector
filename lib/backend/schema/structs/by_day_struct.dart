@@ -67,6 +67,17 @@ class ByDayStruct extends BaseStruct {
 
   @override
   String toString() => 'ByDayStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    const listEquality = ListEquality();
+    return other is ByDayStruct &&
+        text == other.text &&
+        listEquality.equals(value, other.value);
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, value]);
 }
 
 ByDayStruct createByDayStruct({

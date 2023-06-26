@@ -36,7 +36,7 @@ class MonthDayStruct extends BaseStruct {
   static MonthDayStruct fromMap(Map<String, dynamic> data) => MonthDayStruct(
         text: data['text'] as String?,
         isChecked: data['isChecked'] as bool?,
-        index: data['index'] as int?,
+        index: castToType<int>(data['index']),
       );
 
   static MonthDayStruct? maybeFromMap(dynamic data) =>
@@ -85,6 +85,17 @@ class MonthDayStruct extends BaseStruct {
 
   @override
   String toString() => 'MonthDayStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is MonthDayStruct &&
+        text == other.text &&
+        isChecked == other.isChecked &&
+        index == other.index;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, isChecked, index]);
 }
 
 MonthDayStruct createMonthDayStruct({

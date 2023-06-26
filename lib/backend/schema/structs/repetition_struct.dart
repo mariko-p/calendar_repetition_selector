@@ -85,6 +85,17 @@ class RepetitionStruct extends BaseStruct {
 
   @override
   String toString() => 'RepetitionStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is RepetitionStruct &&
+        text == other.text &&
+        isSelected == other.isSelected &&
+        rrule == other.rrule;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, isSelected, rrule]);
 }
 
 RepetitionStruct createRepetitionStruct({

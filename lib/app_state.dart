@@ -63,9 +63,9 @@ class FFAppState extends ChangeNotifier {
 
   void updateCMonthDayCheckedColorsAtIndex(
     int _index,
-    Function(Color) updateFn,
+    Color Function(Color) updateFn,
   ) {
-    updateFn(_cMonthDayCheckedColors[_index]);
+    _cMonthDayCheckedColors[_index] = updateFn(_cMonthDayCheckedColors[_index]);
   }
 }
 
