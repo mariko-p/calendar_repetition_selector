@@ -106,6 +106,17 @@ class WeekDayStruct extends BaseStruct implements LocalRebuilder<WeekDayStruct>{
     return null;
   }
   //LOCAL_END
+
+  @override
+  bool operator ==(Object other) {
+    return other is WeekDayStruct &&
+        text == other.text &&
+        isChecked == other.isChecked &&
+        value == other.value;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, isChecked, value]);
 }
 
 WeekDayStruct createWeekDayStruct({

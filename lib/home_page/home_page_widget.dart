@@ -18,7 +18,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -26,6 +25,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     _model = createModel(context, () => HomePageModel());
 
     // On page load action.
+    //LOCAL_START - comment this.
     // SchedulerBinding.instance.addPostFrameCallback((_) async {
     //   await showModalBottomSheet(
     //     isScrollControlled: true,
@@ -42,13 +42,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     //     },
     //   ).then((value) => setState(() {}));
     // });
+    //LOCAL_END
   }
 
   @override
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -57,7 +57,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

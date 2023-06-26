@@ -13,6 +13,7 @@ import '../custom_code/constants/calendar_constants.dart';
 import 'internationalization.dart';
 import 'lat_lng.dart';
 import 'place.dart';
+import 'uploaded_file.dart';
 import '/backend/schema/structs/index.dart';
 
 List<FrequencyStruct> generateFrequency([BuildContext? context]) {

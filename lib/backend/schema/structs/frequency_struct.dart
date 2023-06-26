@@ -65,6 +65,16 @@ class FrequencyStruct extends BaseStruct {
 
   @override
   String toString() => 'FrequencyStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is FrequencyStruct &&
+        text == other.text &&
+        value == other.value;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, value]);
 }
 
 FrequencyStruct createFrequencyStruct({

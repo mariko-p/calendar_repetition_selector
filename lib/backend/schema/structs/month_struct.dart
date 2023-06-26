@@ -105,6 +105,17 @@ class MonthStruct extends BaseStruct implements LocalRebuilder<MonthStruct>{
     return null;
   }
   //LOCAL_END
+
+  @override
+  bool operator ==(Object other) {
+    return other is MonthStruct &&
+        text == other.text &&
+        isChecked == other.isChecked &&
+        shortText == other.shortText;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, isChecked, shortText]);
 }
 
 MonthStruct createMonthStruct({

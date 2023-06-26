@@ -27,7 +27,7 @@ class IntervalStruct extends BaseStruct {
 
   static IntervalStruct fromMap(Map<String, dynamic> data) => IntervalStruct(
         text: data['text'] as String?,
-        value: data['value'] as int?,
+        value: castToType<int>(data['value']),
       );
 
   static IntervalStruct? maybeFromMap(dynamic data) =>
@@ -66,6 +66,16 @@ class IntervalStruct extends BaseStruct {
 
   @override
   String toString() => 'IntervalStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is IntervalStruct &&
+        text == other.text &&
+        value == other.value;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([text, value]);
 }
 
 IntervalStruct createIntervalStruct({

@@ -19,7 +19,6 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
   late AddRepetitionPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -31,7 +30,6 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
