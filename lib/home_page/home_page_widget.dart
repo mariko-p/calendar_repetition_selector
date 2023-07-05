@@ -7,6 +7,10 @@ import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
+// LOCAL_START
+import '../helpers/window.dart';
+// LOCAL_END
+
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key? key}) : super(key: key);
 
@@ -98,7 +102,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           builder: (bottomSheetContext) {
                             return Padding(
                               //LOCAL_START
-                              padding: EdgeInsetsDirectional.fromSTEB(0, 42, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0, getSafePaddingTop(), 0, 0),
                               //LOCAL_END
                               child: Container(
                                 //LOCAL_START
