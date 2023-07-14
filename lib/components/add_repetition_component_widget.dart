@@ -25,6 +25,7 @@ class AddRepetitionComponentWidget extends StatefulWidget {
       {Key? key,
       this.rrule,
       this.onRRuleChanged,
+      this.onHumanReadableTextChanged,
       this.onSaveTapFromAddPage,
       this.onCancelTapFromAddPage,
       this.onSaveTapFromCustomPage})
@@ -36,6 +37,11 @@ class AddRepetitionComponentWidget extends StatefulWidget {
   // Called on every change, from main screen, or from custom repetition screen.
   // Do not save rrule to database if save is not called.
   Future<dynamic> Function(String? rrule)? onRRuleChanged;
+
+  // Called on every change, from main screen, or from custom repetition screen.
+  // Do not save rrule to database if save is not called.
+  // Written in human readable format.
+  Future<dynamic> Function(String? rrule)? onHumanReadableTextChanged;
 
   // Called on save from main screen.
   Future<dynamic> Function(String? rrule)? onSaveTapFromAddPage;
@@ -137,6 +143,9 @@ class _AddRepetitionComponentWidgetState
       var rrule = FFAppState().vCurrentRRule;
       var humanReadableText =
           await functions.getActivityRepetitionAnyAsText(context, rrule);
+
+      widget.onHumanReadableTextChanged?.call(humanReadableText);
+
       setState(() {
         _model.repetitionLabelText = humanReadableText;
       });
@@ -376,6 +385,9 @@ class _AddRepetitionComponentWidgetState
                         ),
                         child: CustomRepetitionComponentWidget(
                           rrule: widget.rrule,
+                          onHumanReadableTextChanged: (rrule) async {
+                            widget.onHumanReadableTextChanged?.call(rrule);
+                          },
                           onRRuleChanged: (rrule) async {
                             // print("RRULE changed: $rrule");
                             // print("RRULE initial value: ${widget.rrule}");

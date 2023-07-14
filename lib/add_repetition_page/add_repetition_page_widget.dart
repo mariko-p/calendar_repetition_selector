@@ -56,6 +56,9 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
         child: wrapWithModel(
           child: AddRepetitionComponentWidget(
             rrule: FFAppState().vCurrentRRule,
+            onHumanReadableTextChanged: (value) async {
+              MyApp.onHumanReadableTextChanged?.call(value);
+            },
             onRRuleChanged: (value) async {
               MyApp.onRRuleChanged?.call(value);
             },

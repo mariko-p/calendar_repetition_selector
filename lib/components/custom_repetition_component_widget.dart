@@ -27,11 +27,13 @@ class CustomRepetitionComponentWidget extends StatefulWidget {
     Key? key,
     required this.rrule,
     required this.onRRuleChanged,
+    required this.onHumanReadableTextChanged,
     required this.onSaveTap,
   }) : super(key: key);
 
   String? rrule;
   final Future<dynamic> Function(String? rrule) onRRuleChanged;
+  final Future<dynamic> Function(String? rrule)? onHumanReadableTextChanged;
   final Future<dynamic> Function(String? rrule) onSaveTap;
 
   @override
@@ -367,6 +369,7 @@ class _CustomRepetitionComponentWidgetState
   void invokeRRuleOnChanged() {
     var rrule = FFAppState().vCurrentRRule;
     widget.onRRuleChanged(rrule);
+    widget.onHumanReadableTextChanged?.call(humanReadableText);
   }
 
   Future updateDailyRRule() async {
