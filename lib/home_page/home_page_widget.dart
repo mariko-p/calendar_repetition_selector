@@ -39,7 +39,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             onTap: () =>
                 FocusScope.of(context).requestFocus(_model.unfocusNode),
             child: Padding(
-              padding: MediaQuery.of(context).viewInsets,
+              padding: MediaQuery.viewInsetsOf(context),
               child: Container(
                 height: double.infinity,
                 child: CustomRepetitionComponentWidget(),
@@ -95,10 +95,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               onTap: () => FocusScope.of(context)
                                   .requestFocus(_model.unfocusNode),
                               child: Padding(
-                                padding: MediaQuery.of(context).viewInsets,
+                                padding: MediaQuery.viewInsetsOf(context),
                                 child: Container(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.95,
+                                      MediaQuery.sizeOf(context).height * 0.95,
                                   child: AddRepetitionComponentWidget(),
                                 ),
                               ),

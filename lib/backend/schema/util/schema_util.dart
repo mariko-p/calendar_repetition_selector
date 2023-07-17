@@ -24,12 +24,19 @@ dynamic deserializeStructParam<T>(
   if (param == null) {
     return null;
   } else if (isList) {
-    return param is Iterable
-        ? param
-            .map((e) => deserializeStructParam<T>(e, paramType, false,
-                structBuilder: structBuilder))
-            .toList()
-        : null;
+    final paramValues;
+    try {
+      paramValues = param is Iterable ? param : json.decode(param);
+    } catch (e) {
+      return null;
+    }
+    if (paramValues is! Iterable) {
+      return null;
+    }
+    return paramValues
+        .map<T>((e) => deserializeStructParam<T>(e, paramType, false,
+            structBuilder: structBuilder))
+        .toList();
   } else if (param is Map<String, dynamic>) {
     return structBuilder(param);
   } else {

@@ -207,10 +207,10 @@ class _AddRepetitionComponentWidgetState
                             context: context,
                             builder: (context) {
                               return Padding(
-                                padding: MediaQuery.of(context).viewInsets,
+                                padding: MediaQuery.viewInsetsOf(context),
                                 child: Container(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.09,
+                                      MediaQuery.sizeOf(context).height * 0.09,
                                   child: CustomRepetitionComponentWidget(),
                                 ),
                               );
