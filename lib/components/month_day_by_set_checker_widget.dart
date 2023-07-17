@@ -90,7 +90,7 @@ class _MonthDayBySetCheckerWidgetState
       child: Row(mainAxisSize: MainAxisSize.max, children: [
         Container(
             height: 130,
-            width: MediaQuery.of(context).size.width * 0.4,
+            width: MediaQuery.sizeOf(context).width * 0.4,
             child: Center(
               child: CupertinoPicker(
                   scrollController:
@@ -118,7 +118,7 @@ class _MonthDayBySetCheckerWidgetState
             )),
         Container(
             height: 130,
-            width: MediaQuery.of(context).size.width * 0.4,
+            width: MediaQuery.sizeOf(context).width * 0.4,
             child: Center(
               child: CupertinoPicker(
                   scrollController:

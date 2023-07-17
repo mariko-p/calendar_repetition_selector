@@ -371,7 +371,7 @@ class _AddRepetitionComponentWidgetState
                   context: context,
                   builder: (bottomSheetContext) {
                     return Padding(
-                      // padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                      // padding: MediaQuery.viewInsetsOf(bottomSheetContext),
                       // Add padding from user app.
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       child: Container(

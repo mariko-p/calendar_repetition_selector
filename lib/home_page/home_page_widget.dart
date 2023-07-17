@@ -37,7 +37,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     //     context: context,
     //     builder: (bottomSheetContext) {
     //       return Padding(
-    //         padding: MediaQuery.of(bottomSheetContext).viewInsets,
+    //         padding: MediaQuery.viewInsetsOf(bottomSheetContext),
     //         child: Container(
     //           height: double.infinity,
     //           child: CustomRepetitionComponentWidget(),
@@ -108,7 +108,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               child: Container(
                                 //LOCAL_START
                                 // height:
-                                //     MediaQuery.of(context).size.height * 0.95,
+                                //     MediaQuery.sizeOf(context).height * 0.95,
                                 //LOCAL_END
                                 height: double.infinity,
                                 decoration: BoxDecoration(
