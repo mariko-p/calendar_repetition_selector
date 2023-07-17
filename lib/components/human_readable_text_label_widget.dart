@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'human_readable_text_label_model.dart';
@@ -11,9 +12,11 @@ class HumanReadableTextLabelWidget extends StatefulWidget {
   const HumanReadableTextLabelWidget({
     Key? key,
     this.rrule,
+    required this.defaultLabel,
   }) : super(key: key);
 
   final String? rrule;
+  final String? defaultLabel;
 
   @override
   _HumanReadableTextLabelWidgetState createState() =>
@@ -34,6 +37,13 @@ class _HumanReadableTextLabelWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => HumanReadableTextLabelModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.label = functions.getActivityRepetitionAnyAsText(widget.rrule);
+      });
+    });
   }
 
   @override
@@ -55,7 +65,9 @@ class _HumanReadableTextLabelWidgetState
         child: Align(
           alignment: AlignmentDirectional(-1.0, 0.0),
           child: Text(
-            functions.getActivityRepetitionAnyAsText(widget.rrule)!,
+            _model.label != null && _model.label != ''
+                ? _model.label!
+                : widget.defaultLabel!,
             textAlign: TextAlign.start,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Rubik',
