@@ -277,6 +277,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.0"
+  iregexp:
+    dependency: transitive
+    description:
+      name: iregexp
+      sha256: "0bab197b31adad22c32eef580cda11338dad24ee0e46187d994baef9acee7564"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
   js:
     dependency: transitive
     description:
@@ -289,10 +297,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_path
-      sha256: e1ff18e87737fd5bee5d3408a58c51452b3351ab1292fdcf4ee597ab480123e2
+      sha256: "0a38c33d6ab3a71795c4ce1867c6278bf1e87dabbc1f707307a00efc55750d9c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.1"
+    version: "0.6.2"
   logging:
     dependency: transitive
     description:
@@ -317,6 +325,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.0"
+  maybe_just_nothing:
+    dependency: transitive
+    description:
+      name: maybe_just_nothing
+      sha256: "0c06326e26d08f6ed43247404376366dc4d756cef23a4f1db765f546224c35e0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.3"
   meta:
     dependency: transitive
     description:
@@ -417,10 +433,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: "2ebb289dc4764ec397f5cd3ca9881c6d17196130a7d646ed022a0dd9c2e25a71"
+      sha256: cb3798bef7fc021ac45b308f4b51208a152792445cce0448c9a4ba5879dd8750
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.4.0"
   platform:
     dependency: transitive
     description:
