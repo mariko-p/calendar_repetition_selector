@@ -41,125 +41,106 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+      ),
       child: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
-        ),
-        child: Container(
-          width: double.infinity,
-          color: Colors.white,
-          child: ExpandableNotifier(
-            initialExpanded: false,
-            child: ExpandablePanel(
-              header: Container(
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).itemBackground,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: 36.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0.0),
-                          bottomRight: Radius.circular(0.0),
-                          topLeft: Radius.circular(5.0),
-                          topRight: Radius.circular(5.0),
-                        ),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).itemBackground,
-                        ),
+        color: Colors.transparent,
+        child: ExpandableNotifier(
+          initialExpanded: false,
+          child: ExpandablePanel(
+            header: Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(5.0),
+                        topRight: Radius.circular(5.0),
                       ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          18.0, 14.5, 10.0, 14.5),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 7.5, 0.0, 7.5),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'cl0eiplq' /* Weekdays */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Rubik',
-                                    fontWeight: FontWeight.w300,
-                                    lineHeight: 1.5,
-                                  ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'cl0eiplq' /* Weekdays */,
                             ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Rubik',
+                                  fontWeight: FontWeight.w300,
+                                  lineHeight: 1.5,
+                                ),
                           ),
                           if (FFAppState().vTmp)
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(1.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.5, 12.0, 10.5),
-                                  child: Icon(
-                                    FFIcons.kcheckbox,
-                                    color: Color(0xFF9980DD),
-                                    size: 15.0,
-                                  ),
+                                alignment: AlignmentDirectional(1.00, 0.00),
+                                child: Icon(
+                                  FFIcons.kcheckbox,
+                                  color: Color(0xFF9980DD),
+                                  size: 18.0,
                                 ),
                               ),
                             ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 0.5,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).lineColor,
-                        ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 0.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 0.5,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).lineColor,
                       ),
                     ),
-                  ],
-                ),
-              ),
-              collapsed: Container(),
-              expanded: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).itemBackground,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(5.0),
-                    bottomRight: Radius.circular(5.0),
-                    topLeft: Radius.circular(0.0),
-                    topRight: Radius.circular(0.0),
                   ),
-                  border: Border.all(
-                    color: FlutterFlowTheme.of(context).itemBackground,
+                ],
+              ),
+            ),
+            collapsed: Container(),
+            expanded: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(0.0),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  wrapWithModel(
+                    model: _model.monthDayBySetCheckerModel,
+                    updateCallback: () => setState(() {}),
+                    child: MonthDayBySetCheckerWidget(),
                   ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    wrapWithModel(
-                      model: _model.monthDayBySetCheckerModel,
-                      updateCallback: () => setState(() {}),
-                      child: MonthDayBySetCheckerWidget(),
-                    ),
-                  ],
-                ),
+                ],
               ),
-              theme: ExpandableThemeData(
-                tapHeaderToExpand: true,
-                tapBodyToExpand: false,
-                tapBodyToCollapse: false,
-                headerAlignment: ExpandablePanelHeaderAlignment.center,
-                hasIcon: false,
-              ),
+            ),
+            theme: ExpandableThemeData(
+              tapHeaderToExpand: true,
+              tapBodyToExpand: false,
+              tapBodyToCollapse: false,
+              headerAlignment: ExpandablePanelHeaderAlignment.center,
+              hasIcon: false,
             ),
           ),
         ),

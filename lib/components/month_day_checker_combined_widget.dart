@@ -47,75 +47,69 @@ class _MonthDayCheckerCombinedWidgetState
     return Container(
       width: double.infinity,
       height: 100.0,
-      decoration: BoxDecoration(),
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+      ),
       child: Container(
         width: double.infinity,
-        color: Colors.white,
+        color: Colors.transparent,
         child: ExpandableNotifier(
           initialExpanded: false,
           child: ExpandablePanel(
             header: Container(
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).itemBackground,
+                color: Colors.transparent,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 36.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).itemBackground,
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
                         bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(5.0),
                         topRight: Radius.circular(5.0),
                       ),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                      ),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 7.5, 0.0, 7.5),
-                          child: Text(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          18.0, 14.5, 10.0, 14.5),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
                             FFLocalizations.of(context).getText(
                               'sphagbrb' /* Every */,
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Rubik',
-                                  fontWeight: FontWeight.w300,
-                                  lineHeight: 1.5,
-                                ),
+                            style: GoogleFonts.getFont(
+                              'Rubik',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 14.0,
+                              height: 1.5,
+                            ),
                           ),
-                        ),
-                        if (FFAppState().vTmp)
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.5, 12.0, 10.5),
+                          if (FFAppState().vTmp)
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(1.00, 0.00),
                                 child: Icon(
                                   FFIcons.kcheckbox,
                                   color: Color(0xFF9980DD),
-                                  size: 15.0,
+                                  size: 18.0,
                                 ),
                               ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 0.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 0.5,
@@ -126,53 +120,45 @@ class _MonthDayCheckerCombinedWidgetState
                   ),
                   Container(
                     width: double.infinity,
-                    height: 36.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).itemBackground,
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                      ),
+                      color: Colors.transparent,
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 7.5, 0.0, 7.5),
-                          child: Text(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          18.0, 14.5, 10.0, 14.5),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
                             FFLocalizations.of(context).getText(
                               'tiwqbpnm' /* of the month... */,
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Rubik',
-                                  fontWeight: FontWeight.w300,
-                                  lineHeight: 1.5,
-                                ),
+                            style: GoogleFonts.getFont(
+                              'Rubik',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 14.0,
+                              height: 1.5,
+                            ),
                           ),
-                        ),
-                        if (FFAppState().vTmp)
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.5, 12.0, 10.5),
+                          if (FFAppState().vTmp)
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(1.00, 0.00),
                                 child: Icon(
                                   FFIcons.kcheckbox,
                                   color: Color(0xFF9980DD),
-                                  size: 15.0,
+                                  size: 18.0,
                                 ),
                               ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 0.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 0.5,
@@ -188,23 +174,17 @@ class _MonthDayCheckerCombinedWidgetState
             expanded: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).itemBackground,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(5.0),
-                  bottomRight: Radius.circular(5.0),
-                  topLeft: Radius.circular(0.0),
-                  topRight: Radius.circular(0.0),
-                ),
-                border: Border.all(
-                  color: FlutterFlowTheme.of(context).itemBackground,
-                ),
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(0.0),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
                     height: 200.0,
-                    decoration: BoxDecoration(),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
                     child: wrapWithModel(
                       model: _model.monthDayCheckerModel,
                       updateCallback: () => setState(() {}),

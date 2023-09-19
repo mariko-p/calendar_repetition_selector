@@ -42,81 +42,58 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15.0, 24.0, 15.0, 0.0),
-      child: Container(
-        width: double.infinity,
-        color: FlutterFlowTheme.of(context).itemBackground,
-        child: ExpandableNotifier(
-          initialExpanded: false,
-          child: ExpandablePanel(
-            header: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Material(
+    return Container(
+      width: double.infinity,
+      color: Colors.transparent,
+      child: ExpandableNotifier(
+        initialExpanded: false,
+        child: ExpandablePanel(
+          header: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(18.0, 14.5, 10.0, 14.5),
+                child: Material(
                   color: Colors.transparent,
                   elevation: 0.0,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(5.0),
-                      topRight: Radius.circular(5.0),
-                    ),
+                    borderRadius: BorderRadius.circular(0.0),
                   ),
                   child: Container(
                     width: double.infinity,
-                    height: 36.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).itemBackground,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(5.0),
-                        topRight: Radius.circular(5.0),
-                      ),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                      ),
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(0.0),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 7.5, 0.0, 7.5),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'xmgwzs7h' /* Frequency */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .displaySmall
-                                .override(
-                                  fontFamily: 'Rubik',
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w300,
-                                ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'xmgwzs7h' /* Frequency */,
+                          ),
+                          style: GoogleFonts.getFont(
+                            'Rubik',
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14.0,
+                            height: 1.5,
                           ),
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 20.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'r3anp0or' /* every day */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Rubik',
-                                      color: Color(0xFF7E8CA2),
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                            alignment: AlignmentDirectional(1.00, 0.00),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'r3anp0or' /* every day */,
                               ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Rubik',
+                                    color: Color(0xFF7E8CA2),
+                                    fontWeight: FontWeight.normal,
+                                  ),
                             ),
                           ),
                         ),
@@ -124,47 +101,47 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 0.5,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFE8EBF2),
-                    ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 0.0, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 0.5,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE8EBF2),
                   ),
                 ),
-              ],
-            ),
-            collapsed: Container(),
-            expanded: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 0.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: wrapWithModel(
-                      model: _model.frequencyCupertinoPickerModel,
-                      updateCallback: () => setState(() {}),
-                      child: FrequencyCupertinoPickerWidget(),
-                    ),
+              ),
+            ],
+          ),
+          collapsed: Container(),
+          expanded: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 0.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: wrapWithModel(
+                    model: _model.frequencyCupertinoPickerModel,
+                    updateCallback: () => setState(() {}),
+                    child: FrequencyCupertinoPickerWidget(),
                   ),
                 ),
-              ],
-            ),
-            theme: ExpandableThemeData(
-              tapHeaderToExpand: true,
-              tapBodyToExpand: false,
-              tapBodyToCollapse: false,
-              headerAlignment: ExpandablePanelHeaderAlignment.center,
-              hasIcon: false,
-            ),
+              ),
+            ],
+          ),
+          theme: ExpandableThemeData(
+            tapHeaderToExpand: true,
+            tapBodyToExpand: false,
+            tapBodyToCollapse: false,
+            headerAlignment: ExpandablePanelHeaderAlignment.center,
+            hasIcon: false,
           ),
         ),
       ),

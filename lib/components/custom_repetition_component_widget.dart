@@ -54,7 +54,7 @@ class _CustomRepetitionComponentWidgetState
         mainAxisSize: MainAxisSize.max,
         children: [
           Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.00, -1.00),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -73,17 +73,12 @@ class _CustomRepetitionComponentWidgetState
                   ),
                 ),
                 wrapWithModel(
-                  model: _model.frequencyExpanderModel,
-                  updateCallback: () => setState(() {}),
-                  child: FrequencyExpanderWidget(),
-                ),
-                wrapWithModel(
                   model: _model.intervalExpanderModel,
                   updateCallback: () => setState(() {}),
                   child: IntervalExpanderWidget(),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: wrapWithModel(
                     model: _model.repetitionLabelModel,
                     updateCallback: () => setState(() {}),
@@ -104,6 +99,11 @@ class _CustomRepetitionComponentWidgetState
                       ),
                     ),
                   ),
+                wrapWithModel(
+                  model: _model.frequencyExpanderModel,
+                  updateCallback: () => setState(() {}),
+                  child: FrequencyExpanderWidget(),
+                ),
                 if (FFAppState().vTmp)
                   Padding(
                     padding:

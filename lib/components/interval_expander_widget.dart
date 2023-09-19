@@ -41,22 +41,21 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-      child: Container(
-        width: double.infinity,
-        color: Color(0xFFFBFCFF),
-        child: ExpandableNotifier(
-          initialExpanded: false,
-          child: ExpandablePanel(
-            header: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
+    return Container(
+      width: double.infinity,
+      color: Colors.transparent,
+      child: ExpandableNotifier(
+        initialExpanded: false,
+        child: ExpandablePanel(
+          header: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(18.0, 14.5, 10.0, 14.5),
+                child: Container(
                   width: double.infinity,
-                  height: 36.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).itemBackground,
+                    color: Colors.transparent,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(5.0),
                       bottomRight: Radius.circular(5.0),
@@ -67,26 +66,21 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(20.0, 7.5, 0.0, 7.5),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            '2952w46f' /* With the interval */,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .override(
-                                fontFamily: 'Rubik',
-                                color: Colors.black,
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w300,
-                              ),
+                      Text(
+                        FFLocalizations.of(context).getText(
+                          '2952w46f' /* With the interval */,
+                        ),
+                        style: GoogleFonts.getFont(
+                          'Rubik',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14.0,
+                          height: 1.5,
                         ),
                       ),
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
+                          alignment: AlignmentDirectional(1.00, 0.00),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
@@ -108,53 +102,53 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 0.5,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFE8EBF2),
-                    ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 0.0, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 0.5,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE8EBF2),
                   ),
                 ),
-              ],
-            ),
-            collapsed: Container(),
-            expanded: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 0.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(5.0),
-                        bottomRight: Radius.circular(5.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
-                      ),
-                    ),
-                    child: wrapWithModel(
-                      model: _model.intervalCupertinoPickerModel,
-                      updateCallback: () => setState(() {}),
-                      child: IntervalCupertinoPickerWidget(),
+              ),
+            ],
+          ),
+          collapsed: Container(),
+          expanded: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 0.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(5.0),
+                      bottomRight: Radius.circular(5.0),
+                      topLeft: Radius.circular(0.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
+                  child: wrapWithModel(
+                    model: _model.intervalCupertinoPickerModel,
+                    updateCallback: () => setState(() {}),
+                    child: IntervalCupertinoPickerWidget(),
+                  ),
                 ),
-              ],
-            ),
-            theme: ExpandableThemeData(
-              tapHeaderToExpand: true,
-              tapBodyToExpand: false,
-              tapBodyToCollapse: false,
-              headerAlignment: ExpandablePanelHeaderAlignment.center,
-              hasIcon: false,
-            ),
+              ),
+            ],
+          ),
+          theme: ExpandableThemeData(
+            tapHeaderToExpand: true,
+            tapBodyToExpand: false,
+            tapBodyToCollapse: false,
+            headerAlignment: ExpandablePanelHeaderAlignment.center,
+            hasIcon: false,
           ),
         ),
       ),

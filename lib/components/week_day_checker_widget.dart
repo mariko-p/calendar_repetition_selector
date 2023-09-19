@@ -48,29 +48,30 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).itemBackground,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(5.0),
       ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Builder(
-              builder: (context) {
-                final weekDays =
-                    (widget.weekDays?.toList() ?? []).take(7).toList();
-                return ListView.builder(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: weekDays.length,
-                  itemBuilder: (context, weekDaysIndex) {
-                    final weekDaysItem = weekDays[weekDaysIndex];
-                    return Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        InkWell(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Builder(
+            builder: (context) {
+              final weekDays =
+                  (widget.weekDays?.toList() ?? []).take(7).toList();
+              return ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: weekDays.length,
+                itemBuilder: (context, weekDaysIndex) {
+                  final weekDaysItem = weekDays[weekDaysIndex];
+                  return Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            18.0, 14.5, 10.0, 14.5),
+                        child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
@@ -83,56 +84,53 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 7.5, 0.0, 7.5),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    weekDaysItem.text,
-                                    'Monday',
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        fontWeight: FontWeight.w300,
-                                        lineHeight: 1.5,
-                                      ),
+                              Text(
+                                valueOrDefault<String>(
+                                  weekDaysItem.text,
+                                  'Monday',
+                                ),
+                                style: GoogleFonts.getFont(
+                                  'Rubik',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 14.0,
+                                  height: 1.5,
                                 ),
                               ),
                               if (weekDaysItem.isChecked)
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.5, 12.0, 10.5),
-                                      child: Icon(
-                                        FFIcons.kcheckbox,
-                                        color: Color(0xFF9980DD),
-                                        size: 15.0,
-                                      ),
+                                    alignment: AlignmentDirectional(1.00, 0.00),
+                                    child: Icon(
+                                      FFIcons.kcheckbox,
+                                      color: Color(0xFF9980DD),
+                                      size: 18.0,
                                     ),
                                   ),
                                 ),
                             ],
                           ),
                         ),
-                        Container(
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 0.0, 0.0),
+                        child: Container(
                           width: double.infinity,
                           height: 0.5,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).lineColor,
                           ),
                         ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
-          ],
-        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+        ],
       ),
     );
   }

@@ -62,13 +62,13 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
           ),
         ),
         Align(
-          alignment: AlignmentDirectional(-1.0, 0.0),
+          alignment: AlignmentDirectional(-1.00, 0.00),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
             child: Stack(
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.00, 0.00),
                   child: Text(
                     widget.title!,
                     textAlign: TextAlign.center,
@@ -95,7 +95,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.00, 0.00),
                           child: Icon(
                             FFIcons.kangleSpacedLeft,
                             color: Colors.black,
@@ -103,7 +103,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.00, 0.00),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 6.0, 0.0, 6.0, 0.0),

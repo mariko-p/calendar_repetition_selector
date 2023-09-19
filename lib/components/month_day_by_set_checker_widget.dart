@@ -47,7 +47,7 @@ class _MonthDayBySetCheckerWidgetState
         width: double.infinity,
         height: 100.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
+          color: Colors.transparent,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -56,14 +56,14 @@ class _MonthDayBySetCheckerWidgetState
               width: MediaQuery.sizeOf(context).width * 0.5,
               height: 100.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
+                color: Colors.transparent,
               ),
             ),
             Container(
               width: MediaQuery.sizeOf(context).width * 0.5,
               height: 100.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
+                color: Colors.transparent,
               ),
             ),
           ],

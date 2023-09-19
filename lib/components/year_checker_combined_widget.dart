@@ -47,7 +47,7 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 15.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
           child: wrapWithModel(
             model: _model.monthCheckerModel,
             updateCallback: () => setState(() {}),

@@ -46,111 +46,108 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Builder(
-              builder: (context) {
-                final firstRowMonth = functions.getMonthsList().toList();
-                return Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children:
-                      List.generate(firstRowMonth.length, (firstRowMonthIndex) {
-                    final firstRowMonthItem = firstRowMonth[firstRowMonthIndex];
-                    return Expanded(
-                      child: Stack(
-                        children: [
-                          if (firstRowMonthItem.isChecked == true)
-                            Container(
-                              height: 36.0,
-                              constraints: BoxConstraints(
-                                maxWidth: 100.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Color(0xFF9980DD),
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: SelectionArea(
-                                    child: Text(
-                                  valueOrDefault<String>(
-                                    firstRowMonthItem.text,
-                                    'jan.',
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.normal,
-                                        lineHeight: 1.5,
-                                      ),
-                                )),
-                              ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Builder(
+            builder: (context) {
+              final firstRowMonth = functions.getMonthsList().toList();
+              return Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children:
+                    List.generate(firstRowMonth.length, (firstRowMonthIndex) {
+                  final firstRowMonthItem = firstRowMonth[firstRowMonthIndex];
+                  return Expanded(
+                    child: Stack(
+                      children: [
+                        if (firstRowMonthItem.isChecked == true)
+                          Container(
+                            height: 36.0,
+                            constraints: BoxConstraints(
+                              maxWidth: 100.0,
                             ),
-                          if (firstRowMonthItem.isChecked == false)
-                            Container(
-                              height: 36.0,
-                              constraints: BoxConstraints(
-                                maxWidth: 100.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color:
-                                    FlutterFlowTheme.of(context).itemBackground,
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: SelectionArea(
-                                    child: Text(
-                                  valueOrDefault<String>(
-                                    firstRowMonthItem.text,
-                                    'jan.',
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal,
-                                        lineHeight: 1.5,
-                                      ),
-                                )),
-                              ),
+                            decoration: BoxDecoration(
+                              color: Color(0xFF9980DD),
                             ),
-                          Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
-                            child: Container(
-                              width: 0.5,
-                              height: 36.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).lineColor,
-                              ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: SelectionArea(
+                                  child: Text(
+                                valueOrDefault<String>(
+                                  firstRowMonthItem.text,
+                                  'jan.',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Rubik',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      lineHeight: 1.5,
+                                    ),
+                              )),
                             ),
                           ),
-                        ],
-                      ),
-                    );
-                  }),
-                );
-              },
+                        if (firstRowMonthItem.isChecked == false)
+                          Container(
+                            height: 36.0,
+                            constraints: BoxConstraints(
+                              maxWidth: 100.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: SelectionArea(
+                                  child: Text(
+                                valueOrDefault<String>(
+                                  firstRowMonthItem.text,
+                                  'jan.',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Rubik',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontWeight: FontWeight.normal,
+                                      lineHeight: 1.5,
+                                    ),
+                              )),
+                            ),
+                          ),
+                        Align(
+                          alignment: AlignmentDirectional(1.00, 0.00),
+                          child: Container(
+                            width: 0.5,
+                            height: 36.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).lineColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              );
+            },
+          ),
+          Container(
+            width: double.infinity,
+            height: 0.5,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).lineColor,
             ),
-            Container(
-              width: double.infinity,
-              height: 1.0,
-              decoration: BoxDecoration(
-                color: Color(0xFF7E8CA2),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

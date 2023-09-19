@@ -52,7 +52,7 @@ class _CustomFunctionsTranslationsMapWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'daxykqq2' /* The activity will repeat every... */,
@@ -64,7 +64,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'mfg5rhah' /* The activity will repeat every... */,
@@ -76,7 +76,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'vbn8qvxy' /* The activity will repeat every... */,
@@ -88,7 +88,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'zpky99wo' /* The activity will repeat every... */,
@@ -100,7 +100,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'vy44jrpj' /* The activity will repeat every... */,
@@ -112,7 +112,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
@@ -127,7 +127,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
@@ -142,7 +142,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '2cpvzq7y' /* days */,
@@ -154,7 +154,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'lsowp12l' /* week */,
@@ -166,7 +166,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '3e5xfez2' /* weeks */,
@@ -178,7 +178,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'hptgspwe' /* month */,
@@ -190,7 +190,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'ax9vtym8' /* months */,
@@ -202,7 +202,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'rrpiidap' /* year */,
@@ -214,7 +214,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'n4wmlxr5' /* years */,
@@ -226,7 +226,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
@@ -241,7 +241,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'nzdgw5w6' /* Tuesday */,
@@ -253,7 +253,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'clmax87t' /* Wednesday */,
@@ -265,7 +265,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'n6lnn8xv' /* Thursday */,
@@ -277,7 +277,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'qi8cotop' /* Friday */,
@@ -289,7 +289,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '3h99ug2f' /* Saturday */,
@@ -301,7 +301,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'ax1lx5sz' /* Sunday */,
@@ -318,7 +318,7 @@ class _CustomFunctionsTranslationsMapWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
@@ -333,7 +333,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '9g3z94s7' /* February */,
@@ -345,7 +345,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'lnt22ld1' /* March */,
@@ -357,7 +357,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '034u8g9a' /* April */,
@@ -369,7 +369,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '6hls65tt' /* May */,
@@ -381,7 +381,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'pej4ktvz' /* June */,
@@ -393,7 +393,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '6betrjev' /* July */,
@@ -405,7 +405,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '6qvjh0si' /* August */,
@@ -417,7 +417,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'sgku9oc9' /* September */,
@@ -429,7 +429,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '8sca82td' /* October */,
@@ -441,7 +441,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'wqms1orj' /* November */,
@@ -453,7 +453,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'd09m6bre' /* December */,
@@ -470,7 +470,7 @@ class _CustomFunctionsTranslationsMapWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
@@ -485,7 +485,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'j2qbaf0p' /* Every day */,
@@ -497,7 +497,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '6f13hwqg' /* Every week */,
@@ -509,7 +509,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'n5k10s1l' /* Every second week */,
@@ -521,7 +521,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'ss0z0b17' /* Every month */,
@@ -533,7 +533,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '4u8zezxi' /* Every year */,
@@ -545,7 +545,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '33iznp6j' /* Custom */,
@@ -562,7 +562,7 @@ class _CustomFunctionsTranslationsMapWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
@@ -577,7 +577,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     's7uatyuu' /* Second */,
@@ -589,7 +589,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'jcfzzqjr' /* Third */,
@@ -601,7 +601,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '1bpw60wp' /* Fourth */,
@@ -613,7 +613,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'b9stiig0' /* Fifth */,
@@ -625,7 +625,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '2o2mi8pi' /* Last */,
@@ -642,7 +642,7 @@ class _CustomFunctionsTranslationsMapWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
@@ -657,7 +657,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'yl4rh0ou' /* WeekDay */,
@@ -669,7 +669,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.00, 0.00),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'ahnsj6ps' /* Day */,
