@@ -120,7 +120,7 @@ class _AddRepetitionComponentWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      18.0, 14.5, 11.0, 14.5),
+                                      18.0, 14.5, 10.0, 14.5),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -205,7 +205,7 @@ class _AddRepetitionComponentWidgetState
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          18.0, 14.5, 11.0, 14.5),
+                          18.0, 14.5, 10.0, 14.5),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -291,10 +291,14 @@ class _AddRepetitionComponentWidgetState
                               child: FrequencyExpanderWidget(),
                             ),
                           ),
-                          wrapWithModel(
-                            model: _model.intervalExpanderModel,
-                            updateCallback: () => setState(() {}),
-                            child: IntervalExpanderWidget(),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                18.0, 14.5, 10.0, 14.5),
+                            child: wrapWithModel(
+                              model: _model.intervalExpanderModel,
+                              updateCallback: () => setState(() {}),
+                              child: IntervalExpanderWidget(),
+                            ),
                           ),
                           if (FFAppState().vTmp)
                             wrapWithModel(
@@ -470,7 +474,7 @@ class _AddRepetitionComponentWidgetState
                                   fontSize: 14.0,
                                 ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'dj3za04i' /* 1 */,
+                                  'npfxuahr' /* 1 */,
                                 ),
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,

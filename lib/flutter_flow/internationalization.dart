@@ -185,11 +185,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'End repetition After',
       'sv': 'Avsluta upprepning efter',
     },
-    'dj3za04i': {
+    'npfxuahr': {
       'en': '1',
       'sv': '',
     },
-    'xmabm6dr': {
+    'enotml2g': {
       'en': 'Search for an item...',
       'sv': '',
     },
