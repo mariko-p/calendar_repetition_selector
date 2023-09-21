@@ -5,6 +5,9 @@ export GIT_MERGE_AUTOEDIT=no
 
 git add .
 git commit -m "Local changes before sync"
+
+git pull
+
 git push
 
 if ! git pull origin flutterflow; then
@@ -16,7 +19,7 @@ if [ "$DEEP" = true ] ; then
   flutter pub get
   flutter packages pub run build_runner build --delete-conflicting-outputs
   flutter pub run flutter_launcher_icons:main
-  
+
 fi
 
 git add .
