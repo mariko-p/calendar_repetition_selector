@@ -62,81 +62,70 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
           ),
         ),
         Align(
-          alignment: AlignmentDirectional(-1.0, 0.0),
+          alignment: AlignmentDirectional(-1.00, 0.00),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
-            child: Container(
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Container(
-                      child: Text(
-                        valueOrDefault(widget.title, ""),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Rubik',
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                            ),
-                      ),
-                    ),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Text(
+                    widget.title!,
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Rubik',
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.normal,
+                          lineHeight: 1.167,
+                        ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-1,0),
-                    child: Container(
-                      padding: EdgeInsetsDirectional.fromSTEB(6, 0, 12, 0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          // BottomSheetDissmis and return vCurrentRRule.
-                          Navigator.pop(context, FFAppState().vCurrentRRule);
-                        },
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        child: Container(
-                          padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                          decoration: BoxDecoration(),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(-1, 0),
-                                child: Icon(
-                                  FFIcons.kangleFullLeft,
-                                  color: Colors.black,
-                                  size: 12,
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(-1, 0),
-                                child: Padding(
-                                  padding:
-                                      EdgeInsetsDirectional.fromSTEB(6, 2, 6, 2),
-                                  child: Text(
-                                    valueOrDefault(widget.backText, ""),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Rubik',
-                                          color: FlutterFlowTheme.of(context)
-                                          .bottomSheetActionButtons,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 14
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    // BottomSheetDismiss and return vCurrentRRule.
+                    //LOCAL_START
+                    Navigator.pop(context, FFAppState().vCurrentRRule);
+                    //LOCAL_END
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          child: Icon(
+                            FFIcons.kangleSpacedLeft,
+                            color: Colors.black,
+                            size: 24.0,
                           ),
                         ),
-                      ),
+                        Align(
+                          alignment: AlignmentDirectional(-1.00, 0.00),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                6.0, 0.0, 6.0, 0.0),
+                            child: Text(
+                              widget.backText!,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Rubik',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              )
+                ),
+              ],
             ),
           ),
         ),

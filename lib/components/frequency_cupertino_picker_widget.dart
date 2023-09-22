@@ -55,6 +55,7 @@ class _FrequencyCupertinoPickerWidgetState
         height: 130,
         child: Center(
           child: CupertinoPicker(
+              backgroundColor: Color(0xFFF3EFFF),
               itemExtent: 40,
               scrollController:
                   FixedExtentScrollController(initialItem: widget.initialIndex),

@@ -55,6 +55,7 @@ class _IntervalCupertinoPickerWidgetState
     return Container(
         height: 130,
         child: CupertinoPicker(
+            backgroundColor: Color(0xFFF3EFFF),
             itemExtent: 40,
             scrollController:
                 FixedExtentScrollController(initialItem: widget.initialIndex),

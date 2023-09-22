@@ -1,12 +1,16 @@
-import '../backend/schema/structs/interval_struct.dart';
+import '/components/interval_cupertino_picker_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'interval_cupertino_picker_widget.dart';
 import 'interval_expander_model.dart';
 export 'interval_expander_model.dart';
+
+//LOCAL_START
+import '../backend/schema/structs/interval_struct.dart';
+//LOCAL_END
 
 class IntervalExpanderWidget extends StatefulWidget {
   const IntervalExpanderWidget(
@@ -27,9 +31,12 @@ class IntervalExpanderWidget extends StatefulWidget {
 }
 
 class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
+  //LOCAL_START
   var isExpanded = false;
+  //LOCAL_END
   late IntervalExpanderModel _model;
 
+  //LOCAL_START
   void onExpansionChanged() {
     if (widget.intController.expanded) {
       setState(() {
@@ -41,6 +48,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
       });
     }
   }
+  //LOCAL_END
 
   @override
   void setState(VoidCallback callback) {
@@ -52,12 +60,15 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => IntervalExpanderModel());
+    //LOCAL_START
     widget.intController.addListener(onExpansionChanged);
+    //LOCAL_END
   }
 
   @override
   void dispose() {
     _model.maybeDispose();
+
     super.dispose();
   }
 
@@ -65,30 +76,94 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).itemBackground,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(5),
-            bottomRight: Radius.circular(5),
-            topLeft: Radius.circular(0),
-            topRight: Radius.circular(0),
-          ),
-        ),
-        child: ExpandableNotifier(
-          controller: widget.intController,
-          child: ExpandablePanel(
-            header: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
+    return Container(
+      width: double.infinity,
+      color: Colors.transparent,
+      child: ExpandableNotifier(
+        controller: widget.intController,
+        child: ExpandablePanel(
+          header: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(18.0, 14.5, 10.0, 14.5),
+                child: Container(
                   width: double.infinity,
-                  height: 36.0,
+                  child: InkWell(
+                    onTap: () => {widget.intController.toggle()},
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '2952w46f' /* With the interval */,
+                          ),
+                          style: GoogleFonts.getFont(
+                            'Rubik',
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 14.0,
+                            height: 1.5,
+                          ),
+                        ),
+                        Expanded(
+                          child: Align(
+                            alignment: AlignmentDirectional(1.00, 0.00),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 20.0, 0.0),
+                              child: Text(
+                                //LOCAL_START
+                                widget
+                                    .currentIntervals[
+                                widget.currentIntervalIndex]
+                                    .text ??
+                                    "",
+                                //LOCAL_END
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Rubik',
+                                      color: Color(0xFF7E8CA2),
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              //LOCAL_START
+              if (isExpanded)
+                //LOCAL_END
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 0.0, 0.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 0.5,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context)
+                          .lineColor,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+          collapsed: Container(),
+          expanded: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 98,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).itemBackground,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(5.0),
                       bottomRight: Radius.circular(5.0),
@@ -96,125 +171,28 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                       topRight: Radius.circular(0.0),
                     ),
                   ),
-                  child: Material(
-                    color: FlutterFlowTheme.of(context).itemBackground,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: isExpanded
-                          ? BorderRadius.all(Radius.zero)
-                          : BorderRadius.only(
-                              bottomLeft: Radius.circular(5),
-                              bottomRight: Radius.circular(5),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0),
-                            ),
-                    ),
-                    child: InkWell(
-                      onTap: () => {widget.intController.toggle()},
-                      borderRadius: isExpanded
-                          ? null
-                          : BorderRadius.only(
-                              bottomLeft: Radius.circular(5),
-                              bottomRight: Radius.circular(5),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0)),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 7.5, 0, 7.5),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                '2952w46f' /* With the interval */,
-                              ),
-                              style:
-                                  FlutterFlowTheme.of(context).displaySmall.override(
-                                        fontFamily: 'Rubik',
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(1, 0),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-                                child: Text(
-                                  widget
-                                          .currentIntervals[
-                                              widget.currentIntervalIndex]
-                                          .text ??
-                                      "",
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: Color(0xFF7E8CA2),
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  child: wrapWithModel(
+                    model: _model.intervalCupertinoPickerModel,
+                    updateCallback: () => setState(() {}),
+                    //LOCAL_START
+                    child: IntervalCupertinoPickerWidget(
+                        items: widget.currentIntervals,
+                        initialIndex: widget.currentIntervalIndex,
+                        onItemChanged: (index) async {
+                          widget.onItemChanged(index);
+                        }),
+                    //LOCAL_END
                   ),
                 ),
-                if (isExpanded)
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 0.5,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).lineColor,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-            collapsed: Container(),
-            expanded: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).itemBackground,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(5),
-                          bottomRight: Radius.circular(5),
-                          topLeft: Radius.circular(0),
-                          topRight: Radius.circular(0),
-                        ),
-                      ),
-                      child: wrapWithModel(
-                        child: IntervalCupertinoPickerWidget(
-                            items: widget.currentIntervals,
-                            initialIndex: widget.currentIntervalIndex,
-                            onItemChanged: (index) async {
-                              widget.onItemChanged(index);
-                            }),
-                        model: _model.intervalCupertinoPickerModel,
-                        updateCallback: () => setState(() {}),
-                      ),
-                    )),
-              ],
-            ),
-            theme: ExpandableThemeData(
-              tapHeaderToExpand: true,
-              tapBodyToExpand: false,
-              tapBodyToCollapse: false,
-              headerAlignment: ExpandablePanelHeaderAlignment.center,
-              hasIcon: false,
-            ),
+              ),
+            ],
+          ),
+          theme: ExpandableThemeData(
+            tapHeaderToExpand: true,
+            tapBodyToExpand: false,
+            tapBodyToCollapse: false,
+            headerAlignment: ExpandablePanelHeaderAlignment.center,
+            hasIcon: false,
           ),
         ),
       ),

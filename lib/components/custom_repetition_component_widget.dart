@@ -100,7 +100,7 @@ class _CustomRepetitionComponentWidgetState
     super.initState();
     _model = createModel(context, () => CustomRepetitionComponentModel());
 
-  
+
     if (widget.rrule?.isNotEmpty == true) {
       FFAppState().vCurrentRRule = widget.rrule!;
     } else {
@@ -134,7 +134,7 @@ class _CustomRepetitionComponentWidgetState
         weekDays = getWeekDayList(context);
         months = getMonthsList(context);
       });
-      
+
       autoSelectRRule();
       initHumanReadableText();
       setState(() { });
@@ -468,7 +468,7 @@ class _CustomRepetitionComponentWidgetState
         mainAxisSize: MainAxisSize.max,
         children: [
           Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.00, -1.00),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,

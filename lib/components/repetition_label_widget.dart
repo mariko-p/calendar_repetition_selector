@@ -44,23 +44,18 @@ class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(35.0, 5.0, 15.0, 0.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(),
-        child: Align(
-          alignment: AlignmentDirectional(-1.0, 0.0),
-          child: Text(
-            widget.humanReadableText!,
-            textAlign: TextAlign.start,
-            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Rubik',
-                  color: Color(0xFF7E8CA2),
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.normal,
-                ),
-          ),
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(),
+      child: Text(
+        widget.humanReadableText!,
+        textAlign: TextAlign.start,
+        style: GoogleFonts.getFont(
+          'Rubik',
+          color: FlutterFlowTheme.of(context).secondaryText,
+          fontWeight: FontWeight.normal,
+          fontSize: 12.0,
+          height: 1.5,
         ),
       ),
     );

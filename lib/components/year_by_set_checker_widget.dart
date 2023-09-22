@@ -85,149 +85,102 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
       padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
       child: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
-        ),
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-          ),
-          child: ExpandableNotifier(
-            controller: controller,
-            child: ExpandablePanel(
-              header: Container(
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).itemBackground,
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Material(
-                      color: FlutterFlowTheme.of(context).itemBackground,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(5),
-                        topRight: Radius.circular(5),
-                      ),
-                      child: InkWell(
-                        onTap: (() {
-                          controller.toggle();
-                        }),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(5),
-                          topRight: Radius.circular(5),
-                        ),
-                        child: Container(
-                          width: double.infinity,
-                          height: 36,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(5),
-                              topRight: Radius.circular(5),
-                            ),
-                            border: Border.all(
-                              color:
-                                  FlutterFlowTheme.of(context).itemBackground,
+        child: ExpandableNotifier(
+          controller: controller,
+          child: ExpandablePanel(
+            header: Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  InkWell(
+                    onTap: (() {
+                      controller.toggle();
+                    }),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(5),
+                      topRight: Radius.circular(5),
+                    ),
+                    child: Container(
+                      width: double.infinity,
+                      height: 36,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10, 7.5, 0, 7.5),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'cl0eiplq' /* Weekdays */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Rubik',
+                                    fontWeight: FontWeight.w300,
+                                    lineHeight: 1.5,
+                                  ),
                             ),
                           ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 7.5, 0, 7.5),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'cl0eiplq' /* Weekdays */,
+                          if (isWeekDaysChecked == true)
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(1, 0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 10.5, 12, 10.5),
+                                  child: Icon(
+                                    FFIcons.kcheckbox,
+                                    color: Color(0xFF9980DD),
+                                    size: 15,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        fontWeight: FontWeight.w300,
-                                        lineHeight: 1.5,
-                                      ),
                                 ),
                               ),
-                              if (isWeekDaysChecked == true)
-                                Expanded(
-                                  child: Align(
-                                    alignment: AlignmentDirectional(1, 0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10.5, 12, 10.5),
-                                      child: Icon(
-                                        FFIcons.kcheckbox,
-                                        color: Color(0xFF9980DD),
-                                        size: 15,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  if (isWeekDaysChecked == true)
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 0.5,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).lineColor,
                         ),
                       ),
                     ),
-                    if (isWeekDaysChecked == true)
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 0.5,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).lineColor,
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
+                ],
               ),
-              collapsed: Container(
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(5),
-                    topRight: Radius.circular(5),
-                  ),
-                ),
-              ),
-              expanded: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).itemBackground,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(5),
-                    bottomRight: Radius.circular(5),
-                    topLeft: Radius.circular(5),
-                    topRight: Radius.circular(5),
-                  ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    wrapWithModel(
-                      child: MonthDayBySetCheckerWidget(
-                        bySetPos: widget.bySetPos,
-                        byDay: widget.byDay,
-                        bySetPosChanged: ((bySetPos) =>
-                            widget.bySetPosChanged(bySetPos)),
-                        byDayChanged: ((byDay) => widget.byDayChanged(byDay)),
-                      ),
-                      model: _model.monthDayBySetCheckerModel,
-                      updateCallback: () => setState(() {}),
+            ),
+            collapsed: Container(),
+            expanded: Container(
+              width: double.infinity,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  wrapWithModel(
+                    child: MonthDayBySetCheckerWidget(
+                      bySetPos: widget.bySetPos,
+                      byDay: widget.byDay,
+                      bySetPosChanged: ((bySetPos) =>
+                          widget.bySetPosChanged(bySetPos)),
+                      byDayChanged: ((byDay) => widget.byDayChanged(byDay)),
                     ),
-                  ],
-                ),
+                    model: _model.monthDayBySetCheckerModel,
+                    updateCallback: () => setState(() {}),
+                  ),
+                ],
               ),
-              theme: ExpandableThemeData(
-                tapHeaderToExpand: true,
-                tapBodyToExpand: false,
-                tapBodyToCollapse: false,
-                headerAlignment: ExpandablePanelHeaderAlignment.center,
-                hasIcon: false,
-              ),
+            ),
+            theme: ExpandableThemeData(
+              tapHeaderToExpand: true,
+              tapBodyToExpand: false,
+              tapBodyToCollapse: false,
+              headerAlignment: ExpandablePanelHeaderAlignment.center,
+              hasIcon: false,
             ),
           ),
         ),

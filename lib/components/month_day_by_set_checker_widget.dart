@@ -61,7 +61,7 @@ class _MonthDayBySetCheckerWidgetState
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       //Apply specific language.
-      setState(() {  
+      setState(() {
         bySetPositionItems = getBySetPositionList(context);
         byDayItems = getByDayList(context);
       });
@@ -85,66 +85,65 @@ class _MonthDayBySetCheckerWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-      child: Row(mainAxisSize: MainAxisSize.max, children: [
-        Container(
-            height: 130,
-            width: MediaQuery.sizeOf(context).width * 0.4,
-            child: Center(
-              child: CupertinoPicker(
-                  scrollController:
-                      FixedExtentScrollController(initialItem: positionIndex),
-                  itemExtent: 40,
-                  children: bySetPositionItems
-                      .map((item) => Center(
-                              child: Text(
-                            item.text ?? "",
-                            style:
-                                FlutterFlowTheme.of(context).bodyMedium.override(
-                                      fontFamily: 'Rubik',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                          )))
-                      .toList(),
-                  onSelectedItemChanged: (index) {
-                    SystemSound.play(SystemSoundType.click);
-                    HapticFeedback.lightImpact();
-                    positionIndex = index;
+    return Row(mainAxisSize: MainAxisSize.min, children: [
+      Container(
+          height: 130,
+          width: MediaQuery.sizeOf(context).width * 0.4,
+          child: Center(
+            child: CupertinoPicker(
+                backgroundColor: Color(0xFFF3EFFF),
+                scrollController:
+                    FixedExtentScrollController(initialItem: positionIndex),
+                itemExtent: 40,
+                children: bySetPositionItems
+                    .map((item) => Center(
+                            child: Text(
+                          item.text ?? "",
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Rubik',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                        )))
+                    .toList(),
+                onSelectedItemChanged: (index) {
+                  SystemSound.play(SystemSoundType.click);
+                  HapticFeedback.lightImpact();
+                  positionIndex = index;
 
-                    widget.bySetPosChanged(bySetPositionItems[index]);
-                  }),
-            )),
-        Container(
-            height: 130,
-            width: MediaQuery.sizeOf(context).width * 0.4,
-            child: Center(
-              child: CupertinoPicker(
-                  scrollController:
-                      FixedExtentScrollController(initialItem: dayIndex),
-                  itemExtent: 40,
-                  children: byDayItems
-                      .map((item) => Center(
-                              child: Text(
-                            item.text ?? "",
-                            style:
-                                FlutterFlowTheme.of(context).bodyMedium.override(
-                                      fontFamily: 'Rubik',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                          )))
-                      .toList(),
-                  onSelectedItemChanged: (index) {
-                    SystemSound.play(SystemSoundType.click);
-                    HapticFeedback.lightImpact();
-                    dayIndex = index;
+                  widget.bySetPosChanged(bySetPositionItems[index]);
+                }),
+          )),
+      Container(
+          height: 130,
+          width: MediaQuery.sizeOf(context).width * 0.4,
+          child: Center(
+            child: CupertinoPicker(
+                backgroundColor: Color(0xFFF3EFFF),
+                scrollController:
+                    FixedExtentScrollController(initialItem: dayIndex),
+                itemExtent: 40,
+                children: byDayItems
+                    .map((item) => Center(
+                            child: Text(
+                          item.text ?? "",
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Rubik',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                        )))
+                    .toList(),
+                onSelectedItemChanged: (index) {
+                  SystemSound.play(SystemSoundType.click);
+                  HapticFeedback.lightImpact();
+                  dayIndex = index;
 
-                    widget.byDayChanged(byDayItems[index]);
-                  }),
-            )),
-      ]),
-    );
+                  widget.byDayChanged(byDayItems[index]);
+                }),
+          )),
+    ]);
   }
 }

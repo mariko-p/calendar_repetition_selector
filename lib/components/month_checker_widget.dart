@@ -90,7 +90,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                       child: Container(
                         height: 36,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).itemBackground,
+                          color: Colors.transparent,
                           borderRadius: getSpecificBorderRadius(item.text),
                         ),
                         child: Align(
@@ -193,6 +193,9 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
     return Container(
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+      ),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
         child: Column(

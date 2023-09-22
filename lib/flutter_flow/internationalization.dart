@@ -165,11 +165,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AddRepetitionComponent
   {
+    '34ooc256': {
+      'en': 'Suggestions',
+      'sv': 'Förslag',
+    },
     'pwpi343g': {
       'en': 'Custom',
       // LOCAL_START
       'sv': 'Anpassad',
       // LOCAL_END
+    },
+    'kkyhmr7g': {
+      'en': 'Repeat forever',
+      'sv': 'Upprepa för alltid',
+    },
+    '9ed6988p': {
+      'en': 'End repetition On',
+      'sv': 'Avsluta repetition På',
+    },
+    '6ts3zr1x': {
+      'en': 'End repetition After',
+      'sv': 'Avsluta upprepning efter',
+    },
+    'npfxuahr': {
+      'en': '1',
+      'sv': '',
+    },
+    'enotml2g': {
+      'en': 'Search for an item...',
+      'sv': '',
+    },
+    '44hbrowg': {
+      'en': 'Repeat on Done',
+      'sv': 'Upprepa på Klar',
+    },
+    'r0cj7rtk': {
+      'en': 'Skip weekends',
+      'sv': 'Skippa helger',
+    },
+    'g1o6r2kx': {
+      'en': 'Do not show in Overdue activities',
+      'sv': 'Visa inte i försenade aktiviteter',
+    },
+    'bwo20d1o': {
+      'en': 'Summary:',
+      'sv': 'Sammanfattning:',
     },
   },
   // YearBySetChecker

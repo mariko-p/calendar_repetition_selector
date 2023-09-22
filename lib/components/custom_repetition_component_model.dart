@@ -17,14 +17,14 @@ class CustomRepetitionComponentModel extends FlutterFlowModel {
 
   // Model for HeaderCenteredNavBar component.
   late HeaderCenteredNavBarModel headerCenteredNavBarModel;
-  // Model for FrequencyExpander component.
-  late FrequencyExpanderModel frequencyExpanderModel;
   // Model for IntervalExpander component.
   late IntervalExpanderModel intervalExpanderModel;
   // Model for RepetitionLabel component.
   late RepetitionLabelModel repetitionLabelModel;
   // Model for WeekDayChecker component.
   late WeekDayCheckerModel weekDayCheckerModel;
+  // Model for FrequencyExpander component.
+  late FrequencyExpanderModel frequencyExpanderModel;
   // Model for MonthDayCheckerCombined component.
   late MonthDayCheckerCombinedModel monthDayCheckerCombinedModel;
   // Model for YearCheckerCombined component.
@@ -35,11 +35,11 @@ class CustomRepetitionComponentModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     headerCenteredNavBarModel =
         createModel(context, () => HeaderCenteredNavBarModel());
-    frequencyExpanderModel =
-        createModel(context, () => FrequencyExpanderModel());
     intervalExpanderModel = createModel(context, () => IntervalExpanderModel());
     repetitionLabelModel = createModel(context, () => RepetitionLabelModel());
     weekDayCheckerModel = createModel(context, () => WeekDayCheckerModel());
+    frequencyExpanderModel =
+        createModel(context, () => FrequencyExpanderModel());
     monthDayCheckerCombinedModel =
         createModel(context, () => MonthDayCheckerCombinedModel());
     yearCheckerCombinedModel =
@@ -48,10 +48,10 @@ class CustomRepetitionComponentModel extends FlutterFlowModel {
 
   void dispose() {
     headerCenteredNavBarModel.dispose();
-    frequencyExpanderModel.dispose();
     intervalExpanderModel.dispose();
     repetitionLabelModel.dispose();
     weekDayCheckerModel.dispose();
+    frequencyExpanderModel.dispose();
     monthDayCheckerCombinedModel.dispose();
     yearCheckerCombinedModel.dispose();
   }
