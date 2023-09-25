@@ -47,7 +47,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ),
           );
         },
-      ).then((value) => setState(() {}));
+      ).then((value) => safeSetState(() {}));
     });
   }
 
@@ -104,7 +104,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             );
                           },
-                        ).then((value) => setState(() {}));
+                        ).then((value) => safeSetState(() {}));
                       },
                       text: FFLocalizations.of(context).getText(
                         'xwyxwy9n' /* Open */,
