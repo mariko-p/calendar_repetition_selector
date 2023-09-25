@@ -975,8 +975,8 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
+                                    color: _model.repeatForeverEnabled ?
+                                        FlutterFlowTheme.of(context).primaryText : Color(0xff7d8ba1),
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1038,8 +1038,8 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
+                                    color: _model.endRepetitionOnEnabled ?
+                                        FlutterFlowTheme.of(context).primaryText : Color(0xff7d8ba1),
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1060,8 +1060,9 @@ class _AddRepetitionComponentWidgetState
                                       height: 28.0,
                                       textStyle: GoogleFonts.getFont(
                                         'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color: _model.endRepetitionOnEnabled ?
+                                          FlutterFlowTheme.of(context).primaryText :
+                                          Color(0xff7d8ba1),
                                         fontWeight: FontWeight.w300,
                                         fontSize: 14.0,
                                       ),
@@ -1071,15 +1072,17 @@ class _AddRepetitionComponentWidgetState
                                       ),
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                        color: _model.endRepetitionOnEnabled ?
+                                          FlutterFlowTheme.of(context).secondaryText :
+                                          Color(0xff7d8ba1),
                                         size: 20.0,
                                       ),
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       elevation: 0.0,
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                      borderColor: _model.endRepetitionOnEnabled ?
+                                          FlutterFlowTheme.of(context).secondaryText :
+                                          Color(0xff7d8ba1),
                                       borderWidth: 0.5,
                                       borderRadius: 5.0,
                                       margin: EdgeInsetsDirectional.fromSTEB(
@@ -1141,8 +1144,8 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
+                                    color: _model.endRepetitionAfterEnabled ?
+                                        FlutterFlowTheme.of(context).primaryText : Color(0xff7d8ba1),
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
