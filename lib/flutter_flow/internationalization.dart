@@ -183,15 +183,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'End repetition On',
       'sv': 'Avsluta repetition På',
     },
+    'ymue1mm8': {
+      'en': 'Today',
+      'sv': 'I dag',
+    },
+    '59z1v5a2': {
+      'en': 'Search for an item...',
+      'sv': '',
+    },
     '6ts3zr1x': {
       'en': 'End repetition After',
       'sv': 'Avsluta upprepning efter',
     },
-    'npfxuahr': {
+    '920vxph3': {
       'en': '1',
-      'sv': '',
+      'sv': '1',
     },
-    'enotml2g': {
+    'o502brhx': {
       'en': 'Search for an item...',
       'sv': '',
     },

@@ -2,11 +2,11 @@ import '/components/frequency_expander_widget.dart';
 import '/components/header_centered_nav_bar_widget.dart';
 import '/components/interval_expander_widget.dart';
 import '/components/month_day_checker_combined_widget.dart';
+import '/components/radio_button_widget.dart';
 import '/components/repetition_label_widget.dart';
 import '/components/week_day_checker_widget.dart';
 import '/components/year_checker_combined_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -19,6 +19,12 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
   bool isCustomSelected = false;
+
+  bool repeatForeverEnabled = true;
+
+  bool endRepetitionOnEnabled = false;
+
+  bool endRepetitionAfterEnabled = false;
 
   ///  State fields for stateful widgets in this component.
 
@@ -34,15 +40,18 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   late MonthDayCheckerCombinedModel monthDayCheckerCombinedModel;
   // Model for YearCheckerCombined component.
   late YearCheckerCombinedModel yearCheckerCombinedModel;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController1;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController2;
+  // Model for RadioButton component.
+  late RadioButtonModel radioButtonModel1;
   // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController3;
+  String? dropDownValue1;
+  FormFieldController<String>? dropDownValueController1;
+  // Model for RadioButton component.
+  late RadioButtonModel radioButtonModel2;
+  // State field(s) for DropDown widget.
+  String? dropDownValue2;
+  FormFieldController<String>? dropDownValueController2;
+  // Model for RadioButton component.
+  late RadioButtonModel radioButtonModel3;
   // State field(s) for Checkbox widget.
   bool? checkboxValue1;
   // State field(s) for Checkbox widget.
@@ -75,6 +84,9 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
         createModel(context, () => MonthDayCheckerCombinedModel());
     yearCheckerCombinedModel =
         createModel(context, () => YearCheckerCombinedModel());
+    radioButtonModel1 = createModel(context, () => RadioButtonModel());
+    radioButtonModel2 = createModel(context, () => RadioButtonModel());
+    radioButtonModel3 = createModel(context, () => RadioButtonModel());
     repetitionLabelModel1 = createModel(context, () => RepetitionLabelModel());
     repetitionLabelModel2 = createModel(context, () => RepetitionLabelModel());
   }
@@ -86,6 +98,9 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
     weekDayCheckerModel.dispose();
     monthDayCheckerCombinedModel.dispose();
     yearCheckerCombinedModel.dispose();
+    radioButtonModel1.dispose();
+    radioButtonModel2.dispose();
+    radioButtonModel3.dispose();
     repetitionLabelModel1.dispose();
     repetitionLabelModel2.dispose();
   }
@@ -93,8 +108,4 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
-
-  String? get radioButtonValue1 => radioButtonValueController1?.value;
-  String? get radioButtonValue2 => radioButtonValueController2?.value;
-  String? get radioButtonValue3 => radioButtonValueController3?.value;
 }

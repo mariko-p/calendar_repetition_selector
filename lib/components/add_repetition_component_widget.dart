@@ -2,11 +2,11 @@ import '/components/frequency_expander_widget.dart';
 import '/components/header_centered_nav_bar_widget.dart';
 import '/components/interval_expander_widget.dart';
 import '/components/month_day_checker_combined_widget.dart';
+import '/components/radio_button_widget.dart';
 import '/components/repetition_label_widget.dart';
 import '/components/week_day_checker_widget.dart';
 import '/components/year_checker_combined_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -964,7 +964,7 @@ class _AddRepetitionComponentWidgetState
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                18.0, 0, 10.0, 0),
+                                18.0, 14.5, 10.0, 14.5),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -982,15 +982,34 @@ class _AddRepetitionComponentWidgetState
                                     height: 1.5,
                                   ),
                                 ),
-                                Checkbox(
-                                  value: _model.checkboxValue4 ??= false,
-                                  onChanged: (newValue) async {
-                                    setState(() =>
-                                    _model.checkboxValue4 = newValue!);
-                                  },
-                                  activeColor: Colors.transparent,
-                                  checkColor: FlutterFlowTheme.of(context)
-                                      .secondaryText,
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        // Repeat forever True
+                                        setState(() {
+                                          _model.repeatForeverEnabled = true;
+                                          _model.endRepetitionOnEnabled = false;
+                                          _model.endRepetitionAfterEnabled =
+                                          false;
+                                        });
+                                      },
+                                      child: wrapWithModel(
+                                        model: _model.radioButtonModel1,
+                                        updateCallback: () => setState(() {}),
+                                        child: RadioButtonWidget(
+                                          isDisabled:
+                                          !_model.repeatForeverEnabled,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
@@ -1008,7 +1027,7 @@ class _AddRepetitionComponentWidgetState
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                18.0, 0, 10.0, 0),
+                                18.0, 14.5, 10.0, 14.5),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1026,15 +1045,74 @@ class _AddRepetitionComponentWidgetState
                                     height: 1.5,
                                   ),
                                 ),
-                                Checkbox(
-                                  value: _model.checkboxValue5 ??= false,
-                                  onChanged: (newValue) async {
-                                    setState(() =>
-                                    _model.checkboxValue5 = newValue!);
-                                  },
-                                  activeColor: Colors.transparent,
-                                  checkColor: FlutterFlowTheme.of(context)
-                                      .secondaryText,
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    FlutterFlowDropDown<String>(
+                                      controller:
+                                      _model.dropDownValueController1 ??=
+                                          FormFieldController<String>(null),
+                                      options: <String>[],
+                                      onChanged: (val) => setState(
+                                              () => _model.dropDownValue1 = val),
+                                      width: 80.0,
+                                      height: 28.0,
+                                      textStyle: GoogleFonts.getFont(
+                                        'Rubik',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14.0,
+                                      ),
+                                      hintText:
+                                      FFLocalizations.of(context).getText(
+                                        'ymue1mm8' /* Today */,
+                                      ),
+                                      icon: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 20.0,
+                                      ),
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      elevation: 0.0,
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      borderWidth: 0.5,
+                                      borderRadius: 5.0,
+                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                          11.0, 0.0, 6.0, 0.0),
+                                      hidesUnderline: true,
+                                      disabled: !_model.endRepetitionOnEnabled,
+                                      isSearchable: false,
+                                      isMultiSelect: false,
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        // End repetition On True
+                                        setState(() {
+                                          _model.endRepetitionOnEnabled = true;
+                                          _model.repeatForeverEnabled = false;
+                                          _model.endRepetitionAfterEnabled =
+                                          false;
+                                        });
+                                      },
+                                      child: wrapWithModel(
+                                        model: _model.radioButtonModel2,
+                                        updateCallback: () => setState(() {}),
+                                        child: RadioButtonWidget(
+                                          isDisabled:
+                                          !_model.endRepetitionOnEnabled,
+                                        ),
+                                      ),
+                                    ),
+                                  ].divide(SizedBox(width: 20.0)),
                                 ),
                               ],
                             ),
@@ -1052,7 +1130,7 @@ class _AddRepetitionComponentWidgetState
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                18.0, 0, 10.0, 0),
+                                18.0, 14.5, 10.0, 14.5),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1070,52 +1148,73 @@ class _AddRepetitionComponentWidgetState
                                     height: 1.5,
                                   ),
                                 ),
-                                FlutterFlowDropDown<String>(
-                                  controller: _model.dropDownValueController ??=
-                                      FormFieldController<String>(null),
-                                  options: <String>[],
-                                  onChanged: (val) =>
-                                      setState(() => _model.dropDownValue = val),
-                                  width: 130.0,
-                                  height: 28.0,
-                                  textStyle: GoogleFonts.getFont(
-                                    'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 14.0,
-                                  ),
-                                  hintText: FFLocalizations.of(context).getText(
-                                    'npfxuahr' /* 1 */,
-                                  ),
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 20.0,
-                                  ),
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  elevation: 0.0,
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).secondaryText,
-                                  borderWidth: 0.5,
-                                  borderRadius: 5.0,
-                                  margin: EdgeInsetsDirectional.fromSTEB(
-                                      11.0, 0.0, 11.0, 0.0),
-                                  hidesUnderline: true,
-                                  isSearchable: false,
-                                  isMultiSelect: false,
-                                ),
-                                Checkbox(
-                                  value: _model.checkboxValue6 ??= false,
-                                  onChanged: (newValue) async {
-                                    setState(() =>
-                                    _model.checkboxValue6 = newValue!);
-                                  },
-                                  activeColor: Colors.transparent,
-                                  checkColor: FlutterFlowTheme.of(context)
-                                      .secondaryText,
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    FlutterFlowDropDown<String>(
+                                      controller:
+                                      _model.dropDownValueController2 ??=
+                                          FormFieldController<String>(null),
+                                      options: <String>[],
+                                      onChanged: (val) => setState(
+                                              () => _model.dropDownValue2 = val),
+                                      width: 80.0,
+                                      height: 28.0,
+                                      textStyle: GoogleFonts.getFont(
+                                        'Rubik',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14.0,
+                                      ),
+                                      hintText:
+                                      FFLocalizations.of(context).getText(
+                                        '920vxph3' /* 1 */,
+                                      ),
+                                      icon: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 20.0,
+                                      ),
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      elevation: 0.0,
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      borderWidth: 0.5,
+                                      borderRadius: 5.0,
+                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                          11.0, 0.0, 6.0, 0.0),
+                                      hidesUnderline: true,
+                                      disabled: !_model.endRepetitionAfterEnabled,
+                                      isSearchable: false,
+                                      isMultiSelect: false,
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        // End repetition After True
+                                        setState(() {
+                                          _model.endRepetitionAfterEnabled = true;
+                                          _model.repeatForeverEnabled = false;
+                                          _model.endRepetitionOnEnabled = false;
+                                        });
+                                      },
+                                      child: wrapWithModel(
+                                        model: _model.radioButtonModel3,
+                                        updateCallback: () => setState(() {}),
+                                        child: RadioButtonWidget(
+                                          isDisabled:
+                                          !_model.endRepetitionAfterEnabled,
+                                        ),
+                                      ),
+                                    ),
+                                  ].divide(SizedBox(width: 20.0)),
                                 ),
                               ],
                             ),

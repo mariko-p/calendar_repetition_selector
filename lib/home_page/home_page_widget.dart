@@ -122,9 +122,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             );
                           },
-                        ).then((value) => setState(() {
-                          //print ("RRULE: on back: $value");
-                        }));
+                        ).then((value) => safeSetState(() {}));
                       },
                       text: FFLocalizations.of(context).getText(
                         'xwyxwy9n' /* Open */,
