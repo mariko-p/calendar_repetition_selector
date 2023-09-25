@@ -355,33 +355,34 @@ class _AddRepetitionComponentWidgetState
                                   height: 1.5,
                                 ),
                               ),
-                              Expanded(
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        setState(() {
-                                          _model.repeatForeverEnabled =
-                                              !_model.repeatForeverEnabled;
-                                        });
-                                      },
-                                      child: wrapWithModel(
-                                        model: _model.radioButtonModel1,
-                                        updateCallback: () => setState(() {}),
-                                        child: RadioButtonWidget(
-                                          isDisabled:
-                                              !_model.repeatForeverEnabled,
-                                        ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      // Repeat forever True
+                                      setState(() {
+                                        _model.repeatForeverEnabled = true;
+                                        _model.endRepetitionOnEnabled = false;
+                                        _model.endRepetitionAfterEnabled =
+                                            false;
+                                      });
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.radioButtonModel1,
+                                      updateCallback: () => setState(() {}),
+                                      child: RadioButtonWidget(
+                                        isDisabled:
+                                            !_model.repeatForeverEnabled,
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -417,73 +418,74 @@ class _AddRepetitionComponentWidgetState
                                   height: 1.5,
                                 ),
                               ),
-                              Expanded(
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    FlutterFlowDropDown<String>(
-                                      controller:
-                                          _model.dropDownValueController1 ??=
-                                              FormFieldController<String>(null),
-                                      options: <String>[],
-                                      onChanged: (val) => setState(
-                                          () => _model.dropDownValue1 = val),
-                                      width: 80.0,
-                                      height: 28.0,
-                                      textStyle: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 14.0,
-                                      ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'ymue1mm8' /* Today */,
-                                      ),
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 20.0,
-                                      ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 0.0,
-                                      borderColor: FlutterFlowTheme.of(context)
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  FlutterFlowDropDown<String>(
+                                    controller:
+                                        _model.dropDownValueController1 ??=
+                                            FormFieldController<String>(null),
+                                    options: <String>[],
+                                    onChanged: (val) => setState(
+                                        () => _model.dropDownValue1 = val),
+                                    width: 80.0,
+                                    height: 28.0,
+                                    textStyle: GoogleFonts.getFont(
+                                      'Rubik',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14.0,
+                                    ),
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'ymue1mm8' /* Today */,
+                                    ),
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      borderWidth: 0.5,
-                                      borderRadius: 5.0,
-                                      margin: EdgeInsetsDirectional.fromSTEB(
-                                          11.0, 0.0, 6.0, 0.0),
-                                      hidesUnderline: true,
-                                      disabled: !_model.endRepetitionOnEnabled,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
+                                      size: 20.0,
                                     ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        setState(() {
-                                          _model.endRepetitionOnEnabled =
-                                              !_model.endRepetitionOnEnabled;
-                                        });
-                                      },
-                                      child: wrapWithModel(
-                                        model: _model.radioButtonModel2,
-                                        updateCallback: () => setState(() {}),
-                                        child: RadioButtonWidget(
-                                          isDisabled:
-                                              !_model.endRepetitionOnEnabled,
-                                        ),
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 0.0,
+                                    borderColor: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    borderWidth: 0.5,
+                                    borderRadius: 5.0,
+                                    margin: EdgeInsetsDirectional.fromSTEB(
+                                        11.0, 0.0, 6.0, 0.0),
+                                    hidesUnderline: true,
+                                    disabled: !_model.endRepetitionOnEnabled,
+                                    isSearchable: false,
+                                    isMultiSelect: false,
+                                  ),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      // End repetition On True
+                                      setState(() {
+                                        _model.endRepetitionOnEnabled = true;
+                                        _model.repeatForeverEnabled = false;
+                                        _model.endRepetitionAfterEnabled =
+                                            false;
+                                      });
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.radioButtonModel2,
+                                      updateCallback: () => setState(() {}),
+                                      child: RadioButtonWidget(
+                                        isDisabled:
+                                            !_model.endRepetitionOnEnabled,
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 20.0)),
-                                ),
+                                  ),
+                                ].divide(SizedBox(width: 20.0)),
                               ),
                             ],
                           ),
@@ -519,74 +521,73 @@ class _AddRepetitionComponentWidgetState
                                   height: 1.5,
                                 ),
                               ),
-                              Expanded(
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    FlutterFlowDropDown<String>(
-                                      controller:
-                                          _model.dropDownValueController2 ??=
-                                              FormFieldController<String>(null),
-                                      options: <String>[],
-                                      onChanged: (val) => setState(
-                                          () => _model.dropDownValue2 = val),
-                                      width: 80.0,
-                                      height: 28.0,
-                                      textStyle: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 14.0,
-                                      ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        '920vxph3' /* 1 */,
-                                      ),
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 20.0,
-                                      ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 0.0,
-                                      borderColor: FlutterFlowTheme.of(context)
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  FlutterFlowDropDown<String>(
+                                    controller:
+                                        _model.dropDownValueController2 ??=
+                                            FormFieldController<String>(null),
+                                    options: <String>[],
+                                    onChanged: (val) => setState(
+                                        () => _model.dropDownValue2 = val),
+                                    width: 80.0,
+                                    height: 28.0,
+                                    textStyle: GoogleFonts.getFont(
+                                      'Rubik',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14.0,
+                                    ),
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      '920vxph3' /* 1 */,
+                                    ),
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      borderWidth: 0.5,
-                                      borderRadius: 5.0,
-                                      margin: EdgeInsetsDirectional.fromSTEB(
-                                          11.0, 0.0, 6.0, 0.0),
-                                      hidesUnderline: true,
-                                      disabled:
-                                          !_model.endRepetitionAfterEnabled,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
+                                      size: 20.0,
                                     ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        setState(() {
-                                          _model.endRepetitionAfterEnabled =
-                                              !_model.endRepetitionAfterEnabled;
-                                        });
-                                      },
-                                      child: wrapWithModel(
-                                        model: _model.radioButtonModel3,
-                                        updateCallback: () => setState(() {}),
-                                        child: RadioButtonWidget(
-                                          isDisabled:
-                                              !_model.endRepetitionAfterEnabled,
-                                        ),
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 0.0,
+                                    borderColor: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    borderWidth: 0.5,
+                                    borderRadius: 5.0,
+                                    margin: EdgeInsetsDirectional.fromSTEB(
+                                        11.0, 0.0, 6.0, 0.0),
+                                    hidesUnderline: true,
+                                    disabled: !_model.endRepetitionAfterEnabled,
+                                    isSearchable: false,
+                                    isMultiSelect: false,
+                                  ),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      // End repetition After True
+                                      setState(() {
+                                        _model.endRepetitionAfterEnabled = true;
+                                        _model.repeatForeverEnabled = false;
+                                        _model.endRepetitionOnEnabled = false;
+                                      });
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.radioButtonModel3,
+                                      updateCallback: () => setState(() {}),
+                                      child: RadioButtonWidget(
+                                        isDisabled:
+                                            !_model.endRepetitionAfterEnabled,
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 20.0)),
-                                ),
+                                  ),
+                                ].divide(SizedBox(width: 20.0)),
                               ),
                             ],
                           ),
