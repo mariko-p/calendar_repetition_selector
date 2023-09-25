@@ -713,9 +713,10 @@ class _AddRepetitionComponentWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 18.0, 0.0),
                                             child: Icon(
-                                              Icons.settings_outlined,
-                                              color: FlutterFlowTheme.of(context)
-                                                  .primaryText,
+                                              Icons.event_repeat_outlined,
+                                              color: weekDaysItem.isSelected ?
+                                                FlutterFlowTheme.of(context).primaryColor :
+                                                FlutterFlowTheme.of(context).primaryText,
                                               size: 18.0,
                                             ),
                                           ),
@@ -813,7 +814,9 @@ class _AddRepetitionComponentWidgetState
                                     0.0, 0.0, 18.0, 0.0),
                                 child: Icon(
                                   FFIcons.krecurring,
-                                  color: FlutterFlowTheme.of(context).primaryText,
+                                  color: _model.isCustomSelected ?
+                                    FlutterFlowTheme.of(context).primaryColor :
+                                    FlutterFlowTheme.of(context).primaryText,
                                   size: 18.0,
                                 ),
                               ),
