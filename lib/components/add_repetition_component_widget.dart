@@ -1159,15 +1159,16 @@ class _AddRepetitionComponentWidgetState
                                       controller:
                                       _model.dropDownValueController2 ??=
                                           FormFieldController<String>(null),
-                                      options: <String>[],
+                                      options: List.generate(10000, (i) => "$i"),
                                       onChanged: (val) => setState(
                                               () => _model.dropDownValue2 = val),
                                       width: 80.0,
                                       height: 28.0,
                                       textStyle: GoogleFonts.getFont(
                                         'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color: _model.endRepetitionAfterEnabled ?
+                                          FlutterFlowTheme.of(context).primaryText :
+                                          Color(0xff7d8ba1),
                                         fontWeight: FontWeight.w300,
                                         fontSize: 14.0,
                                       ),
@@ -1177,15 +1178,17 @@ class _AddRepetitionComponentWidgetState
                                       ),
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                        color: _model.endRepetitionAfterEnabled ?
+                                          FlutterFlowTheme.of(context).secondaryText :
+                                          Color(0xff7d8ba1),
                                         size: 20.0,
                                       ),
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       elevation: 0.0,
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                      borderColor: _model.endRepetitionAfterEnabled ?
+                                        FlutterFlowTheme.of(context).secondaryText :
+                                        Color(0xff7d8ba1),
                                       borderWidth: 0.5,
                                       borderRadius: 5.0,
                                       margin: EdgeInsetsDirectional.fromSTEB(
