@@ -217,6 +217,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Summary:',
       'sv': 'Sammanfattning:',
     },
+    'xc5c3na3': {
+      'en': 'The activity will skip repetitions on Saturdays and Sundays.',
+      'sv':
+          'Aktiviteten kommer att hoppa över repetitioner på lördagar och söndagar.',
+    },
+    '5rwscio8': {
+      'en': 'The activity won\'t show in overdue.',
+      'sv': 'Aktiviteten kommer inte att visas för sent.',
+    },
   },
   // YearBySetChecker
   {

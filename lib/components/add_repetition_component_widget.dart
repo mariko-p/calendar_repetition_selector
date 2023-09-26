@@ -779,52 +779,87 @@ class _AddRepetitionComponentWidgetState
                     ),
                   ),
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'bwo20d1o' /* Summary: */,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'bwo20d1o' /* Summary: */,
+                              ),
+                              style: GoogleFonts.getFont(
+                                'Rubik',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 14.0,
+                                height: 1.5,
+                              ),
                             ),
-                            style: GoogleFonts.getFont(
-                              'Rubik',
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              fontSize: 14.0,
-                              height: 1.5,
-                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                        child: wrapWithModel(
+                          model: _model.repetitionLabelModel,
+                          updateCallback: () => setState(() {}),
+                          child: RepetitionLabelWidget(
+                            humanReadableText: '[Pass parameter localy]',
                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
-                      child: wrapWithModel(
-                        model: _model.repetitionLabelModel1,
-                        updateCallback: () => setState(() {}),
-                        child: RepetitionLabelWidget(
-                          humanReadableText: '[Pass parameter localy]',
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
-                      child: wrapWithModel(
-                        model: _model.repetitionLabelModel2,
-                        updateCallback: () => setState(() {}),
-                        child: RepetitionLabelWidget(
-                          humanReadableText: '[Pass parameter localy]',
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'xc5c3na3' /* The activity will skip repetit... */,
+                              ),
+                              style: GoogleFonts.getFont(
+                                'Rubik',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 12.0,
+                                height: 1.5,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '5rwscio8' /* The activity won't show in ove... */,
+                              ),
+                              style: GoogleFonts.getFont(
+                                'Rubik',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 12.0,
+                                height: 1.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
