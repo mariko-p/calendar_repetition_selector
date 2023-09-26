@@ -14,7 +14,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'header_centered_nav_bar_widget.dart';
 import 'add_repetition_component_model.dart';
 export 'add_repetition_component_model.dart';
 
@@ -1448,59 +1447,62 @@ class _AddRepetitionComponentWidgetState
                                 ],
                               ),
                             ),
-                            Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
-                              child: wrapWithModel(
-                                model: _model.repetitionLabelModel,
-                                updateCallback: () => setState(() {}),
-                                child: RepetitionLabelWidget(
-                                  humanReadableText: _model.repetitionLabelText,
+                            if (_model.repetitionLabelText != "")
+                              Padding(
+                                padding:
+                                EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                                child: wrapWithModel(
+                                  model: _model.repetitionLabelModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: RepetitionLabelWidget(
+                                    humanReadableText: _model.checkboxValue1 == true ? "${_model.repetitionLabelText} after it’s done" : _model.repetitionLabelText,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'xc5c3na3' /* The activity will skip repetit... */,
+                            if (_model.checkboxValue2 == true)
+                              Padding(
+                                padding:
+                                EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'xc5c3na3' /* The activity will skip repetit... */,
+                                      ),
+                                      style: GoogleFonts.getFont(
+                                        'Rubik',
+                                        color:
+                                        FlutterFlowTheme.of(context).secondaryText,
+                                        fontSize: 12.0,
+                                        height: 1.5,
+                                      ),
                                     ),
-                                    style: GoogleFonts.getFont(
-                                      'Rubik',
-                                      color:
-                                      FlutterFlowTheme.of(context).secondaryText,
-                                      fontSize: 12.0,
-                                      height: 1.5,
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      '5rwscio8' /* The activity won't show in ove... */,
+                            if (_model.checkboxValue3 == true)
+                              Padding(
+                                padding:
+                                EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '5rwscio8' /* The activity won't show in ove... */,
+                                      ),
+                                      style: GoogleFonts.getFont(
+                                        'Rubik',
+                                        color:
+                                        FlutterFlowTheme.of(context).secondaryText,
+                                        fontSize: 12.0,
+                                        height: 1.5,
+                                      ),
                                     ),
-                                    style: GoogleFonts.getFont(
-                                      'Rubik',
-                                      color:
-                                      FlutterFlowTheme.of(context).secondaryText,
-                                      fontSize: 12.0,
-                                      height: 1.5,
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
                           ],
                         ),
                       ),
