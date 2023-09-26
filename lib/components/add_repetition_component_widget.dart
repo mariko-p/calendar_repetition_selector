@@ -43,7 +43,8 @@ class AddRepetitionComponentWidget extends StatefulWidget {
       this.onHumanReadableTextChanged,
       this.onSaveTapFromAddPage,
       this.onCancelTapFromAddPage,
-      this.onSaveTapFromCustomPage})
+      this.onSaveTapFromCustomPage,
+      this.onEndRepetitionOnClicked})
       : super(key: key);
 
   // Initial rrule value.
@@ -66,6 +67,9 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 
   // Called on save from custom repetition screen.
   Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
+
+  // Called when 'End repetition On' dropdown is clicked.
+  final void Function(DateTimeRange?)? onEndRepetitionOnClicked;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
