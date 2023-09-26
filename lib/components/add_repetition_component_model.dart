@@ -65,9 +65,7 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   // State field(s) for Checkbox widget.
   bool? checkboxValue6;
   // Model for RepetitionLabel component.
-  late RepetitionLabelModel repetitionLabelModel1;
-  // Model for RepetitionLabel component.
-  late RepetitionLabelModel repetitionLabelModel2;
+  late RepetitionLabelModel repetitionLabelModel;
 
   String repetitionLabelText = "";
 
@@ -87,8 +85,7 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
     radioButtonModel1 = createModel(context, () => RadioButtonModel());
     radioButtonModel2 = createModel(context, () => RadioButtonModel());
     radioButtonModel3 = createModel(context, () => RadioButtonModel());
-    repetitionLabelModel1 = createModel(context, () => RepetitionLabelModel());
-    repetitionLabelModel2 = createModel(context, () => RepetitionLabelModel());
+    repetitionLabelModel = createModel(context, () => RepetitionLabelModel());
   }
 
   void dispose() {
@@ -101,8 +98,7 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
     radioButtonModel1.dispose();
     radioButtonModel2.dispose();
     radioButtonModel3.dispose();
-    repetitionLabelModel1.dispose();
-    repetitionLabelModel2.dispose();
+    repetitionLabelModel.dispose();
   }
 
   /// Action blocks are added here.
