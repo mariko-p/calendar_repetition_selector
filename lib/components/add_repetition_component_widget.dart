@@ -656,7 +656,8 @@ class _AddRepetitionComponentWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFF3EFFF),
@@ -717,9 +718,11 @@ class _AddRepetitionComponentWidgetState
                                                     0.0, 0.0, 18.0, 0.0),
                                             child: Icon(
                                               Icons.event_repeat_outlined,
-                                              color: weekDaysItem.isSelected ?
-                                                FlutterFlowTheme.of(context).primaryColor :
-                                                FlutterFlowTheme.of(context).primaryText,
+                                              color: weekDaysItem.isSelected
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primaryColor
+                                                  : FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               size: 18.0,
                                             ),
                                           ),
@@ -730,10 +733,13 @@ class _AddRepetitionComponentWidgetState
                                             ),
                                             style: GoogleFonts.getFont(
                                               'Rubik',
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
-                                              fontWeight: weekDaysItem.isSelected ? FontWeight.normal : FontWeight.w300,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontWeight:
+                                                  weekDaysItem.isSelected
+                                                      ? FontWeight.normal
+                                                      : FontWeight.w300,
                                               fontSize: 14.0,
                                               height: 1.5,
                                             ),
@@ -776,7 +782,8 @@ class _AddRepetitionComponentWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFF3EFFF),
@@ -817,9 +824,11 @@ class _AddRepetitionComponentWidgetState
                                     0.0, 0.0, 18.0, 0.0),
                                 child: Icon(
                                   FFIcons.krecurring,
-                                  color: _model.isCustomSelected ?
-                                    FlutterFlowTheme.of(context).primaryColor :
-                                    FlutterFlowTheme.of(context).primaryText,
+                                  color: _model.isCustomSelected
+                                      ? FlutterFlowTheme.of(context)
+                                          .primaryColor
+                                      : FlutterFlowTheme.of(context)
+                                          .primaryText,
                                   size: 18.0,
                                 ),
                               ),
@@ -830,9 +839,11 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
-                                    fontWeight: _model.isCustomSelected ? FontWeight.normal : FontWeight.w300,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontWeight: _model.isCustomSelected
+                                        ? FontWeight.normal
+                                        : FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
                                   ),
@@ -890,7 +901,8 @@ class _AddRepetitionComponentWidgetState
                             ),
                             if (isCustomWeeklyVisible)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
                                 child: wrapWithModel(
                                   child: WeekDayCheckerWidget(
                                     weekDays: weekDays,
@@ -904,7 +916,8 @@ class _AddRepetitionComponentWidgetState
                               ),
                             if (isCustomMonthlyVisible)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
                                 child: wrapWithModel(
                                   child: MonthDayCheckerCombinedWidget(
                                     monthlyType: monthlyType,
@@ -922,7 +935,8 @@ class _AddRepetitionComponentWidgetState
                                       this.byDay = byDay!;
                                       updateMonthlyMonthDayByDayPosRRule();
                                     },
-                                    monthlyTypeChanged: (type) => monthlyTypeChanged(type),
+                                    monthlyTypeChanged: (type) =>
+                                        monthlyTypeChanged(type),
                                   ),
                                   model: _model.monthDayCheckerCombinedModel,
                                   updateCallback: () => setState(() {}),
@@ -936,7 +950,8 @@ class _AddRepetitionComponentWidgetState
                                     updateYearlyRRule();
                                   },
                                   isWeekDaysChecked: isWeekDaysChecked,
-                                  isWeekDaysSelectionChanged: (isWeekDaysActive) async {
+                                  isWeekDaysSelectionChanged:
+                                      (isWeekDaysActive) async {
                                     this.isWeekDaysChecked = isWeekDaysActive;
                                     updateYearlyRRule();
                                   },
@@ -959,7 +974,8 @@ class _AddRepetitionComponentWidgetState
                       ),
                     ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFF3EFFF),
@@ -981,8 +997,10 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color: _model.repeatForeverEnabled ?
-                                        FlutterFlowTheme.of(context).primaryText : Color(0xff7d8ba1),
+                                    color: _model.repeatForeverEnabled
+                                        ? FlutterFlowTheme.of(context)
+                                            .primaryText
+                                        : Color(0xff7d8ba1),
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1003,7 +1021,7 @@ class _AddRepetitionComponentWidgetState
                                           _model.repeatForeverEnabled = true;
                                           _model.endRepetitionOnEnabled = false;
                                           _model.endRepetitionAfterEnabled =
-                                          false;
+                                              false;
                                         });
                                       },
                                       child: wrapWithModel(
@@ -1011,7 +1029,7 @@ class _AddRepetitionComponentWidgetState
                                         updateCallback: () => setState(() {}),
                                         child: RadioButtonWidget(
                                           isDisabled:
-                                          !_model.repeatForeverEnabled,
+                                              !_model.repeatForeverEnabled,
                                         ),
                                       ),
                                     ),
@@ -1044,8 +1062,10 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color: _model.endRepetitionOnEnabled ?
-                                        FlutterFlowTheme.of(context).primaryText : Color(0xff7d8ba1),
+                                    color: _model.endRepetitionOnEnabled
+                                        ? FlutterFlowTheme.of(context)
+                                            .primaryText
+                                        : Color(0xff7d8ba1),
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1057,38 +1077,41 @@ class _AddRepetitionComponentWidgetState
                                   children: [
                                     FlutterFlowDropDown<String>(
                                       controller:
-                                      _model.dropDownValueController1 ??=
-                                          FormFieldController<String>(null),
+                                          _model.dropDownValueController1 ??=
+                                              FormFieldController<String>(null),
                                       options: <String>[],
                                       onChanged: (val) => setState(
-                                              () => _model.dropDownValue1 = val),
+                                          () => _model.dropDownValue1 = val),
                                       width: 80.0,
                                       height: 28.0,
                                       textStyle: GoogleFonts.getFont(
                                         'Rubik',
-                                        color: _model.endRepetitionOnEnabled ?
-                                          FlutterFlowTheme.of(context).primaryText :
-                                          Color(0xff7d8ba1),
+                                        color: _model.endRepetitionOnEnabled
+                                            ? FlutterFlowTheme.of(context)
+                                                .primaryText
+                                            : Color(0xff7d8ba1),
                                         fontWeight: FontWeight.w300,
                                         fontSize: 14.0,
                                       ),
                                       hintText:
-                                      FFLocalizations.of(context).getText(
+                                          FFLocalizations.of(context).getText(
                                         'ymue1mm8' /* Today */,
                                       ),
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
-                                        color: _model.endRepetitionOnEnabled ?
-                                          FlutterFlowTheme.of(context).secondaryText :
-                                          Color(0xff7d8ba1),
+                                        color: _model.endRepetitionOnEnabled
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondaryText
+                                            : Color(0xff7d8ba1),
                                         size: 20.0,
                                       ),
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       elevation: 0.0,
-                                      borderColor: _model.endRepetitionOnEnabled ?
-                                          FlutterFlowTheme.of(context).secondaryText :
-                                          Color(0xff7d8ba1),
+                                      borderColor: _model.endRepetitionOnEnabled
+                                          ? FlutterFlowTheme.of(context)
+                                              .secondaryText
+                                          : Color(0xff7d8ba1),
                                       borderWidth: 0.5,
                                       borderRadius: 5.0,
                                       margin: EdgeInsetsDirectional.fromSTEB(
@@ -1109,7 +1132,7 @@ class _AddRepetitionComponentWidgetState
                                           _model.endRepetitionOnEnabled = true;
                                           _model.repeatForeverEnabled = false;
                                           _model.endRepetitionAfterEnabled =
-                                          false;
+                                              false;
                                         });
                                       },
                                       child: wrapWithModel(
@@ -1117,7 +1140,7 @@ class _AddRepetitionComponentWidgetState
                                         updateCallback: () => setState(() {}),
                                         child: RadioButtonWidget(
                                           isDisabled:
-                                          !_model.endRepetitionOnEnabled,
+                                              !_model.endRepetitionOnEnabled,
                                         ),
                                       ),
                                     ),
@@ -1150,8 +1173,10 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color: _model.endRepetitionAfterEnabled ?
-                                        FlutterFlowTheme.of(context).primaryText : Color(0xff7d8ba1),
+                                    color: _model.endRepetitionAfterEnabled
+                                        ? FlutterFlowTheme.of(context)
+                                            .primaryText
+                                        : Color(0xff7d8ba1),
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1163,44 +1188,50 @@ class _AddRepetitionComponentWidgetState
                                   children: [
                                     FlutterFlowDropDown<String>(
                                       controller:
-                                      _model.dropDownValueController2 ??=
-                                          FormFieldController<String>(null),
-                                      options: List.generate(10000, (i) => "$i"),
+                                          _model.dropDownValueController2 ??=
+                                              FormFieldController<String>(null),
+                                      options:
+                                          List.generate(10000, (i) => "$i"),
                                       onChanged: (val) => setState(
-                                              () => _model.dropDownValue2 = val),
+                                          () => _model.dropDownValue2 = val),
                                       width: 80.0,
                                       height: 28.0,
                                       textStyle: GoogleFonts.getFont(
                                         'Rubik',
-                                        color: _model.endRepetitionAfterEnabled ?
-                                          FlutterFlowTheme.of(context).primaryText :
-                                          Color(0xff7d8ba1),
+                                        color: _model.endRepetitionAfterEnabled
+                                            ? FlutterFlowTheme.of(context)
+                                                .primaryText
+                                            : Color(0xff7d8ba1),
                                         fontWeight: FontWeight.w300,
                                         fontSize: 14.0,
                                       ),
                                       hintText:
-                                      FFLocalizations.of(context).getText(
+                                          FFLocalizations.of(context).getText(
                                         '920vxph3' /* 1 */,
                                       ),
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
-                                        color: _model.endRepetitionAfterEnabled ?
-                                          FlutterFlowTheme.of(context).secondaryText :
-                                          Color(0xff7d8ba1),
+                                        color: _model.endRepetitionAfterEnabled
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondaryText
+                                            : Color(0xff7d8ba1),
                                         size: 20.0,
                                       ),
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       elevation: 0.0,
-                                      borderColor: _model.endRepetitionAfterEnabled ?
-                                        FlutterFlowTheme.of(context).secondaryText :
-                                        Color(0xff7d8ba1),
+                                      borderColor:
+                                          _model.endRepetitionAfterEnabled
+                                              ? FlutterFlowTheme.of(context)
+                                                  .secondaryText
+                                              : Color(0xff7d8ba1),
                                       borderWidth: 0.5,
                                       borderRadius: 5.0,
                                       margin: EdgeInsetsDirectional.fromSTEB(
                                           11.0, 0.0, 6.0, 0.0),
                                       hidesUnderline: true,
-                                      disabled: !_model.endRepetitionAfterEnabled,
+                                      disabled:
+                                          !_model.endRepetitionAfterEnabled,
                                       isSearchable: false,
                                       isMultiSelect: false,
                                     ),
@@ -1212,7 +1243,8 @@ class _AddRepetitionComponentWidgetState
                                       onTap: () async {
                                         // End repetition After True
                                         setState(() {
-                                          _model.endRepetitionAfterEnabled = true;
+                                          _model.endRepetitionAfterEnabled =
+                                              true;
                                           _model.repeatForeverEnabled = false;
                                           _model.endRepetitionOnEnabled = false;
                                         });
@@ -1222,7 +1254,7 @@ class _AddRepetitionComponentWidgetState
                                         updateCallback: () => setState(() {}),
                                         child: RadioButtonWidget(
                                           isDisabled:
-                                          !_model.endRepetitionAfterEnabled,
+                                              !_model.endRepetitionAfterEnabled,
                                         ),
                                       ),
                                     ),
@@ -1236,7 +1268,8 @@ class _AddRepetitionComponentWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFF3EFFF),
@@ -1258,8 +1291,8 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1272,7 +1305,8 @@ class _AddRepetitionComponentWidgetState
                                       materialTapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(4.0),
+                                        borderRadius:
+                                            BorderRadius.circular(4.0),
                                       ),
                                     ),
                                     unselectedWidgetColor:
@@ -1317,8 +1351,8 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1331,7 +1365,8 @@ class _AddRepetitionComponentWidgetState
                                       materialTapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(4.0),
+                                        borderRadius:
+                                            BorderRadius.circular(4.0),
                                       ),
                                     ),
                                     unselectedWidgetColor:
@@ -1357,7 +1392,8 @@ class _AddRepetitionComponentWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Color(0xFFF3EFFF),
@@ -1379,8 +1415,8 @@ class _AddRepetitionComponentWidgetState
                                   ),
                                   style: GoogleFonts.getFont(
                                     'Rubik',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14.0,
                                     height: 1.5,
@@ -1393,7 +1429,8 @@ class _AddRepetitionComponentWidgetState
                                       materialTapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(4.0),
+                                        borderRadius:
+                                            BorderRadius.circular(4.0),
                                       ),
                                     ),
                                     unselectedWidgetColor:
@@ -1422,13 +1459,14 @@ class _AddRepetitionComponentWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                              EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 5.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -1438,8 +1476,8 @@ class _AddRepetitionComponentWidgetState
                                     ),
                                     style: GoogleFonts.getFont(
                                       'Rubik',
-                                      color:
-                                      FlutterFlowTheme.of(context).secondaryText,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
                                       fontSize: 14.0,
                                       height: 1.5,
                                     ),
@@ -1449,20 +1487,26 @@ class _AddRepetitionComponentWidgetState
                             ),
                             if (_model.repetitionLabelText != "")
                               Padding(
-                                padding:
-                                EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 5.0),
                                 child: wrapWithModel(
                                   model: _model.repetitionLabelModel,
                                   updateCallback: () => setState(() {}),
                                   child: RepetitionLabelWidget(
-                                    humanReadableText: _model.checkboxValue1 == true ? "${_model.repetitionLabelText} after it’s done" : _model.repetitionLabelText,
+                                    humanReadableText: _model.checkboxValue1 ==
+                                            true
+                                        ? "${_model.repetitionLabelText} ${FFLocalizations.of(context).getVariableText(
+                                            enText: 'after it’s done',
+                                            svText: 'efter det är gjort',
+                                          )}"
+                                        : _model.repetitionLabelText,
                                   ),
                                 ),
                               ),
                             if (_model.checkboxValue2 == true)
                               Padding(
-                                padding:
-                                EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1472,8 +1516,8 @@ class _AddRepetitionComponentWidgetState
                                       ),
                                       style: GoogleFonts.getFont(
                                         'Rubik',
-                                        color:
-                                        FlutterFlowTheme.of(context).secondaryText,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
                                         fontSize: 12.0,
                                         height: 1.5,
                                       ),
@@ -1483,8 +1527,8 @@ class _AddRepetitionComponentWidgetState
                               ),
                             if (_model.checkboxValue3 == true)
                               Padding(
-                                padding:
-                                EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 5.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1494,8 +1538,8 @@ class _AddRepetitionComponentWidgetState
                                       ),
                                       style: GoogleFonts.getFont(
                                         'Rubik',
-                                        color:
-                                        FlutterFlowTheme.of(context).secondaryText,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
                                         fontSize: 12.0,
                                         height: 1.5,
                                       ),
