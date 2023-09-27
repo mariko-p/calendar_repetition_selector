@@ -417,6 +417,7 @@ class _AddRepetitionComponentWidgetState
     // var translation = FFAppState().vCurrentRRule;
     setState(() {
       humanReadableText = translation;
+      _model.repetitionLabelText = humanReadableText;
     });
   }
 
@@ -1191,7 +1192,7 @@ class _AddRepetitionComponentWidgetState
                                           _model.dropDownValueController2 ??=
                                               FormFieldController<String>(null),
                                       options:
-                                          List.generate(10000, (i) => "$i"),
+                                          List.generate(10000, (i) => "${i + 1}"),
                                       onChanged: (val) => setState(
                                           () => _model.dropDownValue2 = val),
                                       width: 80.0,
@@ -1464,27 +1465,33 @@ class _AddRepetitionComponentWidgetState
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 5.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'bwo20d1o' /* Summary: */,
+                            if (_model.repetitionLabelText != "" ||
+                                _model.endRepetitionOnEnabled ||
+                                _model.endRepetitionAfterEnabled ||
+                                _model.checkboxValue2 == true ||
+                                _model.checkboxValue3 == true
+                            )
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 5.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'bwo20d1o' /* Summary: */,
+                                      ),
+                                      style: GoogleFonts.getFont(
+                                        'Rubik',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 14.0,
+                                        height: 1.5,
+                                      ),
                                     ),
-                                    style: GoogleFonts.getFont(
-                                      'Rubik',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 14.0,
-                                      height: 1.5,
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
                             if (_model.repetitionLabelText != "")
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -1501,6 +1508,48 @@ class _AddRepetitionComponentWidgetState
                                           )}"
                                         : _model.repetitionLabelText,
                                   ),
+                                ),
+                              ),
+                            if (_model.endRepetitionOnEnabled)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 5.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text("Add text",
+                                      style: GoogleFonts.getFont(
+                                        'Rubik',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 12.0,
+                                        height: 1.5,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            if (_model.endRepetitionAfterEnabled)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 5.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getVariableText(
+                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2} repetitions',
+                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2} repetitioner',
+                                      ),
+                                      style: GoogleFonts.getFont(
+                                        'Rubik',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 12.0,
+                                        height: 1.5,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             if (_model.checkboxValue2 == true)
