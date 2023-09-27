@@ -45,7 +45,7 @@ class MyApp extends StatefulWidget {
   Locale? locale;
   static Future<dynamic> Function(String? rrule)? onRRuleChanged;
   static Future<dynamic> Function(String? rrule)? onHumanReadableTextChanged;
-  static Future<dynamic> Function(String? rrule)? onSaveTapFromAddPage;
+  static Future<dynamic> Function(String? rrule, bool repeatOnDone, bool doNotShowInOverdue)? onSaveTapFromAddPage;
   static Future<dynamic> Function()? onCancelTapFromAddPage;
   static Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
   // Called when 'End repetition On' dropdown is clicked.

@@ -59,7 +59,7 @@ class AddRepetitionComponentWidget extends StatefulWidget {
   Future<dynamic> Function(String? rrule)? onHumanReadableTextChanged;
 
   // Called on save from main screen.
-  Future<dynamic> Function(String? rrule)? onSaveTapFromAddPage;
+  Future<dynamic> Function(String? rrule, bool repeatOnDone, bool doNotShowInOverdue)? onSaveTapFromAddPage;
 
   // Called on cancel from main screen.
   Future<dynamic> Function()? onCancelTapFromAddPage;
@@ -169,6 +169,9 @@ class _AddRepetitionComponentWidgetState
         weekDays = getWeekDayList(context);
         months = getMonthsList(context);
       });
+
+      _model.checkboxValue1 = FFAppState().vRepeatOnDone;
+      _model.checkboxValue3 = FFAppState().vDoNotShowInOverdue;
 
       autoSelectRRule();
       initHumanReadableText();
@@ -585,7 +588,7 @@ class _AddRepetitionComponentWidgetState
             isSaveVisible: true,
             onSaveTap: () async {
               print("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
-              widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule);
+              widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vDoNotShowInOverdue);
               if (MyApp.isExitAppOnBackON == true) {
                 exit(0);
               } else {
@@ -1321,8 +1324,10 @@ class _AddRepetitionComponentWidgetState
                                   child: Checkbox(
                                     value: _model.checkboxValue1 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
-                                          _model.checkboxValue1 = newValue!);
+                                      setState(() {
+                                        _model.checkboxValue1 = newValue!;
+                                        FFAppState().vRepeatOnDone = newValue!;
+                                      });
                                     },
                                     activeColor: Colors.transparent,
                                     checkColor: FlutterFlowTheme.of(context)
@@ -1445,8 +1450,10 @@ class _AddRepetitionComponentWidgetState
                                   child: Checkbox(
                                     value: _model.checkboxValue3 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
-                                          _model.checkboxValue3 = newValue!);
+                                      setState(() {
+                                        _model.checkboxValue3 = newValue!;
+                                        FFAppState().vDoNotShowInOverdue = newValue!;
+                                      });
                                     },
                                     activeColor: Colors.transparent,
                                     checkColor: FlutterFlowTheme.of(context)

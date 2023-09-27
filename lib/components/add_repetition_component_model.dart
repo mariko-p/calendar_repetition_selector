@@ -58,12 +58,6 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   bool? checkboxValue2;
   // State field(s) for Checkbox widget.
   bool? checkboxValue3;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue4;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue5;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue6;
   // Model for RepetitionLabel component.
   late RepetitionLabelModel repetitionLabelModel;
 
