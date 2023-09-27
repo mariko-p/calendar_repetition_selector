@@ -75,6 +75,18 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInCMonthDayCheckedColors(int _index, Color _value) {
     _cMonthDayCheckedColors.insert(_index, _value);
   }
+
+  bool _vRepeatOnDone = false;
+  bool get vRepeatOnDone => _vRepeatOnDone;
+  set vRepeatOnDone(bool _value) {
+    _vRepeatOnDone = _value;
+  }
+
+  bool _vDoNotShowInOverdue = false;
+  bool get vDoNotShowInOverdue => _vDoNotShowInOverdue;
+  set vDoNotShowInOverdue(bool _value) {
+    _vDoNotShowInOverdue = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
