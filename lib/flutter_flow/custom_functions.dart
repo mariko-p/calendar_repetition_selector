@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:custom_recurring_selectors/custom_code/codecs/sv.dart';
+import 'package:custom_recurring_selectors/flutter_flow/custom_icons.dart';
 import 'package:custom_recurring_selectors/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -337,17 +338,30 @@ List<RepetitionStruct> getPredefinedRepetitionList([BuildContext? context]) {
   return [
     // createRepetitionStruct(text: never, isSelected: false, rrule: ""),
     createRepetitionStruct(
-        text: everyDay, isSelected: false, rrule: repetitionEveryDay()),
+        text: everyDay,
+        isSelected: false,
+        rrule: repetitionEveryDay(),
+        iconCodePoint: FFIcons.krepeatEveryDay.codePoint),
     createRepetitionStruct(
-        text: everyWeek, isSelected: false, rrule: repetitionEveryWeek()),
+        text: everyWeek,
+        isSelected: false,
+        rrule: repetitionEveryWeek(),
+        iconCodePoint: FFIcons.krepeatEveryWeek.codePoint),
     createRepetitionStruct(
         text: everySecondWeek,
         isSelected: false,
-        rrule: repetitionEverySecondWeek()),
+        rrule: repetitionEverySecondWeek(),
+        iconCodePoint: FFIcons.krepeatEverySecondWeek.codePoint),
     createRepetitionStruct(
-        text: everyMonth, isSelected: false, rrule: repetitionEveryMonth()),
+        text: everyMonth,
+        isSelected: false,
+        rrule: repetitionEveryMonth(),
+        iconCodePoint: FFIcons.krepeatEveryMonth.codePoint),
     createRepetitionStruct(
-        text: everyYear, isSelected: false, rrule: repetitionEveryYear()),
+        text: everyYear,
+        isSelected: false,
+        rrule: repetitionEveryYear(),
+        iconCodePoint: FFIcons.krepeatEveryYear.codePoint),
   ];
 }
 
