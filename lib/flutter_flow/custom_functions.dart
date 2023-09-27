@@ -197,3 +197,13 @@ String? getShortMonthText(String? month) {
   var threeLetters = ((lowerCase?.substring(0, 4) ?? "")) + ".";
   return threeLetters;
 }
+
+DateTime? getUntilFromRRule(String rruleString) {
+  // IMPLEMENTED LOCALLY
+  return null;
+}
+
+int? getCountFromRRule(String rruleString) {
+  // IMPLEMENTED LOCALLY
+  return null;
+}
