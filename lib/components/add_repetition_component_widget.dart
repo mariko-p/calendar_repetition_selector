@@ -198,6 +198,9 @@ class _AddRepetitionComponentWidgetState
         currentFrequency = generateFrequency(context)[0];
         weekDays = getWeekDayList(context);
         months = getMonthsList(context);
+
+        updateEndRepetionOnDropdownValue(context);
+        _model.dropDownValue2 = count.toString();
       });
 
       _model.checkboxValue1 = FFAppState().vRepeatOnDone;
@@ -1117,7 +1120,10 @@ class _AddRepetitionComponentWidgetState
                                           fontWeight: FontWeight.w300,
                                           fontSize: 14.0,
                                         ),
-                                        hintText: "Test 1",
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'ymue1mm8' /* Today */,
+                                        ),
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: _model.endRepetitionOnEnabled
@@ -1232,7 +1238,10 @@ class _AddRepetitionComponentWidgetState
                                         fontWeight: FontWeight.w300,
                                         fontSize: 14.0,
                                       ),
-                                      hintText: "Tet 2",
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        '920vxph3' /* 1 */,
+                                      ),
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
                                         color: _model.endRepetitionAfterEnabled
