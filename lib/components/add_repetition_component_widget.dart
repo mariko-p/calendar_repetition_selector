@@ -1060,8 +1060,8 @@ class _AddRepetitionComponentWidgetState
                                   children: [
                                     InkWell(
                                       onTap: () async {
-                                        if (widget.onEndRepetitionOnClicked != null) {
-                                          final selectedDay = await widget.onEndRepetitionOnClicked!.call();
+                                        if (MyApp.onEndRepetitionOnClicked != null) {
+                                          final selectedDay = await MyApp.onEndRepetitionOnClicked!.call();
                                           updateRRuleWithUntil(FFAppState().vCurrentRRule, selectedDay);
                                           _model.selectedEndDate = selectedDay;
                                           final formatedSelectedDay =
