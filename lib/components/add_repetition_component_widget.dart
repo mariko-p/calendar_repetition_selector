@@ -735,7 +735,7 @@ class _AddRepetitionComponentWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 18.0, 0.0),
                                             child: Icon(
-                                              IconData(weekDaysItem.iconCodePoint, fontFamily: 'MarikoV2'),
+                                              IconData(weekDaysItem.iconCodePoint, fontFamily: 'MarikoIconsV4'),
                                               color: weekDaysItem.isSelected
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryColor
