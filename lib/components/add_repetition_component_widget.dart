@@ -1117,10 +1117,7 @@ class _AddRepetitionComponentWidgetState
                                           fontWeight: FontWeight.w300,
                                           fontSize: 14.0,
                                         ),
-                                        hintText:
-                                            FFLocalizations.of(context).getText(
-                                          'ymue1mm8' /* Today */,
-                                        ),
+                                        hintText: "Test 1",
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: _model.endRepetitionOnEnabled
@@ -1235,10 +1232,7 @@ class _AddRepetitionComponentWidgetState
                                         fontWeight: FontWeight.w300,
                                         fontSize: 14.0,
                                       ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        '920vxph3' /* 1 */,
-                                      ),
+                                      hintText: "Tet 2",
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
                                         color: _model.endRepetitionAfterEnabled
