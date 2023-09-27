@@ -211,6 +211,9 @@ class _AddRepetitionComponentWidgetState
         }
       }
     }
+
+    // NOTE(): Until Never is back
+    selectedIndex = selectedIndex - 1;
   }
 
   /// RRULE rules.
