@@ -8,10 +8,33 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+// LOCAL_START
+import 'package:rrule/rrule.dart';
+// LOCAL_END
+
 Future updateRRuleWithSkipWeekends(
   String rruleString,
   bool skipWeekends,
 ) async {
   // Add your function code here!
-  // IMPLEMENTED LOCALLY
+  // LOCAL_START
+  var rrule = RecurrenceRule.fromString(rruleString);
+  if (skipWeekends) {
+    rrule = rrule.copyWith(
+      byWeekDays: {
+        ByWeekDayEntry(DateTime.monday),
+        ByWeekDayEntry(DateTime.tuesday),
+        ByWeekDayEntry(DateTime.wednesday),
+        ByWeekDayEntry(DateTime.thursday),
+        ByWeekDayEntry(DateTime.friday),
+      },
+    );
+  } else {
+    rrule = rrule.copyWith(
+      byWeekDays: {},
+    );
+  }
+
+  FFAppState().vCurrentRRule = rrule.toString();
+  // LOCAL_END
 }
