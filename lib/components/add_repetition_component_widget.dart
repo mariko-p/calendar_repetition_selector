@@ -132,6 +132,9 @@ class _AddRepetitionComponentWidgetState
     initSelectedItem();
     updateRepetitionText();
 
+    // NOTE(): selectedIndex is 5 if custom is selected
+    _model.isCustomSelected = selectedIndex == 5;
+
     if (widget.rrule?.isNotEmpty == true) {
       FFAppState().vCurrentRRule = widget.rrule!;
     } else {
