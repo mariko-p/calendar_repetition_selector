@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import '/components/frequency_expander_widget.dart';
 import '/components/header_centered_nav_bar_widget.dart';
 import '/components/interval_expander_widget.dart';
@@ -141,7 +143,29 @@ class _AddRepetitionComponentWidgetState
       FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
     }
 
-    _model.selectedEndDate = functions.getUntilFromRRule(FFAppState().vCurrentRRule);
+    _model.selectedEndDate = functions.getUntilFromRRule(FFAppState().vCurrentRRule) ?? dateTimeNowWithoutTime();
+
+    final until = functions.getUntilFromRRule(FFAppState().vCurrentRRule);
+    final count = functions.getCountFromRRule(FFAppState().vCurrentRRule);
+
+    if (until != null) {
+      _model.endRepetitionOnEnabled = true;
+      _model.endRepetitionAfterEnabled = false;
+      _model.repeatForeverEnabled = false;
+
+      updateEndRepetionOnDropdownValue(context);
+    } else if (count != null) {
+        _model.endRepetitionOnEnabled = false;
+        _model.endRepetitionAfterEnabled = true;
+        _model.repeatForeverEnabled = false;
+
+        _model.dropDownValue2 = count.toString();
+    } else {
+      _model.endRepetitionOnEnabled = false;
+      _model.endRepetitionAfterEnabled = false;
+      _model.repeatForeverEnabled = true;
+    }
+
     currentIntervalIndex = 0;
     currentIntervals = generateInterval("DAILY");
     currentInterval = currentIntervals[0];
@@ -1069,23 +1093,7 @@ class _AddRepetitionComponentWidgetState
                                           final selectedDay = await MyApp.onEndRepetitionOnClicked!.call(_model.selectedEndDate);
                                           updateRRuleWithUntil(FFAppState().vCurrentRRule, selectedDay);
                                           _model.selectedEndDate = selectedDay;
-                                          final formatedSelectedDay =
-                                              isSelectedDayToday()
-                                                  ? FFLocalizations.of(context)
-                                                      .getVariableText(
-                                                      enText: 'Today',
-                                                      svText: 'Idag',
-                                                    )
-                                                  : formatSelectedDay();
-
-                                          _model.dropDownValue1Options.clear();
-                                          _model.dropDownValue1Options.add(
-                                              formatedSelectedDay);
-                                          _model.dropDownValue1 =
-                                              formatedSelectedDay;
-                                          _model.dropDownValueController1
-                                                  ?.value =
-                                              formatedSelectedDay;
+                                          updateEndRepetionOnDropdownValue(context);
                                         }
                                       },
                                       child: FlutterFlowDropDown<String>(
@@ -1148,6 +1156,9 @@ class _AddRepetitionComponentWidgetState
                                           _model.endRepetitionAfterEnabled =
                                               false;
                                         });
+                                        updateRRuleWithUntil(FFAppState().vCurrentRRule, _model.selectedEndDate);
+                                        _model.selectedEndDate = _model.selectedEndDate;
+                                        updateEndRepetionOnDropdownValue(context);
                                       },
                                       child: wrapWithModel(
                                         model: _model.radioButtonModel2,
@@ -1206,8 +1217,11 @@ class _AddRepetitionComponentWidgetState
                                               FormFieldController<String>(null),
                                       options:
                                           List.generate(10000, (i) => "${i + 1}"),
-                                      onChanged: (val) => setState(
-                                          () => _model.dropDownValue2 = val),
+                                      onChanged: (val) {
+                                        setState(
+                                            () => _model.dropDownValue2 = val);
+                                        updateRRuleWithCount(FFAppState().vCurrentRRule, int.parse(val!));
+                                      },
                                       width: 80.0,
                                       height: 28.0,
                                       textStyle: GoogleFonts.getFont(
@@ -1262,6 +1276,7 @@ class _AddRepetitionComponentWidgetState
                                           _model.repeatForeverEnabled = false;
                                           _model.endRepetitionOnEnabled = false;
                                         });
+                                        updateRRuleWithCount(FFAppState().vCurrentRRule, int.parse(_model.dropDownValue2 ?? "1"));
                                       },
                                       child: wrapWithModel(
                                         model: _model.radioButtonModel3,
@@ -1633,7 +1648,29 @@ class _AddRepetitionComponentWidgetState
     );
   }
 
+  void updateEndRepetionOnDropdownValue(BuildContext context) {
+     final formatedSelectedDay =
+        isSelectedDayToday()
+            ? FFLocalizations.of(context)
+                .getVariableText(
+                enText: 'Today',
+                svText: 'Idag',
+              )
+            : formatSelectedDay();
+
+    _model.dropDownValue1Options.clear();
+    _model.dropDownValue1Options.add(
+        formatedSelectedDay);
+    _model.dropDownValue1 =
+        formatedSelectedDay;
+    _model.dropDownValueController1
+            ?.value =
+        formatedSelectedDay;
+  }
+
   String formatSelectedDay() => DateFormat('d MMM y', getLocale().languageCode).format(_model.selectedEndDate ?? DateTime.now()).toLowerCase();
 
-  bool isSelectedDayToday() => _model.selectedEndDate == null || _model.selectedEndDate == DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
+  bool isSelectedDayToday() => _model.selectedEndDate == null || _model.selectedEndDate == dateTimeNowWithoutTime();
+
+  DateTime dateTimeNowWithoutTime() => DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 }
