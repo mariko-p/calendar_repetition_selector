@@ -68,7 +68,7 @@ class AddRepetitionComponentWidget extends StatefulWidget {
   Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
 
   // Called when 'End repetition On' dropdown is clicked.
-  final void Function(DateTimeRange?)? onEndRepetitionOnClicked;
+  final Future<DateTime?> Function()? onEndRepetitionOnClicked;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -246,26 +246,6 @@ class _AddRepetitionComponentWidgetState
         _model.repetitionLabelText = humanReadableText;
       });
     });
-  }
-
-  BorderRadius? getSpecificBorderRadius(int itemIndex) {
-    if (itemIndex == 0) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(5),
-        topRight: Radius.circular(5),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(0),
-      );
-    }
-    if (itemIndex == 5) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(0),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(5),
-        bottomRight: Radius.circular(5),
-      );
-    }
-    return null;
   }
 
   void initHumanReadableText() {
@@ -1076,51 +1056,58 @@ class _AddRepetitionComponentWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    FlutterFlowDropDown<String>(
-                                      controller:
-                                          _model.dropDownValueController1 ??=
-                                              FormFieldController<String>(null),
-                                      options: <String>[],
-                                      onChanged: (val) => setState(
-                                          () => _model.dropDownValue1 = val),
-                                      width: 80.0,
-                                      height: 28.0,
-                                      textStyle: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: _model.endRepetitionOnEnabled
-                                            ? FlutterFlowTheme.of(context)
-                                                .primaryText
-                                            : Color(0xff7d8ba1),
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 14.0,
-                                      ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'ymue1mm8' /* Today */,
-                                      ),
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: _model.endRepetitionOnEnabled
+                                    InkWell(
+                                      onTap: () async {
+                                        if (widget.onEndRepetitionOnClicked != null) {
+                                          widget.onEndRepetitionOnClicked!.call();
+                                        }
+                                      },
+                                      child: FlutterFlowDropDown<String>(
+                                        controller:
+                                            _model.dropDownValueController1 ??=
+                                                FormFieldController<String>(null),
+                                        options: <String>[],
+                                        onChanged: (val) => setState(
+                                            () => _model.dropDownValue1 = val),
+                                        width: 80.0,
+                                        height: 28.0,
+                                        textStyle: GoogleFonts.getFont(
+                                          'Rubik',
+                                          color: _model.endRepetitionOnEnabled
+                                              ? FlutterFlowTheme.of(context)
+                                                  .primaryText
+                                              : Color(0xff7d8ba1),
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 14.0,
+                                        ),
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'ymue1mm8' /* Today */,
+                                        ),
+                                        icon: Icon(
+                                          Icons.keyboard_arrow_down_rounded,
+                                          color: _model.endRepetitionOnEnabled
+                                              ? FlutterFlowTheme.of(context)
+                                                  .secondaryText
+                                              : Color(0xff7d8ba1),
+                                          size: 20.0,
+                                        ),
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        elevation: 0.0,
+                                        borderColor: _model.endRepetitionOnEnabled
                                             ? FlutterFlowTheme.of(context)
                                                 .secondaryText
                                             : Color(0xff7d8ba1),
-                                        size: 20.0,
+                                        borderWidth: 0.5,
+                                        borderRadius: 5.0,
+                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                            11.0, 0.0, 6.0, 0.0),
+                                        hidesUnderline: true,
+                                        disabled: !_model.endRepetitionOnEnabled,
+                                        isSearchable: false,
+                                        isMultiSelect: false,
                                       ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 0.0,
-                                      borderColor: _model.endRepetitionOnEnabled
-                                          ? FlutterFlowTheme.of(context)
-                                              .secondaryText
-                                          : Color(0xff7d8ba1),
-                                      borderWidth: 0.5,
-                                      borderRadius: 5.0,
-                                      margin: EdgeInsetsDirectional.fromSTEB(
-                                          11.0, 0.0, 6.0, 0.0),
-                                      hidesUnderline: true,
-                                      disabled: !_model.endRepetitionOnEnabled,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
                                     ),
                                     InkWell(
                                       splashColor: Colors.transparent,
