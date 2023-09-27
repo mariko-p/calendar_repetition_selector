@@ -143,6 +143,32 @@ class _AddRepetitionComponentWidgetState
       FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
     }
 
+    _model.selectedEndDate = functions.getUntilFromRRule(FFAppState().vCurrentRRule) ?? dateTimeNowWithoutTime();
+
+    print(FFAppState().vCurrentRRule);
+    print(_model.selectedEndDate);
+
+    final until = functions.getUntilFromRRule(FFAppState().vCurrentRRule);
+    final count = functions.getCountFromRRule(FFAppState().vCurrentRRule);
+
+    if (until != null) {
+      _model.endRepetitionOnEnabled = true;
+      _model.endRepetitionAfterEnabled = false;
+      _model.repeatForeverEnabled = false;
+
+      updateEndRepetionOnDropdownValue(context);
+    } else if (count != null) {
+        _model.endRepetitionOnEnabled = false;
+        _model.endRepetitionAfterEnabled = true;
+        _model.repeatForeverEnabled = false;
+
+        _model.dropDownValue2 = count.toString();
+    } else {
+      _model.endRepetitionOnEnabled = false;
+      _model.endRepetitionAfterEnabled = false;
+      _model.repeatForeverEnabled = true;
+    }
+
     currentIntervalIndex = 0;
     currentIntervals = generateInterval("DAILY");
     currentInterval = currentIntervals[0];
@@ -180,30 +206,6 @@ class _AddRepetitionComponentWidgetState
       autoSelectRRule();
       initHumanReadableText();
       setState(() {});
-
-      _model.selectedEndDate = functions.getUntilFromRRule(FFAppState().vCurrentRRule) ?? dateTimeNowWithoutTime();
-
-      final until = functions.getUntilFromRRule(FFAppState().vCurrentRRule);
-      final count = functions.getCountFromRRule(FFAppState().vCurrentRRule);
-
-      if (until != null) {
-        _model.endRepetitionOnEnabled = true;
-        _model.endRepetitionAfterEnabled = false;
-        _model.repeatForeverEnabled = false;
-
-        updateEndRepetionOnDropdownValue(context);
-      } else if (count != null) {
-        _model.endRepetitionOnEnabled = false;
-        _model.endRepetitionAfterEnabled = true;
-        _model.repeatForeverEnabled = false;
-
-        _model.dropDownValue2 = count.toString();
-      } else {
-        _model.endRepetitionOnEnabled = false;
-        _model.endRepetitionAfterEnabled = false;
-        _model.repeatForeverEnabled = true;
-      }
-
     });
   }
 
@@ -1158,7 +1160,6 @@ class _AddRepetitionComponentWidgetState
                                               false;
                                         });
                                         updateRRuleWithUntil(FFAppState().vCurrentRRule, _model.selectedEndDate);
-                                        _model.selectedEndDate = _model.selectedEndDate;
                                         updateEndRepetionOnDropdownValue(context);
                                       },
                                       child: wrapWithModel(
