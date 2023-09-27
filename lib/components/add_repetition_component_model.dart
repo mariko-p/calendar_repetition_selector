@@ -67,6 +67,11 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   // Model for RepetitionLabel component.
   late RepetitionLabelModel repetitionLabelModel;
 
+  // LOCAL_START
+  DateTime? selectedEndDate;
+  Set<String> dropDownValue1Options = Set();
+  // LOCAL_END
+
   String repetitionLabelText = "";
 
   /// Initialization and disposal methods.

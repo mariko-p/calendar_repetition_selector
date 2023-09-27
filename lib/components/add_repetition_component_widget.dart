@@ -32,6 +32,7 @@ import '../backend/schema/structs/week_day_struct.dart';
 import 'package:rrule/rrule.dart';
 
 import '../backend/schema/structs/index.dart';
+import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
 //LOCAL_END
 
 class AddRepetitionComponentWidget extends StatefulWidget {
@@ -141,6 +142,7 @@ class _AddRepetitionComponentWidgetState
       FFAppState().vCurrentRRule = FFAppState().cInitialCustomRRule;
     }
 
+    _model.selectedEndDate = functions.getUntilFromRRule(FFAppState().vCurrentRRule);
     currentIntervalIndex = 0;
     currentIntervals = generateInterval("DAILY");
     currentInterval = currentIntervals[0];
@@ -1059,17 +1061,36 @@ class _AddRepetitionComponentWidgetState
                                     InkWell(
                                       onTap: () async {
                                         if (widget.onEndRepetitionOnClicked != null) {
-                                          widget.onEndRepetitionOnClicked!.call();
+                                          final selectedDay = await widget.onEndRepetitionOnClicked!.call();
+                                          updateRRuleWithUntil(FFAppState().vCurrentRRule, selectedDay);
+                                          _model.selectedEndDate = selectedDay;
+                                          final formatedSelectedDay =
+                                              isSelectedDayToday()
+                                                  ? FFLocalizations.of(context)
+                                                      .getVariableText(
+                                                      enText: 'Today',
+                                                      svText: 'Idag',
+                                                    )
+                                                  : formatSelectedDay();
+
+                                          _model.dropDownValue1Options.clear();
+                                          _model.dropDownValue1Options.add(
+                                              formatedSelectedDay);
+                                          _model.dropDownValue1 =
+                                              formatedSelectedDay;
+                                          _model.dropDownValueController1
+                                                  ?.value =
+                                              formatedSelectedDay;
                                         }
                                       },
                                       child: FlutterFlowDropDown<String>(
                                         controller:
                                             _model.dropDownValueController1 ??=
                                                 FormFieldController<String>(null),
-                                        options: <String>[],
+                                        options: _model.dropDownValue1Options.toList(),
                                         onChanged: (val) => setState(
                                             () => _model.dropDownValue1 = val),
-                                        width: 80.0,
+                                        width: 120.0,
                                         height: 28.0,
                                         textStyle: GoogleFonts.getFont(
                                           'Rubik',
@@ -1104,7 +1125,7 @@ class _AddRepetitionComponentWidgetState
                                         margin: EdgeInsetsDirectional.fromSTEB(
                                             11.0, 0.0, 6.0, 0.0),
                                         hidesUnderline: true,
-                                        disabled: !_model.endRepetitionOnEnabled,
+                                        disabled: true,
                                         isSearchable: false,
                                         isMultiSelect: false,
                                       ),
@@ -1504,13 +1525,19 @@ class _AddRepetitionComponentWidgetState
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Text("Add text",
-                                      style: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 12.0,
-                                        height: 1.5,
+                                    Expanded(
+                                      child: Text(
+                                        FFLocalizations.of(context).getVariableText(
+                                          enText: 'The activity will stop repeating after ${formatSelectedDay()} ${isSelectedDayToday() ? "(Today)" : ""}',
+                                          svText: 'Aktiviteten kommer att sluta upprepas efter ${formatSelectedDay()} ${isSelectedDayToday() ? "(Idag)" : ""}',
+                                        ),
+                                        style: GoogleFonts.getFont(
+                                          'Rubik',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12.0,
+                                          height: 1.5,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -1525,8 +1552,8 @@ class _AddRepetitionComponentWidgetState
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getVariableText(
-                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2} repetitions',
-                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2} repetitioner',
+                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2 ?? 1} repetitions',
+                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2 ?? 1} repetitioner',
                                       ),
                                       style: GoogleFonts.getFont(
                                         'Rubik',
@@ -1596,4 +1623,8 @@ class _AddRepetitionComponentWidgetState
       ],
     );
   }
+
+  String formatSelectedDay() => DateFormat('d MMM y', getLocale().languageCode).format(_model.selectedEndDate ?? DateTime.now()).toLowerCase();
+
+  bool isSelectedDayToday() => _model.selectedEndDate == null || _model.selectedEndDate == DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 }
