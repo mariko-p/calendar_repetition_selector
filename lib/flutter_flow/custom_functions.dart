@@ -760,3 +760,17 @@ String monthShort(BuildContext context, String monthEn) {
   return getShortMonthText(monthLang) ?? "";
 }
 //LOCAL_END
+
+DateTime? getUntilFromRRule(String rruleString) {
+  // LOCAL_START
+  var rrule = RecurrenceRule.fromString(rruleString);
+  return rrule.until;
+  // LOCAL_END
+}
+
+int? getCountFromRRule(String rruleString) {
+  // LOCAL_START
+  var rrule = RecurrenceRule.fromString(rruleString);
+  return rrule.count;
+  // LOCAL_END
+}
