@@ -43,8 +43,7 @@ class AddRepetitionComponentWidget extends StatefulWidget {
       this.onHumanReadableTextChanged,
       this.onSaveTapFromAddPage,
       this.onCancelTapFromAddPage,
-      this.onSaveTapFromCustomPage,
-      this.onEndRepetitionOnClicked})
+      this.onSaveTapFromCustomPage})
       : super(key: key);
 
   // Initial rrule value.
@@ -67,9 +66,6 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 
   // Called on save from custom repetition screen.
   Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
-
-  // Called when 'End repetition On' dropdown is clicked.
-  final Future<DateTime?> Function()? onEndRepetitionOnClicked;
 
   @override
   _AddRepetitionComponentWidgetState createState() =>
@@ -1061,7 +1057,7 @@ class _AddRepetitionComponentWidgetState
                                     InkWell(
                                       onTap: () async {
                                         if (MyApp.onEndRepetitionOnClicked != null) {
-                                          final selectedDay = await MyApp.onEndRepetitionOnClicked!.call();
+                                          final selectedDay = await MyApp.onEndRepetitionOnClicked!.call(_model.selectedEndDate);
                                           updateRRuleWithUntil(FFAppState().vCurrentRRule, selectedDay);
                                           _model.selectedEndDate = selectedDay;
                                           final formatedSelectedDay =
