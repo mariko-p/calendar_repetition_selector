@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 
 Future updateRRuleWithSkipWeekends(
   String rruleString,
-  bool skipWeekends,
 ) async {
   // Add your function code here!
   // IMPLEMENTED LOCALLY
