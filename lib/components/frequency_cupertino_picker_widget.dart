@@ -38,7 +38,7 @@ class _FrequencyCupertinoPickerWidgetState
     super.initState();
     _model = createModel(context, () => FrequencyCupertinoPickerModel());
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _items = generateFrequency(context);
+      setState(() { _items = generateFrequency(context);});
     });
   }
 
