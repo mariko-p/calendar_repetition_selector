@@ -87,6 +87,12 @@ class FFAppState extends ChangeNotifier {
   set vDoNotShowInOverdue(bool _value) {
     _vDoNotShowInOverdue = _value;
   }
+
+  bool _vSkipWeekends = false;
+  bool get vSkipWeekends => _vSkipWeekends;
+  set vSkipWeekends(bool _value) {
+    _vSkipWeekends = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
