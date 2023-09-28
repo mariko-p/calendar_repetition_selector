@@ -9,6 +9,10 @@ import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom action code
 
+// LOCAL_START
+import '../constants/calendar_constants.dart';
+// LOCAL_END
+
 //LOCAL_START
 Future updateRRule(String? frequency, int? interval,
     {List<int>? byMonthDay,
@@ -16,6 +20,11 @@ Future updateRRule(String? frequency, int? interval,
     List<String>? byDay,
     List<int>? byMonth}) async {
   // Code written in local flutter.
+  if (FFAppState().vSkipWeekends) {
+    byDay?.removeWhere(
+        (element) => element == Constants.SA || element == Constants.SU);
+  }
+
   final json = <String, dynamic>{
     'freq': frequency,
     'interval': interval,

@@ -63,8 +63,8 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
             onRRuleChanged: (value) async {
               MyApp.onRRuleChanged?.call(value);
             },
-            onSaveTapFromAddPage: (rrule, repeatOnDone, doNotShowInOverdue) async {
-              MyApp.onSaveTapFromAddPage?.call(rrule, repeatOnDone, doNotShowInOverdue);
+            onSaveTapFromAddPage: (rrule, repeatOnDone, doNotShowInOverdue, skipWeekends) async {
+              MyApp.onSaveTapFromAddPage?.call(rrule, repeatOnDone, doNotShowInOverdue, skipWeekends);
             },
             onCancelTapFromAddPage: () async {
               MyApp.onCancelTapFromAddPage?.call();

@@ -61,7 +61,7 @@ class AddRepetitionComponentWidget extends StatefulWidget {
   Future<dynamic> Function(String? rrule)? onHumanReadableTextChanged;
 
   // Called on save from main screen.
-  Future<dynamic> Function(String? rrule, bool repeatOnDone, bool doNotShowInOverdue)? onSaveTapFromAddPage;
+  Future<dynamic> Function(String? rrule, bool repeatOnDone, bool doNotShowInOverdue, bool skipWeekends)? onSaveTapFromAddPage;
 
   // Called on cancel from main screen.
   Future<dynamic> Function()? onCancelTapFromAddPage;
@@ -626,8 +626,9 @@ class _AddRepetitionComponentWidgetState
             //LOCAL_START
             isSaveVisible: true,
             onSaveTap: () async {
+              updateRRuleWithSkipWeekends(FFAppState().vCurrentRRule);
               print("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
-              widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vDoNotShowInOverdue);
+              widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vDoNotShowInOverdue, FFAppState().vSkipWeekends);
               if (MyApp.isExitAppOnBackON == true) {
                 exit(0);
               } else {
@@ -1414,8 +1415,10 @@ class _AddRepetitionComponentWidgetState
                                   child: Checkbox(
                                     value: _model.checkboxValue2 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
-                                          _model.checkboxValue2 = newValue!);
+                                      setState(() {
+                                        _model.checkboxValue2 = newValue!;
+                                        FFAppState().vSkipWeekends = newValue!;
+                                      });
                                     },
                                     activeColor: Colors.transparent,
                                     checkColor: FlutterFlowTheme.of(context)
@@ -1604,16 +1607,18 @@ class _AddRepetitionComponentWidgetState
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'xc5c3na3' /* The activity will skip repetit... */,
-                                      ),
-                                      style: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 12.0,
-                                        height: 1.5,
+                                    Expanded(
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'xc5c3na3' /* The activity will skip repetit... */,
+                                        ),
+                                        style: GoogleFonts.getFont(
+                                          'Rubik',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12.0,
+                                          height: 1.5,
+                                        ),
                                       ),
                                     ),
                                   ],

@@ -14,12 +14,27 @@ import 'package:rrule/rrule.dart';
 
 Future updateRRuleWithSkipWeekends(
   String rruleString,
-  bool skipWeekends,
 ) async {
   // Add your function code here!
   // LOCAL_START
   var rrule = RecurrenceRule.fromString(rruleString);
-  if (skipWeekends) {
+
+  if (!FFAppState().vSkipWeekends) {
+    FFAppState().vCurrentRRule = rrule.toString();
+    return;
+  }
+
+  if (rrule.hasByWeekDays) {
+    final filteredWeekDays = rrule.byWeekDays
+        .where((e) =>
+            e != ByWeekDayEntry(DateTime.saturday) &&
+            e != ByWeekDayEntry(DateTime.sunday))
+        .toSet();
+
+    rrule = rrule.copyWith(
+      byWeekDays: filteredWeekDays,
+    );
+  } else {
     rrule = rrule.copyWith(
       byWeekDays: {
         ByWeekDayEntry(DateTime.monday),
@@ -28,10 +43,6 @@ Future updateRRuleWithSkipWeekends(
         ByWeekDayEntry(DateTime.thursday),
         ByWeekDayEntry(DateTime.friday),
       },
-    );
-  } else {
-    rrule = rrule.copyWith(
-      byWeekDays: {},
     );
   }
 
