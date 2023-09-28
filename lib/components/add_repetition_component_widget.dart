@@ -207,6 +207,7 @@ class _AddRepetitionComponentWidgetState
       });
 
       _model.checkboxValue1 = FFAppState().vRepeatOnDone;
+      _model.checkboxValue2 = FFAppState().vSkipWeekends;
       _model.checkboxValue3 = FFAppState().vDoNotShowInOverdue;
 
       autoSelectRRule();
