@@ -108,6 +108,9 @@ class _AddRepetitionComponentWidgetState
   var isEveryViewVisible = false;
   var isOfTheMonthViewVisible = false;
 
+  // NOTE this is current solution, because of this 100 FF dropdown component is rebuilding to many times
+  final endRepetitionsAfterDropdownOptions = List.generate(100, (i) => "${i + 1}");
+
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
       // Collapse other expanders.
@@ -925,7 +928,7 @@ class _AddRepetitionComponentWidgetState
                                   child: WeekDayCheckerWidget(
                                     weekDays: weekDays,
                                     selectionChanged: ((items) async {
-                                      updateWeeklyRRule();
+                                      await updateWeeklyRRule();
                                     }),
                                   ),
                                   model: _model.weekDayCheckerModel,
@@ -947,11 +950,11 @@ class _AddRepetitionComponentWidgetState
                                         updateMonthlyMonthDayCheckerRRule(),
                                     bySetPosChanged: (bySetPos) async {
                                       this.bySetPos = bySetPos!;
-                                      updateMonthlyMonthDayByDayPosRRule();
+                                      await updateMonthlyMonthDayByDayPosRRule();
                                     },
                                     byDayChanged: (byDay) async {
                                       this.byDay = byDay!;
-                                      updateMonthlyMonthDayByDayPosRRule();
+                                      await updateMonthlyMonthDayByDayPosRRule();
                                     },
                                     monthlyTypeChanged: (type) =>
                                         monthlyTypeChanged(type),
@@ -965,23 +968,23 @@ class _AddRepetitionComponentWidgetState
                                 child: YearCheckerCombinedWidget(
                                   months: this.months,
                                   monthSelectionChanged: () async {
-                                    updateYearlyRRule();
+                                    await updateYearlyRRule();
                                   },
                                   isWeekDaysChecked: isWeekDaysChecked,
                                   isWeekDaysSelectionChanged:
                                       (isWeekDaysActive) async {
                                     this.isWeekDaysChecked = isWeekDaysActive;
-                                    updateYearlyRRule();
+                                    await updateYearlyRRule();
                                   },
                                   byDay: this.byDay,
                                   bySetPos: this.bySetPos,
                                   byDayChanged: (byDay) async {
                                     this.byDay = byDay;
-                                    updateYearlyRRule();
+                                    await updateYearlyRRule();
                                   },
                                   bySetPosChanged: (bySetPos) async {
                                     this.bySetPos = bySetPos;
-                                    updateYearlyRRule();
+                                    await updateYearlyRRule();
                                   },
                                 ),
                                 model: _model.yearCheckerCombinedModel,
@@ -1220,8 +1223,7 @@ class _AddRepetitionComponentWidgetState
                                       controller:
                                           _model.dropDownValueController2 ??=
                                               FormFieldController<String>(null),
-                                      options:
-                                          List.generate(10000, (i) => "${i + 1}"),
+                                      options: endRepetitionsAfterDropdownOptions,
                                       onChanged: (val) {
                                         setState(
                                             () => _model.dropDownValue2 = val);
