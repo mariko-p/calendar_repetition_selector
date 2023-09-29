@@ -20,8 +20,11 @@ Future updateRRuleWithUntil(
   // Add your function code here!
 
   // LOCAL_START
-  var rrule = RecurrenceRule.fromString(rruleString);
-  rrule = rrule.copyWith(until: until?.copyWith(isUtc: true), clearCount: true);
-  FFAppState().vCurrentRRule = rrule.toString();
+  try {
+    var rrule = RecurrenceRule.fromString(rruleString);
+    rrule =
+        rrule.copyWith(until: until?.copyWith(isUtc: true), clearCount: true);
+    FFAppState().vCurrentRRule = rrule.toString();
+  } catch (_) {}
   // LOCAL_END
 }

@@ -19,8 +19,10 @@ Future updateRRuleWithCount(
   // Add your function code here!
 
   // LOCAL_START
-  var rrule = RecurrenceRule.fromString(rruleString);
-  rrule = rrule.copyWith(count: count, clearUntil: true);
-  FFAppState().vCurrentRRule = rrule.toString();
+  try {
+    var rrule = RecurrenceRule.fromString(rruleString);
+    rrule = rrule.copyWith(count: count, clearUntil: true);
+    FFAppState().vCurrentRRule = rrule.toString();
+  } catch(_) {}
   // LOCAL_END
 }
