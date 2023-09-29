@@ -48,8 +48,8 @@ class AddRepetitionComponentModel extends FlutterFlowModel {
   // Model for RadioButton component.
   late RadioButtonModel radioButtonModel2;
   // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
+  int? dropDownValue2 = 1;
+  FormFieldController<int>? dropDownValueController2;
   // Model for RadioButton component.
   late RadioButtonModel radioButtonModel3;
   // State field(s) for Checkbox widget.

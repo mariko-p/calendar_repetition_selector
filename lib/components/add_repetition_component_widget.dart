@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import '/components/frequency_expander_widget.dart';
 import '/components/header_centered_nav_bar_widget.dart';
 import '/components/interval_expander_widget.dart';
@@ -109,7 +107,7 @@ class _AddRepetitionComponentWidgetState
   var isOfTheMonthViewVisible = false;
 
   // NOTE this is current solution, because of this 100 FF dropdown component is rebuilding to many times
-  final endRepetitionsAfterDropdownOptions = List.generate(100, (i) => "${i + 1}");
+  final endRepetitionsAfterDropdownOptions = List.generate(100, (i) => i + 1);
 
   void onFreqExpandedChanged() {
     if (freqController.expanded) {
@@ -165,7 +163,7 @@ class _AddRepetitionComponentWidgetState
         _model.endRepetitionAfterEnabled = true;
         _model.repeatForeverEnabled = false;
 
-        _model.dropDownValue2 = count.toString();
+        _model.dropDownValue2 = count;
     } else {
       _model.endRepetitionOnEnabled = false;
       _model.endRepetitionAfterEnabled = false;
@@ -203,7 +201,7 @@ class _AddRepetitionComponentWidgetState
         months = getMonthsList(context);
 
         updateEndRepetionOnDropdownValue(context);
-        _model.dropDownValue2 = count.toString();
+        _model.dropDownValue2 = count;
       });
 
       _model.checkboxValue1 = FFAppState().vRepeatOnDone;
@@ -1100,7 +1098,7 @@ class _AddRepetitionComponentWidgetState
                                   children: [
                                     InkWell(
                                       onTap: () async {
-                                        if (MyApp.onEndRepetitionOnClicked != null) {
+                                        if (_model.endRepetitionOnEnabled && MyApp.onEndRepetitionOnClicked != null) {
                                           final selectedDay = await MyApp.onEndRepetitionOnClicked!.call(_model.selectedEndDate);
                                           updateRRuleWithUntil(FFAppState().vCurrentRRule, selectedDay);
                                           _model.selectedEndDate = selectedDay;
@@ -1221,15 +1219,15 @@ class _AddRepetitionComponentWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    FlutterFlowDropDown<String>(
+                                    FlutterFlowDropDown<int>(
                                       controller:
                                           _model.dropDownValueController2 ??=
-                                              FormFieldController<String>(null),
+                                              FormFieldController<int>(null),
                                       options: endRepetitionsAfterDropdownOptions,
                                       onChanged: (val) {
                                         setState(
                                             () => _model.dropDownValue2 = val);
-                                        updateRRuleWithCount(FFAppState().vCurrentRRule, int.parse(val!));
+                                        updateRRuleWithCount(FFAppState().vCurrentRRule, val!);
                                       },
                                       width: 80.0,
                                       height: 28.0,
@@ -1285,7 +1283,7 @@ class _AddRepetitionComponentWidgetState
                                           _model.repeatForeverEnabled = false;
                                           _model.endRepetitionOnEnabled = false;
                                         });
-                                        updateRRuleWithCount(FFAppState().vCurrentRRule, int.parse(_model.dropDownValue2 ?? "1"));
+                                        updateRRuleWithCount(FFAppState().vCurrentRRule, _model.dropDownValue2 ?? 1);
                                       },
                                       child: wrapWithModel(
                                         model: _model.radioButtonModel3,
@@ -1587,8 +1585,8 @@ class _AddRepetitionComponentWidgetState
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getVariableText(
-                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2 ?? 1} repetitions',
-                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2 ?? 1} repetitioner',
+                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2} repetitions',
+                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2} repetitioner',
                                       ),
                                       style: GoogleFonts.getFont(
                                         'Rubik',
