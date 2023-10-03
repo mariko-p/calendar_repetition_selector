@@ -1,12 +1,13 @@
 import '/components/month_day_by_set_checker_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'year_by_set_checker_widget.dart' show YearBySetCheckerWidget;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class YearBySetCheckerModel extends FlutterFlowModel {
+class YearBySetCheckerModel extends FlutterFlowModel<YearBySetCheckerWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Model for MonthDayBySetChecker component.

@@ -724,6 +724,8 @@ class _AddRepetitionComponentWidgetState
                                         applyRRule(selectedIndex);
 
                                         _model.isCustomSelected = false;
+
+                                        widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vDoNotShowInOverdue, FFAppState().vSkipWeekends);
                                       });
                                       //LOCAL_END
                                     },
@@ -1112,7 +1114,22 @@ class _AddRepetitionComponentWidgetState
                                         options: _model.dropDownValue1Options.toList(),
                                         onChanged: (val) => setState(
                                             () => _model.dropDownValue1 = val),
-                                        width: 120.0,
+                                        width: () {
+                                          if (MediaQuery.sizeOf(context).width <
+                                              kBreakpointSmall) {
+                                            return 120.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                              kBreakpointMedium) {
+                                            return 130.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                              kBreakpointLarge) {
+                                            return 140.0;
+                                          } else {
+                                            return 140.0;
+                                          }
+                                        }(),
                                         height: 28.0,
                                         textStyle: GoogleFonts.getFont(
                                           'Rubik',
