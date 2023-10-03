@@ -726,7 +726,7 @@ class _AddRepetitionComponentWidgetState
                                         _model.isCustomSelected = false;
 
                                         // NOTE(MDEV-1440) We wanted ability to save and close bottom sheet when suggestion is pressed.
-                                        widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vDoNotShowInOverdue, FFAppState().vSkipWeekends);
+                                        // widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vDoNotShowInOverdue, FFAppState().vSkipWeekends);
                                       });
                                       //LOCAL_END
                                     },
