@@ -429,7 +429,22 @@ class _AddRepetitionComponentWidgetState
                                     options: <String>[],
                                     onChanged: (val) => setState(
                                         () => _model.dropDownValue1 = val),
-                                    width: 80.0,
+                                    width: () {
+                                      if (MediaQuery.sizeOf(context).width <
+                                          kBreakpointSmall) {
+                                        return 120.0;
+                                      } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                          kBreakpointMedium) {
+                                        return 130.0;
+                                      } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                          kBreakpointLarge) {
+                                        return 140.0;
+                                      } else {
+                                        return 140.0;
+                                      }
+                                    }(),
                                     height: 28.0,
                                     textStyle: GoogleFonts.getFont(
                                       'Rubik',
