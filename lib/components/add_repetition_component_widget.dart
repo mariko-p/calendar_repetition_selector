@@ -246,9 +246,6 @@ class _AddRepetitionComponentWidgetState
         }
       }
     }
-
-    // NOTE(): Until Never is back
-    selectedIndex = selectedIndex - 1;
   }
 
   /// RRULE rules.
@@ -997,7 +994,8 @@ class _AddRepetitionComponentWidgetState
                         ),
                       ),
                     ),
-                  Padding(
+                  if (selectedIndex != 0)
+                    Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
@@ -1321,7 +1319,8 @@ class _AddRepetitionComponentWidgetState
                       ),
                     ),
                   ),
-                  Padding(
+                  if (selectedIndex != 0)
+                    Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
@@ -1449,7 +1448,8 @@ class _AddRepetitionComponentWidgetState
                       ),
                     ),
                   ),
-                  Padding(
+                  if (selectedIndex != 0)
+                    Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
@@ -1515,7 +1515,8 @@ class _AddRepetitionComponentWidgetState
                       ),
                     ),
                   ),
-                  Column(
+                  if (selectedIndex != 0)
+                    Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
@@ -1603,8 +1604,8 @@ class _AddRepetitionComponentWidgetState
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getVariableText(
-                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2} repetitions',
-                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2} repetitioner',
+                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2 ?? 1} repetitions',
+                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2 ?? 1} repetitioner',
                                       ),
                                       style: GoogleFonts.getFont(
                                         'Rubik',
