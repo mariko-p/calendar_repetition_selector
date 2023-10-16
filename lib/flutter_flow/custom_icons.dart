@@ -4,7 +4,7 @@ class FFIcons {
   FFIcons._();
 
   static const String _marikoFamily = 'Mariko';
-  static const String _marikoV2Family = 'MarikoV2';
+  static const String _marikoIconsV4Family = 'MarikoIconsV4';
 
   // mariko
   static const IconData kaddIcon = IconData(0xe97a, fontFamily: _marikoFamily);
@@ -231,15 +231,17 @@ class FFIcons {
   static const IconData kwalk = IconData(0xe912, fontFamily: _marikoFamily);
   static const IconData kwater = IconData(0xe911, fontFamily: _marikoFamily);
 
-  // mariko-v2
+  // mariko-icons-v4
+  static const IconData kneverRepeat =
+      IconData(0xe905, fontFamily: _marikoIconsV4Family);
   static const IconData krepeatEveryWeek =
-      IconData(0xe900, fontFamily: _marikoV2Family);
+      IconData(0xe900, fontFamily: _marikoIconsV4Family);
   static const IconData krepeatEverySecondWeek =
-      IconData(0xe901, fontFamily: _marikoV2Family);
+      IconData(0xe901, fontFamily: _marikoIconsV4Family);
   static const IconData krepeatEveryMonth =
-      IconData(0xe902, fontFamily: _marikoV2Family);
+      IconData(0xe902, fontFamily: _marikoIconsV4Family);
   static const IconData krepeatEveryYear =
-      IconData(0xe903, fontFamily: _marikoV2Family);
+      IconData(0xe903, fontFamily: _marikoIconsV4Family);
   static const IconData krepeatEveryDay =
-      IconData(0xe904, fontFamily: _marikoV2Family);
+      IconData(0xe904, fontFamily: _marikoIconsV4Family);
 }
