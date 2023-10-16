@@ -340,7 +340,7 @@ List<RepetitionStruct> getPredefinedRepetitionList([BuildContext? context]) {
         text: never,
         isSelected: false,
         rrule: "",
-        iconCodePoint: FFIcons.krecurring.codePoint),
+        iconCodePoint: FFIcons.kneverRepeat.codePoint),
     createRepetitionStruct(
         text: everyDay,
         isSelected: false,
