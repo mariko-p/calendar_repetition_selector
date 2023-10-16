@@ -92,9 +92,9 @@ flutter:
     - family: Mariko
       fonts:
         - asset: assets/fonts/mariko.ttf
-    - family: MarikoV2
+    - family: MarikoIconsV4
       fonts:
-        - asset: assets/fonts/mariko-v2.ttf
+        - asset: assets/fonts/mariko-icons-v4.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
