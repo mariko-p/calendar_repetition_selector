@@ -994,8 +994,7 @@ class _AddRepetitionComponentWidgetState
                         ),
                       ),
                     ),
-                  if (selectedIndex != 0)
-                    Padding(
+                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(

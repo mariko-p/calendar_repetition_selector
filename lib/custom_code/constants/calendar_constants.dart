@@ -37,7 +37,7 @@ class Constants {
   static const String WeekDay = "WeekDay";
   static const String Day = "Day";
 
-  static const String NEVER = "Never";
+  static const String NEVER = "Never repeat";
   static const String EVERY_SECOND_WEEK = "Every second week";
   static const String CUSTOM = "Custom";
 
@@ -53,7 +53,7 @@ class Constants {
   static const String OCTOBER = "October";
   static const String NOVEMBER = "November";
   static const String DECEMBER = "December";
-  
+
   static const String JANUARY_SHORT = "jan.";
   static const String FEBRUARY_SHORT = "feb.";
   static const String MARCH_SHORT = "mar.";
@@ -66,5 +66,5 @@ class Constants {
   static const String OCTOBER_SHORT = "oct.";
   static const String NOVEMBER_SHORT = "nov.";
   static const String DECEMBER_SHORT = "dec.";
-  
+
 }
