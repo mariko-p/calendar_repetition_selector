@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_day_checker_combined_model.dart';
@@ -31,6 +32,8 @@ class _MonthDayCheckerCombinedWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MonthDayCheckerCombinedModel());
+
+    _model.expandableController = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -54,7 +57,7 @@ class _MonthDayCheckerCombinedWidgetState
         width: double.infinity,
         color: Colors.transparent,
         child: ExpandableNotifier(
-          initialExpanded: false,
+          controller: _model.expandableController,
           child: ExpandablePanel(
             header: Container(
               decoration: BoxDecoration(

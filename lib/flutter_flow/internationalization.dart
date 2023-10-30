@@ -268,8 +268,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Aktiviteten kommer att upprepas varje år',
     },
     'oyc9uml8': {
-      'en': 'The activity will repeat ',
-      'sv': 'Aktiviteten kommer att upprepas',
+      'en': 'The activity will repeat  ',
+      'sv': 'Aktiviteten kommer att upprepas ',
     },
     'gwyr9cx1': {
       'en': 'day',

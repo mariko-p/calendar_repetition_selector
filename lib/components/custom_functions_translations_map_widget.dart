@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'custom_functions_translations_map_model.dart';
@@ -117,7 +118,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'oyc9uml8' /* The activity will repeat  */,
+                      'oyc9uml8' /* The activity will repeat   */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',

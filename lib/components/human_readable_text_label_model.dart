@@ -5,6 +5,7 @@ import 'human_readable_text_label_widget.dart'
     show HumanReadableTextLabelWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 

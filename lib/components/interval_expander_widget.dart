@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'interval_expander_model.dart';
@@ -28,6 +29,8 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => IntervalExpanderModel());
+
+    _model.expandableController = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -45,7 +48,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
       width: double.infinity,
       color: Colors.transparent,
       child: ExpandableNotifier(
-        initialExpanded: false,
+        controller: _model.expandableController,
         child: ExpandablePanel(
           header: Column(
             mainAxisSize: MainAxisSize.max,

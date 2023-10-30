@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'frequency_expander_model.dart';
@@ -29,6 +30,8 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FrequencyExpanderModel());
+
+    _model.expandableController = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -46,7 +49,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
       width: double.infinity,
       color: Colors.transparent,
       child: ExpandableNotifier(
-        initialExpanded: false,
+        controller: _model.expandableController,
         child: ExpandablePanel(
           header: Column(
             mainAxisSize: MainAxisSize.max,

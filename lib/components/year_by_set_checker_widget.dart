@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'year_by_set_checker_model.dart';
@@ -28,6 +29,8 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => YearBySetCheckerModel());
+
+    _model.expandableController = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -50,7 +53,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
         width: double.infinity,
         color: Colors.transparent,
         child: ExpandableNotifier(
-          initialExpanded: false,
+          controller: _model.expandableController,
           child: ExpandablePanel(
             header: Container(
               decoration: BoxDecoration(

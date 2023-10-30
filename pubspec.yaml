@@ -35,7 +35,7 @@ dependencies:
   from_css_color: 2.0.0
   go_router: 7.1.1
   google_fonts: 4.0.3
-  intl: 0.18.0
+  intl: 0.18.1
   json_path: 0.6.2
   page_transition: 2.0.4
   path_provider: 2.0.14
@@ -86,8 +86,6 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
-
-
   fonts:
     - family: Mariko
       fonts:
