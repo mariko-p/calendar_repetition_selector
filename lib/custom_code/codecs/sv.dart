@@ -23,9 +23,9 @@ class RruleL10nSv extends RruleL10n {
         case 1:
           return one;
         case 2:
-          return 'Every other $singular';
+          return 'Varannan $singular';
         default:
-          return 'Every $interval ${singular}s';
+          return 'Varje $interval ${singular}s';
       }
     }
 
