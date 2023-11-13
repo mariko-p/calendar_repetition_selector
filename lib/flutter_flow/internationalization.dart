@@ -224,7 +224,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5rwscio8': {
       'en': 'The activity won\'t show in overdue',
-      'sv': 'Aktiviteten kommer inte att visas för sent',
+      'sv': 'Aktiviteten kommer inte att visas i försenade aktiviteter. ',
     },
   },
   // YearBySetChecker
