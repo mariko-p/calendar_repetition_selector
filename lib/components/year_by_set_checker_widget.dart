@@ -7,6 +7,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'year_by_set_checker_model.dart';
 export 'year_by_set_checker_model.dart';
@@ -68,6 +70,8 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       controller.expanded = isWeekDaysChecked;
     });
+
+    _model.expandableController = ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -87,6 +91,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
         width: double.infinity,
         child: ExpandableNotifier(
           controller: controller,
+          // controller: _model.expandableController,
           child: ExpandablePanel(
             header: Container(
               child: Column(
