@@ -1650,16 +1650,18 @@ class _AddRepetitionComponentWidgetState
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '5rwscio8' /* The activity won't show in ove... */,
-                                      ),
-                                      style: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 12.0,
-                                        height: 1.5,
+                                    Expanded(
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '5rwscio8' /* The activity won't show in ove... */,
+                                        ),
+                                        style: GoogleFonts.getFont(
+                                          'Rubik',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12.0,
+                                          height: 1.5,
+                                        ),
                                       ),
                                     ),
                                   ],
