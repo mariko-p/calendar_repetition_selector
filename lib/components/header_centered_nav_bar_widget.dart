@@ -140,7 +140,7 @@ class _HeaderCenteredNavBarWidgetState
                         }
                       },
                       text: FFLocalizations.of(context).getText(
-                        't7ggjw9g' /* Save */,
+                        't7ggjw9g' /* Done */,
                       ),
                       options: FFButtonOptions(
                         padding:
