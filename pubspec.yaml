@@ -54,7 +54,9 @@ dependencies:
   rrule: ^0.2.10
   shared_preferences: 2.2.2
   shared_preferences_android: 2.2.1
-  shared_preferences_ios: 2.3.4
+  #LOCAL_START
+  shared_preferences_ios: 2.1.1
+  #LOCAL_END
   shared_preferences_platform_interface: 2.3.1
   shared_preferences_web: 2.2.1
   sqflite: 2.2.6
