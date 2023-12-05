@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/components/frequency_expander_widget.dart';
 import '/components/header_centered_nav_bar_widget.dart';
 import '/components/interval_expander_widget.dart';

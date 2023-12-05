@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '../backend/schema/structs/month_day_struct.dart';
 import '/components/month_day_item_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
