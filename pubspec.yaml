@@ -28,16 +28,16 @@ dependencies:
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
   dropdown_button2: 2.3.9
-  cloud_firestore: 4.2.0 #check
-  cloud_firestore_platform_interface: 5.9.1 #check
-  cloud_firestore_web: 3.1.1 #check
-  #LOCAL_START
-  firebase_core: ^2.11.0 #check
-  firebase_core_platform_interface: ^4.7.0 #check
-  firebase_core_web: ^2.4.0 #check
-  flutter_animate: 4.1.1+1
-  #LOCAL_END
+#  cloud_firestore: 4.2.0 #check
+#  cloud_firestore_platform_interface: 5.9.1 #check
+#  cloud_firestore_web: 3.1.1 #check
+#  #LOCAL_START
+#  firebase_core: ^2.11.0 #check
+#  firebase_core_platform_interface: ^4.7.0 #check
+#  firebase_core_web: ^2.4.0 #check
+#  #LOCAL_END
   expandable: 5.0.1
+  flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.1
   font_awesome_flutter: 10.6.0
   from_css_color: 2.0.0
@@ -55,7 +55,8 @@ dependencies:
   shared_preferences: 2.2.2
   shared_preferences_android: 2.2.1
   #LOCAL_START
-  shared_preferences_ios: 2.1.1
+#  shared_preferences_ios: 2.1.1
+  shared_preferences_foundation: 2.3.4
   #LOCAL_END
   shared_preferences_platform_interface: 2.3.1
   shared_preferences_web: 2.2.1
