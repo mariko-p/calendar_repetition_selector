@@ -31,7 +31,7 @@ class IntervalStruct extends BaseStruct {
       );
 
   static IntervalStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? IntervalStruct.fromMap(data) : null;
+      data is Map ? IntervalStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'text': _text,

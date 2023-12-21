@@ -92,7 +92,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
         child: Column(

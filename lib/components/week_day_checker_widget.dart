@@ -112,7 +112,7 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                           if (weekDaysItem.isChecked ?? true)
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(1, 0),
+                                alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10.5, 12, 10.5),

@@ -85,7 +85,7 @@ class _HeaderCenteredNavBarWidgetState
               alignment: AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       // Dismiss bottom sheet
@@ -121,7 +121,7 @@ class _HeaderCenteredNavBarWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     widget.title!,
                     textAlign: TextAlign.center,
@@ -134,7 +134,7 @@ class _HeaderCenteredNavBarWidgetState
                 ),
                 if (widget.isSaveVisible ?? true)
                   Align(
-                    alignment: AlignmentDirectional(1.00, 0.00),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (widget.isSaveVisible! && widget.isSaveEnabled!) {

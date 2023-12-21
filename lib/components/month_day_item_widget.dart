@@ -89,8 +89,8 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               uncheckItem(widget.monthDay?.index);
             }),
             child: Container(
-              width: 32,
-              height: 32,
+              width: 32.0,
+              height: 32.0,
               decoration: BoxDecoration(
                 color: valueOrDefault<Color>(
                   functions.combineColors(
@@ -100,7 +100,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
                 shape: BoxShape.circle,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   valueOrDefault<String>(
                     widget.monthDay?.text,
@@ -109,7 +109,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
                         color: Colors.white,
-                        fontSize: 12,
+                        fontSize: 12.0,
                         fontWeight: FontWeight.w500,
                       ),
                 ),
@@ -122,13 +122,13 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               checkItem(widget.monthDay?.index);
             }),
             child: Container(
-              width: 32,
-              height: 32,
+              width: 32.0,
+              height: 32.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
               ),
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   valueOrDefault<String>(
                     widget.monthDay?.text,
@@ -137,7 +137,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
                         color: FlutterFlowTheme.of(context).primaryText,
-                        fontSize: 12,
+                        fontSize: 12.0,
                         fontWeight: FontWeight.w400,
                       ),
                 ),

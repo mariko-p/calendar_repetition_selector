@@ -99,7 +99,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(1.00, 0.00),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Text(
                               //LOCAL_START
                               widget.currentFrequency.text

@@ -31,8 +31,9 @@ class BySetPositionStruct extends BaseStruct {
         value: castToType<int>(data['value']),
       );
 
-  static BySetPositionStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? BySetPositionStruct.fromMap(data) : null;
+  static BySetPositionStruct? maybeFromMap(dynamic data) => data is Map
+      ? BySetPositionStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'text': _text,

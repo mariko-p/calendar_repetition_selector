@@ -36,7 +36,7 @@ class ByDayStruct extends BaseStruct implements LocalRebuilder<ByDayStruct>{
       );
 
   static ByDayStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? ByDayStruct.fromMap(data) : null;
+      data is Map ? ByDayStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'text': _text,

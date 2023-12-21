@@ -46,7 +46,7 @@ class MonthDayStruct extends BaseStruct implements LocalRebuilder<MonthDayStruct
       );
 
   static MonthDayStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? MonthDayStruct.fromMap(data) : null;
+      data is Map ? MonthDayStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'text': _text,
