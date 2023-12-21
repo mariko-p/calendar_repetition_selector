@@ -55,7 +55,7 @@ class _CustomRepetitionComponentWidgetState
         mainAxisSize: MainAxisSize.max,
         children: [
           Align(
-            alignment: AlignmentDirectional(0.00, -1.00),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +79,7 @@ class _CustomRepetitionComponentWidgetState
                   child: IntervalExpanderWidget(),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: wrapWithModel(
                     model: _model.repetitionLabelModel,
                     updateCallback: () => setState(() {}),

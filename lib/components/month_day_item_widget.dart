@@ -62,7 +62,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               shape: BoxShape.circle,
             ),
             child: Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: SelectionArea(
                   child: Text(
                 widget.monthDay!.text,
@@ -83,7 +83,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               shape: BoxShape.circle,
             ),
             child: Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: SelectionArea(
                   child: Text(
                 widget.monthDay!.text,

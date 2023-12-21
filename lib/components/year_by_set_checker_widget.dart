@@ -94,7 +94,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                           if (FFAppState().vTmp)
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(1.00, 0.00),
+                                alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Icon(
                                   FFIcons.kcheckbox,
                                   color: Color(0xFF9980DD),

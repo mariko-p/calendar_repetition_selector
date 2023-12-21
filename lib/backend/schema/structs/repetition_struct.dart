@@ -50,8 +50,9 @@ class RepetitionStruct extends BaseStruct {
         iconCodePoint: castToType<int>(data['iconCodePoint']),
       );
 
-  static RepetitionStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? RepetitionStruct.fromMap(data) : null;
+  static RepetitionStruct? maybeFromMap(dynamic data) => data is Map
+      ? RepetitionStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'text': _text,

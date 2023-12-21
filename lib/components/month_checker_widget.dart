@@ -76,7 +76,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                               color: Color(0xFF9980DD),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: SelectionArea(
                                   child: Text(
                                 valueOrDefault<String>(
@@ -105,7 +105,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: SelectionArea(
                                   child: Text(
                                 valueOrDefault<String>(
@@ -125,7 +125,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                             ),
                           ),
                         Align(
-                          alignment: AlignmentDirectional(1.00, 0.00),
+                          alignment: AlignmentDirectional(1.0, 0.0),
                           child: Container(
                             width: 0.5,
                             height: 36.0,

@@ -62,7 +62,7 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
                 width: 1.0,
               ),
             ),
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
               width: 8.0,
               height: 8.0,
@@ -84,7 +84,7 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
                 width: 1.0,
               ),
             ),
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
           ),
       ],
     );

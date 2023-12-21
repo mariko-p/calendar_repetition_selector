@@ -29,8 +29,9 @@ class FrequencyStruct extends BaseStruct {
         value: data['value'] as String?,
       );
 
-  static FrequencyStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? FrequencyStruct.fromMap(data) : null;
+  static FrequencyStruct? maybeFromMap(dynamic data) => data is Map
+      ? FrequencyStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'text': _text,

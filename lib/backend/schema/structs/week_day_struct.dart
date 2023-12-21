@@ -39,7 +39,7 @@ class WeekDayStruct extends BaseStruct {
       );
 
   static WeekDayStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? WeekDayStruct.fromMap(data) : null;
+      data is Map ? WeekDayStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'text': _text,

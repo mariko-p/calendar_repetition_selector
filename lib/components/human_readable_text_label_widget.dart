@@ -64,7 +64,7 @@ class _HumanReadableTextLabelWidgetState
         width: double.infinity,
         decoration: BoxDecoration(),
         child: Align(
-          alignment: AlignmentDirectional(-1.00, 0.00),
+          alignment: AlignmentDirectional(-1.0, 0.0),
           child: Text(
             _model.label != null && _model.label != ''
                 ? _model.label!
