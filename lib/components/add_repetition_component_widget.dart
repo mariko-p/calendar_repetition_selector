@@ -1080,19 +1080,21 @@ class _AddRepetitionComponentWidgetState
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '9ed6988p' /* End repetition On */,
-                                  ),
-                                  style: GoogleFonts.getFont(
-                                    'Rubik',
-                                    color: _model.endRepetitionOnEnabled
-                                        ? FlutterFlowTheme.of(context)
-                                            .primaryText
-                                        : Color(0xff7d8ba1),
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 14.0,
-                                    height: 1.5,
+                                Expanded(
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '9ed6988p' /* End repetition On */,
+                                    ),
+                                    style: GoogleFonts.getFont(
+                                      'Rubik',
+                                      color: _model.endRepetitionOnEnabled
+                                          ? FlutterFlowTheme.of(context)
+                                              .primaryText
+                                          : Color(0xff7d8ba1),
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14.0,
+                                      height: 1.5,
+                                    ),
                                   ),
                                 ),
                                 Row(
@@ -1218,19 +1220,21 @@ class _AddRepetitionComponentWidgetState
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '6ts3zr1x' /* End repetition After */,
-                                  ),
-                                  style: GoogleFonts.getFont(
-                                    'Rubik',
-                                    color: _model.endRepetitionAfterEnabled
-                                        ? FlutterFlowTheme.of(context)
-                                            .primaryText
-                                        : Color(0xff7d8ba1),
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 14.0,
-                                    height: 1.5,
+                                Expanded(
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '6ts3zr1x' /* End repetition After */,
+                                    ),
+                                    style: GoogleFonts.getFont(
+                                      'Rubik',
+                                      color: _model.endRepetitionAfterEnabled
+                                          ? FlutterFlowTheme.of(context)
+                                              .primaryText
+                                          : Color(0xff7d8ba1),
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14.0,
+                                      height: 1.5,
+                                    ),
                                   ),
                                 ),
                                 Row(
