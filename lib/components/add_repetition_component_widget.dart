@@ -1124,16 +1124,35 @@ class _AddRepetitionComponentWidgetState
                                           } else if (MediaQuery.sizeOf(context)
                                               .width <
                                               kBreakpointMedium) {
-                                            return 130.0;
+                                            return 150.0;
                                           } else if (MediaQuery.sizeOf(context)
                                               .width <
                                               kBreakpointLarge) {
-                                            return 140.0;
+                                            return 180.0;
                                           } else {
-                                            return 140.0;
+                                            return 180.0;
                                           }
                                         }(),
-                                        height: 28.0,
+                                        height: () {
+                                          if (isSelectedDayToday()) {
+                                            return 28.0;
+                                          }
+
+                                          if (MediaQuery.sizeOf(context).width <
+                                              kBreakpointSmall) {
+                                            return 56.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                              kBreakpointMedium) {
+                                            return 56.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                              .width <
+                                              kBreakpointLarge) {
+                                            return 28.0;
+                                          } else {
+                                            return 28.0;
+                                          }
+                                        }(),
                                         textStyle: GoogleFonts.getFont(
                                           'Rubik',
                                           color: _model.endRepetitionOnEnabled
