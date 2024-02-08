@@ -53,11 +53,8 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                       borderRadius: getSpecificBorderRadius(item.text),
                       child: Container(
                         height: 36,
-                        constraints: BoxConstraints(
-                          maxWidth: 100,
-                        ),
                         decoration: BoxDecoration(
-                          color: Color(0xFF9980DD),
+                          color: Color(0xFF7C4DFF),
                           borderRadius: getSpecificBorderRadius(item.text),
                         ),
                         child: Align(
@@ -132,44 +129,48 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
   }
 
   BorderRadius? getSpecificBorderRadius(String? monthValue) {
-    if (monthValue == Constants.JANUARY) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(5),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(0),
-      );
-    }
+    // NOTE (puhalovicm 08.02.2024.) MDEV-2108
+    // We remove all radius
+    return BorderRadius.all(Radius.circular(0));
 
-    if (monthValue == Constants.APRIL) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(0),
-        topRight: Radius.circular(5),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(0),
-      );
-    }
-
-    if (monthValue == Constants.SEPTEMBER) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(0),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(5),
-        bottomRight: Radius.circular(0),
-      );
-    }
-
-    if (monthValue == Constants.DECEMBER) {
-      return BorderRadius.only(
-        topLeft: Radius.circular(0),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(5),
-      );
-    }
-
-    // Default no BorderRadius
-    return null;
+    // if (monthValue == Constants.JANUARY) {
+    //   return BorderRadius.only(
+    //     topLeft: Radius.circular(5),
+    //     topRight: Radius.circular(0),
+    //     bottomLeft: Radius.circular(0),
+    //     bottomRight: Radius.circular(0),
+    //   );
+    // }
+    //
+    // if (monthValue == Constants.APRIL) {
+    //   return BorderRadius.only(
+    //     topLeft: Radius.circular(0),
+    //     topRight: Radius.circular(5),
+    //     bottomLeft: Radius.circular(0),
+    //     bottomRight: Radius.circular(0),
+    //   );
+    // }
+    //
+    // if (monthValue == Constants.SEPTEMBER) {
+    //   return BorderRadius.only(
+    //     topLeft: Radius.circular(0),
+    //     topRight: Radius.circular(0),
+    //     bottomLeft: Radius.circular(5),
+    //     bottomRight: Radius.circular(0),
+    //   );
+    // }
+    //
+    // if (monthValue == Constants.DECEMBER) {
+    //   return BorderRadius.only(
+    //     topLeft: Radius.circular(0),
+    //     topRight: Radius.circular(0),
+    //     bottomLeft: Radius.circular(0),
+    //     bottomRight: Radius.circular(5),
+    //   );
+    // }
+    //
+    // // Default no BorderRadius
+    // return null;
   }
 
   @override

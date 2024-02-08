@@ -1117,42 +1117,46 @@ class _AddRepetitionComponentWidgetState
                                         options: _model.dropDownValue1Options.toList(),
                                         onChanged: (val) => setState(
                                             () => _model.dropDownValue1 = val),
-                                        width: () {
-                                          if (MediaQuery.sizeOf(context).width <
-                                              kBreakpointSmall) {
-                                            return 120.0;
-                                          } else if (MediaQuery.sizeOf(context)
-                                              .width <
-                                              kBreakpointMedium) {
-                                            return 150.0;
-                                          } else if (MediaQuery.sizeOf(context)
-                                              .width <
-                                              kBreakpointLarge) {
-                                            return 180.0;
-                                          } else {
-                                            return 180.0;
-                                          }
-                                        }(),
-                                        height: () {
-                                          if (isSelectedDayToday()) {
-                                            return 28.0;
-                                          }
-
-                                          if (MediaQuery.sizeOf(context).width <
-                                              kBreakpointSmall) {
-                                            return 56.0;
-                                          } else if (MediaQuery.sizeOf(context)
-                                              .width <
-                                              kBreakpointMedium) {
-                                            return 56.0;
-                                          } else if (MediaQuery.sizeOf(context)
-                                              .width <
-                                              kBreakpointLarge) {
-                                            return 28.0;
-                                          } else {
-                                            return 28.0;
-                                          }
-                                        }(),
+                                        width: 120.0,
+                                        // NOTE (puhalovicm): Not needed after adding isOverButton flag
+                                        // width: () {
+                                        //   if (MediaQuery.sizeOf(context).width <
+                                        //       kBreakpointSmall) {
+                                        //     return 120.0;
+                                        //   } else if (MediaQuery.sizeOf(context)
+                                        //       .width <
+                                        //       kBreakpointMedium) {
+                                        //     return 150.0;
+                                        //   } else if (MediaQuery.sizeOf(context)
+                                        //       .width <
+                                        //       kBreakpointLarge) {
+                                        //     return 180.0;
+                                        //   } else {
+                                        //     return 180.0;
+                                        //   }
+                                        // }(),
+                                        height: 28.0,
+                                        // NOTE (puhalovicm): Not needed after adding isOverButton flag
+                                        // height: () {
+                                        //   if (isSelectedDayToday()) {
+                                        //     return 28.0;
+                                        //   }
+                                        //
+                                        //   if (MediaQuery.sizeOf(context).width <
+                                        //       kBreakpointSmall) {
+                                        //     return 56.0;
+                                        //   } else if (MediaQuery.sizeOf(context)
+                                        //       .width <
+                                        //       kBreakpointMedium) {
+                                        //     return 56.0;
+                                        //   } else if (MediaQuery.sizeOf(context)
+                                        //       .width <
+                                        //       kBreakpointLarge) {
+                                        //     return 28.0;
+                                        //   } else {
+                                        //     return 28.0;
+                                        //   }
+                                        // }(),
                                         textStyle: GoogleFonts.getFont(
                                           'Rubik',
                                           color: _model.endRepetitionOnEnabled
@@ -1184,11 +1188,12 @@ class _AddRepetitionComponentWidgetState
                                         borderWidth: 0.5,
                                         borderRadius: 5.0,
                                         margin: EdgeInsetsDirectional.fromSTEB(
-                                            11.0, 0.0, 6.0, 0.0),
+                                            11.0, 0.0, 0.0, 0.0),
                                         hidesUnderline: true,
                                         disabled: true,
                                         isSearchable: false,
                                         isMultiSelect: false,
+                                        isOverButton: true,
                                       ),
                                     ),
                                     InkWell(
@@ -1304,12 +1309,13 @@ class _AddRepetitionComponentWidgetState
                                       borderWidth: 0.5,
                                       borderRadius: 5.0,
                                       margin: EdgeInsetsDirectional.fromSTEB(
-                                          11.0, 0.0, 6.0, 0.0),
+                                          11.0, 0.0, 0.0, 0.0),
                                       hidesUnderline: true,
                                       disabled:
                                           !_model.endRepetitionAfterEnabled,
                                       isSearchable: false,
                                       isMultiSelect: false,
+                                      isOverButton: true,
                                     ),
                                     InkWell(
                                       splashColor: Colors.transparent,
@@ -1627,17 +1633,19 @@ class _AddRepetitionComponentWidgetState
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Text(
-                                      FFLocalizations.of(context).getVariableText(
-                                        enText: 'The activity will stop repeating after ${_model.dropDownValue2 ?? 1} repetitions',
-                                        svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2 ?? 1} repetitioner',
-                                      ),
-                                      style: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 12.0,
-                                        height: 1.5,
+                                    Expanded(
+                                      child: Text(
+                                        FFLocalizations.of(context).getVariableText(
+                                          enText: 'The activity will stop repeating after ${_model.dropDownValue2 ?? 1} repetitions',
+                                          svText: 'Aktiviteten kommer att sluta upprepas efter ${_model.dropDownValue2 ?? 1} repetitioner',
+                                        ),
+                                        style: GoogleFonts.getFont(
+                                          'Rubik',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12.0,
+                                          height: 1.5,
+                                        ),
                                       ),
                                     ),
                                   ],
