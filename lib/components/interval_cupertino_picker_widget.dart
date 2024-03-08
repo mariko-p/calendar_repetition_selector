@@ -1,17 +1,16 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'interval_cupertino_picker_model.dart';
 export 'interval_cupertino_picker_model.dart';
 
 class IntervalCupertinoPickerWidget extends StatefulWidget {
-  const IntervalCupertinoPickerWidget({Key? key}) : super(key: key);
+  const IntervalCupertinoPickerWidget({super.key});
 
   @override
-  _IntervalCupertinoPickerWidgetState createState() =>
+  State<IntervalCupertinoPickerWidget> createState() =>
       _IntervalCupertinoPickerWidgetState();
 }
 
@@ -40,8 +39,6 @@ class _IntervalCupertinoPickerWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container();
   }
 }

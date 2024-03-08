@@ -14,7 +14,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'add_repetition_component_widget.dart' show AddRepetitionComponentWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -67,6 +66,7 @@ class AddRepetitionComponentModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     headerCenteredNavBarModel =
         createModel(context, () => HeaderCenteredNavBarModel());
@@ -84,6 +84,7 @@ class AddRepetitionComponentModel
     repetitionLabelModel = createModel(context, () => RepetitionLabelModel());
   }
 
+  @override
   void dispose() {
     headerCenteredNavBarModel.dispose();
     frequencyExpanderModel.dispose();

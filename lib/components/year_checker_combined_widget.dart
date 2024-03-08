@@ -4,17 +4,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'year_checker_combined_model.dart';
 export 'year_checker_combined_model.dart';
 
 class YearCheckerCombinedWidget extends StatefulWidget {
-  const YearCheckerCombinedWidget({Key? key}) : super(key: key);
+  const YearCheckerCombinedWidget({super.key});
 
   @override
-  _YearCheckerCombinedWidgetState createState() =>
+  State<YearCheckerCombinedWidget> createState() =>
       _YearCheckerCombinedWidgetState();
 }
 
@@ -42,8 +41,6 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [

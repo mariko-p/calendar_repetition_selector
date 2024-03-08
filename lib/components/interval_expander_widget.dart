@@ -3,17 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'interval_expander_model.dart';
 export 'interval_expander_model.dart';
 
 class IntervalExpanderWidget extends StatefulWidget {
-  const IntervalExpanderWidget({Key? key}) : super(key: key);
+  const IntervalExpanderWidget({super.key});
 
   @override
-  _IntervalExpanderWidgetState createState() => _IntervalExpanderWidgetState();
+  State<IntervalExpanderWidget> createState() => _IntervalExpanderWidgetState();
 }
 
 class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
@@ -42,8 +41,6 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       color: Colors.transparent,

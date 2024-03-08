@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'repetition_label_model.dart';
@@ -9,14 +8,14 @@ export 'repetition_label_model.dart';
 
 class RepetitionLabelWidget extends StatefulWidget {
   const RepetitionLabelWidget({
-    Key? key,
+    super.key,
     this.humanReadableText,
-  }) : super(key: key);
+  });
 
   final String? humanReadableText;
 
   @override
-  _RepetitionLabelWidgetState createState() => _RepetitionLabelWidgetState();
+  State<RepetitionLabelWidget> createState() => _RepetitionLabelWidgetState();
 }
 
 class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
@@ -43,8 +42,6 @@ class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(),

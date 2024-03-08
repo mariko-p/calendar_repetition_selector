@@ -1,17 +1,16 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'custom_functions_translations_map_model.dart';
 export 'custom_functions_translations_map_model.dart';
 
 class CustomFunctionsTranslationsMapWidget extends StatefulWidget {
-  const CustomFunctionsTranslationsMapWidget({Key? key}) : super(key: key);
+  const CustomFunctionsTranslationsMapWidget({super.key});
 
   @override
-  _CustomFunctionsTranslationsMapWidgetState createState() =>
+  State<CustomFunctionsTranslationsMapWidget> createState() =>
       _CustomFunctionsTranslationsMapWidgetState();
 }
 
@@ -40,8 +39,6 @@ class _CustomFunctionsTranslationsMapWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
