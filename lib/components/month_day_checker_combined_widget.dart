@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_day_by_set_checker_widget.dart';
@@ -15,7 +14,7 @@ export 'month_day_checker_combined_model.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {
   const MonthDayCheckerCombinedWidget(
-      {Key? key,
+      {super.key,
       required this.monthlyType,
       required this.monthDays,
       required this.bySetPos,
@@ -24,8 +23,7 @@ class MonthDayCheckerCombinedWidget extends StatefulWidget {
       required this.monthDaySelectionChanged,
       required this.bySetPosChanged,
       required this.byDayChanged,
-      required this.monthlyTypeChanged})
-      : super(key: key);
+      required this.monthlyTypeChanged});
 
   final MonthlyViewType monthlyType;
   final List<MonthDayStruct> monthDays;
@@ -40,7 +38,7 @@ class MonthDayCheckerCombinedWidget extends StatefulWidget {
   final Future<dynamic> Function(MonthlyViewType type) monthlyTypeChanged;
 
   @override
-  _MonthDayCheckerCombinedWidgetState createState() =>
+  State<MonthDayCheckerCombinedWidget> createState() =>
       _MonthDayCheckerCombinedWidgetState();
 }
 

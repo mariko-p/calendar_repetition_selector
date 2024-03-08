@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'bottom_sheet_nav_bar_model.dart';
@@ -9,16 +8,16 @@ export 'bottom_sheet_nav_bar_model.dart';
 
 class BottomSheetNavBarWidget extends StatefulWidget {
   const BottomSheetNavBarWidget({
-    Key? key,
+    super.key,
     this.backText,
     this.title,
-  }) : super(key: key);
+  });
 
   final String? backText;
   final String? title;
 
   @override
-  _BottomSheetNavBarWidgetState createState() =>
+  State<BottomSheetNavBarWidget> createState() =>
       _BottomSheetNavBarWidgetState();
 }
 
@@ -46,8 +45,6 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [

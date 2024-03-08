@@ -3,7 +3,6 @@ import '../custom_code/constants/calendar_constants.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_checker_model.dart';
@@ -11,14 +10,13 @@ export 'month_checker_model.dart';
 
 class MonthCheckerWidget extends StatefulWidget {
   const MonthCheckerWidget(
-      {Key? key, required this.months, required this.monthSelectionChanged})
-      : super(key: key);
+      {super.key, required this.months, required this.monthSelectionChanged});
 
   final List<MonthStruct> months;
   final Future<dynamic> Function() monthSelectionChanged;
 
   @override
-  _MonthCheckerWidgetState createState() => _MonthCheckerWidgetState();
+  State<MonthCheckerWidget> createState() => _MonthCheckerWidgetState();
 }
 
 class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
@@ -194,7 +192,6 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent,

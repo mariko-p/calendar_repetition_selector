@@ -98,9 +98,15 @@ class _MyAppState extends State<MyApp> {
       ],
       //LOCAL_START - Android default ripple behavior is InkRipple.splashFactory.
       theme: ThemeData(
-          brightness: Brightness.light, splashFactory: InkRipple.splashFactory),
+        brightness: Brightness.light,
+        splashFactory: InkRipple.splashFactory,
+        useMaterial3: false,
+      ),
       darkTheme: ThemeData(
-          brightness: Brightness.dark, splashFactory: InkRipple.splashFactory),
+        brightness: Brightness.dark,
+        splashFactory: InkRipple.splashFactory,
+        useMaterial3: false,
+      ),
       //LOCAL_END
       locale: _locale,
       supportedLocales: const [

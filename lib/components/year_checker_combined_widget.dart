@@ -5,7 +5,6 @@ import '/components/year_by_set_checker_widget.dart';
 import '/components/month_checker_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'year_checker_combined_model.dart';
@@ -13,7 +12,7 @@ export 'year_checker_combined_model.dart';
 
 class YearCheckerCombinedWidget extends StatefulWidget {
   const YearCheckerCombinedWidget({
-    Key? key,
+    super.key,
     required this.months,
     required this.monthSelectionChanged,
     required this.isWeekDaysChecked,
@@ -22,7 +21,7 @@ class YearCheckerCombinedWidget extends StatefulWidget {
     required this.byDay,
     required this.byDayChanged,
     required this.bySetPosChanged,
-  }) : super(key: key);
+  });
 
   final List<MonthStruct> months;
   final bool isWeekDaysChecked;
@@ -37,7 +36,7 @@ class YearCheckerCombinedWidget extends StatefulWidget {
   final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
 
   @override
-  _YearCheckerCombinedWidgetState createState() =>
+  State<YearCheckerCombinedWidget> createState() =>
       _YearCheckerCombinedWidgetState();
 }
 
@@ -65,8 +64,6 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_day_item_model.dart';
@@ -11,16 +10,16 @@ export 'month_day_item_model.dart';
 
 class MonthDayItemWidget extends StatefulWidget {
   MonthDayItemWidget({
-    Key? key,
+    super.key,
     this.monthDay,
     required this.selectionChanged,
-  }) : super(key: key);
+  });
 
   MonthDayStruct? monthDay;
   final Future<dynamic> Function(MonthDayStruct? monthDay) selectionChanged;
 
   @override
-  _MonthDayItemWidgetState createState() => _MonthDayItemWidgetState();
+  State<MonthDayItemWidget> createState() => _MonthDayItemWidgetState();
 }
 
 class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {

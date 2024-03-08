@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'frequency_expander_model.dart';
@@ -12,18 +11,17 @@ export 'frequency_expander_model.dart';
 
 class FrequencyExpanderWidget extends StatefulWidget {
   const FrequencyExpanderWidget(
-      {Key? key,
+      {super.key,
       required this.freqController,
       required this.currentFrequency,
-      required this.onItemChanged})
-      : super(key: key);
+      required this.onItemChanged});
 
   final Future<dynamic> Function(int index) onItemChanged;
   final ExpandableController freqController;
   final FrequencyStruct currentFrequency;
 
   @override
-  _FrequencyExpanderWidgetState createState() =>
+  State<FrequencyExpanderWidget> createState() =>
       _FrequencyExpanderWidgetState();
 }
 
@@ -57,8 +55,6 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       color: Colors.transparent,

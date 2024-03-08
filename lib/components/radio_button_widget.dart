@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'radio_button_model.dart';
@@ -9,14 +8,14 @@ export 'radio_button_model.dart';
 
 class RadioButtonWidget extends StatefulWidget {
   const RadioButtonWidget({
-    Key? key,
+    super.key,
     required this.isDisabled,
-  }) : super(key: key);
+  });
 
   final bool? isDisabled;
 
   @override
-  _RadioButtonWidgetState createState() => _RadioButtonWidgetState();
+  State<RadioButtonWidget> createState() => _RadioButtonWidgetState();
 }
 
 class _RadioButtonWidgetState extends State<RadioButtonWidget> {
@@ -43,8 +42,6 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,

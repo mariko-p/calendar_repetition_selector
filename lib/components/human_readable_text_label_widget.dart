@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'human_readable_text_label_model.dart';
@@ -11,13 +10,13 @@ export 'human_readable_text_label_model.dart';
 
 class HumanReadableTextLabelWidget extends StatefulWidget {
   const HumanReadableTextLabelWidget({
-    Key? key,
+    super.key,
     this.rrule,
     required this.defaultLabel,
     // LOCAL_START
     this.style,
     // LOCAL_END
-  }) : super(key: key);
+  });
 
   final String? rrule;
   final String? defaultLabel;
@@ -26,7 +25,7 @@ class HumanReadableTextLabelWidget extends StatefulWidget {
   // LOCAL_END
 
   @override
-  _HumanReadableTextLabelWidgetState createState() =>
+  State<HumanReadableTextLabelWidget> createState() =>
       _HumanReadableTextLabelWidgetState();
 }
 
@@ -66,8 +65,6 @@ class _HumanReadableTextLabelWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(35.0, 5.0, 15.0, 0.0),
       child: Container(

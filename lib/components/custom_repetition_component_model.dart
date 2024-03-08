@@ -11,7 +11,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'custom_repetition_component_widget.dart'
     show CustomRepetitionComponentWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +35,7 @@ class CustomRepetitionComponentModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     headerCenteredNavBarModel =
         createModel(context, () => HeaderCenteredNavBarModel());
@@ -50,6 +50,7 @@ class CustomRepetitionComponentModel
         createModel(context, () => YearCheckerCombinedModel());
   }
 
+  @override
   void dispose() {
     headerCenteredNavBarModel.dispose();
     intervalExpanderModel.dispose();

@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'year_by_set_checker_model.dart';
@@ -15,14 +14,14 @@ export 'year_by_set_checker_model.dart';
 
 class YearBySetCheckerWidget extends StatefulWidget {
   const YearBySetCheckerWidget({
-    Key? key,
+    super.key,
     required this.bySetPos,
     required this.byDay,
     required this.bySetPosChanged,
     required this.byDayChanged,
     required this.isWeekDaysChecked,
     required this.isWeekDaysSelectionChanged,
-  }) : super(key: key);
+  });
 
   final BySetPositionStruct bySetPos;
   final ByDayStruct byDay;
@@ -34,7 +33,7 @@ class YearBySetCheckerWidget extends StatefulWidget {
   final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
 
   @override
-  _YearBySetCheckerWidgetState createState() => _YearBySetCheckerWidgetState();
+  State<YearBySetCheckerWidget> createState() => _YearBySetCheckerWidgetState();
 }
 
 class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {

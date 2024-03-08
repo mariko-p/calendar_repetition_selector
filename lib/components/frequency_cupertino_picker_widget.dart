@@ -5,7 +5,6 @@ import '../flutter_flow/custom_functions.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'frequency_cupertino_picker_model.dart';
@@ -13,14 +12,13 @@ export 'frequency_cupertino_picker_model.dart';
 
 class FrequencyCupertinoPickerWidget extends StatefulWidget {
   FrequencyCupertinoPickerWidget(
-      {Key? key, required this.onItemChanged, this.initialIndex = 0})
-      : super(key: key);
+      {super.key, required this.onItemChanged, this.initialIndex = 0});
 
   int initialIndex;
   final Future<dynamic> Function(int index) onItemChanged;
 
   @override
-  _FrequencyCupertinoPickerWidgetState createState() =>
+  State<FrequencyCupertinoPickerWidget> createState() =>
       _FrequencyCupertinoPickerWidgetState();
 }
 
@@ -52,7 +50,6 @@ class _FrequencyCupertinoPickerWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
     return Container(
         height: 130,
         child: Center(

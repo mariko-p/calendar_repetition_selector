@@ -13,7 +13,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_repetition_component_model.dart';
@@ -39,14 +38,13 @@ import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
 
 class AddRepetitionComponentWidget extends StatefulWidget {
   AddRepetitionComponentWidget(
-      {Key? key,
+      {super.key,
       this.rrule,
       this.onRRuleChanged,
       this.onHumanReadableTextChanged,
       this.onSaveTapFromAddPage,
       this.onCancelTapFromAddPage,
-      this.onSaveTapFromCustomPage})
-      : super(key: key);
+      this.onSaveTapFromCustomPage});
 
   // Initial rrule value.
   String? rrule;
@@ -70,7 +68,7 @@ class AddRepetitionComponentWidget extends StatefulWidget {
   Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
 
   @override
-  _AddRepetitionComponentWidgetState createState() =>
+  State<AddRepetitionComponentWidget> createState() =>
       _AddRepetitionComponentWidgetState();
 }
 

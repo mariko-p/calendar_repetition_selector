@@ -7,7 +7,6 @@ import '../flutter_flow/custom_functions.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_day_by_set_checker_model.dart';
@@ -15,12 +14,11 @@ export 'month_day_by_set_checker_model.dart';
 
 class MonthDayBySetCheckerWidget extends StatefulWidget {
   const MonthDayBySetCheckerWidget(
-      {Key? key,
+      {super.key,
       required this.bySetPos,
       required this.byDay,
       required this.bySetPosChanged,
-      required this.byDayChanged})
-      : super(key: key);
+      required this.byDayChanged});
 
   final BySetPositionStruct bySetPos;
   final ByDayStruct byDay;
@@ -28,7 +26,7 @@ class MonthDayBySetCheckerWidget extends StatefulWidget {
   final Future<dynamic> Function(ByDayStruct? byDay) byDayChanged;
 
   @override
-  _MonthDayBySetCheckerWidgetState createState() =>
+  State<MonthDayBySetCheckerWidget> createState() =>
       _MonthDayBySetCheckerWidgetState();
 }
 
@@ -85,8 +83,6 @@ class _MonthDayBySetCheckerWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Row(mainAxisSize: MainAxisSize.min, children: [
       Container(
           height: 130,

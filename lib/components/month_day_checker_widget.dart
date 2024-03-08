@@ -4,7 +4,6 @@ import '/components/month_day_item_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'month_day_checker_model.dart';
@@ -12,15 +11,14 @@ export 'month_day_checker_model.dart';
 
 class MonthDayCheckerWidget extends StatefulWidget {
   MonthDayCheckerWidget(
-      {Key? key, required this.days, required this.selectionChanged})
-      : super(key: key);
+      {super.key, required this.days, required this.selectionChanged});
 
   final List<MonthDayStruct> days;
   final Future<dynamic> Function(List<MonthDayStruct>? checkedItems)
       selectionChanged;
 
   @override
-  _MonthDayCheckerWidgetState createState() => _MonthDayCheckerWidgetState();
+  State<MonthDayCheckerWidget> createState() => _MonthDayCheckerWidgetState();
 }
 
 class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
@@ -89,8 +87,6 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(

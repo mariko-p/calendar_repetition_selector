@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'header_centered_nav_bar_model.dart';
@@ -10,23 +9,23 @@ export 'header_centered_nav_bar_model.dart';
 
 class HeaderCenteredNavBarWidget extends StatefulWidget {
   const HeaderCenteredNavBarWidget({
-    Key? key,
+    super.key,
     this.title,
     this.isSaveVisible,
     this.isSaveEnabled,
     this.onSaveTap,
     this.onCancelTap,
     /*L*/
-  }) : super(key: key);
+  });
 
   final String? title;
   final bool? isSaveVisible;
   final bool? isSaveEnabled;
-  final Future<dynamic> Function()? onSaveTap;
-  final Future<dynamic> Function()? onCancelTap;
+  final Future Function()? onSaveTap;
+  final Future Function()? onCancelTap;
 
   @override
-  _HeaderCenteredNavBarWidgetState createState() =>
+  State<HeaderCenteredNavBarWidget> createState() =>
       _HeaderCenteredNavBarWidgetState();
 }
 
@@ -55,8 +54,6 @@ class _HeaderCenteredNavBarWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(

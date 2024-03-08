@@ -5,7 +5,6 @@ import '../backend/schema/structs/interval_struct.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'interval_cupertino_picker_model.dart';
@@ -13,18 +12,17 @@ export 'interval_cupertino_picker_model.dart';
 
 class IntervalCupertinoPickerWidget extends StatefulWidget {
   IntervalCupertinoPickerWidget(
-      {Key? key,
+      {super.key,
       required this.items,
       required this.onItemChanged,
-      this.initialIndex = 0})
-      : super(key: key);
+      this.initialIndex = 0});
 
   int initialIndex;
   final List<IntervalStruct> items;
   final Future<dynamic> Function(int index) onItemChanged;
 
   @override
-  _IntervalCupertinoPickerWidgetState createState() =>
+  State<IntervalCupertinoPickerWidget> createState() =>
       _IntervalCupertinoPickerWidgetState();
 }
 
@@ -53,7 +51,6 @@ class _IntervalCupertinoPickerWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
     return Container(
         height: 130,
         child: CupertinoPicker(

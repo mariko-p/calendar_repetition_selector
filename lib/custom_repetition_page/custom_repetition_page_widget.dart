@@ -3,17 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'custom_repetition_page_model.dart';
 export 'custom_repetition_page_model.dart';
 
 class CustomRepetitionPageWidget extends StatefulWidget {
-  const CustomRepetitionPageWidget({Key? key}) : super(key: key);
+  const CustomRepetitionPageWidget({super.key});
 
   @override
-  _CustomRepetitionPageWidgetState createState() =>
+  State<CustomRepetitionPageWidget> createState() =>
       _CustomRepetitionPageWidgetState();
 }
 
@@ -40,17 +39,6 @@ class _CustomRepetitionPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

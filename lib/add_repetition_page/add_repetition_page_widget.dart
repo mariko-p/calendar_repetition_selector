@@ -4,17 +4,20 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_repetition_page_model.dart';
 export 'add_repetition_page_model.dart';
 
+// LOCAL_START
+import 'package:flutter/services.dart';
+// LOCAL_END
+
 class AddRepetitionPageWidget extends StatefulWidget {
-  const AddRepetitionPageWidget({Key? key}) : super(key: key);
+  const AddRepetitionPageWidget({super.key});
 
   @override
-  _AddRepetitionPageWidgetState createState() =>
+  State<AddRepetitionPageWidget> createState() =>
       _AddRepetitionPageWidgetState();
 }
 
@@ -46,8 +49,6 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
         ),
       );
     }
-
-    context.watch<FFAppState>();
 
     return Material(
       shape: RoundedRectangleBorder(
