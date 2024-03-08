@@ -1191,7 +1191,7 @@ class _AddRepetitionComponentWidgetState
                                         disabled: true,
                                         isSearchable: false,
                                         isMultiSelect: false,
-                                        isOverButton: true,
+                                        // isOverButton: true,
                                       ),
                                     ),
                                     InkWell(
@@ -1313,7 +1313,7 @@ class _AddRepetitionComponentWidgetState
                                           !_model.endRepetitionAfterEnabled,
                                       isSearchable: false,
                                       isMultiSelect: false,
-                                      isOverButton: true,
+                                      // isOverButton: true,
                                     ),
                                     InkWell(
                                       splashColor: Colors.transparent,
