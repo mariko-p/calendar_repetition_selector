@@ -14,8 +14,6 @@ class AddRepetitionPageModel extends FlutterFlowModel<AddRepetitionPageWidget> {
   // Model for AddRepetitionComponent component.
   late AddRepetitionComponentModel addRepetitionComponentModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     addRepetitionComponentModel =
@@ -27,8 +25,4 @@ class AddRepetitionPageModel extends FlutterFlowModel<AddRepetitionPageWidget> {
     unfocusNode.dispose();
     addRepetitionComponentModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

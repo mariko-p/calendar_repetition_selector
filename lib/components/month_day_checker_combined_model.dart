@@ -14,14 +14,12 @@ class MonthDayCheckerCombinedModel
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
+  late ExpandableController expandableExpandableController;
 
   // Model for MonthDayChecker component.
   late MonthDayCheckerModel monthDayCheckerModel;
   // Model for MonthDayBySetChecker component.
   late MonthDayBySetCheckerModel monthDayBySetCheckerModel;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -32,12 +30,8 @@ class MonthDayCheckerCombinedModel
 
   @override
   void dispose() {
-    expandableController.dispose();
+    expandableExpandableController.dispose();
     monthDayCheckerModel.dispose();
     monthDayBySetCheckerModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

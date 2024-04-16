@@ -11,12 +11,10 @@ class IntervalExpanderModel extends FlutterFlowModel<IntervalExpanderWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
+  late ExpandableController expandableExpandableController;
 
   // Model for IntervalCupertinoPicker component.
   late IntervalCupertinoPickerModel intervalCupertinoPickerModel;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -26,11 +24,7 @@ class IntervalExpanderModel extends FlutterFlowModel<IntervalExpanderWidget> {
 
   @override
   void dispose() {
-    expandableController.dispose();
+    expandableExpandableController.dispose();
     intervalCupertinoPickerModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

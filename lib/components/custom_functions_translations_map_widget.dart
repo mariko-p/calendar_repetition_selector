@@ -57,6 +57,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -69,6 +70,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -81,6 +83,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -93,6 +96,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -105,6 +109,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -119,6 +124,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -134,6 +140,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -147,6 +154,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -159,6 +167,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -171,6 +180,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -183,6 +193,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -195,6 +206,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -207,6 +219,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -219,6 +232,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -233,6 +247,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -246,6 +261,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -258,6 +274,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -270,6 +287,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -282,6 +300,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -294,6 +313,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -306,6 +326,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -325,6 +346,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -338,6 +360,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -350,6 +373,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -362,6 +386,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -374,6 +399,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -386,6 +412,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -398,6 +425,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -410,6 +438,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -422,6 +451,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -434,6 +464,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -446,6 +477,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -458,6 +490,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -477,6 +510,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -490,6 +524,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -502,6 +537,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -514,6 +550,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -526,6 +563,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -538,6 +576,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -550,6 +589,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -569,6 +609,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -582,6 +623,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -594,6 +636,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -606,6 +649,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -618,6 +662,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -630,6 +675,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -649,6 +695,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -662,6 +709,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -674,6 +722,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),

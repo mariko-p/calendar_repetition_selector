@@ -662,6 +662,11 @@ class _AddRepetitionComponentWidgetState
                                     setState(() =>
                                         _model.checkboxValue1 = newValue!);
                                   },
+                                  side: BorderSide(
+                                    width: 2,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   activeColor: Colors.transparent,
                                   checkColor: FlutterFlowTheme.of(context)
                                       .secondaryText,
@@ -721,6 +726,11 @@ class _AddRepetitionComponentWidgetState
                                     setState(() =>
                                         _model.checkboxValue2 = newValue!);
                                   },
+                                  side: BorderSide(
+                                    width: 2,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   activeColor: Colors.transparent,
                                   checkColor: FlutterFlowTheme.of(context)
                                       .secondaryText,
@@ -783,6 +793,11 @@ class _AddRepetitionComponentWidgetState
                                     setState(() =>
                                         _model.checkboxValue3 = newValue!);
                                   },
+                                  side: BorderSide(
+                                    width: 2,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
                                   activeColor: Colors.transparent,
                                   checkColor: FlutterFlowTheme.of(context)
                                       .secondaryText,

@@ -29,7 +29,8 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
     super.initState();
     _model = createModel(context, () => IntervalExpanderModel());
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -45,7 +46,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
       width: double.infinity,
       color: Colors.transparent,
       child: ExpandableNotifier(
-        controller: _model.expandableController,
+        controller: _model.expandableExpandableController,
         child: ExpandablePanel(
           header: Column(
             mainAxisSize: MainAxisSize.max,
@@ -93,6 +94,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                                   .override(
                                     fontFamily: 'Rubik',
                                     color: Color(0xFF7E8CA2),
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),

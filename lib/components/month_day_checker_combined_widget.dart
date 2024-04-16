@@ -32,7 +32,8 @@ class _MonthDayCheckerCombinedWidgetState
     super.initState();
     _model = createModel(context, () => MonthDayCheckerCombinedModel());
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -56,7 +57,7 @@ class _MonthDayCheckerCombinedWidgetState
         width: double.infinity,
         color: Colors.transparent,
         child: ExpandableNotifier(
-          controller: _model.expandableController,
+          controller: _model.expandableExpandableController,
           child: ExpandablePanel(
             header: Container(
               decoration: BoxDecoration(

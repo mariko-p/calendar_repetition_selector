@@ -85,6 +85,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                                     .override(
                                       fontFamily: 'Rubik',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                       lineHeight: 1.5,
                                     ),
@@ -115,6 +116,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                                       fontFamily: 'Rubik',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                       lineHeight: 1.5,
                                     ),

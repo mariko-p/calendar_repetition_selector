@@ -11,12 +11,10 @@ class FrequencyExpanderModel extends FlutterFlowModel<FrequencyExpanderWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
+  late ExpandableController expandableExpandableController;
 
   // Model for FrequencyCupertinoPicker component.
   late FrequencyCupertinoPickerModel frequencyCupertinoPickerModel;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -26,11 +24,7 @@ class FrequencyExpanderModel extends FlutterFlowModel<FrequencyExpanderWidget> {
 
   @override
   void dispose() {
-    expandableController.dispose();
+    expandableExpandableController.dispose();
     frequencyCupertinoPickerModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -29,7 +29,8 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
     super.initState();
     _model = createModel(context, () => YearBySetCheckerModel());
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -52,7 +53,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
         width: double.infinity,
         color: Colors.transparent,
         child: ExpandableNotifier(
-          controller: _model.expandableController,
+          controller: _model.expandableExpandableController,
           child: ExpandablePanel(
             header: Container(
               decoration: BoxDecoration(
@@ -86,6 +87,7 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Rubik',
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                   lineHeight: 1.5,
                                 ),

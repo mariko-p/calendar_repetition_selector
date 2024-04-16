@@ -64,8 +64,6 @@ class AddRepetitionComponentModel
   // Model for RepetitionLabel component.
   late RepetitionLabelModel repetitionLabelModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     headerCenteredNavBarModel =
@@ -97,8 +95,4 @@ class AddRepetitionComponentModel
     radioButtonModel3.dispose();
     repetitionLabelModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

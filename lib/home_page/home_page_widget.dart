@@ -122,6 +122,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Rubik',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 2.0,
                         borderSide: BorderSide(

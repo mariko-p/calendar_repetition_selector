@@ -33,8 +33,6 @@ class CustomRepetitionComponentModel
   // Model for YearCheckerCombined component.
   late YearCheckerCombinedModel yearCheckerCombinedModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     headerCenteredNavBarModel =
@@ -60,8 +58,4 @@ class CustomRepetitionComponentModel
     monthDayCheckerCombinedModel.dispose();
     yearCheckerCombinedModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

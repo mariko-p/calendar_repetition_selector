@@ -71,6 +71,7 @@ class _HumanReadableTextLabelWidgetState
                   fontFamily: 'Rubik',
                   color: Color(0xFF7E8CA2),
                   fontSize: 12.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.normal,
                 ),
           ),

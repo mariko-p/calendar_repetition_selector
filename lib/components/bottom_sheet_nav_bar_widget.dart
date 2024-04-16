@@ -73,6 +73,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                           lineHeight: 1.167,
                         ),
@@ -112,6 +113,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                                   .override(
                                     fontFamily: 'Rubik',
                                     color: FlutterFlowTheme.of(context).primary,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),

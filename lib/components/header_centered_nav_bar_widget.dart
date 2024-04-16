@@ -100,6 +100,7 @@ class _HeaderCenteredNavBarWidgetState
                                 color: FlutterFlowTheme.of(context)
                                     .bottomSheetActionButtons,
                                 fontSize: 14.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w300,
                                 lineHeight: 1.5,
                               ),
@@ -120,6 +121,7 @@ class _HeaderCenteredNavBarWidgetState
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -151,6 +153,7 @@ class _HeaderCenteredNavBarWidgetState
                                   color: FlutterFlowTheme.of(context)
                                       .bottomSheetActionButtons,
                                   fontSize: 14.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   lineHeight: 1.5,
                                 ),
