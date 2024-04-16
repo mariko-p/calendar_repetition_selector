@@ -104,8 +104,4 @@ class AddRepetitionComponentModel
     radioButtonModel3.dispose();
     repetitionLabelModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -63,7 +63,8 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
     widget.intController.addListener(onExpansionChanged);
     //LOCAL_END
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override

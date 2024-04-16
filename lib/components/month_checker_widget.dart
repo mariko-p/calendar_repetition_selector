@@ -66,6 +66,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
                                 FlutterFlowTheme.of(context).bodyMedium.override(
                                       fontFamily: 'Rubik',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                       lineHeight: 1.5,
                                     ),

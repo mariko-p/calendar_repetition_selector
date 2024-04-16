@@ -15,8 +15,6 @@ class CustomRepetitionPageModel
   // Model for CustomRepetitionComponent component.
   late CustomRepetitionComponentModel customRepetitionComponentModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     customRepetitionComponentModel =
@@ -28,8 +26,4 @@ class CustomRepetitionPageModel
     unfocusNode.dispose();
     customRepetitionComponentModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

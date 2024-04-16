@@ -17,8 +17,6 @@ class YearCheckerCombinedModel
   // Model for YearBySetChecker component.
   late YearBySetCheckerModel yearBySetCheckerModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     monthCheckerModel = createModel(context, () => MonthCheckerModel());
@@ -30,8 +28,4 @@ class YearCheckerCombinedModel
     monthCheckerModel.dispose();
     yearBySetCheckerModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

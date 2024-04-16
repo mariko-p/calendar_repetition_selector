@@ -70,7 +70,8 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
       controller.expanded = isWeekDaysChecked;
     });
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override

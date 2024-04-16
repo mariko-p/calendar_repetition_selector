@@ -13,6 +13,7 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
   final appState = FFAppState(); // Initialize FFAppState

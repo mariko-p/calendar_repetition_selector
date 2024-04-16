@@ -11,12 +11,10 @@ class YearBySetCheckerModel extends FlutterFlowModel<YearBySetCheckerWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
+  late ExpandableController expandableExpandableController;
 
   // Model for MonthDayBySetChecker component.
   late MonthDayBySetCheckerModel monthDayBySetCheckerModel;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -26,11 +24,7 @@ class YearBySetCheckerModel extends FlutterFlowModel<YearBySetCheckerWidget> {
 
   @override
   void dispose() {
-    expandableController.dispose();
+    expandableExpandableController.dispose();
     monthDayBySetCheckerModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

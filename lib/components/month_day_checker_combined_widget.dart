@@ -57,7 +57,8 @@ class _MonthDayCheckerCombinedWidgetState
     // By design expander is always expanded.
     widget.monthController?.expanded = true;
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   setMonthlyViewType(MonthlyViewType type) {

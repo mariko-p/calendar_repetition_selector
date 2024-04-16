@@ -43,7 +43,8 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
     super.initState();
     _model = createModel(context, () => FrequencyExpanderModel());
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -107,6 +108,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                                   .override(
                                     fontFamily: 'Rubik',
                                     color: Color(0xFF7E8CA2),
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
