@@ -44,8 +44,8 @@ SPEC CHECKSUMS:
   path_provider_foundation: c68054786f1b4f3343858c1e1d0caaded73f0be9
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
-  url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
+  url_launcher_ios: 6116280ddcfe98ab8820085d8d76ae7449447586
 
-PODFILE CHECKSUM: eae4152c3630e172b84de35121c0831e1f634c9d
+PODFILE CHECKSUM: 1bd26aa2978cb8e5fc539a3cef8b9fa33389d497
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.15.2
