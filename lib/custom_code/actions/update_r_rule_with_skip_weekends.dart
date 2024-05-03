@@ -29,20 +29,20 @@ Future updateRRuleWithSkipWeekends(
         .where((e) =>
             e != ByWeekDayEntry(DateTime.saturday) &&
             e != ByWeekDayEntry(DateTime.sunday))
-        .toSet();
+        .toList();
 
     rrule = rrule.copyWith(
       byWeekDays: filteredWeekDays,
     );
   } else {
     rrule = rrule.copyWith(
-      byWeekDays: {
+      byWeekDays: [
         ByWeekDayEntry(DateTime.monday),
         ByWeekDayEntry(DateTime.tuesday),
         ByWeekDayEntry(DateTime.wednesday),
         ByWeekDayEntry(DateTime.thursday),
         ByWeekDayEntry(DateTime.friday),
-      },
+      ],
     );
   }
 

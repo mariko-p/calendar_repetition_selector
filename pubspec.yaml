@@ -52,7 +52,7 @@ dependencies:
   path_provider_foundation: 2.2.2
   path_provider_platform_interface: 2.0.6
   provider: 6.0.5
-  rrule: ^0.2.10
+  rrule: ^0.2.16
   shared_preferences: 2.2.2
   shared_preferences_android: 2.2.1
   #LOCAL_START

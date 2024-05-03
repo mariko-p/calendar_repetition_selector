@@ -41,7 +41,7 @@ class RruleL10nSv extends RruleL10n {
   }
 
   @override
-  String until(DateTime until) =>
+  String until(DateTime until, Frequency frequency) =>
       ', till ${formatWithIntl(() => DateFormat.yMMMMEEEEd().add_jms().format(until))}';
 
   @override
