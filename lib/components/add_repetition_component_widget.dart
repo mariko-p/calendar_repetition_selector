@@ -59,7 +59,7 @@ class AddRepetitionComponentWidget extends StatefulWidget {
   Future<dynamic> Function(String? rrule)? onHumanReadableTextChanged;
 
   // Called on save from main screen.
-  Future<dynamic> Function(String? rrule, bool repeatOnDone, bool doNotShowInOverdue, bool skipWeekends)? onSaveTapFromAddPage;
+  Future<dynamic> Function(String? rrule, bool repeatOnDone, bool skipWeekends)? onSaveTapFromAddPage;
 
   // Called on cancel from main screen.
   Future<dynamic> Function()? onCancelTapFromAddPage;
@@ -624,7 +624,7 @@ class _AddRepetitionComponentWidgetState
             onSaveTap: () async {
               updateRRuleWithSkipWeekends(FFAppState().vCurrentRRule);
               print("RRULE SAVED FROM ADD: ${FFAppState().vCurrentRRule}");
-              widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vDoNotShowInOverdue, FFAppState().vSkipWeekends);
+              widget.onSaveTapFromAddPage?.call(FFAppState().vCurrentRRule, FFAppState().vRepeatOnDone, FFAppState().vSkipWeekends);
               if (MyApp.isExitAppOnBackON == true) {
                 exit(0);
               } else {
@@ -1478,73 +1478,6 @@ class _AddRepetitionComponentWidgetState
                     ),
                   ),
                   if (selectedIndex != 0)
-                    Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF3EFFF),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                18.0, 10, 10.0, 10),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'g1o6r2kx' /* Do not show in Overdue activit... */,
-                                  ),
-                                  style: GoogleFonts.getFont(
-                                    'Rubik',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 14.0,
-                                    height: 1.5,
-                                  ),
-                                ),
-                                Theme(
-                                  data: ThemeData(
-                                    checkboxTheme: CheckboxThemeData(
-                                      visualDensity: VisualDensity.compact,
-                                      materialTapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(4.0),
-                                      ),
-                                    ),
-                                    unselectedWidgetColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                  ),
-                                  child: Checkbox(
-                                    value: _model.checkboxValue3 ??= false,
-                                    onChanged: (newValue) async {
-                                      setState(() {
-                                        _model.checkboxValue3 = newValue!;
-                                        FFAppState().vDoNotShowInOverdue = newValue!;
-                                      });
-                                    },
-                                    activeColor: Colors.transparent,
-                                    checkColor: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  if (selectedIndex != 0)
                     Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -1660,30 +1593,6 @@ class _AddRepetitionComponentWidgetState
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'xc5c3na3' /* The activity will skip repetit... */,
-                                        ),
-                                        style: GoogleFonts.getFont(
-                                          'Rubik',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 12.0,
-                                          height: 1.5,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            if (_model.checkboxValue3 == true)
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 5.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '5rwscio8' /* The activity won't show in ove... */,
                                         ),
                                         style: GoogleFonts.getFont(
                                           'Rubik',
