@@ -293,30 +293,32 @@ class _AddRepetitionComponentWidgetState
   }
 
   void autoSelectRRule() {
-    var rruleObj = RecurrenceRule.fromString(FFAppState().vCurrentRRule);
-    var freq = getFrequencyOrDefault(rruleObj);
-    var interval = getIntervalOrDefault(rruleObj);
+    try {
+      var rruleObj = RecurrenceRule.fromString(FFAppState().vCurrentRRule);
+      var freq = getFrequencyOrDefault(rruleObj);
+      var interval = getIntervalOrDefault(rruleObj);
 
-    print("FREQ: $freq");
-    print("INTERVAL: $interval");
-    currentFrequency = generateFrequency(context)
-        .firstWhere((element) => element.value == freq);
-    currentIntervals = generateInterval(freq);
-    currentInterval =
-        currentIntervals.firstWhere((element) => element.value == interval);
-    currentIntervalIndex =
-        currentIntervals.indexWhere((element) => element.value == interval);
+      print("FREQ: $freq");
+      print("INTERVAL: $interval");
+      currentFrequency = generateFrequency(context)
+          .firstWhere((element) => element.value == freq);
+      currentIntervals = generateInterval(freq);
+      currentInterval =
+          currentIntervals.firstWhere((element) => element.value == interval);
+      currentIntervalIndex =
+          currentIntervals.indexWhere((element) => element.value == interval);
 
-    if (freq == Constants.WEEKLY) {
-      autoSelectWeeklyView();
-    } else if (freq == Constants.MONTHLY) {
-      autoSelectMonthlyView();
-    } else if (freq == Constants.YEARLY) {
-      autoSelectYearlyView();
-    }
+      if (freq == Constants.WEEKLY) {
+        autoSelectWeeklyView();
+      } else if (freq == Constants.MONTHLY) {
+        autoSelectMonthlyView();
+      } else if (freq == Constants.YEARLY) {
+        autoSelectYearlyView();
+      }
 
-    updateOpenedViewRRule();
-    updateOpenViewVisibility(freq);
+      updateOpenedViewRRule();
+      updateOpenViewVisibility(freq);
+    } catch (_) {}
   }
 
   String getFrequencyOrDefault(RecurrenceRule rrule) {
@@ -340,90 +342,98 @@ class _AddRepetitionComponentWidgetState
   }
 
   void autoSelectWeeklyView() {
-    var byDays =
-        RecurrenceRule.fromString(FFAppState().vCurrentRRule).byWeekDays;
-    byDays.forEach((byDay) {
-      weekDays.forEachIndexed((index, weekDay) {
-        if (byDay.toString() == mapWeekDayToByDay(weekDay.value)) {
-          //weekDay = weekDay.rebuild((p0) => p0.isChecked = true); // This is not working.
-          weekDays[index] = weekDay.rebuild(isChecked: true);
-        }
-      });
-    });
-  }
-
-  void autoSelectMonthlyView() {
-    var byMonthDaysRRule =
-        RecurrenceRule.fromString(FFAppState().vCurrentRRule).byMonthDays;
-
-    // In our case be aware that byMonthDays and bySetPos are mutually exclusive.
-    // In our case if byMOnthDays is not empty,
-    // then monthlyType == MonthlyViewType.MONTH_DAY_CHECKER and specific view is visible,
-    // otherwise monthlyType == MonthlyViewType.OF_THE_MONTH_CHECKER and specific view is visible.
-    if (byMonthDaysRRule.length > 0) {
-      monthlyType = MonthlyViewType.MONTH_DAY_CHECKER;
-      byMonthDaysRRule.forEach((element) {
-        monthDays.forEachIndexed((index, monthDay) {
-          if (element == ((monthDay.index ?? 0) + 1)) {
-            monthDays[index] = monthDay.rebuild(isChecked: true);
+    try  {
+      var byDays =
+          RecurrenceRule.fromString(FFAppState().vCurrentRRule).byWeekDays;
+      byDays.forEach((byDay) {
+        weekDays.forEachIndexed((index, weekDay) {
+          if (byDay.toString() == mapWeekDayToByDay(weekDay.value)) {
+            //weekDay = weekDay.rebuild((p0) => p0.isChecked = true); // This is not working.
+            weekDays[index] = weekDay.rebuild(isChecked: true);
           }
         });
       });
-    } else {
-      monthlyType = MonthlyViewType.OF_THE_MONTH_CHECKER;
-      _autoSelectBySetPosAndByDay();
-    }
+    } catch(_) {}
+  }
+
+  void autoSelectMonthlyView() {
+    try  {
+      var byMonthDaysRRule =
+          RecurrenceRule.fromString(FFAppState().vCurrentRRule).byMonthDays;
+
+      // In our case be aware that byMonthDays and bySetPos are mutually exclusive.
+      // In our case if byMOnthDays is not empty,
+      // then monthlyType == MonthlyViewType.MONTH_DAY_CHECKER and specific view is visible,
+      // otherwise monthlyType == MonthlyViewType.OF_THE_MONTH_CHECKER and specific view is visible.
+      if (byMonthDaysRRule.length > 0) {
+        monthlyType = MonthlyViewType.MONTH_DAY_CHECKER;
+        byMonthDaysRRule.forEach((element) {
+          monthDays.forEachIndexed((index, monthDay) {
+            if (element == ((monthDay.index ?? 0) + 1)) {
+              monthDays[index] = monthDay.rebuild(isChecked: true);
+            }
+          });
+        });
+      } else {
+        monthlyType = MonthlyViewType.OF_THE_MONTH_CHECKER;
+        _autoSelectBySetPosAndByDay();
+      }
+    } catch(_) {}
   }
 
   void autoSelectYearlyView() {
-    var bySetPosRRule =
-        RecurrenceRule.fromString(FFAppState().vCurrentRRule).bySetPositions;
-    var byMonthsRRule =
-        RecurrenceRule.fromString(FFAppState().vCurrentRRule).byMonths;
+    try  {
+      var bySetPosRRule =
+          RecurrenceRule.fromString(FFAppState().vCurrentRRule).bySetPositions;
+      var byMonthsRRule =
+          RecurrenceRule.fromString(FFAppState().vCurrentRRule).byMonths;
 
-    // WeekDays are checked or not checked.
-    // Select months.
-    byMonthsRRule.forEach((month) {
-      months.forEachIndexed((index, element) {
-        if (month == (index + 1)) {
-          months[index] = element.rebuild(isChecked: true);
-        }
+      // WeekDays are checked or not checked.
+      // Select months.
+      byMonthsRRule.forEach((month) {
+        months.forEachIndexed((index, element) {
+          if (month == (index + 1)) {
+            months[index] = element.rebuild(isChecked: true);
+          }
+        });
       });
-    });
 
-    // In our case if bySetPos is not empty, weekdays are checked.
-    if (bySetPosRRule.length > 0) {
-      // print("DA");
-      isWeekDaysChecked = true;
-      _autoSelectBySetPosAndByDay();
-    } else {
-      isWeekDaysChecked = false;
-    }
+      // In our case if bySetPos is not empty, weekdays are checked.
+      if (bySetPosRRule.length > 0) {
+        // print("DA");
+        isWeekDaysChecked = true;
+        _autoSelectBySetPosAndByDay();
+      } else {
+        isWeekDaysChecked = false;
+      }
+    } catch(_) {}
   }
 
   void _autoSelectBySetPosAndByDay() {
-    var bySetPosRRule =
-        RecurrenceRule.fromString(FFAppState().vCurrentRRule).bySetPositions;
-    var byDaysRRule =
-        RecurrenceRule.fromString(FFAppState().vCurrentRRule).byWeekDays;
-    // In our case should always be one in list.
-    bySetPosRRule.forEach((element) {
-      bySetPos = getBySetPositionList()
-          .firstWhere((bySetPos) => bySetPos.value == element);
-    });
+    try  {
+      var bySetPosRRule =
+          RecurrenceRule.fromString(FFAppState().vCurrentRRule).bySetPositions;
+      var byDaysRRule =
+          RecurrenceRule.fromString(FFAppState().vCurrentRRule).byWeekDays;
+      // In our case should always be one in list.
+      bySetPosRRule.forEach((element) {
+        bySetPos = getBySetPositionList()
+            .firstWhere((bySetPos) => bySetPos.value == element);
+      });
 
-    // In our case should can be more than one in list.
-    List<String> byDaysRRuleStringList = List.empty(growable: true);
-    byDaysRRule.forEach((byDay) {
-      byDaysRRuleStringList.add(byDay.toString());
-    });
+      // In our case should can be more than one in list.
+      List<String> byDaysRRuleStringList = List.empty(growable: true);
+      byDaysRRule.forEach((byDay) {
+        byDaysRRuleStringList.add(byDay.toString());
+      });
 
-    getByDayList().forEachIndexed((index, element) {
-      if (ListEquality<String>()
-          .equals(element.value?.toList(), byDaysRRuleStringList)) {
-        byDay = getByDayList()[index];
-      }
-    });
+      getByDayList().forEachIndexed((index, element) {
+        if (ListEquality<String>()
+            .equals(element.value?.toList(), byDaysRRuleStringList)) {
+          byDay = getByDayList()[index];
+        }
+      });
+    } catch(_) {}
   }
 
   Future updateRepetitionLabel() async {

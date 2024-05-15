@@ -123,8 +123,12 @@ Future<String> getRRuleAsText(BuildContext context) async {
   var rrule = FFAppState().vCurrentRRule;
 
   // Return translation in human readable text.
-  var translation = RecurrenceRule.fromString(rrule).toText(l10n: l10n);
-  return translation;
+  try  {
+    var translation = RecurrenceRule.fromString(rrule).toText(l10n: l10n);
+    return translation;
+  } catch(_) {
+    return "";
+  }
 }
 
 /*L*/ Future<String> getActivityRepetitionCustomAsText(
@@ -767,14 +771,18 @@ String monthShort(BuildContext context, String monthEn) {
 
 DateTime? getUntilFromRRule(String rruleString) {
   // LOCAL_START
-  var rrule = RecurrenceRule.fromString(rruleString);
-  return rrule.until;
+  try  {
+    var rrule = RecurrenceRule.fromString(rruleString);
+    return rrule.until;
+  } catch(_) {}
   // LOCAL_END
 }
 
 int? getCountFromRRule(String rruleString) {
   // LOCAL_START
-  var rrule = RecurrenceRule.fromString(rruleString);
-  return rrule.count;
+  try {
+    var rrule = RecurrenceRule.fromString(rruleString);
+    return rrule.count;
+  } catch(_) {}
   // LOCAL_END
 }
