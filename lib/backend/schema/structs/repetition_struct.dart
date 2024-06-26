@@ -23,26 +23,31 @@ class RepetitionStruct extends BaseStruct implements LocalRebuilder<RepetitionSt
   String? _text;
   String get text => _text ?? '';
   set text(String? val) => _text = val;
+
   bool hasText() => _text != null;
 
   // "isSelected" field.
   bool? _isSelected;
   bool get isSelected => _isSelected ?? false;
   set isSelected(bool? val) => _isSelected = val;
+
   bool hasIsSelected() => _isSelected != null;
 
   // "rrule" field.
   String? _rrule;
   String get rrule => _rrule ?? '';
   set rrule(String? val) => _rrule = val;
+
   bool hasRrule() => _rrule != null;
 
   // "iconCodePoint" field.
   int? _iconCodePoint;
   int get iconCodePoint => _iconCodePoint ?? 0;
   set iconCodePoint(int? val) => _iconCodePoint = val;
+
   void incrementIconCodePoint(int amount) =>
-      _iconCodePoint = iconCodePoint + amount;
+      iconCodePoint = iconCodePoint + amount;
+
   bool hasIconCodePoint() => _iconCodePoint != null;
 
   static RepetitionStruct fromMap(Map<String, dynamic> data) =>

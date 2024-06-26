@@ -133,8 +133,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // FrequencyExpander
   {
     'xmgwzs7h': {
-      'en': 'Frequency',
-      'sv': 'Frekvens',
+      'en': 'Repetition type',
+      'sv': 'Typ av repetition:',
     },
     'r3anp0or': {
       'en': 'every day',
@@ -144,8 +144,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // IntervalExpander
   {
     '2952w46f': {
-      'en': 'With the interval',
-      'sv': 'Med intervallet',
+      'en': 'Repetition interval:',
+      'sv': 'Repetitions intervall:',
     },
     'e15u4phe': {
       'en': '1 week',
@@ -180,16 +180,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Upprepa för alltid',
     },
     '9ed6988p': {
-      'en': 'End repetition On',
-      'sv': 'Avsluta repetition På',
+      'en': 'End repetition on',
+      'sv': 'Avsluta repetition på',
     },
     'ymue1mm8': {
       'en': 'Today',
       'sv': 'I dag',
     },
     '59z1v5a2': {
-      'en': 'Search for an item...',
-      'sv': '',
+      'en': 'Search for...',
+      'sv': 'Sök efter...',
     },
     '6ts3zr1x': {
       'en': 'End repetition After',
@@ -200,16 +200,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': '1',
     },
     'o502brhx': {
-      'en': 'Search for an item...',
-      'sv': '',
+      'en': 'Search for...',
+      'sv': 'Sök efter...',
     },
     '44hbrowg': {
       'en': 'Repeat on Done',
-      'sv': 'Upprepa på Klar',
+      'sv': 'Upprepa när markerad som Klar',
     },
     'r0cj7rtk': {
       'en': 'Skip weekends',
-      'sv': 'Skippa helger',
+      'sv': 'Hoppa över helger',
     },
     'g1o6r2kx': {
       'en': 'Do not show in Overdue activities',
@@ -220,13 +220,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Sammanfattning:',
     },
     'xc5c3na3': {
-      'en': 'The activity will skip repetitions on Saturdays and Sundays',
-      'sv':
-          'Aktiviteten kommer att hoppa över repetitioner på lördagar och söndagar',
+      'en': 'The activity will not repeat on Saturdays and Sundays',
+      'sv': 'Aktiviteten kommer inte repiteras på lördagar och söndagar',
     },
     '5rwscio8': {
-      'en': 'The activity won\'t show in overdue',
-      'sv': 'Aktiviteten kommer inte att visas i försenade aktiviteter. ',
+      'en': 'The activity will not show as overdue',
+      'sv': 'Aktiviteten kommer inte att visas som försenad',
     },
   },
   // YearBySetChecker
@@ -436,12 +435,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Sista',
     },
     'nnq9e346': {
-      'en': 'Weekend day',
-      'sv': 'Helgdag',
+      'en': 'Weekend',
+      'sv': 'Helger',
     },
     'yl4rh0ou': {
-      'en': 'WeekDay',
-      'sv': 'Veckodag',
+      'en': 'Week days',
+      'sv': 'Vardagar',
     },
     'ahnsj6ps': {
       'en': 'Day',
@@ -475,6 +474,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': '',
     },
     '6hzc57ks': {
+      'en': '',
+      'sv': '',
+    },
+    '9rgcx97r': {
+      'en': '',
+      'sv': '',
+    },
+    'llw3xxac': {
+      'en': '',
+      'sv': '',
+    },
+    'yb036d9d': {
+      'en': '',
+      'sv': '',
+    },
+    'ql46dukt': {
       'en': '',
       'sv': '',
     },

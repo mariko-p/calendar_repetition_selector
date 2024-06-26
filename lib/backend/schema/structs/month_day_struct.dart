@@ -24,19 +24,23 @@ class MonthDayStruct extends BaseStruct implements LocalRebuilder<MonthDayStruct
   String? _text;
   String get text => _text ?? '';
   set text(String? val) => _text = val;
+
   bool hasText() => _text != null;
 
   // "isChecked" field.
   bool? _isChecked;
   bool get isChecked => _isChecked ?? false;
   set isChecked(bool? val) => _isChecked = val;
+
   bool hasIsChecked() => _isChecked != null;
 
   // "index" field.
   int? _index;
   int get index => _index ?? 0;
   set index(int? val) => _index = val;
-  void incrementIndex(int amount) => _index = index + amount;
+
+  void incrementIndex(int amount) => index = index + amount;
+
   bool hasIndex() => _index != null;
 
   static MonthDayStruct fromMap(Map<String, dynamic> data) => MonthDayStruct(

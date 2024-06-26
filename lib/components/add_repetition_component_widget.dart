@@ -725,6 +725,8 @@ class _AddRepetitionComponentWidgetState
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      // FFAppState().vTmp = false;
+                                      // FFAppState().update(() {});
                                       //LOCAL_START
                                       setState(() {
                                         selectedIndex = weekDaysIndex;

@@ -84,7 +84,7 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
                       children: [
                         Text(
                           FFLocalizations.of(context).getText(
-                            'xmgwzs7h' /* Frequency */,
+                            'xmgwzs7h' /* Repetition type */,
                           ),
                           style: GoogleFonts.getFont(
                             'Rubik',

@@ -24,18 +24,21 @@ class MonthStruct extends BaseStruct implements LocalRebuilder<MonthStruct>{
   String? _text;
   String get text => _text ?? '';
   set text(String? val) => _text = val;
+
   bool hasText() => _text != null;
 
   // "isChecked" field.
   bool? _isChecked;
   bool get isChecked => _isChecked ?? false;
   set isChecked(bool? val) => _isChecked = val;
+
   bool hasIsChecked() => _isChecked != null;
 
   // "shortText" field.
   String? _shortText;
   String get shortText => _shortText ?? '';
   set shortText(String? val) => _shortText = val;
+
   bool hasShortText() => _shortText != null;
 
   static MonthStruct fromMap(Map<String, dynamic> data) => MonthStruct(

@@ -691,7 +691,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'nnq9e346' /* Weekend day */,
+                      'nnq9e346' /* Weekend */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
@@ -705,7 +705,7 @@ class _CustomFunctionsTranslationsMapWidgetState
                 alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    'yl4rh0ou' /* WeekDay */,
+                    'yl4rh0ou' /* Week days */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Rubik',
