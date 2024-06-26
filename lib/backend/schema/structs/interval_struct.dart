@@ -16,13 +16,16 @@ class IntervalStruct extends BaseStruct {
   String? _text;
   String get text => _text ?? '';
   set text(String? val) => _text = val;
+
   bool hasText() => _text != null;
 
   // "value" field.
   int? _value;
   int get value => _value ?? 0;
   set value(int? val) => _value = val;
-  void incrementValue(int amount) => _value = value + amount;
+
+  void incrementValue(int amount) => value = value + amount;
+
   bool hasValue() => _value != null;
 
   static IntervalStruct fromMap(Map<String, dynamic> data) => IntervalStruct(

@@ -16,13 +16,18 @@ class ByDayStruct extends BaseStruct {
   String? _text;
   String get text => _text ?? '';
   set text(String? val) => _text = val;
+
   bool hasText() => _text != null;
 
   // "value" field.
   List<String>? _value;
   List<String> get value => _value ?? const [];
   set value(List<String>? val) => _value = val;
-  void updateValue(Function(List<String>) updateFn) => updateFn(_value ??= []);
+
+  void updateValue(Function(List<String>) updateFn) {
+    updateFn(_value ??= []);
+  }
+
   bool hasValue() => _value != null;
 
   static ByDayStruct fromMap(Map<String, dynamic> data) => ByDayStruct(
@@ -47,7 +52,7 @@ class ByDayStruct extends BaseStruct {
         'value': serializeParam(
           _value,
           ParamType.String,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

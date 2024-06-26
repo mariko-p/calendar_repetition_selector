@@ -69,7 +69,7 @@ class _IntervalExpanderWidgetState extends State<IntervalExpanderWidget> {
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          '2952w46f' /* With the interval */,
+                          '2952w46f' /* Repetition interval: */,
                         ),
                         style: GoogleFonts.getFont(
                           'Rubik',

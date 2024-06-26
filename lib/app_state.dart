@@ -25,73 +25,73 @@ class FFAppState extends ChangeNotifier {
 
   String _vCurrentRRule = '';
   String get vCurrentRRule => _vCurrentRRule;
-  set vCurrentRRule(String _value) {
-    _vCurrentRRule = _value;
+  set vCurrentRRule(String value) {
+    _vCurrentRRule = value;
   }
 
   String _cInitialCustomRRule = 'RRULE:FREQ=DAILY;INTERVAL=1;';
   String get cInitialCustomRRule => _cInitialCustomRRule;
-  set cInitialCustomRRule(String _value) {
-    _cInitialCustomRRule = _value;
+  set cInitialCustomRRule(String value) {
+    _cInitialCustomRRule = value;
   }
 
   String _cInitialCustomRRuleText = 'The activity will repeat every day';
   String get cInitialCustomRRuleText => _cInitialCustomRRuleText;
-  set cInitialCustomRRuleText(String _value) {
-    _cInitialCustomRRuleText = _value;
+  set cInitialCustomRRuleText(String value) {
+    _cInitialCustomRRuleText = value;
   }
 
   bool _vTmp = false;
   bool get vTmp => _vTmp;
-  set vTmp(bool _value) {
-    _vTmp = _value;
+  set vTmp(bool value) {
+    _vTmp = value;
   }
 
   List<Color> _cMonthDayCheckedColors = [Color(4280908287), Color(3566178191)];
   List<Color> get cMonthDayCheckedColors => _cMonthDayCheckedColors;
-  set cMonthDayCheckedColors(List<Color> _value) {
-    _cMonthDayCheckedColors = _value;
+  set cMonthDayCheckedColors(List<Color> value) {
+    _cMonthDayCheckedColors = value;
   }
 
-  void addToCMonthDayCheckedColors(Color _value) {
-    _cMonthDayCheckedColors.add(_value);
+  void addToCMonthDayCheckedColors(Color value) {
+    cMonthDayCheckedColors.add(value);
   }
 
-  void removeFromCMonthDayCheckedColors(Color _value) {
-    _cMonthDayCheckedColors.remove(_value);
+  void removeFromCMonthDayCheckedColors(Color value) {
+    cMonthDayCheckedColors.remove(value);
   }
 
-  void removeAtIndexFromCMonthDayCheckedColors(int _index) {
-    _cMonthDayCheckedColors.removeAt(_index);
+  void removeAtIndexFromCMonthDayCheckedColors(int index) {
+    cMonthDayCheckedColors.removeAt(index);
   }
 
   void updateCMonthDayCheckedColorsAtIndex(
-    int _index,
+    int index,
     Color Function(Color) updateFn,
   ) {
-    _cMonthDayCheckedColors[_index] = updateFn(_cMonthDayCheckedColors[_index]);
+    cMonthDayCheckedColors[index] = updateFn(_cMonthDayCheckedColors[index]);
   }
 
-  void insertAtIndexInCMonthDayCheckedColors(int _index, Color _value) {
-    _cMonthDayCheckedColors.insert(_index, _value);
+  void insertAtIndexInCMonthDayCheckedColors(int index, Color value) {
+    cMonthDayCheckedColors.insert(index, value);
   }
 
   bool _vRepeatOnDone = false;
   bool get vRepeatOnDone => _vRepeatOnDone;
-  set vRepeatOnDone(bool _value) {
-    _vRepeatOnDone = _value;
+  set vRepeatOnDone(bool value) {
+    _vRepeatOnDone = value;
   }
 
   bool _vDoNotShowInOverdue = false;
   bool get vDoNotShowInOverdue => _vDoNotShowInOverdue;
-  set vDoNotShowInOverdue(bool _value) {
-    _vDoNotShowInOverdue = _value;
+  set vDoNotShowInOverdue(bool value) {
+    _vDoNotShowInOverdue = value;
   }
 
   bool _vSkipWeekends = false;
   bool get vSkipWeekends => _vSkipWeekends;
-  set vSkipWeekends(bool _value) {
-    _vSkipWeekends = _value;
+  set vSkipWeekends(bool value) {
+    _vSkipWeekends = value;
   }
 }
 

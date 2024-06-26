@@ -40,9 +40,8 @@ class _HumanReadableTextLabelWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        _model.label = functions.getActivityRepetitionAnyAsText(widget.rrule);
-      });
+      _model.label = functions.getActivityRepetitionAnyAsText(widget.rrule);
+      setState(() {});
     });
   }
 

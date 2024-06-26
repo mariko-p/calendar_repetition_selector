@@ -18,18 +18,21 @@ class WeekDayStruct extends BaseStruct {
   String? _text;
   String get text => _text ?? '';
   set text(String? val) => _text = val;
+
   bool hasText() => _text != null;
 
   // "isChecked" field.
   bool? _isChecked;
   bool get isChecked => _isChecked ?? false;
   set isChecked(bool? val) => _isChecked = val;
+
   bool hasIsChecked() => _isChecked != null;
 
   // "value" field.
   String? _value;
   String get value => _value ?? '';
   set value(String? val) => _value = val;
+
   bool hasValue() => _value != null;
 
   static WeekDayStruct fromMap(Map<String, dynamic> data) => WeekDayStruct(

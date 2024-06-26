@@ -128,9 +128,8 @@ class _AddRepetitionComponentWidgetState
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      FFAppState().update(() {
-                                        FFAppState().vTmp = false;
-                                      });
+                                      FFAppState().vTmp = false;
+                                      FFAppState().update(() {});
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -213,19 +212,16 @@ class _AddRepetitionComponentWidgetState
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          FFAppState().update(() {
-                            FFAppState().vTmp = false;
-                          });
+                          FFAppState().vTmp = false;
+                          FFAppState().update(() {});
                           if (_model.isCustomSelected) {
                             // Set Custom Selected to False
-                            setState(() {
-                              _model.isCustomSelected = false;
-                            });
+                            _model.isCustomSelected = false;
+                            setState(() {});
                           } else {
                             // Set Custom Selected to True
-                            setState(() {
-                              _model.isCustomSelected = true;
-                            });
+                            _model.isCustomSelected = true;
+                            setState(() {});
                           }
                         },
                         child: Row(
@@ -367,12 +363,10 @@ class _AddRepetitionComponentWidgetState
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       // Repeat forever True
-                                      setState(() {
-                                        _model.repeatForeverEnabled = true;
-                                        _model.endRepetitionOnEnabled = false;
-                                        _model.endRepetitionAfterEnabled =
-                                            false;
-                                      });
+                                      _model.repeatForeverEnabled = true;
+                                      _model.endRepetitionOnEnabled = false;
+                                      _model.endRepetitionAfterEnabled = false;
+                                      setState(() {});
                                     },
                                     child: wrapWithModel(
                                       model: _model.radioButtonModel1,
@@ -408,7 +402,7 @@ class _AddRepetitionComponentWidgetState
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '9ed6988p' /* End repetition On */,
+                                  '9ed6988p' /* End repetition on */,
                                 ),
                                 style: GoogleFonts.getFont(
                                   'Rubik',
@@ -485,12 +479,10 @@ class _AddRepetitionComponentWidgetState
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       // End repetition On True
-                                      setState(() {
-                                        _model.endRepetitionOnEnabled = true;
-                                        _model.repeatForeverEnabled = false;
-                                        _model.endRepetitionAfterEnabled =
-                                            false;
-                                      });
+                                      _model.endRepetitionOnEnabled = true;
+                                      _model.repeatForeverEnabled = false;
+                                      _model.endRepetitionAfterEnabled = false;
+                                      setState(() {});
                                     },
                                     child: wrapWithModel(
                                       model: _model.radioButtonModel2,
@@ -588,11 +580,10 @@ class _AddRepetitionComponentWidgetState
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       // End repetition After True
-                                      setState(() {
-                                        _model.endRepetitionAfterEnabled = true;
-                                        _model.repeatForeverEnabled = false;
-                                        _model.endRepetitionOnEnabled = false;
-                                      });
+                                      _model.endRepetitionAfterEnabled = true;
+                                      _model.repeatForeverEnabled = false;
+                                      _model.endRepetitionOnEnabled = false;
+                                      setState(() {});
                                     },
                                     child: wrapWithModel(
                                       model: _model.radioButtonModel3,
@@ -855,7 +846,7 @@ class _AddRepetitionComponentWidgetState
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'xc5c3na3' /* The activity will skip repetit... */,
+                                'xc5c3na3' /* The activity will not repeat o... */,
                               ),
                               style: GoogleFonts.getFont(
                                 'Rubik',
@@ -876,7 +867,7 @@ class _AddRepetitionComponentWidgetState
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                '5rwscio8' /* The activity won't show in ove... */,
+                                '5rwscio8' /* The activity will not show as ... */,
                               ),
                               style: GoogleFonts.getFont(
                                 'Rubik',

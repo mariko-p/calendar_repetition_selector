@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
+import 'flutter_flow_util.dart';
 
 Widget wrapWithModel<T extends FlutterFlowModel>({
   required T model,
@@ -141,7 +142,7 @@ class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
             .difference(_activeKeys!)
             // Remove and dispose of unused models since they are  not being used
             // elsewhere and would not otherwise be disposed.
-            .forEach((k) => _childrenModels.remove(k)?.dispose());
+            .forEach((k) => _childrenModels.remove(k)?.maybeDispose());
         _activeKeys = null;
       });
     }

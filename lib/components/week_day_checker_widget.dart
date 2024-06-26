@@ -75,9 +75,8 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            FFAppState().update(() {
-                              FFAppState().vTmp = false;
-                            });
+                            FFAppState().vTmp = false;
+                            FFAppState().update(() {});
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
