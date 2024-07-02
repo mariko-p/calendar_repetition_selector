@@ -59,17 +59,18 @@ class _HeaderCenteredNavBarWidgetState
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 11.0, 0.0, 0.0),
-            child: Container(
-              width: 45.0,
-              height: 5.0,
-              decoration: BoxDecoration(
-                color: Color(0xFFE8EBF2),
-                borderRadius: BorderRadius.circular(10.0),
+          if (!isWeb)
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 11.0, 0.0, 0.0),
+              child: Container(
+                width: 45.0,
+                height: 5.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFFE8EBF2),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
             ),
-          ),
           Container(
             height: 37.0,
             decoration: BoxDecoration(
