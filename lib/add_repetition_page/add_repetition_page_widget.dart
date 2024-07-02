@@ -11,6 +11,7 @@ export 'add_repetition_page_model.dart';
 
 // LOCAL_START
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 // LOCAL_END
 
 class AddRepetitionPageWidget extends StatefulWidget {
@@ -51,10 +52,14 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
     }
 
     return Material(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
+          //LOCAL_START Quick fix for Web Dropdown
+          bottomLeft: Radius.circular(kIsWeb ? 10 : 0),
+          bottomRight: Radius.circular(kIsWeb ? 10 : 0),
+          //LOCAL_END
         ),
       ),
       child: Container(
@@ -63,6 +68,10 @@ class _AddRepetitionPageWidgetState extends State<AddRepetitionPageWidget> {
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               topRight: Radius.circular(10),
+              //LOCAL_START Quick fix for Web Dropdown
+              bottomLeft: Radius.circular(kIsWeb ? 10 : 0),
+              bottomRight: Radius.circular(kIsWeb ? 10 : 0),
+              //LOCAL_END
             )),
         //Add padding from parent app.
         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
