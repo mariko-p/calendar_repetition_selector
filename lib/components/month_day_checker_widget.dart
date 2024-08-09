@@ -56,6 +56,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       .getMonthDayList()
                       .where((e) => e.index >= 0)
                       .toList();
+
                   return Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,6 +80,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       .getMonthDayList()
                       .where((e) => e.index >= 0)
                       .toList();
+
                   return Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,6 +104,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       .getMonthDayList()
                       .where((e) => e.index >= 0)
                       .toList();
+
                   return Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,6 +128,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       .getMonthDayList()
                       .where((e) => e.index >= 0)
                       .toList();
+
                   return Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,6 +152,7 @@ class _MonthDayCheckerWidgetState extends State<MonthDayCheckerWidget> {
                       .getMonthDayList()
                       .where((e) => e.index >= 0)
                       .toList();
+
                   return Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

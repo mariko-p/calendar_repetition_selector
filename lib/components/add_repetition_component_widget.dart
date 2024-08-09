@@ -109,6 +109,7 @@ class _AddRepetitionComponentWidgetState
                             .toList()
                             .take(7)
                             .toList();
+
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,

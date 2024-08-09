@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 class AddRepetitionPageModel extends FlutterFlowModel<AddRepetitionPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for AddRepetitionComponent component.
   late AddRepetitionComponentModel addRepetitionComponentModel;
 
@@ -22,7 +21,6 @@ class AddRepetitionPageModel extends FlutterFlowModel<AddRepetitionPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     addRepetitionComponentModel.dispose();
   }
 }

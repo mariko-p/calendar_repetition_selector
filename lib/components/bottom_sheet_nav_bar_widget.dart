@@ -68,7 +68,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
-                    widget.title!,
+                    widget!.title!,
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
@@ -107,7 +107,7 @@ class _BottomSheetNavBarWidgetState extends State<BottomSheetNavBarWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 6.0, 0.0, 6.0, 0.0),
                             child: Text(
-                              widget.backText!,
+                              widget!.backText!,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

@@ -55,7 +55,8 @@ class _WeekDayCheckerWidgetState extends State<WeekDayCheckerWidget> {
           Builder(
             builder: (context) {
               final weekDays =
-                  (widget.weekDays?.toList() ?? []).take(7).toList();
+                  (widget!.weekDays?.toList() ?? []).take(7).toList();
+
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,

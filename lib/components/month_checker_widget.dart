@@ -54,6 +54,7 @@ class _MonthCheckerWidgetState extends State<MonthCheckerWidget> {
           Builder(
             builder: (context) {
               final firstRowMonth = functions.getMonthsList().toList();
+
               return Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

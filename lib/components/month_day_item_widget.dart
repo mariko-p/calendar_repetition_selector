@@ -48,7 +48,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
 
     return Stack(
       children: [
-        if (widget.monthDay?.isChecked == true)
+        if (widget!.monthDay?.isChecked == true)
           Container(
             width: 32.0,
             height: 32.0,
@@ -64,7 +64,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               alignment: AlignmentDirectional(0.0, 0.0),
               child: SelectionArea(
                   child: Text(
-                widget.monthDay!.text,
+                widget!.monthDay!.text,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Rubik',
                       color: Colors.white,
@@ -75,7 +75,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               )),
             ),
           ),
-        if (widget.monthDay?.isChecked == false)
+        if (widget!.monthDay?.isChecked == false)
           Container(
             width: 32.0,
             height: 32.0,
@@ -86,7 +86,7 @@ class _MonthDayItemWidgetState extends State<MonthDayItemWidget> {
               alignment: AlignmentDirectional(0.0, 0.0),
               child: SelectionArea(
                   child: Text(
-                widget.monthDay!.text,
+                widget!.monthDay!.text,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Rubik',
                       color: FlutterFlowTheme.of(context).primaryText,

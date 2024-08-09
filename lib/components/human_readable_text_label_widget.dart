@@ -40,7 +40,7 @@ class _HumanReadableTextLabelWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.label = functions.getActivityRepetitionAnyAsText(widget.rrule);
+      _model.label = functions.getActivityRepetitionAnyAsText(widget!.rrule);
       setState(() {});
     });
   }
@@ -64,7 +64,7 @@ class _HumanReadableTextLabelWidgetState
           child: Text(
             _model.label != null && _model.label != ''
                 ? _model.label!
-                : widget.defaultLabel!,
+                : widget!.defaultLabel!,
             textAlign: TextAlign.start,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Rubik',
