@@ -75,7 +75,7 @@ class _HumanReadableTextLabelWidgetState
           child: Text(
             _model.label != null && _model.label != ''
                 ? _model.label!
-                : widget.defaultLabel!,
+                : widget!.defaultLabel!,
             textAlign: TextAlign.start,
             // LOCAL_START
             style: widget.style,

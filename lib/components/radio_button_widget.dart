@@ -47,7 +47,7 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (!widget.isDisabled!)
+        if (!widget!.isDisabled!)
           Container(
             width: 20.0,
             height: 20.0,
@@ -69,7 +69,7 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
               ),
             ),
           ),
-        if (widget.isDisabled ?? true)
+        if (widget!.isDisabled ?? true)
           Container(
             width: 20.0,
             height: 20.0,

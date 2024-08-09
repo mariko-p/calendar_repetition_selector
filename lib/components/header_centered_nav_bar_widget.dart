@@ -122,7 +122,7 @@ class _HeaderCenteredNavBarWidgetState
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
-                    widget.title!,
+                    widget!.title!,
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
@@ -132,12 +132,12 @@ class _HeaderCenteredNavBarWidgetState
                         ),
                   ),
                 ),
-                if (widget.isSaveVisible ?? true)
+                if (widget!.isSaveVisible ?? true)
                   Align(
                     alignment: AlignmentDirectional(1.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (widget.isSaveVisible! && widget.isSaveEnabled!) {
+                        if (widget!.isSaveVisible! && widget!.isSaveEnabled!) {
                           // onSave
                           await widget.onSaveTap?.call();
                           // dismiss dialog
@@ -145,7 +145,7 @@ class _HeaderCenteredNavBarWidgetState
                         }
                       },
                       text: FFLocalizations.of(context).getText(
-                        't7ggjw9g' /* Done */,
+                        't7ggjw9g' /* Save */,
                       ),
                       options: FFButtonOptions(
                         padding:

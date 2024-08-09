@@ -242,8 +242,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sv': 'Avbryt',
     },
     't7ggjw9g': {
-      'en': 'Done',
-      'sv': 'Klar',
+      'en': 'Save',
+      'sv': 'Spara',
     },
   },
   // CustomFunctionsTranslationsMap

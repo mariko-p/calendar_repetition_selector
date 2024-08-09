@@ -46,7 +46,7 @@ class _RepetitionLabelWidgetState extends State<RepetitionLabelWidget> {
       width: double.infinity,
       decoration: BoxDecoration(),
       child: Text(
-        widget.humanReadableText!,
+        widget!.humanReadableText!,
         textAlign: TextAlign.start,
         style: GoogleFonts.getFont(
           'Rubik',

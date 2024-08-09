@@ -11,7 +11,6 @@ class CustomRepetitionPageModel
     extends FlutterFlowModel<CustomRepetitionPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for CustomRepetitionComponent component.
   late CustomRepetitionComponentModel customRepetitionComponentModel;
 
@@ -23,7 +22,6 @@ class CustomRepetitionPageModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     customRepetitionComponentModel.dispose();
   }
 }
