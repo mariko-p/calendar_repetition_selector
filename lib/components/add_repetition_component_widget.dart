@@ -618,7 +618,7 @@ class _AddRepetitionComponentWidgetState
     context.watch<FFAppState>();
 
     return Column(
-      mainAxisSize: MainAxisSize.max,
+      mainAxisSize: MainAxisSize.min,
       children: [
         wrapWithModel(
           model: _model.headerCenteredNavBarModel,
