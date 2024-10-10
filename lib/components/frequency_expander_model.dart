@@ -20,6 +20,8 @@ class FrequencyExpanderModel extends FlutterFlowModel<FrequencyExpanderWidget> {
   void initState(BuildContext context) {
     frequencyCupertinoPickerModel =
         createModel(context, () => FrequencyCupertinoPickerModel());
+    expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override

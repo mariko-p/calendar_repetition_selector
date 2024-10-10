@@ -42,9 +42,6 @@ class _FrequencyExpanderWidgetState extends State<FrequencyExpanderWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FrequencyExpanderModel());
-
-    _model.expandableExpandableController =
-        ExpandableController(initialExpanded: false);
   }
 
   @override
