@@ -20,6 +20,8 @@ class IntervalExpanderModel extends FlutterFlowModel<IntervalExpanderWidget> {
   void initState(BuildContext context) {
     intervalCupertinoPickerModel =
         createModel(context, () => IntervalCupertinoPickerModel());
+    expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
