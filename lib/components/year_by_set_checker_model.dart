@@ -20,6 +20,8 @@ class YearBySetCheckerModel extends FlutterFlowModel<YearBySetCheckerWidget> {
   void initState(BuildContext context) {
     monthDayBySetCheckerModel =
         createModel(context, () => MonthDayBySetCheckerModel());
+    expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override

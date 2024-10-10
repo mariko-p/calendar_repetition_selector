@@ -26,6 +26,8 @@ class MonthDayCheckerCombinedModel
     monthDayCheckerModel = createModel(context, () => MonthDayCheckerModel());
     monthDayBySetCheckerModel =
         createModel(context, () => MonthDayBySetCheckerModel());
+    expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override

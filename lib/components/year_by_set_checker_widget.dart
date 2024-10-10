@@ -69,9 +69,6 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       controller.expanded = isWeekDaysChecked;
     });
-
-    _model.expandableExpandableController =
-        ExpandableController(initialExpanded: false);
   }
 
   @override
