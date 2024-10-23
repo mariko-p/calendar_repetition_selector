@@ -1,5 +1,4 @@
-import '../backend/schema/structs/index.dart';
-import '../custom_code/constants/calendar_constants.dart';
+import '../../backend/schema/structs/month_struct.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';

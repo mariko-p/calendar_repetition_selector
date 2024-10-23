@@ -1,5 +1,4 @@
-import '../main.dart';
-import '/components/add_repetition_component_widget.dart';
+import '../../main.dart';
 import '/components/add_repetition_component/add_repetition_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

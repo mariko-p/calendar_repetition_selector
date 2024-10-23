@@ -1,5 +1,4 @@
-import '../backend/schema/structs/frequency_struct.dart';
-import '/components/frequency_cupertino_picker_widget.dart';
+import '../../backend/schema/structs/frequency_struct.dart';
 import '/components/frequency_cupertino_picker/frequency_cupertino_picker_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

@@ -1,8 +1,6 @@
-import '../backend/schema/structs/by_day_struct.dart';
-import '../backend/schema/structs/by_set_position_struct.dart';
-import '../backend/schema/structs/month_struct.dart';
-import '/components/year_by_set_checker_widget.dart';
-import '/components/month_checker_widget.dart';
+import '../../backend/schema/structs/by_day_struct.dart';
+import '../../backend/schema/structs/by_set_position_struct.dart';
+import '../../backend/schema/structs/month_struct.dart';
 import '/components/month_checker/month_checker_widget.dart';
 import '/components/year_by_set_checker/year_by_set_checker_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -79,8 +77,6 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
               months: widget.months,
               monthSelectionChanged: (() => widget.monthSelectionChanged()),
             ),
-            model: _model.monthCheckerModel,
-            updateCallback: () => (setState(() {})),
           ),
         ),
         wrapWithModel(
@@ -95,7 +91,6 @@ class _YearCheckerCombinedWidgetState extends State<YearCheckerCombinedWidget> {
           ),
           model: _model.yearBySetCheckerModel,
           updateCallback: () => safeSetState(() {}),
-          child: YearBySetCheckerWidget(),
         ),
       ],
     );

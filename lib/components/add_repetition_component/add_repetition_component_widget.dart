@@ -19,21 +19,14 @@ import 'add_repetition_component_model.dart';
 export 'add_repetition_component_model.dart';
 
 //LOCAL_START
-import '../custom_code/actions/update_r_rule.dart';
-import '../backend/schema/structs/repetition_struct.dart';
-import '../main.dart';
 import 'dart:io';
-import '../custom_code/constants/calendar_constants.dart';
-import '../flutter_flow/custom_functions.dart';
 import 'package:expandable/expandable.dart';
 import 'package:collection/collection.dart';
-import '../backend/schema/structs/month_struct.dart';
-import '../backend/schema/structs/month_day_struct.dart';
-import '../backend/schema/structs/week_day_struct.dart';
 import 'package:rrule/rrule.dart';
-
-import '../backend/schema/structs/index.dart';
 import 'package:custom_recurring_selectors/custom_code/actions/index.dart';
+import '../../custom_code/constants/calendar_constants.dart';
+import '../../flutter_flow/custom_functions.dart';
+import '../../main.dart';
 //LOCAL_END
 
 class AddRepetitionComponentWidget extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-import '../backend/schema/structs/by_day_struct.dart';
-import '../backend/schema/structs/by_set_position_struct.dart';
-import '../flutter_flow/custom_functions.dart';
+import '../../backend/schema/structs/by_day_struct.dart';
+import '../../backend/schema/structs/by_set_position_struct.dart';
+import '../../flutter_flow/custom_functions.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';

@@ -1,9 +1,8 @@
+import '../../backend/schema/structs/by_day_struct.dart';
+import '../../backend/schema/structs/by_set_position_struct.dart';
 import '/components/month_day_by_set_checker/month_day_by_set_checker_widget.dart';
 import 'package:flutter/scheduler.dart';
 
-import '../backend/schema/structs/by_day_struct.dart';
-import '../backend/schema/structs/by_set_position_struct.dart';
-import '/components/month_day_by_set_checker_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
@@ -174,7 +173,6 @@ class _YearBySetCheckerWidgetState extends State<YearBySetCheckerWidget> {
                     ),
                     model: _model.monthDayBySetCheckerModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: MonthDayBySetCheckerWidget(),
                   ),
                 ],
               ),

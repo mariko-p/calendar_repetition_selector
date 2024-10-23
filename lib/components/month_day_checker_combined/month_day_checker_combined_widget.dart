@@ -1,17 +1,15 @@
+import '../../backend/schema/structs/by_day_struct.dart';
+import '../../backend/schema/structs/by_set_position_struct.dart';
+import '../../backend/schema/structs/month_day_struct.dart';
 import '/components/month_day_by_set_checker/month_day_by_set_checker_widget.dart';
 import '/components/month_day_checker/month_day_checker_widget.dart';
-import '../backend/schema/structs/by_day_struct.dart';
-import '../backend/schema/structs/by_set_position_struct.dart';
-import '../backend/schema/structs/month_day_struct.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'month_day_by_set_checker_widget.dart';
 import 'month_day_checker_combined_model.dart';
-import 'month_day_checker_widget.dart';
 export 'month_day_checker_combined_model.dart';
 
 class MonthDayCheckerCombinedWidget extends StatefulWidget {

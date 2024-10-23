@@ -7,7 +7,6 @@ import 'year_checker_combined_widget.dart' show YearCheckerCombinedWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'month_checker_model.dart';
 
 class YearCheckerCombinedModel
     extends FlutterFlowModel<YearCheckerCombinedWidget> {

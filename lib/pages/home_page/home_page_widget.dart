@@ -1,4 +1,3 @@
-import '/components/add_repetition_component_widget.dart';
 import '/components/add_repetition_component/add_repetition_component_widget.dart';
 import '/components/custom_repetition_component/custom_repetition_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -12,7 +11,7 @@ import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 // LOCAL_START
-import '../helpers/window.dart';
+import '../../helpers/window.dart';
 // LOCAL_END
 
 class HomePageWidget extends StatefulWidget {

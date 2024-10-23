@@ -1,11 +1,3 @@
-
-import 'package:custom_recurring_selectors/components/year_checker_combined_widget.dart';
-
-import '../custom_code/actions/update_r_rule.dart';
-import '/components/frequency_expander_widget.dart';
-import '/components/header_centered_nav_bar_widget.dart';
-import '/components/interval_expander_widget.dart';
-import '/components/month_day_checker_combined_widget.dart';
 import '/components/frequency_expander/frequency_expander_widget.dart';
 import '/components/header_centered_nav_bar/header_centered_nav_bar_widget.dart';
 import '/components/interval_expander/interval_expander_widget.dart';
@@ -20,15 +12,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'custom_repetition_component_model.dart';
 export 'custom_repetition_component_model.dart';
+
 //LOCAL_START
 import 'package:expandable/expandable.dart';
 import 'package:rrule/rrule.dart';
 import 'package:collection/collection.dart';
-import '../custom_code/constants/calendar_constants.dart';
-import '../flutter_flow/custom_functions.dart';
-import 'repetition_label_widget.dart';
-import 'week_day_checker_widget.dart';
-import '../backend/schema/structs/index.dart';
+import '../../backend/schema/structs/month_day_struct.dart';
+import '../../backend/schema/structs/month_struct.dart';
+import '../../backend/schema/structs/week_day_struct.dart';
+import '../../custom_code/actions/update_r_rule.dart';
+import '../../custom_code/constants/calendar_constants.dart';
+import '../../flutter_flow/custom_functions.dart';
 //LOCAL_END
 
 class CustomRepetitionComponentWidget extends StatefulWidget {

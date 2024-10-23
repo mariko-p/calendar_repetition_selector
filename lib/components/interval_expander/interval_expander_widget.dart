@@ -9,7 +9,7 @@ import 'interval_expander_model.dart';
 export 'interval_expander_model.dart';
 
 //LOCAL_START
-import '../backend/schema/structs/interval_struct.dart';
+import '../../backend/schema/structs/interval_struct.dart';
 //LOCAL_END
 
 class IntervalExpanderWidget extends StatefulWidget {
