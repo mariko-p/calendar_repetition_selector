@@ -93,6 +93,18 @@ class FFAppState extends ChangeNotifier {
   set vSkipWeekends(bool value) {
     _vSkipWeekends = value;
   }
+
+  //LOCAL_START
+  List<Color> _cDisabledButtonColors = [
+    Color(4280908287),
+    Color(3549400975),
+    Color(2097151999),
+  ];
+  List<Color> get cDisabledButtonColors => _cDisabledButtonColors;
+  set cDisabledButtonColors(List<Color> value) {
+    _cDisabledButtonColors = value;
+  }
+  //LOCAL_END
 }
 
 Color? _colorFromIntValue(int? val) {

@@ -1,3 +1,4 @@
+import '../../flutter_flow/custom_functions.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -160,7 +161,7 @@ class _HeaderCenteredNavBarWidgetState
                                   color: (widget.isSaveEnabled == true)
                                       ? FlutterFlowTheme.of(context)
                                           .bottomSheetActionButtons
-                                      : FlutterFlowTheme.of(context).lineColor,
+                                      : combineColors(FFAppState().cDisabledButtonColors),
                                   //LOCAL_END
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
