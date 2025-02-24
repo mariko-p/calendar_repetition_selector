@@ -49,9 +49,10 @@ class MyApp extends StatefulWidget {
   static Future<dynamic> Function(String? rrule, bool repeatOnDone, bool skipWeekends)? onSaveTapFromAddPage;
   static Future<dynamic> Function()? onCancelTapFromAddPage;
   static Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
+  static bool isSaveEnabledOnAddPage = false;
   // Called when 'End repetition On' dropdown is clicked.
   static Future<DateTime?> Function(DateTime? initialDate)? onEndRepetitionOnClicked;
-  static bool isExitAppOnBackON = false;
+  static bool isExitAppOnBackON = true;
   //LOCAL_END
 
   static _MyAppState of(BuildContext context) =>

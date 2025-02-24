@@ -33,11 +33,13 @@ class AddRepetitionComponentWidget extends StatefulWidget {
   AddRepetitionComponentWidget(
       {super.key,
       this.rrule,
+      this.isSaveEnabled,
       this.onRRuleChanged,
       this.onHumanReadableTextChanged,
       this.onSaveTapFromAddPage,
       this.onCancelTapFromAddPage,
-      this.onSaveTapFromCustomPage});
+      this.onSaveTapFromCustomPage
+      });
 
   // Initial rrule value.
   String? rrule;
@@ -59,7 +61,10 @@ class AddRepetitionComponentWidget extends StatefulWidget {
 
   // Called on save from custom repetition screen.
   Future<dynamic> Function(String? rrule)? onSaveTapFromCustomPage;
-
+  
+  // True if save button is enabled. False if save button is disabled.
+  bool? isSaveEnabled = true;
+  
   @override
   State<AddRepetitionComponentWidget> createState() =>
       _AddRepetitionComponentWidgetState();
@@ -621,8 +626,8 @@ class _AddRepetitionComponentWidgetState
               enText: 'Add repetition',
               svText: 'Lägg till upprepning',
             ),
-            isSaveEnabled: true,
             //LOCAL_START
+            isSaveEnabled: widget.isSaveEnabled,
             isSaveVisible: true,
             onSaveTap: () async {
               updateRRuleWithSkipWeekends(FFAppState().vCurrentRRule);

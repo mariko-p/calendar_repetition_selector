@@ -156,8 +156,12 @@ class _HeaderCenteredNavBarWidgetState
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Rubik',
-                                  color: FlutterFlowTheme.of(context)
-                                      .bottomSheetActionButtons,
+                                  //LOCAL_START
+                                  color: (widget.isSaveEnabled == true)
+                                      ? FlutterFlowTheme.of(context)
+                                          .bottomSheetActionButtons
+                                      : FlutterFlowTheme.of(context).lineColor,
+                                  //LOCAL_END
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
